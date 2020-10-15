@@ -1,0 +1,174 @@
+<!doctype html>
+    <html lang="ko">
+      <head>
+        <title>MASURI</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- bootstrap 4.3.1 css요소 -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- 기본 폰트 구글 Noto Sans 굵기 400,500,900 -->
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;900&display=swap" rel="stylesheet">
+        <!--jquery 3.3.1 불러오기-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- 기본 css -->
+        <link rel="stylesheet" href="CSS/basic.css">
+        <!-- 페이지 css -->
+        <style>
+          .loginmodal modal-header{
+            text-align: center;
+            align-items: center;
+          }
+          
+          .modal {
+            text-align: center;
+          }
+          
+          .info-content{
+            position: relative;
+            display: block;
+            width: 100%;   
+            height: 39vw;
+            overflow: hidden;
+          }
+          
+          .qiuck-info >div{
+            display: block;
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            
+          }
+          
+          .qiuck-info img{
+            display: block;
+            height: auto;  
+            max-width: 100%;
+            width: 100%; 
+          }
+
+          .qiuck-info h1{
+            position: relative;
+            color: white;
+            font-size: 60px;
+            text-shadow: 1px 1px 1px black;
+          }
+          
+          .qiuck-info h3{
+            position: relative;
+            top: 0px;
+            left: 0px;
+            color: white;
+            font-size: 30px;
+            text-shadow: 1px 1px 1px black;
+          }
+          
+          .qiuck-info button{
+            position: relative;
+            top: 0px;
+            left: 0px;
+            font-size: 20px;
+          }
+
+          .qiuck-info-black h1,.qiuck-info-black h3{
+            color: black;
+            text-shadow: none;
+          }
+          
+          
+          @media (max-width: 767px) {
+            .qiuck-info h1{
+              font-size: 25px;
+            }
+            
+            .qiuck-info h3{
+              font-size: 13px;
+            }
+            
+            .qiuck-info button{
+              font-size: 16px;
+            }
+
+            footer p{
+            font-size: 10px; 
+            }
+          }
+
+          @media (max-width: 360px) {
+            .qiuck-info h1{
+              font-size: 16px;
+            }
+            
+            .qiuck-info h3{
+              font-size: 3px;
+            }
+            
+            .qiuck-info button{
+              font-size: 3px;
+            }
+
+            footer p{
+            font-size: 1px; 
+            }
+          }
+        </style>
+    </head>
+        
+    <body>
+      <!--네비바 앤 로그인 모달시작-->
+      <div id="navbar-wrap"></div>
+      <script>
+          $("#navbar-wrap").load("navbar.html");
+      </script>
+      <!--네비바 앤 로그인 끝-->
+
+        <!--메인 컨텐트 영역-->
+         <div class="content">
+
+             <!--방문수리 인포-->
+              <div class="info-content qiuck-info">
+                <img src="../img/3.jpg" alt="">
+                <div>
+                  <h1>편안하게<br>수리받으세요</h1>
+                  <h3>엔지이어가 고객님께 찾아갑니다.</h3>
+                  <button type="" class="btn btn-primary"> 출장수리 예약하기</button>
+                </div>
+              </div>
+          
+              
+              <!--방문수리 인포-->
+              <!-- <div class="info-content qiuck-info">
+                <img src="../img/1.jpg" alt="">
+                <div>
+                  <h1>확실하게<br>수리받으세요</h1>
+                  <h3>숙련된 엔지니어가 직접 수리합니다.</h3>
+                  <button type="" class="btn btn-primary"> 방문수리 예약하기</button>
+                </div>
+              </div> -->
+
+              <!--에코폰 매입 인포-->
+              <!-- <div class="info-content qiuck-info qiuck-info-black">
+                <img src="../img/4.png" alt="">
+                <div>
+                  <h1>정든내폰<br>이젠 보내주세요</h1>
+                  <h3>업계 최고가로 매입합니다.</h3>
+                  <button type="" class="btn btn-primary"> 에코폰 매입 알아보기</button>
+                </div>
+              </div> -->
+
+         </div>
+        <!--메인 컨텐트 끝-->
+
+        <!--푸터 시작-->
+        <div id="footer-wrap"></div>
+        <script>
+          $("#footer-wrap").load("footer.html");
+        </script>
+        <!--푸터 끝-->      
+    </body>
+
+    <!--js 불러오기->
+    <!--bootstrap js요소 4.3.1 불러오기-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</html>

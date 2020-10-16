@@ -60,7 +60,7 @@
          APR (HTTP/AJP) Connector: /docs/apr.html
          Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
     -->
-    <Connector URIEncoding="utf-8" connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
+    <Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -153,30 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-
-		
-
-	
-	
-	
-	<!--<Context docBase="JSP07_ServletContext" path="/JSP07_ServletContext" reloadable="true" source="org.eclipse.jst.jee.server:JSP07_ServletContext"/>--><Context docBase="MASURI" path="/MASURI" reloadable="true" source="org.eclipse.jst.jee.server:MASURI"/></Host>
+      <Context docBase="MASURI" path="/MASURI" reloadable="true" source="org.eclipse.jst.jee.server:MASURI"/></Host>
     </Engine>
   </Service>
-</Server><!--  <Context docBase="JSP17_ConnectionPool"
-		path="JSP17_ConnectionPool" reloadable="true"
-		source="org.eclipse.jst.jee.server:JSP17_ConnectionPool"
-		useNaming="true">
-		<Resource 
-			description="DB Connection"
-			auth="Container" 
-			driverClassName="oracle.jdbc.driver.OracleDriver" 
-			name="jdbc/testDB"
-			type="javax.sql.DataSource"
-			username="scott08a"
-			password="tiger08a" 
-			url="jdbc:oracle:thin:@localhost:1521:XE" 
-			maxIdle="5"
-			maxTotal="50" 
-			maxWaitMillis="5000" />
-	</Context>	
-	-->
+</Server>

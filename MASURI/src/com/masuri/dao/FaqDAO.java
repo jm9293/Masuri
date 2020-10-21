@@ -1,6 +1,7 @@
 package com.masuri.dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,16 +14,16 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 
-import com.masuri.dto.UserDTO;
+import com.masuri.dto.FaqDTO;
 
-public class UserDAO {
+public class FaqDAO {
 	
 	private static Connection conn;
 	private static PreparedStatement pstmt;
 	private static Statement stmt;
 	private static ResultSet rs;
 	
-	private UserDAO() {}
+	private FaqDAO() {}
 	
 	public static Connection getConnection() throws NamingException,SQLException{
 		Context initContext = new InitialContext();
@@ -32,25 +33,22 @@ public class UserDAO {
 		return ds.getConnection();	
 	}
 	
-	public static ArrayList<UserDTO> select() throws SQLException { //전체 userlist가져오기
-		ArrayList<UserDTO> list = new ArrayList<UserDTO>();
+	public static ArrayList<FaqDTO> select() throws SQLException { //전체 userlist가져오기
+		ArrayList<FaqDTO> list = new ArrayList<FaqDTO>();
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("SELECT * FROM userdata");
+			pstmt = conn.prepareStatement("SELECT * FROM faq");
 			rs = pstmt.executeQuery();
 		   
 			while (rs.next()) {
-				UserDTO user = new UserDTO();
-				user.setId(rs.getString("ID"));
-				user.setUsernum(rs.getInt("usernum"));
-				user.setBlack(Boolean.parseBoolean(rs.getString("black")));
-				user.setEmail(rs.getString("email"));
-				user.setName(rs.getString("name"));
-				user.setPhone(rs.getString("phone"));
-				user.setPassword(rs.getString("password"));
-				list.add(user);
+				FaqDTO faq = new FaqDTO();
+				faq.setNum(rs.getInt("num"));
+				faq.setQuestion(rs.getString("question"));
+				faq.setAnswer(rs.getString("answer"));
+
+				list.add(faq);
 			}
-			for (UserDTO userDTO : list) {
+			for (FaqDTO userDTO : list) {
 				System.out.println(userDTO);
 			}
 		} catch (NamingException e) {
@@ -63,25 +61,21 @@ public class UserDAO {
 		return list;
 	}
 	
-	public static UserDTO select(String id) throws SQLException { //id로 하나만 가져오기
-		UserDTO user = new UserDTO();
+	public static FaqDTO select(int num) throws SQLException { //num으로 하나만 가져오기
+		FaqDTO faq = new FaqDTO();
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement("SELECT * FROM USERDATA WHERE ID = ?");
-			pstmt.setString(1, id);
+			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
-				user.setId(rs.getString("ID"));
-				user.setUsernum(rs.getInt("usernum"));
-				user.setBlack(Boolean.parseBoolean(rs.getString("black")));
-				user.setEmail(rs.getString("email"));
-				user.setName(rs.getString("name"));
-				user.setPhone(rs.getString("phone"));
-				user.setPassword(rs.getString("password"));
+				faq.setNum(rs.getInt("num"));
+				faq.setQuestion(rs.getString("question"));
+				faq.setAnswer(rs.getString("answer"));
 			}
 		
-			System.out.println(user);
+			System.out.println(faq);
 		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -90,26 +84,28 @@ public class UserDAO {
 			close();
 		}
 		 
-		return user;
+		return faq;
 	}
 	
-	public static int update(UserDTO user) throws SQLException { //userDTO 객체로 업데이트하기
+	public static int update(FaqDTO faq) throws SQLException { //userDTO 객체로 업데이트하기
 		int cnt = 0;
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("UPDATE USERDATA SET PASSWORD = ?, NAME = ?, PHONE = ?, EMAIL = ?, BLACK = ? WHERE ID = ?");
+			pstmt = conn.prepareStatement(
+					"UPDATE FAQ" + 
+					"SET " + 
+					"QUESTION = ?, " + 
+					"ANSWER = ? " + 
+					"WHERE NUM = ?");
 		   
 			
-			pstmt.setString(1, user.getPassword());
-			pstmt.setString(2, user.getName());
-			pstmt.setString(3, user.getPhone());
-			pstmt.setString(4, user.getEmail());
-			pstmt.setString(5, user.getBlack()+"");
-			pstmt.setString(6, user.getId());
+			pstmt.setString(1, faq.getQuestion());
+			pstmt.setString(2, faq.getAnswer());
+			pstmt.setInt(3, faq.getNum());
+			
 			
 			cnt = pstmt.executeUpdate();
-		
-			System.out.println(user);
+	
 		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block

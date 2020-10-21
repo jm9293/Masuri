@@ -1,5 +1,5 @@
 /build/
-/matadata/
+.matadata/
 /.settings/
 /.dbeaver/
 

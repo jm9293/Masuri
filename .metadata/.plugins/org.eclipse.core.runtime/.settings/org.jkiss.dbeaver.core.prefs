@@ -1,6 +1,0 @@
-dataformat.profile.country=KR
-dataformat.profile.language=ko
-dataformat.type.number.useGrouping=false
-eclipse.preferences.version=1
-sql.format.keywordCase=UPPER
-sql.proposals.insert.table.alias=false

@@ -1,2 +1,7 @@
--- 회원가입 insert문
-INSERT into userdata(N_NUM,n_id,n_password,n_name,n_phone,n_email,n_black) VALUES(USERDATA_SEQ.nextval,'test','1234','정민','010-0000-0000','test@gmail.com','false');
+--일반 insert문
+INSERT INTO USERDATA (USERNUM, ID, PASSWORD, NAME, PHONE, EMAIL, BLACK) VALUES (USERDATA_SEQ.nextval,'test01', '1234', 'test1', '01000000000', 'masuri1021@gmail.com', 'false');
+INSERT INTO USERDATA (USERNUM, ID, PASSWORD, NAME, PHONE, EMAIL, BLACK) VALUES (USERDATA_SEQ.nextval,'test02', '1234', 'test2', '01000000000', 'masuri1021-2@gmail.com', 'false');
+INSERT INTO USERDATA (USERNUM, ID, PASSWORD, NAME, PHONE, EMAIL, BLACK) VALUES (USERDATA_SEQ.nextval,'test03', '1234', 'test3', '01000000000', 'masuri1021-3@gmail.com', 'false');
+INSERT INTO USERDATA (USERNUM, ID, PASSWORD, NAME, PHONE, EMAIL, BLACK) VALUES (USERDATA_SEQ.nextval,'test04', '1234', 'test4', '01000000000', 'masuri1021-4@gmail.com', 'false');
+INSERT INTO USERDATA (USERNUM, ID, PASSWORD, NAME, PHONE, EMAIL, BLACK) VALUES (USERDATA_SEQ.nextval,'test05', '1234', 'test5', '01000000000', 'masuri1021-5@gmail.com', 'false');
+

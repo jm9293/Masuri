@@ -13,7 +13,7 @@
 
  
 final String from = "masuri1019@gmail.com";
-String to = "masuri1019@gmail.com"; //받는사람
+String to = "jm9293@naver.com"; //받는사람
 String subject = "ㅎㅇㅎㅇㅎㅇ"; //제목
 String content = "<h1>렛츠고<h1>"; //내용
 // 입력값 받음

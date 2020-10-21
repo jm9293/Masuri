@@ -36,7 +36,7 @@ footer {
   height: 150px;
   width: 100%;
   background-color: rgb(224, 224, 224);
-  bottom: 0;
+  top: 0;
 }
 
 footer h1 {
@@ -58,7 +58,6 @@ footer > div {
 .content {
   display: block;
   position: relative;
-
   width: 100%;
 }
 

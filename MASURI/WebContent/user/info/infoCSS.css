@@ -1,0 +1,51 @@
+.content{
+    height: 1650px;
+  } 
+   .intro_img{
+     background-repeat: no-repeat;
+     background-image: url("../img/intro_com1.jpg");
+     background-size: contain;
+     height: 400px;
+     position: absolute;
+     top: 0;
+   }
+   .intro_text{
+     padding-top: 50px;
+     line-height: 30px;
+     height: 400px;
+     position: absolute;
+     top: 401px;
+     
+   }
+   .intro_img2{
+     background-repeat: no-repeat;
+     background-image: url("../img/intro_com2.jpg");
+     background-size: contain;
+     height: 400px;
+     position: absolute;
+     top: 801px;
+
+   }
+   .intro_text2{
+     padding-top: 50px;
+     line-height: 30px;
+     height: 400px;
+     position: absolute;
+     top: 1201px;
+   }
+   @media (min-width: 769px){
+     .content{
+       height: 850px;
+     }
+     .intro_text{
+       top: 0;
+       left: 50%;
+     }
+     .intro_img2{
+       top: 401px;
+       left: 50%;
+     }
+     .intro_text2{
+       top: 401px;
+     }
+   }

@@ -153,7 +153,22 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="MASURI" path="/MASURI" reloadable="true" source="org.eclipse.jst.jee.server:MASURI"/></Host>
+      <Context docBase="MASURI" path="/MASURI" reloadable="true" source="org.eclipse.jst.jee.server:MASURI" usenameing="true">
+      <Resource 
+			description="DB Connection"
+			auth="Container" 
+			driverClassName="oracle.jdbc.driver.OracleDriver" 
+			name="jdbc/masuri"
+			type="javax.sql.DataSource"
+			username="masuri"
+			password="masuri1234" 
+			url="jdbc:oracle:thin:@localhost:1521:XE" 
+			maxIdle="5"
+			maxTotal="50" 
+			maxWaitMillis="5000" />
+	  </Context>
+	
+      </Host>
     </Engine>
   </Service>
 </Server>

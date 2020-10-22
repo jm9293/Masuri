@@ -1,6 +1,7 @@
-package com.masuri.faqcontroller;
+package com.masuri.controller;
 
 import java.io.IOException;
+
 
 
 import javax.servlet.RequestDispatcher;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.masuri.command.Command;
-import com.masuri.faqcommand.FaqCommand;
+import com.masuri.user.command.*;
 
 
 @WebServlet("*.do")
@@ -44,7 +45,7 @@ public class FaqController extends HttpServlet {
 				System.out.println("conPath " + conPath);
 				System.out.println("com " + com);
 		//컨트롤러는 다음의 두가지를 결정해야 한다
-		com.masuri.command.Command command = null; //어떠한 로직을 수행할 지 결정
+		Command command = null; //어떠한 로직을 수행할 지 결정
 		String viewPage = null; //어떠한 페이지(뷰)로 보여줄지 결정
 		
 		switch (com) {

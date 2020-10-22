@@ -1,4 +1,4 @@
-package com.masuri.faqcommand;
+package com.masuri.user.command;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

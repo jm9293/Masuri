@@ -1,3 +1,4 @@
+<%@page import="sun.nio.ch.SelChImpl"%>
 <%@page import="com.masuri.dto.NoticeDTO"%>
 <%@page import="com.masuri.dao.NoticeDAO"%>
 <%@page import="com.masuri.dao.FaqDAO"%>
@@ -22,7 +23,7 @@
 
 <% 
 
-
+FaqDAO.select();
   
 
 

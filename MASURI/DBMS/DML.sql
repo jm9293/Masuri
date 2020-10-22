@@ -10,3 +10,4 @@ INSERT INTO FAQ (NUM, QUESTION, ANSWER) VALUES (FAQ_SEQ.nextval,'서비스의 �
 INSERT INTO FAQ (NUM, QUESTION, ANSWER) VALUES (FAQ_SEQ.nextval,'서비스의 안내는 어떻게 볼수 있나요?-3', '상단에 있는 네비게이션바에서 해당서비스 안내페이지로 이동할수 있습니다.');
 INSERT INTO FAQ (NUM, QUESTION, ANSWER) VALUES (FAQ_SEQ.nextval,'서비스의 안내는 어떻게 볼수 있나요?-4', '상단에 있는 네비게이션바에서 해당서비스 안내페이지로 이동할수 있습니다.');
 INSERT INTO FAQ (NUM, QUESTION, ANSWER) VALUES (FAQ_SEQ.nextval,'서비스의 안내는 어떻게 볼수 있나요?-5', '상단에 있는 네비게이션바에서 해당서비스 안내페이지로 이동할수 있습니다.');
+INSERT INTO FAQ (NUM, QUESTION, ANSWER) VALUES (FAQ_SEQ.nextval,'서비스의 안내는 어떻게 볼수 있나요?-7', '상단에 있는 네비게이션바에서 해당서비스 안내페이지로 이동할수 있습니다.');

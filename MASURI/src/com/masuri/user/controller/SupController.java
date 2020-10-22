@@ -13,13 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.masuri.command.Command;
 import com.masuri.user.command.FaqCommand;
+import com.masuri.user.command.NoticeCommand;
+import com.masuri.user.command.NoticeViewCommand;
 
 
-@WebServlet("*.do")
-public class FaqController extends HttpServlet {
+@WebServlet(urlPatterns = {
+		"/user/support/sup_FAQ", "/user/support/sup_Notice",
+		"/user/support/sup_NoticeView"})
+public class SupController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-    public FaqController() {
+    public SupController() {
         super();
     }
 
@@ -49,10 +53,20 @@ public class FaqController extends HttpServlet {
 		String viewPage = null; //어떠한 페이지(뷰)로 보여줄지 결정
 		
 		switch (com) {
-		case "/user/support/sup_FAQ.do":
+		case "/user/support/sup_FAQ":
 			command = new FaqCommand();
 			command.execute(request, response);
 			viewPage = "/user/support/sup_FAQ.jsp";
+			break;
+		case "/user/support/sup_Notice":
+			command = new NoticeCommand();
+			command.execute(request, response);
+			viewPage = "/user/support/sup_Notice.jsp";
+			break;
+		case "/user/support/sup_NoticeView":
+			command = new NoticeViewCommand();
+			command.execute(request, response);
+			viewPage = "/user/support/sup_NoticeView.jsp";
 			break;
 		}
 		if(viewPage != null) {

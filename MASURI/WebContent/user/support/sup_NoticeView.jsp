@@ -1,7 +1,6 @@
+<%@page import="com.masuri.dto.NoticeDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.masuri.dao.FaqDAO" %>
-<%@ page import="com.masuri.dto.FaqDTO" %>
 <%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -17,10 +16,11 @@
 <!--jquery 3.3.1 불러오기-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- 페이지 css -->
-<link rel="stylesheet" href="sup_FAQ.css">
+<link rel="stylesheet" href="sup_NoticeView.css">
+<% NoticeDTO dto = (NoticeDTO) request.getAttribute("list"); %>
 <style>
 </style>
-<% ArrayList<FaqDTO> list = (ArrayList<FaqDTO>)request.getAttribute("list");%>
+<% %>
 <title>MASURI</title>
 </head>
 <body>
@@ -33,19 +33,37 @@
 	
 	<!--메인 컨텐트 영역-->
 	<div class="content">
-	<h2>FAQ 자주 묻는 질문</h2>
+	<h2>공지사항</h2>
 	<br>
-	<% if(list != null){
-		for(int i = 0; i < list.size(); i++){
-	%>		
-		<div class="col-md-10 question">
-			<div class="alert alert-secondary"><%= list.get(i).getQuestion() %></div>
-			<div class="alert alert-dark"><p><%= list.get(i).getAnswer() %></p></div>
-		</div>
-	<% }
-		
-	} %>
+	<table class="table table-striped table-hover col-md-10">
+			<thead class="thead-dark">
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>조회수</th>
+				<th>작성일</th>
+			</tr>
+			</thead>
+	<%
+		if(dto != null){
+	%>
+		<tr>
+			<td><%= dto.getNum() %></td>
+			<td><%= dto.getTitle() %></td>
+			<td><%= dto.getViewcount() %></td>
+			<td><%= dto.getWrtime() %></td>
+		</tr>
+		<tr>
+			<td colspan="4" class="alert alert-dark" id="content"><%= dto.getContent() %></td>
+		</tr>
+	<%		
+		}
+	%>
+	</table>
+	<button type="button" id="back" class="btn btn-primary btn-lg" onclick="location.href='sup_Notice'">목록으로</button>
+	<br><br>
 	</div>
+	
 	
 	<!--메인 컨텐트 끝-->
 

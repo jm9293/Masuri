@@ -1,0 +1,25 @@
+table, th, td{
+    text-align: center;
+ }
+ table{
+     margin: auto;
+ }
+ h2{
+     font-weight: bold;
+     margin-left: 5%;
+ }
+ #content{
+     text-align: left;
+ }
+ #back{
+    text-align: center;
+    margin-left: 35%;
+ }
+ @media (min-width: 767px){
+     h2{
+         margin-left: 10%;
+     }
+     #back{
+        margin-left: 45%;
+     }
+ }

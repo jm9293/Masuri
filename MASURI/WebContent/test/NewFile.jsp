@@ -23,7 +23,8 @@
 
 <% 
 
-FaqDAO.select();
+NoticeDAO.getMaxPage();
+NoticeDAO.selectpage(6);
   
 
 

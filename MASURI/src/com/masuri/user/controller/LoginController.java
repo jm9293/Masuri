@@ -16,7 +16,7 @@ import com.masuri.user.command.FaqCommand;
 import com.masuri.user.command.LoginCommand;
 
 
-@WebServlet("*.login")
+@WebServlet(urlPatterns = {"/user/basic/login/login.do","/login2.do"})
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -39,7 +39,7 @@ public class LoginController extends HttpServlet {
 		// URL, ContextPath, Command 분리
 		String uri = request.getRequestURI();
 		String conPath = request.getContextPath();
-		String com = uri.substring(uri.lastIndexOf("/"),uri.length());
+		String com = uri.substring(uri.lastIndexOf("/")+1,uri.length());
 		 
 		
 	
@@ -51,12 +51,13 @@ public class LoginController extends HttpServlet {
 		String viewPage = null; 
 		
 		switch (com) {
-		case "/user/basic/login.do":
+		case "login.do":
 			command = new LoginCommand();
 			command.execute(request, response);
 			viewPage = "";
 			break;
 		}
+		
 		if(viewPage != null) {
 			RequestDispatcher dispatcher = 
 					request.getRequestDispatcher(viewPage);

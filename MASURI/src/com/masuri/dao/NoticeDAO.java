@@ -62,6 +62,57 @@ public class NoticeDAO {
 		return list;
 	}
 	
+	public static int getMaxPage() throws SQLException { //전체 Noticelist가져오기
+		int cnt = 0;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("select COUNT(*) as \"count\" from notice");
+			rs = pstmt.executeQuery();
+		   
+			if(rs.next()) {
+				cnt =  (int)Math.ceil(rs.getInt("count")/7.0);
+				System.out.println(cnt);
+			}
+			
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 
+		return cnt;
+	}
+	
+	public static ArrayList<NoticeDTO> selectpage(int num) throws SQLException { //전체 Noticelist가져오기
+		ArrayList<NoticeDTO> list = new ArrayList<NoticeDTO>();
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",NOTICE.* FROM notice ORDER BY NUM DESC) NOTICE2 WHERE rnum>="+(1+(num-1)*7)+" and rnum<="+((num)*7));
+			rs = pstmt.executeQuery();
+		   
+			while (rs.next()) {
+				NoticeDTO notice = new NoticeDTO();
+				notice.setNum(rs.getInt("num"));
+				notice.setTitle(rs.getString("title"));
+				notice.setContent(rs.getString("content"));
+				notice.setViewcount(rs.getInt("viewcount"));
+				notice.setWrtime(rs.getTimestamp("wrtime"));
+				list.add(notice);
+			}
+			for (NoticeDTO userDTO : list) {
+				System.out.println(userDTO);
+			}
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 
+		return list;
+	}
+	
 	
 	
 	

@@ -121,14 +121,40 @@ public class UserDAO {
 		return cnt;
 	}
 	
+	public static boolean logincheck(String id , String pw)  {
+		boolean check = false;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("SELECT * FROM USERDATA WHERE ID = ? AND PASSWORD = ?");
+			pstmt.setString(1, id);
+			pstmt.setString(2, pw);
+			rs = pstmt.executeQuery();
+			
+			check = rs.next() ;
+					
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 	
+		return check;
+	}
 	
 	
 	
-	public static void close() throws SQLException {
-		if(rs != null) rs.close();
-		if(pstmt != null) pstmt.close();
-		if(stmt != null) stmt.close();
-		if(conn != null) conn.close();
+	public static void close() {
+		try {
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+			if(stmt != null) stmt.close();
+			if(conn != null) conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	} 
 	
 

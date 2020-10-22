@@ -1,4 +1,4 @@
-package com.masuri.controller;
+package com.masuri.user.controller;
 
 import java.io.IOException;
 
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.masuri.command.Command;
-import com.masuri.user.command.*;
+import com.masuri.user.command.FaqCommand;
 
 
 @WebServlet("*.do")

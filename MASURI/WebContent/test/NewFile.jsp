@@ -1,3 +1,5 @@
+<%@page import="com.masuri.dto.NoticeDTO"%>
+<%@page import="com.masuri.dao.NoticeDAO"%>
 <%@page import="com.masuri.dao.FaqDAO"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="com.masuri.dto.UserDTO"%>
@@ -21,9 +23,7 @@
 <% 
 
 
-FaqDAO.select();
-
-
+  
 
 
 %>

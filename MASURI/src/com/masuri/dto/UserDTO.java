@@ -4,7 +4,7 @@ package com.masuri.dto;
 public class UserDTO {
 
  // 식별번호 
- private Integer usernum;
+ private Integer usernum; 
 
  // 아이디 
  private String id;

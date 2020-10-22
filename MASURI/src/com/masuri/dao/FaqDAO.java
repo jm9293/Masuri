@@ -65,7 +65,7 @@ public class FaqDAO {
 		FaqDTO faq = new FaqDTO();
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("SELECT * FROM USERDATA WHERE ID = ?");
+			pstmt = conn.prepareStatement("SELECT * FROM faq WHERE ID = ?");
 			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
 			

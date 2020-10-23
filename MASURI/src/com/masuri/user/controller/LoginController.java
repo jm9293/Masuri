@@ -14,9 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.masuri.command.Command;
 import com.masuri.user.command.FaqCommand;
 import com.masuri.user.command.LoginCommand;
+import com.masuri.user.command.LogoutCommand;
 
 
-@WebServlet(urlPatterns = {"/user/basic/login/login.do","/login2.do"})
+@WebServlet(urlPatterns = {"/user/basic/login/login.do","/user/basic/login/logout.do"})
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -49,12 +50,19 @@ public class LoginController extends HttpServlet {
 		
 		Command command = null; 
 		String viewPage = null; 
-		
+		System.out.println(com);
 		switch (com) {
 		case "login.do":
+			System.out.println("여기는 들어와?");
 			command = new LoginCommand();
 			command.execute(request, response);
-			viewPage = "";
+			viewPage = "/user/basic/loginres.jsp";
+			break;
+		case "logout.do":
+			System.out.println("여기는 들어와?");
+			command = new LogoutCommand();
+			command.execute(request, response);
+			viewPage = "/user/basic/logout.jsp";
 			break;
 		}
 		

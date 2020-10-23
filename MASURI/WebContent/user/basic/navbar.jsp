@@ -1,3 +1,18 @@
+<%@page import="com.masuri.user.command.LoginCommand"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+String userID = (String)request.getSession().getAttribute("login");
+
+boolean logincheck = LoginCommand.Users.containsKey(userID);
+
+if(userID!=null&&!logincheck){
+	session.invalidate();
+}
+
+%>
+ 
         <!--네비바 시작-->
         <nav class="navbar navbar-expand-md navbar-light bg-white navbar-u">
             <a class="navbar-brand navbar-logo" href="index.html">MASURI</a>
@@ -59,7 +74,19 @@
                     </div>
                   </li>
                   <form class="form-inline">
+                  <%
+                  if(!logincheck) { 
+                  %>
                     <button class="btn btn-outline-primary" type="button" onclick="" data-toggle="modal" data-target="#loginmodal">로그인</button>
+                  <%
+                  }else{
+                  %>
+                  	<button class="btn btn-outline-primary" type="button" onclick="" data-toggle="modal" data-target="#loginmodal">
+                  	<%=userID %>
+                  	</button>
+                  <%
+                  }
+                  %>
                   </form>
               </ul>
             </div>
@@ -69,7 +96,8 @@
           <!--네비바 끝-->
 
           <!--로그인모달창 시작-->
-          <!-- <div class="modal fade loginmodal" tabindex="-1" id="loginmodal">
+          <%if(!logincheck){ %>
+          <div class="modal fade loginmodal" tabindex="-1" id="loginmodal">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -85,8 +113,8 @@
                 
               </div>
             </div>
-          </div> -->
-          <!--로그인모달창 끝-->
+          </div>
+          <%}else{ %>
           <div class="modal fade loginmodal" tabindex="-1" id="loginmodal">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -97,16 +125,18 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <img src="../../userimg/test00.jpg" class="center" alt="">
-                  <h3>test00</h3>
+                  <img src="../../userimg/<%=userID%>.jpg" class="center" alt="">
+                  <h3><%=userID%></h3>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary">회원정보 수정</button>
-                  <button type="button" class="btn btn-primary" onclick="location.href='../basic/login.html'">로그아웃</button>
+                  <button type="button" class="btn btn-primary" onclick="location.href='../basic/login/logout.do'">로그아웃</button>
                 </div>
                 
               </div>
             </div>
           </div>
+          <!--로그인모달창 끝-->
+          <%} %>
 
          

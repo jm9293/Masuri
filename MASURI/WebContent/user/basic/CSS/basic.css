@@ -61,6 +61,28 @@ footer > div {
   width: 100%;
 }
 
+.modal-body img {
+  display: block;
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.modal-body h3 {
+  display: block;
+  margin: 0 auto;
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.modal-footer button {
+  margin: 0 auto;
+}
+
 @media (min-width: 360px) {
   footer p {
     font-size: 10px;

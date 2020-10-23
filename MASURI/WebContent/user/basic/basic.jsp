@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
     <html lang="ko">
       <head>
@@ -14,16 +17,6 @@
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
          <!-- 페이지 css -->
          <style> 
-          .login-box{
-            margin: 10% auto;
-
-          }
-
-          .input-box{
-              margin: 2% 0;
-          }
-         
-          
           
         </style>
     </head>
@@ -31,45 +24,15 @@
    
     <body>
       <!--네비바 시작-->
-      <div id="navbar-wrap"></div>
-        <script>
-          $("#navbar-wrap").load("navbar.html");
-        </script>
+      <div id="navbar-wrap">
+      <%@ include file="navbar.jsp" %>
+      </div>
+        
       <!--네비바 끝-->
 
       <!--메인 컨텐트 영역-->
       <div class="content">
-       <div class="login-box col-12 col-md-6">
-           <div class="title col-12 text-center">
-               <h1>로그인</h1>
-                <a href="#">회원이 아니신가요?</a>
-            </div>
-        
 
-        <form action="login/login.do" method="post">
-            <div class="form-group">
-
-                <div class="input-box col-12 col-md-12">
-                  <label for="inputID" class="">아이디</label>
-                  <input type="text" class="form-control" id="inputID" name="inputID" placeholder="" required>
-                </div>
-                   
-                <div class="input-box col-12 col-md-12">
-                  <label for="inputPW" class="">비밀번호</label>
-                  <input type="password" class="form-control" name="inputPW" id="inputPW" placeholder="" required>
-                </div>
-
-                <div class="input-box col-12 col-md-12">
-                  <button class="login-btn btn btn-primary col-12" type="submit">로그인</button>
-                </div>
-               
-
-            </div>
-
-        </form>
-
-
-       </div> 
       </div>
       <!--메인 컨텐트 끝-->
 

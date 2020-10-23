@@ -17,11 +17,20 @@ public class NoticeCommand implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		ArrayList<NoticeDTO> list = null;
+		int page = Integer.parseInt(request.getParameter("page"));
 		
 		try {
-			list = NoticeDAO.select();
+			int max = NoticeDAO.getMaxPage();
+			if(page < 1) {
+				page = 1;
+			}else if(page > max) {
+				page = max;
+			}
+			list = NoticeDAO.selectpage(page);
 			
 			request.setAttribute("list", list);
+			request.setAttribute("max", max);
+			request.setAttribute("page", page);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			

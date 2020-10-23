@@ -58,8 +58,8 @@ if(userID!=null&&!logincheck){
                       회사소개
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../info/Intro_Com.html">회사 소개</a>
-                        <a class="dropdown-item" href="../info/Intro_Map.html">오시는길</a>
+                        <a class="dropdown-item" href="../info/Intro_Com.do">회사 소개</a>
+                        <a class="dropdown-item" href="../info/Intro_Map.do">오시는길</a>
                     </div>
                   </li>
 
@@ -68,8 +68,8 @@ if(userID!=null&&!logincheck){
                       고객센터
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../support/sup_FAQ.jsp">공지사항</a>
-                        <a class="dropdown-item" href="../support/sup_FAQ">자주 묻는 질문</a>
+                        <a class="dropdown-item" href="../support/sup_Notice.do?page=1">공지사항</a>
+                        <a class="dropdown-item" href="../support/sup_FAQ.do">자주 묻는 질문</a>
                         <a class="dropdown-item" href="#">고객 상담 게시판</a>
                     </div>
                   </li>

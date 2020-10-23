@@ -27,7 +27,7 @@
 	<!--네비바 시작-->
 	<div id="navbar-wrap"></div>
 	<script>
-          $("#navbar-wrap").load("../basic/navbar.html");
+	<%@ include file="../basic/navbar.jsp" %>
     </script>
 	<!--네비바 끝-->
 	

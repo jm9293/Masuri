@@ -8,6 +8,32 @@ h2{
     font-weight: bold;
     margin-left: 5%;
 }
+.box_ul{
+    text-align: center;
+    margin: auto;
+}
+.box_li{
+    list-style-type:none
+}
+.paging{
+    display: inline-block;
+}
+.paging a{
+    color: black;
+    float: left;
+    padding: 4px 8px;
+    text-decoration: none;
+    transition: background-color .3s;
+    /* border: 1px solid #ddd; */
+    /* margin: 0 4px; */
+    margin: 0px;
+}
+.paging a.active{
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+.paging a:hover:not(.active) {background-color: #ddd;}
 @media (min-width: 767px){
     h2{
         margin-left: 10%;

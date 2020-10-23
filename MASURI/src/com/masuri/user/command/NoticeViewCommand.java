@@ -18,10 +18,12 @@ public class NoticeViewCommand implements Command {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		NoticeDTO dto = new NoticeDTO();
 		int uid = Integer.parseInt(request.getParameter("uid"));
+		int page = Integer.parseInt(request.getParameter("page"));
 		try {
 			dto = NoticeDAO.select(uid);
 			
 			request.setAttribute("list", dto);
+			request.setAttribute("page", page);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			

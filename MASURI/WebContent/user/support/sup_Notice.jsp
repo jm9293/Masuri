@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.masuri.dto.NoticeDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -19,48 +20,100 @@
 <link rel="stylesheet" href="sup_Notice.css">
 <style>
 </style>
-<% ArrayList<NoticeDTO> list = (ArrayList<NoticeDTO>)request.getAttribute("list");%>
+<% ArrayList<NoticeDTO> list = (ArrayList<NoticeDTO>)request.getAttribute("list");
+	int max = (int)request.getAttribute("max");
+	int pageNum = (int)request.getAttribute("page");
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 M월 d일 h시 m분");
+%>
 <title>MASURI</title>
 </head>
 <body>
 	<!--네비바 시작-->
 	<div id="navbar-wrap"></div>
 	<script>
-          $("#navbar-wrap").load("../basic/navbar.html");
+	<%@ include file="../basic/navbar.jsp" %>
     </script>
 	<!--네비바 끝-->
 	
 	<!--메인 컨텐트 영역-->
 	<div class="content">
-	<h2>공지사항</h2>
-	<br>
-	<table class="table table-striped table-hover col-md-10">
+		<h2>공지사항</h2>
+		<br>
+		<table class="table table-striped table-hover col-md-10">
 			<thead class="thead-dark">
-			<tr>
-				<th>번호</th>
-				<th>제목</th>
-				<th>조회수</th>
-				<th>작성일</th>
-			</tr>
+				<tr>
+					<th>번호</th>
+					<th>제목</th>
+					<th>조회수</th>
+					<th>작성일</th>
+				</tr>
 			</thead>
-	<% if(list != null){
+			<% if(list != null){
 		for(int i = 0; i < list.size(); i++){
 	%>
 			<tr class="table-active">
 				<td><%= list.get(i).getNum() %></td>
-				<td><a href="sup_NoticeView?uid=<%= list.get(i).getNum() %>"><%= list.get(i).getTitle() %></a></td>
+				<td><a
+					href="sup_NoticeView.do?page=<%= pageNum %>&uid=<%= list.get(i).getNum() %>"><%= list.get(i).getTitle() %></a></td>
 				<td><%= list.get(i).getViewcount() %></td>
-				<td><%= list.get(i).getWrtime() %></td>
+				<td><%= sdf.format(list.get(i).getWrtime()) %></td>
 			</tr>
-		
-	<%	} 
-	
-		
-	} %>
-	</table>
+
+			<%
+				} 
+				
+					
+				}
+			%>
+		</table>
+		<div class="box_ul">
+			<ul class="box_li">
+				<%
+					if (pageNum - 1 < 1) {
+				%>
+				<li class="paging"><a
+					href="/MASURI/user/support/sup_Notice.do?page=1">이전</a></li>
+				<%
+					} else {
+				%>
+				<li class="paging"><a
+					href="/MASURI/user/support/sup_Notice.do?page=<%=pageNum - 1%>">이전</a></li>
+				<%
+					}
+				if (max > 0) {
+					for (int i = 1; i <= max; i++) {
+						if (pageNum == i) {
+				%>
+				<li class="paging"><a class='active tooltip-top'
+					href="/MASURI/user/support/sup_Notice.do?page=<%=i%>"><%=i%></a></li>
+				<%
+					} else {
+				%>
+				<li class="paging"><a
+					href="/MASURI/user/support/sup_Notice.do?page=<%=i%>"><%=i%></a></li>
+				<%
+					}
+				}
+				}
+				%>
+				<%
+					if (pageNum < max) {
+				%>
+				<li class="paging"><a
+					href="/MASURI/user/support/sup_Notice.do?page=<%=pageNum +1 %>">다음</a></li>
+				
+				<%
+					} else {
+				%>
+				<li class="paging"><a
+					href="/MASURI/user/support/sup_Notice.do?page=<%=max%>">다음</a></li>
+				<%
+		}%>
+			</ul>
+		</div>
 	</div>
-	
-	
+
+
 	<!--메인 컨텐트 끝-->
 
 	<!--푸터 시작-->

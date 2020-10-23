@@ -1,8 +1,5 @@
-<%@page import="com.masuri.dto.NoticeDTO"%>
-<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -17,57 +14,24 @@
 <!--jquery 3.3.1 불러오기-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- 페이지 css -->
-<link rel="stylesheet" href="sup_NoticeView.css">
-<% NoticeDTO dto = (NoticeDTO) request.getAttribute("list"); 
-	int pageNum = (int)request.getAttribute("page");
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 M월 d일 h시 m분");
-%>
-<style>
-</style>
-<% %>
+<link rel="stylesheet" href="eco_intro1.css">
 <title>MASURI</title>
 </head>
 <body>
 	<!--네비바 시작-->
-	<div id="navbar-wrap"></div>
-	<script>
+	<div id="navbar-wrap">
 	<%@ include file="../basic/navbar.jsp" %>
-    </script>
+	</div>
+
 	<!--네비바 끝-->
 	
 	<!--메인 컨텐트 영역-->
 	<div class="content">
-	<h2>공지사항</h2>
-	<br>
-	<table class="table table-striped table-hover col-md-10">
-			<thead class="thead-dark">
-			<tr>
-				<th>번호</th>
-				<th>제목</th>
-				<th>조회수</th>
-				<th>작성일</th>
-			</tr>
-			</thead>
-	<%
-		if(dto != null){
-	%>
-		<tr>
-			<td><%= dto.getNum() %></td>
-			<td><%= dto.getTitle() %></td>
-			<td><%= dto.getViewcount() %></td>
-			<td><%= sdf.format(dto.getWrtime()) %></td>
-		</tr>
-		<tr>
-			<td colspan="4" class="alert alert-dark" id="content"><%= dto.getContent() %></td>
-		</tr>
-	<%		
-		}
-	%>
-	</table>
-	<button type="button" id="back" class="btn btn-primary btn-lg" onclick="location.href='sup_Notice.do?page=<%= pageNum%>'">목록으로</button>
-	<br><br>
+	<!-- 안내1 이미지 -->
+		<div id="int_img1" class="col-sm-12"></div>
+	<!-- 안내1 설명 -->
+		<div id="int_text1" class="col-sm-12">dd</div>
 	</div>
-	
 	
 	<!--메인 컨텐트 끝-->
 

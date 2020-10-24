@@ -1,16 +1,12 @@
 package com.masuri.user.command;
 
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-
-
 import com.masuri.command.Command;
 import com.masuri.dao.UserDAO;
 
@@ -21,6 +17,7 @@ public class LoginCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
+		
 		try {
 			request.setCharacterEncoding("utf-8");
 			String inputID = request.getParameter("inputID");
@@ -35,17 +32,25 @@ public class LoginCommand implements Command {
 					request.setAttribute("logincheck", 2);
 				}else {
 					session.removeAttribute("login");
-					session.invalidate();
+					try {
+						session.invalidate();
+					} catch (Exception e) {
+						// TODO: handle exception
+					}	
 					request.setAttribute("logincheck", 3);
 				}
 			}else {
 				boolean check =  UserDAO.logincheck(inputID,inputPW);
-				
-				if(check) {
+				boolean blackCheck = UserDAO.blcakCheck(inputID);
+				if(check&&!blackCheck) {
 					session.setAttribute("login", inputID);
 					
 					if(Users.containsKey(inputID)) {
-						Users.get(inputID).invalidate();
+						try {
+							Users.get(inputID).invalidate();
+						} catch (Exception e) {
+							
+						}
 						request.setAttribute("logincheck", 4);
 					}else {
 						request.setAttribute("logincheck", 0);
@@ -54,6 +59,8 @@ public class LoginCommand implements Command {
 					
 					System.out.println(Users);
 					
+				}else if(check){
+					request.setAttribute("logincheck", 5);
 				}else {
 					request.setAttribute("logincheck", 1);
 				}

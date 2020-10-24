@@ -20,7 +20,7 @@ public class NoticeViewCommand implements Command {
 		int uid = Integer.parseInt(request.getParameter("uid"));
 		int page = Integer.parseInt(request.getParameter("page"));
 		try {
-			dto = NoticeDAO.select(uid);
+			dto = NoticeDAO.select(uid,true);
 			
 			request.setAttribute("list", dto);
 			request.setAttribute("page", page);

@@ -24,7 +24,12 @@ public class LogoutCommand implements Command {
 				String id = (String) request.getSession().getAttribute("login");
 				System.out.println(id);
 				LoginCommand.Users.get(id).removeAttribute("login");
-				LoginCommand.Users.get(id).invalidate();
+				try {
+					LoginCommand.Users.get(id).invalidate();
+				} catch (Exception e) {
+					
+				}
+				
 				LoginCommand.Users.remove(id);
 				
 				

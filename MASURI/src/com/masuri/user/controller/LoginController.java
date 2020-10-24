@@ -28,7 +28,7 @@ public class LoginController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		actionDo(request, response);
 	}
-
+ 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		actionDo(request, response);
 	}
@@ -49,15 +49,19 @@ public class LoginController extends HttpServlet {
 		System.out.println("com " + com);
 		
 		Command command = null; 
-		String viewPage = null; 
+		String viewPage = null;
+		
 		System.out.println(com);
+		
 		switch (com) {
+		
 		case "login.do":
 			System.out.println("여기는 들어와?");
 			command = new LoginCommand();
 			command.execute(request, response);
 			viewPage = "/user/basic/loginres.jsp";
 			break;
+			
 		case "logout.do":
 			System.out.println("여기는 들어와?");
 			command = new LogoutCommand();

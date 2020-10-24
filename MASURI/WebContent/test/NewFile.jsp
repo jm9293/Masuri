@@ -1,3 +1,5 @@
+<%@page import="com.masuri.dto.EngineerDTO"%>
+<%@page import="com.masuri.dao.EngineerDAO"%>
 <%@page import="sun.nio.ch.SelChImpl"%>
 <%@page import="com.masuri.dto.NoticeDTO"%>
 <%@page import="com.masuri.dao.NoticeDAO"%>
@@ -18,13 +20,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
+</head> 
 <body>
 
 <% 
 
-NoticeDAO.getMaxPage();
-NoticeDAO.selectpage(6);
+
+EngineerDAO.select();
+EngineerDTO eng =  EngineerDAO.select("ID 03");
+eng.setIntro("소개지롱");
+EngineerDAO.update(eng);
+
+
+
   
 
 

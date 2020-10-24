@@ -40,4 +40,10 @@ pageContext.setAttribute("check", check);
 	location.href='/MASURI';
 	</script>
 	</c:when>
+	<c:when test="${check==5}">
+	<script>
+	alert('블랙리스트로 지정되어 로그인할수 없습니다.\n고객센터 (02-1588-1588) 연락주시면 안내드리겠습니다.')
+	location.href='/MASURI';
+	</script>
+	</c:when>
 </c:choose>

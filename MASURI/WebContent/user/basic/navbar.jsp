@@ -8,14 +8,18 @@ String userID = (String)request.getSession().getAttribute("login");
 boolean logincheck = LoginCommand.Users.containsKey(userID);
 
 if(userID!=null&&!logincheck){
-	session.invalidate();
-}
+	try{
+		session.invalidate();
+	}catch(Exception e){
+		
+	}
+}	
 
 %>
  
         <!--네비바 시작-->
         <nav class="navbar navbar-expand-md navbar-light bg-white navbar-u">
-            <a class="navbar-brand navbar-logo" href="index.html">MASURI</a>
+            <a class="navbar-brand navbar-logo" href="/MASURI">MASURI</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -28,7 +32,7 @@ if(userID!=null&&!logincheck){
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="#">출장수리 안내</a>
-                      <a class="dropdown-item" href="#">출장수리 예약</a>
+                      <a class="dropdown-item" href="../res/res1.jsp">출장수리 예약</a>
                       <a class="dropdown-item" href="#">예약 확인</a>
                     </div>
                   </li>
@@ -108,7 +112,7 @@ if(userID!=null&&!logincheck){
                 </div>
                 <div class="modal-body">
                   <button type="button" class="btn btn-secondary">회원가입</button>
-                  <button type="button" class="btn btn-primary" onclick="location.href='../basic/login.html'">로그인</button>
+                  <button type="button" class="btn btn-primary" onclick="location.href='../basic/login.jsp'">로그인</button>
                 </div>
                 
               </div>

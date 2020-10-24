@@ -15,6 +15,7 @@ import javax.sql.DataSource;
 
 
 import com.masuri.dto.NoticeDTO;
+import com.masuri.dto.QnaDTO;
 
 public class NoticeDAO {
 	
@@ -116,7 +117,7 @@ public class NoticeDAO {
 	
 	
 	
-	public static NoticeDTO select(int num) throws SQLException { //num으로 하나만 가져오기, 가져올때마다 조회수증가
+	public static NoticeDTO select(int num , boolean view) throws SQLException { //num으로 하나만 가져오기, 가져올때마다 조회수증가
 		NoticeDTO notice = new NoticeDTO();
 		try {
 			conn = getConnection();
@@ -134,6 +135,7 @@ public class NoticeDAO {
 				notice.setWrtime(rs.getTimestamp("wrtime"));
 		
 			}
+			if(view) {
 			pstmt = conn.prepareStatement("UPDATE NOTICE SET VIEWCOUNT = ? WHERE NUM = ?");
 			
 			pstmt.setInt(1, notice.getViewcount());
@@ -141,6 +143,7 @@ public class NoticeDAO {
 			
 			pstmt.executeUpdate();
 			System.out.println(notice);
+			}
 		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -227,6 +230,32 @@ public class NoticeDAO {
 		return cnt;
 	}
 	
+	
+	public static int delete(NoticeDTO notice) throws SQLException {  // 공지사항삭제하기
+		int cnt = 0;
+		try {
+			conn = getConnection();
+			conn.setAutoCommit(false);
+			
+			pstmt = conn.prepareStatement("DELETE FROM notice WHERE NUM = ?");
+		    pstmt.setInt(1, notice.getNum());
+			
+			
+			cnt = pstmt.executeUpdate();
+			
+			if(cnt>0) {
+				conn.commit();
+			}
+		
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 
+		return cnt;
+	}
 	
 	
 	

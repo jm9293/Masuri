@@ -143,6 +143,28 @@ public class UserDAO {
 		return check;
 	}
 	
+	public static boolean blcakCheck(String id)  {
+		boolean check = false;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("SELECT BLACK FROM USERDATA WHERE ID = ?");
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			rs.next() ;
+			check = Boolean.parseBoolean(rs.getString("black"));
+					
+		
+		} catch (Exception e) {
+			check = false;
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 	
+		return check;
+	}
+	
 	
 	
 	public static void close() {

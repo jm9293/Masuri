@@ -105,12 +105,12 @@ public class QnaDTO {
      this.antime = antime;
  } 
 
-@Override
-public String toString() {
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-	return "QnaDto [num=" + num + ", userid=" + userid + ", open=" + open + ", title=" + title + ", content=" + content
-			+ ", viewcount=" + viewcount + ", wrtime=" + sdf.format(wrtime) + ", answer=" + answer + ", antime=" + sdf.format(antime) + "]";
-}
+//@Override
+//public String toString() {
+//	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+//	return "QnaDto [num=" + num + ", userid=" + userid + ", open=" + open + ", title=" + title + ", content=" + content
+//			+ ", viewcount=" + viewcount + ", wrtime=" + sdf.format(wrtime) + ", answer=" + answer + ", antime=" + sdf.format(antime) + "]";
+//}
 
 
 

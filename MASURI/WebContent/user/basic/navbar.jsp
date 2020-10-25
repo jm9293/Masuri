@@ -74,7 +74,7 @@ if(userID!=null&&!logincheck){
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="../support/sup_Notice.do?page=1">공지사항</a>
                         <a class="dropdown-item" href="../support/sup_FAQ.do">자주 묻는 질문</a>
-                        <a class="dropdown-item" href="#">고객 상담 게시판</a>
+                        <a class="dropdown-item" href="../support/sup_Qna.do?page=1">고객 상담 게시판</a>
                     </div>
                   </li>
                   <form class="form-inline">

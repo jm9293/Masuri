@@ -129,7 +129,7 @@ public class QnaDAO {
 		try {
 			conn = getConnection();
 			
-			pstmt = conn.prepareStatement("SELECT * FROM notice WHERE NUM = ?");
+			pstmt = conn.prepareStatement("SELECT * FROM qna WHERE NUM = ?");
 			pstmt.setInt(1, num);
 			 
 			rs = pstmt.executeQuery();
@@ -147,7 +147,7 @@ public class QnaDAO {
 		
 			}
 			if(view) {
-			pstmt = conn.prepareStatement("UPDATE NOTICE SET VIEWCOUNT = ? WHERE NUM = ?");
+			pstmt = conn.prepareStatement("UPDATE QNA SET VIEWCOUNT = ? WHERE NUM = ?");
 			
 			pstmt.setInt(1, qna.getViewcount());
 			pstmt.setInt(2, num);

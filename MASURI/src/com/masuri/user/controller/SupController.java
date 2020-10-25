@@ -15,11 +15,14 @@ import com.masuri.command.Command;
 import com.masuri.user.command.FaqCommand;
 import com.masuri.user.command.NoticeCommand;
 import com.masuri.user.command.NoticeViewCommand;
+import com.masuri.user.command.QnaCommand;
+import com.masuri.user.command.QnaViewCommand;
 
 
 @WebServlet(urlPatterns = {
 		"/user/support/sup_FAQ.do", "/user/support/sup_Notice.do",
-		"/user/support/sup_NoticeView.do"})
+		"/user/support/sup_NoticeView.do", "/user/support/sup_Qna.do",
+		"/user/support/sup_QnaView.do"})
 public class SupController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -67,6 +70,16 @@ public class SupController extends HttpServlet {
 			command = new NoticeViewCommand();
 			command.execute(request, response);
 			viewPage = "/user/support/sup_NoticeView.jsp";
+			break;
+		case "/user/support/sup_Qna.do":
+			command = new QnaCommand();
+			command.execute(request, response);
+			viewPage = "/user/support/sup_Qna.jsp";
+			break;
+		case "/user/support/sup_QnaView.do":
+			command = new QnaViewCommand();
+			command.execute(request, response);
+			viewPage = "/user/support/sup_QnaView.jsp";
 			break;
 		}
 		if(viewPage != null) {

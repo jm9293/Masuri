@@ -1,14 +1,5 @@
-table, th, td{
-   text-align: center;
-}
 table{
     margin: auto;
-    table-layout: fixed;
-    word-break: break-all;
-}
-h2{
-    font-weight: bold;
-    margin-left: 5%;
 }
 .box_ul{
     text-align: center;
@@ -36,8 +27,15 @@ h2{
     border: 1px solid #4CAF50;
 }
 .paging a:hover:not(.active) {background-color: #ddd;}
+#write{
+    text-align: center;
+    margin-left: 45%;
+ }
 @media (min-width: 767px){
     h2{
         margin-left: 10%;
     }
+    #write{
+        margin-left: 50%;
+     }
 }

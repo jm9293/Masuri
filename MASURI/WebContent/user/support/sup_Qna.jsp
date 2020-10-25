@@ -1,5 +1,5 @@
+<%@page import="com.masuri.dto.QnaDTO"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="com.masuri.dto.NoticeDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
@@ -17,10 +17,8 @@
 <!--jquery 3.3.1 불러오기-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- 페이지 css -->
-<link rel="stylesheet" href="sup_Notice.css">
-<style>
-</style>
-<% ArrayList<NoticeDTO> list = (ArrayList<NoticeDTO>)request.getAttribute("list");
+<link rel="stylesheet" href="sup_Qna.css">
+<% ArrayList<QnaDTO> list = (ArrayList<QnaDTO>)request.getAttribute("list");
 	int max = (int)request.getAttribute("max");
 	int pageNum = (int)request.getAttribute("page");
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 M월 d일 h시 m분");
@@ -37,21 +35,25 @@
 	
 	<!--메인 컨텐트 영역-->
 	<div class="content">
-		<h2>공지사항</h2>
+		<h2>Q&A 상담게시판</h2>
 		<br>
 		<table class="table table-striped table-hover col-md-10">
 		<colgroup>
-			<col width="15%">
-			<col width="40%">
-			<col width="15%">
+			<col width="10%">
 			<col width="30%">
+			<col width="15%">
+			<col width="10%">
+			<col width="15%">
+			<col width="20%">
 		</colgroup>
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">번호</th>
 					<th scope="col">제목</th>
+					<th scope="col">작성자</th>
 					<th scope="col">조회수</th>
 					<th scope="col">작성일</th>
+					<th scope="col">공개/비공개</th>
 				</tr>
 			</thead>
 	<% if(list != null){
@@ -59,16 +61,39 @@
 	%>
 			<tr class="table-active text-center">
 				<td scope="row"><%= list.get(i).getNum() %></td>
-				<td><a
-					href="sup_NoticeView.do?page=<%= pageNum %>&uid=<%= list.get(i).getNum() %>"><%= list.get(i).getTitle() %>asdasdasdasdasdasdasd</a></td>
+				<% 
+				if(list.get(i).getAnswer() != null){
+				%>
+					<td><a href="sup_QnaView.do?page=<%= pageNum %>&uid=<%= list.get(i).getNum() %>&open=<%= list.get(i).getOpen()%>"><%= list.get(i).getTitle() %>[답변완료]</a></td>
+				<%	
+				}else{
+				%>
+					<td><a href="sup_QnaView.do?page=<%= pageNum %>&uid=<%= list.get(i).getNum() %>&open=<%= list.get(i).getOpen()%>"><%= list.get(i).getTitle() %></a></td>
+				<%	
+				}
+				%>	
+					
+				<td><%= list.get(i).getUserid() %></td>
 				<td><%= list.get(i).getViewcount() %></td>
 				<td class="h6"><%= sdf.format(list.get(i).getWrtime()) %></td>
+				<% 
+					if(list.get(i).getOpen() == false){
+				%>
+					<td>비공개</td>
+				<%		
+					}else{
+				%>
+					<td>공개</td>
+				<%		
+					}
+				%>
+				
 			</tr>
 
 			<%
-				} 
-			
 				}
+			
+			}
 			%>
 		</table>
 		<div class="box_ul">
@@ -77,12 +102,12 @@
 					if (pageNum - 1 < 1) {
 				%>
 				<li class="paging"><a
-					href="/MASURI/user/support/sup_Notice.do?page=1">이전</a></li>
+					href="/MASURI/user/support/sup_Qna.do?page=1">이전</a></li>
 				<%
 					} else {
 				%>
 				<li class="paging"><a
-					href="/MASURI/user/support/sup_Notice.do?page=<%=pageNum - 1%>">이전</a></li>
+					href="/MASURI/user/support/sup_Qna.do?page=<%=pageNum - 1%>">이전</a></li>
 				<%
 					}
 				if (max > 0) {
@@ -90,12 +115,12 @@
 						if (pageNum == i) {
 				%>
 				<li class="paging"><a class='active tooltip-top'
-					href="/MASURI/user/support/sup_Notice.do?page=<%=i%>"><%=i%></a></li>
+					href="/MASURI/user/support/sup_Qna.do?page=<%=i%>"><%=i%></a></li>
 				<%
 					} else {
 				%>
 				<li class="paging"><a
-					href="/MASURI/user/support/sup_Notice.do?page=<%=i%>"><%=i%></a></li>
+					href="/MASURI/user/support/sup_Qna.do?page=<%=i%>"><%=i%></a></li>
 				<%
 					}
 				}
@@ -105,17 +130,19 @@
 					if (pageNum < max) {
 				%>
 				<li class="paging"><a
-					href="/MASURI/user/support/sup_Notice.do?page=<%=pageNum +1 %>">다음</a></li>
+					href="/MASURI/user/support/sup_Qna.do?page=<%=pageNum +1 %>">다음</a></li>
 				
 				<%
 					} else {
 				%>
 				<li class="paging"><a
-					href="/MASURI/user/support/sup_Notice.do?page=<%=max%>">다음</a></li>
+					href="/MASURI/user/support/sup_Qna.do?page=<%=max%>">다음</a></li>
 				<%
 		}%>
 			</ul>
 		</div>
+	<button type="button" id="write" class="btn btn-primary btn-lg" onclick="">글쓰기</button>
+	<br><br>
 	</div>
 
 

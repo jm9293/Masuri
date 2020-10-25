@@ -16,13 +16,13 @@ public class QnaViewCommand implements Command {
 		QnaDTO dto = new QnaDTO();
 		int uid = Integer.parseInt(request.getParameter("uid"));
 		int page = Integer.parseInt(request.getParameter("page"));
-		boolean open = Boolean.parseBoolean(request.getParameter("open"));
+		
 		try {
 			dto = QnaDAO.select(uid, true);
 			
 			request.setAttribute("list", dto);
 			request.setAttribute("page", page);
-			request.setAttribute("open", open);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			

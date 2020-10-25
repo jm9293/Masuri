@@ -17,7 +17,7 @@
 <!--jquery 3.3.1 불러오기-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- 페이지 css -->
-<link rel="stylesheet" href="sup_Notice.css">
+<link rel="stylesheet" href="sup_Notice.css?after">
 <style>
 </style>
 <% ArrayList<NoticeDTO> list = (ArrayList<NoticeDTO>)request.getAttribute("list");
@@ -29,48 +29,36 @@
 </head>
 <body>
 	<!--네비바 시작-->
-	<div id="navbar-wrap"></div>
-	<script>
+	<div id="navbar-wrap">
 	<%@ include file="../basic/navbar.jsp" %>
-    </script>
+	</div>
 	<!--네비바 끝-->
 	
 	<!--메인 컨텐트 영역-->
 	<div class="content">
 		<h2>공지사항</h2>
 		<br>
-		<table class="table table-striped table-hover col-md-10">
-		<colgroup>
-			<col width="15%">
-			<col width="40%">
-			<col width="15%">
-			<col width="30%">
-		</colgroup>
-			<thead class="thead-dark">
-				<tr>
-					<th scope="col">번호</th>
-					<th scope="col">제목</th>
-					<th scope="col">조회수</th>
-					<th scope="col">작성일</th>
-				</tr>
-			</thead>
-	<% if(list != null){
-		for(int i = 0; i < list.size(); i++){
-	%>
-			<tr class="table-active text-center">
-				<td scope="row"><%= list.get(i).getNum() %></td>
-				<td><a
-					href="sup_NoticeView.do?page=<%= pageNum %>&uid=<%= list.get(i).getNum() %>"><%= list.get(i).getTitle() %>asdasdasdasdasdasdasd</a></td>
-				<td><%= list.get(i).getViewcount() %></td>
-				<td class="h6"><%= sdf.format(list.get(i).getWrtime()) %></td>
-			</tr>
-
-			<%
-				} 
+		<div class="menuname row col-10 table table-dark">
+			<div class="col-2 menu">번호</div>
+			<div class="col-4 menu">제목</div>
+			<div class="col-3 menu">조회수</div>
+			<div class="col-3 menu">작성일</div>
+		</div>
+		<%
+			if(list != null){
+				for(int i = 0; i < list.size(); i++){
+		%>		
+		<div class="menuname row col-10">
+			<div class="col-2 text"><%= list.get(i).getNum() %></div>
+			<div class="col-4 text"><a href="sup_NoticeView.do?page=<%= pageNum%>&uid=<%=list.get(i).getNum()%>"><%= list.get(i).getTitle() %></a></div>
+			<div class="col-3 text"><%= list.get(i).getViewcount() %></div>
+			<div class="col-3 text"><%= sdf.format(list.get(i).getWrtime()) %></div>
+		</div>
 			
-				}
-			%>
-		</table>
+		<%		}
+			}
+		%>
+		<br>
 		<div class="box_ul">
 			<ul class="box_li">
 				<%

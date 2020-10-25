@@ -17,7 +17,7 @@
 <!--jquery 3.3.1 불러오기-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- 페이지 css -->
-<link rel="stylesheet" href="sup_NoticeView.css">
+<link rel="stylesheet" href="sup_NoticeView.css?after">
 <% NoticeDTO dto = (NoticeDTO) request.getAttribute("list"); 
 	int pageNum = (int)request.getAttribute("page");
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 M월 d일 h시 m분");
@@ -29,47 +29,37 @@
 </head>
 <body>
 	<!--네비바 시작-->
-	<div id="navbar-wrap"></div>
-	<script>
+	<div id="navbar-wrap">
 	<%@ include file="../basic/navbar.jsp" %>
-    </script>
+	</div>
 	<!--네비바 끝-->
 	
 	<!--메인 컨텐트 영역-->
 	<div class="content">
 	<h2>공지사항</h2>
 	<br>
-	<table class="table table-striped table-hover col-md-10">
-		<colgroup>
-			<col width="15%">
-			<col width="40%">
-			<col width="15%">
-			<col width="30%">
-		</colgroup>
-			<thead class="thead-dark">
-			<tr>
-				<th scope="col">번호</th>
-				<th scope="col">제목</th>
-				<th scope="col">조회수</th>
-				<th scope="col">작성일</th>
-			</tr>
-			</thead>
+	<div class="menuname row col-10 table table-dark">
+			<div class="col-2 menu">번호</div>
+			<div class="col-4 menu">제목</div>
+			<div class="col-3 menu">조회수</div>
+			<div class="col-3 menu">작성일</div>
+	</div>
 	<%
 		if(dto != null){
 	%>
-		<tr>
-			<td><%= dto.getNum() %></td>
-			<td><%= dto.getTitle() %></td>
-			<td><%= dto.getViewcount() %></td>
-			<td><%= sdf.format(dto.getWrtime()) %></td>
-		</tr>
-		<tr>
-			<td colspan="4" class="alert alert-dark" id="content"><%= dto.getContent() %></td>
-		</tr>
+		<div class="menuname row col-10">
+			<div class="col-2 text"><%= dto.getNum() %></div>
+			<div class="col-4 text"><%= dto.getTitle() %></div>
+			<div class="col-3 text"><%= dto.getViewcount() %></div>
+			<div class="col-3 text"><%= sdf.format(dto.getWrtime()) %></div>
+		</div>
 	<%		
 		}
 	%>
-	</table>
+		<div class="menuname row col-10">
+			<div class="contentbox col-12"><%= dto.getContent() %>asdasdasdasdasdasdasdasdasdasdasdasdasdasdsadasdas</div>
+		</div>
+	<br>
 	<button type="button" id="back" class="btn btn-primary btn-lg" onclick="location.href='sup_Notice.do?page=<%= pageNum%>'">목록으로</button>
 	<br><br>
 	</div>

@@ -17,13 +17,13 @@
 <!--jquery 3.3.1 불러오기-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- 페이지 css -->
-<link rel="stylesheet" href="sup_Notice.css?after">
+<link rel="stylesheet" href="sup_Notice.css">
 <style>
 </style>
 <% ArrayList<NoticeDTO> list = (ArrayList<NoticeDTO>)request.getAttribute("list");
 	int max = (int)request.getAttribute("max");
 	int pageNum = (int)request.getAttribute("page");
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 M월 d일 h시 m분");
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d hh:m");
 %>
 <title>MASURI</title>
 </head>
@@ -38,21 +38,21 @@
 	<div class="content">
 		<h2>공지사항</h2>
 		<br>
-		<div class="menuname row col-10 table table-dark">
-			<div class="col-2 menu">번호</div>
+		<div class="menuname row col-12 col-md-10 table table-dark">
+			<div class="col-1 menu">No</div>
 			<div class="col-4 menu">제목</div>
-			<div class="col-3 menu">조회수</div>
-			<div class="col-3 menu">작성일</div>
+			<div class="col-3 menu">조회</div>
+			<div class="col-4 menu">작성일</div>
 		</div>
 		<%
 			if(list != null){
 				for(int i = 0; i < list.size(); i++){
 		%>		
-		<div class="menuname row col-10">
-			<div class="col-2 text"><%= list.get(i).getNum() %></div>
-			<div class="col-4 text"><a href="sup_NoticeView.do?page=<%= pageNum%>&uid=<%=list.get(i).getNum()%>"><%= list.get(i).getTitle() %></a></div>
+		<div class="menuname row col-12 col-md-10 textlist" onclick="location.href='sup_NoticeView.do?page=<%= pageNum%>&uid=<%=list.get(i).getNum()%>'">
+			<div class="col-1 text"><%= list.get(i).getNum() %></div>
+			<div class="col-4 text"><%= list.get(i).getTitle() %></div>
 			<div class="col-3 text"><%= list.get(i).getViewcount() %></div>
-			<div class="col-3 text"><%= sdf.format(list.get(i).getWrtime()) %></div>
+			<div class="col-4 text"><%= sdf.format(list.get(i).getWrtime()) %></div>
 		</div>
 			
 		<%		}

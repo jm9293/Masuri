@@ -18,79 +18,91 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- 페이지 css -->
 <link rel="stylesheet" href="sup_QnaView.css">
-<% QnaDTO dto = (QnaDTO)request.getAttribute("lsit");
-	int pageNum = (int)request.getAttribute("page");
-	boolean openchk = (boolean)request.getAttribute("open");
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 M월 d일 h시 m분");
-%>
-<script>
-	if(!<%= openchk%>){
-		alert("비공개 글입니다.");
-		history.back();
-	}
-</script>
+
+
 <title>MASURI</title>
 </head>
 <body>
 	<!--네비바 시작-->
-	<div id="navbar-wrap"></div>
-	<script>
+	<div id="navbar-wrap">
 	<%@ include file="../basic/navbar.jsp" %>
-    </script>
+	</div>
+	 <% QnaDTO dto = (QnaDTO)request.getAttribute("list");
+	int pageNum = (int)request.getAttribute("page");
+
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d hh:m");
+	boolean openchk = dto.getOpen() || dto.getUserid().equals(userID);
+	
+	if(!openchk){
+	%>
+	<script>
+	alert("비공개 글입니다.");
+	history.back();
+	</script>
+	<%
+	return;}
+	%>	
+	
+   
 	<!--네비바 끝-->
 	
 	<!--메인 컨텐트 영역-->
 	<div class="content">
 	<h2>Q&A 상담게시판</h2>
 	<br>
-	<table class="table table-striped table-hover col-md-10">
-		<colgroup>
-			<col width="10%">
-			<col width="30%">
-			<col width="15%">
-			<col width="10%">
-			<col width="15%">
-			<col width="20%">
-		</colgroup>
-			<thead class="thead-dark">
-			<tr>
-				<th scope="col">번호</th>
-				<th scope="col">제목</th>
-				<th scope="col">작성자</th>
-				<th scope="col">조회수</th>
-				<th scope="col">작성일</th>
-				<th scope="col">공개/비공개</th>
-			</tr>
-			</thead>
-	<%
-		if(dto != null){
-	%>
-		<tr>
-			<td><%= dto.getNum() %></td>
-			<td><%= dto.getTitle() %></td>
-			<td><%= dto.getUserid() %></td>
-			<td><%= dto.getViewcount() %></td>
-			<td><%= sdf.format(dto.getWrtime()) %></td>
+		<div class="menuname row col-12 col-md-10 table table-dark">
+			<div class="col-1 menu">no</div>
+			<div class="col-3 menu">제목</div>
+			<div class="col-2 menu">작성자</div>
+			<div class="col-2 menu">조회</div>
+			<div class="col-2 menu">작성일</div>
+			<div class="col-2 menu">공개글</div>		
+		</div>
+		<div class="menuname row col-12 col-md-10">
+			<div class="col-1 text"><%= dto.getNum() %></div>
+			<div class="col-3 text"><%= dto.getTitle() %></div>
+			<div class="col-2 text"><%= dto.getUserid() %></div>
+			<div class="col-2 text"><%= dto.getViewcount() %></div>
+			<div class="col-2 text"><%= sdf.format(dto.getWrtime()) %></div>
 			<% 
-				if(dto.getOpen() == false){
+				if(!dto.getOpen()){
 			%>
-				<td>비공개</td>
+				<div class="col-2 text">비공개</div>
 			<%		
 				}else{
 			%>
-				<td>공개</td>
+				<div class="col-2 text">공개</div>
 			<%		
 				}
 			%>
-		</tr>
-		<tr>
-			<td colspan="4" class="alert alert-dark" id="content"><%= dto.getContent() %></td>
-		</tr>
-	<%		
-		}
+		</div>
+		<div class="row col-12 col-md-10 cont"><%= dto.getContent() %></div>
+		<%
+			if(dto.getAnswer() != null){
+		%>
+		<br>
+		<div class="contentbox row col-12 col-md-10">
+			<div class="col-12">답변: <%= dto.getAnswer() %></div>
+			<div class="col-12">작성일: <%= dto.getAntime() %></div>
+		</div>
+		<%		
+			}
+		%>
+		
+	<br>
+	<%
+		if(userID != null && userID.equals(dto.getUserid())){
 	%>
-	</table>
-	<button type="button" id="back" class="btn btn-primary btn-lg" onclick="location.href='sup_Qna.do?page=<%= pageNum%>'">목록으로</button>
+	<div id="select" class="row col-8">
+		<button type="button" class="btn btn-primary btn-lg" onclick="location.href='sup_QnaUpdate.do?page=<%= pageNum%>&uid=<%=dto.getNum()%>'">수정</button>
+		<button type="button" class="btn btn-secondary btn-lg" onclick="location.href='sup_QnaDelete.do?uid=<%=dto.getNum()%>'">삭제</button>
+	</div>
+	<br>
+	<%			
+		}
+	%>	
+	<button type="button" id="back" class="btn btn-dark btn-lg" onclick="location.href='sup_Qna.do?page=<%= pageNum%>'">목록으로</button>
+	
 	<br><br>
 	</div>
 	

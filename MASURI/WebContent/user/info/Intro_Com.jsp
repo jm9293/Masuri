@@ -12,7 +12,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;900&display=swap" rel="stylesheet">
         <!-- 기본 css -->
         <link rel="stylesheet" href="../basic/CSS/basic.css">
-        <link rel="stylesheet" href="Intro_Com.css">
+        <link rel="stylesheet" href="Intro_Com.css?after">
          <!--jquery 3.3.1 불러오기-->
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
          <!-- 페이지 css -->
@@ -22,19 +22,18 @@
     
     <body>
       <!--네비바 시작-->
-      <div id="navbar-wrap"></div>
-        <script>
-        <%@ include file="../basic/navbar.jsp" %>
-        </script>
+      <div id="navbar-wrap">
+   		<%@ include file="../basic/navbar.jsp" %>
+      </div> 
       <!--네비바 끝-->
 
       <!--메인 컨텐트 영역-->
-      <div class="content">
+      <div class="content col-12 col-md-8">
         <!--소개 이미지1-->
-        <div class="col-sm-12 col-md-6 intro_img">
+        <div class="col-12 col-md-6 intro_img">
         </div>
         <!-- 소개글 -->
-        <div class="col-sm-12 col-md-6 intro_text">
+        <div class="col-12 col-md-6 intro_text">
           <br>
           <h2>업체 소개</h2><br>
           - 서비스 전문 엔지니어가 고객님이 원하는 장소로 신속히 방문하여,제품을 점검하고 수리하는 서비스입니다.<br>
@@ -43,7 +42,7 @@
           - 사용하지 않거나 오래된 휴대전화를 판매 하실 수 있습니다.<br>
         </div>
         <!-- 연혁 -->
-        <div class="col-sm-12 col-md-6 intro_text2">
+        <div class="col-12 col-md-6 intro_text2">
           <br>
           <h2>업체 연혁</h2><br>
           - 서비스 전문 엔지니어가 고객님이 원하는 장소로 신속히 방문하여, 제품을 점검하고 수리하는 서비스입니다.<br>
@@ -52,7 +51,7 @@
           - 사용하지 않거나 오래된 휴대전화를 판매 하실 수 있습니다.<br>
         </div>
         <!--소개 이미지2-->
-        <div class="col-sm-12 col-md-6 intro_img2">
+        <div class="col-12 col-md-6 intro_img2">
         </div>
       </div>
       <!--메인 컨텐트 끝-->

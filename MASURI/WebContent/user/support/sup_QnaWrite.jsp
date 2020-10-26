@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.masuri.dao.FaqDAO" %>
-<%@ page import="com.masuri.dto.FaqDTO" %>
 <%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -17,35 +15,78 @@
 <!--jquery 3.3.1 불러오기-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- 페이지 css -->
-<link rel="stylesheet" href="sup_FAQ.css">
-<style>
-</style>
-<% ArrayList<FaqDTO> list = (ArrayList<FaqDTO>)request.getAttribute("list");%>
+<link rel="stylesheet" href="sup_QnaWrite.css?after">
+<%
+	int pageNum = Integer.parseInt(request.getParameter("page"));
+%>
+<script>
+function chkSubmit(){
+	frm = document.forms['frm'];
+	
+	var title = frm["title"].value.trim();
+	
+	if(title == ""){
+		alert("작성자 란은 반드시 입력해야 합니다.");
+		frm["title"].focus();
+		return false;
+	}
+	
+	return true;	
+		
+}
+</script>
 <title>MASURI</title>
 </head>
 <body>
+
 	<!--네비바 시작-->
 	<div id="navbar-wrap">
 	<%@ include file="../basic/navbar.jsp" %>
 	</div>
+<%
+	if(!logincheck){%>
+	
+	<script>
+	alert('로그인후 이용하실수 있습니다.');
+	location.href='/MASURI/user/basic/login.jsp';
+    </script>
+	
+<%		
+	}
+%>
 	<!--네비바 끝-->
 	
 	<!--메인 컨텐트 영역-->
 	<div class="content">
-	<h2>FAQ 자주 묻는 질문</h2>
-	<br>
-	<% if(list != null){
-		for(int i = 0; i < list.size(); i++){
-	%>		
-		<div class="col-md-10 question">
-			<div class="alert alert-secondary"><%= list.get(i).getQuestion() %></div>
-			<div class="alert alert-dark"><p><%= list.get(i).getAnswer() %></p></div>
+		<h2>Q&A 상담게시판</h2>
+		<br>
+		<div class="col-12 col-md-8 contain">
+		<form name="frm" action="sup_QnaWriteOk.do" method="post" onsubmit="return chkSubmit()">
+			<div class="form-group col-12">
+				<label for="userid">작성자</label> 
+				<div><%= userID %></div>
+				<input type="hidden" name="userID" value="<%=userID %>"/>
+			</div>
+			<div class="form-group col-12">
+				<label for="title">제목</label> 
+				<input type="text" class="form-control" id="title" name="title" maxlength="20"/>
+			</div>
+			<div class="form-group col-12">
+				<label for="content">내용</label> 
+				<textArea class="form-control" id="content" name="content" rows="10"></textArea>
+			</div>
+			<div class="form-group form-check open">
+				<input type="checkbox" class="form-check-input" id="open" name="open"/>
+				<label class="form-check-label" for="open">비공개</label>
+			</div>
+			<div class="btn row col-12">
+			<button type="submit" class="btn btn-primary">작성</button>
+			<button type="button" class="btn btn-dark" onclick="location.href='/MASURI/user/support/sup_Qna.do?page=<%= pageNum%>'">목록으로</button>
+			</div>
+			<br><br>
+		</form>
 		</div>
-	<% }
-		
-	} %>
 	</div>
-	
 	<!--메인 컨텐트 끝-->
 
 	<!--푸터 시작-->

@@ -18,84 +18,73 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- 페이지 css -->
 <link rel="stylesheet" href="sup_Qna.css">
+
 <% ArrayList<QnaDTO> list = (ArrayList<QnaDTO>)request.getAttribute("list");
 	int max = (int)request.getAttribute("max");
 	int pageNum = (int)request.getAttribute("page");
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 M월 d일 h시 m분");
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d hh:m");
 %>
 <title>MASURI</title>
 </head>
 <body>
 	<!--네비바 시작-->
-	<div id="navbar-wrap"></div>
-	<script>
+	<div id="navbar-wrap">
 	<%@ include file="../basic/navbar.jsp" %>
-    </script>
+	</div>
+
+	
+
 	<!--네비바 끝-->
 	
 	<!--메인 컨텐트 영역-->
 	<div class="content">
 		<h2>Q&A 상담게시판</h2>
 		<br>
-		<table class="table table-striped table-hover col-md-10">
-		<colgroup>
-			<col width="10%">
-			<col width="30%">
-			<col width="15%">
-			<col width="10%">
-			<col width="15%">
-			<col width="20%">
-		</colgroup>
-			<thead class="thead-dark">
-				<tr>
-					<th scope="col">번호</th>
-					<th scope="col">제목</th>
-					<th scope="col">작성자</th>
-					<th scope="col">조회수</th>
-					<th scope="col">작성일</th>
-					<th scope="col">공개/비공개</th>
-				</tr>
-			</thead>
-	<% if(list != null){
-		for(int i = 0; i < list.size(); i++){
-	%>
-			<tr class="table-active text-center">
-				<td scope="row"><%= list.get(i).getNum() %></td>
-				<% 
-				if(list.get(i).getAnswer() != null){
-				%>
-					<td><a href="sup_QnaView.do?page=<%= pageNum %>&uid=<%= list.get(i).getNum() %>&open=<%= list.get(i).getOpen()%>"><%= list.get(i).getTitle() %>[답변완료]</a></td>
-				<%	
-				}else{
-				%>
-					<td><a href="sup_QnaView.do?page=<%= pageNum %>&uid=<%= list.get(i).getNum() %>&open=<%= list.get(i).getOpen()%>"><%= list.get(i).getTitle() %></a></td>
-				<%	
-				}
-				%>	
-					
-				<td><%= list.get(i).getUserid() %></td>
-				<td><%= list.get(i).getViewcount() %></td>
-				<td class="h6"><%= sdf.format(list.get(i).getWrtime()) %></td>
-				<% 
-					if(list.get(i).getOpen() == false){
-				%>
-					<td>비공개</td>
-				<%		
-					}else{
-				%>
-					<td>공개</td>
-				<%		
-					}
-				%>
-				
-			</tr>
-
+		<div class="menuname row col-12 col-md-10 table table-dark">
+			<div class="col-1 menu">No</div>
+			<div class="col-3 menu">제목</div>
+			<div class="col-2 menu">작성자</div>
+			<div class="col-2 menu">조회</div>
+			<div class="col-2 menu">작성일</div>
+			<div class="col-2 menu">공개글</div>		
+		</div>
+		<%
+			if(list != null){
+				for(int i = 0; i < list.size(); i++){
+		%>
+		<div class="menuname row col-12 col-md-10 textlist">
+			<div class="col-1 text"><%= list.get(i).getNum() %></div>
 			<%
-				}
-			
-			}
+				if(list.get(i).getAnswer() != null){
 			%>
-		</table>
+				<div class="col-3 text" onclick="location.href='sup_QnaView.do?page=<%= pageNum%>&uid=<%= list.get(i).getNum()%>'"><%= list.get(i).getTitle() %> [답변완료]</div>
+			<%		
+				}else{
+			%>
+				<div class="col-3 text" onclick="location.href='sup_QnaView.do?page=<%= pageNum%>&uid=<%= list.get(i).getNum()%>'"><%= list.get(i).getTitle() %></div>
+			<%		
+				}
+			%>
+			<div class="col-2 text"><%= list.get(i).getUserid() %></div>
+			<div class="col-2 text"><%= list.get(i).getViewcount() %></div>
+			<div class="col-2 text"><%= sdf.format(list.get(i).getWrtime()) %></div>
+			<%
+				if(!list.get(i).getOpen()){
+			%>
+				<div class="col-2 text">비공개</div>
+			<%		
+				}else{
+			%>
+				<div class="col-2 text">공개</div>
+			<%		
+				}
+			%>	
+		</div>
+		<%			
+				}
+			}
+		%>
+		<br>
 		<div class="box_ul">
 			<ul class="box_li">
 				<%
@@ -141,7 +130,7 @@
 		}%>
 			</ul>
 		</div>
-	<button type="button" id="write" class="btn btn-primary btn-lg" onclick="">글쓰기</button>
+	<button type="button" id="write" class="btn btn-primary btn-lg" onclick="location.href='sup_QnaWrite.do?page=<%= pageNum%>'">글쓰기</button>
 	<br><br>
 	</div>
 

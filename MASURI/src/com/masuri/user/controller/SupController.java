@@ -16,13 +16,19 @@ import com.masuri.user.command.FaqCommand;
 import com.masuri.user.command.NoticeCommand;
 import com.masuri.user.command.NoticeViewCommand;
 import com.masuri.user.command.QnaCommand;
+import com.masuri.user.command.QnaDeleteCommand;
+import com.masuri.user.command.QnaSelectCommand;
+import com.masuri.user.command.QnaUpdateCommand;
 import com.masuri.user.command.QnaViewCommand;
+import com.masuri.user.command.QnaWriteCommand;
 
 
 @WebServlet(urlPatterns = {
 		"/user/support/sup_FAQ.do", "/user/support/sup_Notice.do",
 		"/user/support/sup_NoticeView.do", "/user/support/sup_Qna.do",
-		"/user/support/sup_QnaView.do"})
+		"/user/support/sup_QnaView.do", "/user/support/sup_QnaWrite.do",
+		"/user/support/sup_QnaWriteOk.do", "/user/support/sup_QnaUpdate.do",
+		"/user/support/sup_QnaUpdateOk.do", "/user/support/sup_QnaDelete.do"})
 public class SupController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -80,6 +86,29 @@ public class SupController extends HttpServlet {
 			command = new QnaViewCommand();
 			command.execute(request, response);
 			viewPage = "/user/support/sup_QnaView.jsp";
+			break;
+		case "/user/support/sup_QnaWrite.do":
+			viewPage = "/user/support/sup_QnaWrite.jsp";
+			break;
+		case "/user/support/sup_QnaWriteOk.do":
+			command = new QnaWriteCommand();
+			command.execute(request, response);
+			viewPage = "/user/support/sup_QnaWriteOk.jsp";
+			break;
+		case "/user/support/sup_QnaUpdate.do":
+			command = new QnaSelectCommand();
+			command.execute(request, response);
+			viewPage = "/user/support/sup_QnaUpdate.jsp";
+			break;
+		case "/user/support/sup_QnaUpdateOk.do":
+			command = new QnaUpdateCommand();
+			command.execute(request, response);
+			viewPage = "/user/support/sup_QnaUpdateOk.jsp";
+			break;
+		case "/user/support/sup_QnaDelete.do":
+			command = new QnaDeleteCommand();
+			command.execute(request, response);
+			viewPage = "/user/support/sup_QnaDelete.jsp";
 			break;
 		}
 		if(viewPage != null) {

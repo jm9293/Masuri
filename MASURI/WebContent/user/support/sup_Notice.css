@@ -7,17 +7,17 @@
     height: 50px;
     line-height: 50px;
 }
-a{
-    color:black;
-}
-a:hover{
-    color: rgb(45, 115, 245);
+.textlist:hover{
+    background: rgb(109, 160, 253);
+    opacity: 0.8;
 }
 .text{
     box-sizing: border-box;
     border-bottom: 1px solid rgb(158, 156, 156);
     text-align: center;
     font-size: 15px;
+    height: 50px;
+    line-height: 50px;
 }
 h2{
     font-weight: bold;
@@ -52,7 +52,6 @@ h2{
 .paging a:hover:not(.active) {background-color: #ddd;}
 @media (min-width: 576px){
     .menu{
-        
         font-size: 30px;
         height: 80px;
         line-height: 80px;

@@ -38,6 +38,9 @@
   #kakaoBtn{
     color: black;
   }
+  #kakaoBtn:hover{
+    color: blue;
+}
   @media (min-width: 769px){
       #mapWrapper{
           width: 50%;

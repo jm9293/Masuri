@@ -15,7 +15,7 @@
          <!--jquery 3.3.1 불러오기-->
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
          <!-- 페이지 css -->
-         <link rel="stylesheet" href="Intro_Map.css">
+         <link rel="stylesheet" href="Intro_Map.css?after">
          <style> 
             
         </style>
@@ -25,10 +25,9 @@
    
     <body>
       <!--네비바 시작-->
-      <div id="navbar-wrap"></div>
-        <script>
+      <div id="navbar-wrap">
         <%@ include file="../basic/navbar.jsp" %>
-        </script>
+       </div>
       <!--네비바 끝-->
 
       <!--메인 컨텐트 영역-->

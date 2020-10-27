@@ -10,15 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.masuri.admin.command.MainCommand;
+import com.masuri.admin.command.UserBlackChkCommand;
 import com.masuri.admin.command.UserEditCommand;
+import com.masuri.admin.command.UserInfoCommand;
+import com.masuri.admin.command.UserSearchCommand;
 import com.masuri.command.Command;
 
 @WebServlet(urlPatterns = {
-		"/admin/adMain.do", "/admin/adUserEdit.do"})
-public class PersonController extends HttpServlet {
+		"/admin/adMain.do", "/admin/adUserEdit.do", "/admin/adUserInfo.do",
+		"/admin/adUserBlackChk.do", "/admin/adUserSearch.do"})
+public class UserInfoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public PersonController() {
+    public UserInfoController() {
         super();
     }
 
@@ -57,6 +61,21 @@ public class PersonController extends HttpServlet {
 			command = new UserEditCommand();
 			command.execute(request, response);
 			viewPage = "/admin/adUserEdit.jsp";
+			break;
+		case "/admin/adUserInfo.do":
+			command = new UserInfoCommand();
+			command.execute(request, response);
+			viewPage = "/admin/adUserInfo.jsp";
+			break;
+		case "/admin/adUserBlackChk.do":
+			command = new UserBlackChkCommand();
+			command.execute(request, response);
+			viewPage = "/admin/adUserBlackChk.jsp";
+			break;
+		case "/admin/adUserSearch.do":
+			command = new UserSearchCommand();
+			command.execute(request, response);
+			viewPage = "/admin/adUserSearch.jsp";
 			break;
 		}
 		if(viewPage != null) {

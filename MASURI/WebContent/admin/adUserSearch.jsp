@@ -2,33 +2,38 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.io.PrintWriter" %>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=divice-width, initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.css">
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>MASURI MANAGER</title>
 <%
 	ArrayList<UserDTO> list = (ArrayList<UserDTO>)request.getAttribute("list");
-%>
-<title>MASURI MANAGER</title>
-</head>
-<body class="cont"> 
-	<%
-		String ID = null;
-		if(session.getAttribute("ID") != null){
-			ID = (String)session.getAttribute("ID");
-		}
+	String text = (String)request.getAttribute("text");
+	String textVal = text.trim();
+	String selectMenu = ((String [])request.getAttribute("selectMenu"))[0];
+	System.out.println(selectMenu);
+	if(list.isEmpty()){
 	%>
+		<script>
+			alert("검색내역이 없습니다.");
+			location.href="adUserEdit.do";
+		</script>
+	<% return;}	
 	
-	<%@ include file="adNav.jsp" %>
+%>
+
+</head>
+<body class="cont">
+
+<%@ include file="adNav.jsp" %>
     
     <div class="container">
-    	
-    	<div class="col-3">
+		<div class="col-3">
 		    <form class="navbar-form" role="search" action="adUserSearch.do">
 		    <div class="col-5">
     		
@@ -41,18 +46,17 @@
 			<br>
 			   	<div class="input-group">
 			        <input type="text" class="form-control" placeholder="검색종류를 선택 후 검색하세요"
-			         id="srch-term"  name="text">
+			         id="srch-term"  name="text" value="<%=textVal%>">
 			        <div class="input-group-btn">
 			            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
 	        		</div>
 	      		</div>
-	    
 		    </form>
-	    
 		</div>
-		<%
-			if(list != null){
-				for(int i = 0; i < list.size(); i++){
+		
+		<% 
+			if(list != null && textVal != null){
+				for(int i =0; i < list.size(); i++){			
 		%>
 		<div class="card l-8">
 			<div class="card-header" style="background-color: #ddd" id="">ID: <%= list.get(i).getId() %></div>
@@ -64,30 +68,11 @@
 			</div>
 			<br>
 		</div>
-		<%			
+		<%				
 				}
+				
 			}
 		%>
 	</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

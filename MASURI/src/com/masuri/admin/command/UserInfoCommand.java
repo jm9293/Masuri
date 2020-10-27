@@ -1,7 +1,6 @@
 package com.masuri.admin.command;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,16 +9,18 @@ import com.masuri.command.Command;
 import com.masuri.dao.UserDAO;
 import com.masuri.dto.UserDTO;
 
-public class UserEditCommand implements Command {
+public class UserInfoCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		ArrayList<UserDTO> list = null;
+		UserDTO dto = new UserDTO();
+		String uid = request.getParameter("uid");
 		
 		try {
-			list = UserDAO.select();
+			dto = UserDAO.select(uid);
 			
-			request.setAttribute("list", list);
+			request.setAttribute("uid", dto);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -16,13 +16,18 @@ public class AdQnaViewCommand implements Command {
 		// TODO Auto-generated method stub
 		QnaDTO dto = new QnaDTO();
 		
-		int uid = Integer.parseInt(request.getParameter("uid"));
+		int num = Integer.parseInt(request.getParameter("uid"));
 		int page = Integer.parseInt(request.getParameter("page"));
+		
+		
+		
+		
+		
 		try {
-			dto = QnaDAO.select(uid,false);
-			
+			dto = QnaDAO.select(num,false);
 			request.setAttribute("list", dto);
 			request.setAttribute("page", page);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			

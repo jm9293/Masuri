@@ -9,26 +9,27 @@ import com.masuri.command.Command;
 import com.masuri.dao.NoticeDAO;
 import com.masuri.dto.NoticeDTO;
 
-public class AdWriteOK implements Command {
+public class AdNoticeDelOK implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
 		
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
+		int num = Integer.parseInt(request.getParameter("uid"));
+		
 		int result = 0;
 		NoticeDTO dto = new NoticeDTO();
+		dto.setNum(num);
 		
-		dto.setTitle(title);
-		dto.setContent(content);
+		
+		
 		try {
-			
-			result = NoticeDAO.insert(dto);
-			
+			result = NoticeDAO.delete(dto);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		request.setAttribute("result", result);
 		
 	}

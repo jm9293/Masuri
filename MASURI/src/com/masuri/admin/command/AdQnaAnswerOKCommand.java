@@ -7,25 +7,28 @@ import com.masuri.command.Command;
 import com.masuri.dao.QnaDAO;
 import com.masuri.dto.QnaDTO;
 
-public class AdQnaWriteOK implements Command {
+public class AdQnaAnswerOKCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String title = request.getParameter("TITLE");
-		String content = request.getParameter("CONTENT");
-		int result = 0;
 		QnaDTO dto = new QnaDTO();
 		
+		String answer =  request.getParameter("answer");
+		int num = Integer.parseInt(request.getParameter("uid"));
+		int result = 0;
+		
+		dto.setAnswer(answer);
+		dto.setNum(num);
+		
 		try {
-			dto.setTitle(title);
-			dto.setContent(content);
 			
-			result = QnaDAO.insert(dto);
+			result = QnaDAO.updateAnswer(dto);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+		
 		request.setAttribute("result", result);
 	}
 

@@ -239,7 +239,7 @@ public class QnaDAO {
 			pstmt = conn.prepareStatement(
 					"UPDATE QNA SET" + 
 					" ANSWER = ?, ANTIME = sysdate WHERE NUM = ?");
-		   pstmt.setString(1, qna.getTitle());
+		   pstmt.setString(1, qna.getAnswer());
 		   pstmt.setInt(2, qna.getNum());
 			
 			

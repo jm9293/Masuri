@@ -25,7 +25,7 @@
 						<ul class="dropdown-menu">
 							<li><a href="adNotice.do">공지사항</a></li>
 							<li><a href="adFAQ.do">FaQ</a></li>				
-							<li><a href="adQna.do">QnA</a></li>				                                  
+							<li><a href="adQnaList.do">QnA</a></li>				                                  
 						</ul>
 					</li>
 				<li><a href="*" >설정관리</a>

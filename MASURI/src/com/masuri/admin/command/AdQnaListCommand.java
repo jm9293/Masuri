@@ -10,7 +10,7 @@ import com.masuri.command.Command;
 import com.masuri.dao.QnaDAO;
 import com.masuri.dto.QnaDTO;
 
-public class AdQnaCommand implements Command {
+public class AdQnaListCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {

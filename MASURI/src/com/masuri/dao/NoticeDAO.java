@@ -15,7 +15,6 @@ import javax.sql.DataSource;
 
 
 import com.masuri.dto.NoticeDTO;
-import com.masuri.dto.QnaDTO;
 
 public class NoticeDAO {
 	

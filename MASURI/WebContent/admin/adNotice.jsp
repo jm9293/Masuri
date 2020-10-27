@@ -30,7 +30,7 @@
 		ArrayList<NoticeDTO> list = (ArrayList<NoticeDTO>)request.getAttribute("list");
 		int ppage = (int)request.getAttribute("page");
 		int max = (int)request.getAttribute("max");
-		SimpleDateFormat sdf = new SimpleDateFormat("yy.M.d h:m");
+		SimpleDateFormat sdf = new SimpleDateFormat("yy.M.d hh:mm");
 	%>
 	
 

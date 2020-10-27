@@ -26,10 +26,10 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="text" class="form-control" placeholder="글 제목" name="TITLE" maxlength="100"></td>
+							<td><input type="text" class="form-control" placeholder="글 제목" name="title" maxlength="100"></td>
 						</tr>
 						<tr>
-							<td><textarea class="form-control" placeholder="내용" name="CONTENT" maxlength="500" style="height: 350px;"></textarea></td>
+							<td><textarea class="form-control" placeholder="내용" name="content" maxlength="500" style="height: 350px;"></textarea></td>
 						</tr>
 					</tbody>
 				</table>

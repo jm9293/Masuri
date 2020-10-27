@@ -1,8 +1,8 @@
-<%@ page import="com.masuri.dto.QnaDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="com.masuri.dto.QnaDTO"%>
 <%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
@@ -21,16 +21,11 @@
 <body>
 	<%
 	
-	/*
-	String ID = null;
-		if(session.getAttribute("ID") != null){
-			ID = (String)session.getAttribute("ID");
-		}
-	*/
+	
 		ArrayList<QnaDTO> list = (ArrayList<QnaDTO>)request.getAttribute("list");
 		int ppage = (int)request.getAttribute("page");
 		int max = (int)request.getAttribute("max");
-		SimpleDateFormat sdf = new SimpleDateFormat("yy.M.d h:m");
+		SimpleDateFormat sdf = new SimpleDateFormat("yy.M.d hh:mm");
 	%>
 	
 
@@ -46,10 +41,11 @@
 				<thead>
 					<tr>
 						<th style="background-color: #eee; text-align: center;" class="col-lg-1">번호</th>
-						<th style="background-color: #eee; text-align: center;" class="col-lg-7">제목</th>
+						<th style="background-color: #eee; text-align: center;" class="col-lg-6">제목</th>
 						<th style="background-color: #eee; text-align: center;" class="col-lg-1">작성자ID</th>
 						<th style="background-color: #eee; text-align: center;" class="col-lg-1">조회수</th>
 						<th style="background-color: #eee; text-align: center;" class="col-lg-2">작성일</th>
+						<th style="background-color: #eee; text-align: center;" class="col-lg-1">공개유무</th>
 					</tr>
 				</thead>
 				
@@ -59,19 +55,66 @@
 				%>	
 				<tbody>
 					<td><%= list.get(i).getNum() %></td>
-					<td><a href="adRead.do?page=<%= ppage%>&uid=<%=list.get(i).getNum()%>"><%= list.get(i).getTitle() %></a></td>
+					<td><a href="adQnaView.do?page=<%= ppage%>&uid=<%=list.get(i).getNum()%>"><%= list.get(i).getTitle() %></a></td>
 					<td><%= list.get(i).getUserid() %></td>
 					<td><%= list.get(i).getViewcount() %></td>
 					<td><%= sdf.format(list.get(i).getWrtime()) %></td>
+					<td><%= list.get(i).getOpen() %></td>
 				</tbody>
 				<%		}
 					}
 				%>
 			</table>
 			
-			<a href="adQnaWrite.do" class="btn btn-primary pull-right">작성하기</a>
 		</div>
 	</div>
-	
+	<div class="box_ul">
+			<ul class="box_li">
+				<%
+					if (ppage - 1 < 1) {
+				%>
+				<li class="paging"><a
+					href="/MASURI/admin/adQnaList.do?page=1">이전</a></li>
+				<%
+					} else {
+				%>
+				<li class="paging"><a
+					href="/MASURI/admin/adQnaList.do?page=<%=ppage - 1%>">이전</a></li>
+				<%
+					}
+				if (max > 0) {
+					for (int i = 1; i <= max; i++) {
+						if (ppage == i) {
+				%>
+				<li class="paging"><a class='active tooltip-top'
+					href="/MASURI/admin/adQnaList.do?page=<%=i%>"><%=i%></a></li>
+				<%
+					} else {
+				%>
+					<li class="paging"><a
+					href="/MASURI/admin/adQnaList.do?page=<%=i%>"><%=i%></a></li>
+				<%
+						}
+					}
+				}
+				%>
+				<%
+					if (ppage < max) {
+				%>
+				<li class="paging"><a
+					href="/MASURI/admin/adQnaList.do?page=<%=ppage +1 %>">다음</a></li>
+					
+				<%
+					} else {
+				%>
+				<li class="paging"><a
+					href="/MASURI/admin/adQnaList.do?page=<%=max%>">다음</a></li>
+				<%
+					}
+				%>
+			</ul>
+		
+		
+	</div>
 </body>
 </html>

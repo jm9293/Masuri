@@ -10,18 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.masuri.admin.command.AdNoticeCommand;
+import com.masuri.admin.command.AdNoticeDelOK;
 import com.masuri.admin.command.AdNoticeUpdate;
 import com.masuri.admin.command.AdNoticeUpdateOK;
 import com.masuri.admin.command.AdViewCommand;
 import com.masuri.admin.command.AdWriteCommand;
 import com.masuri.admin.command.AdWriteOK;
 import com.masuri.command.Command;
-import com.masuri.user.command.FaqCommand;
 
 
 
-@WebServlet(urlPatterns = {"/admin/adNotice.do","/admin/adWrite.do","/admin/adFAQ.do", 
-		"/admin/adRead.do","/admin/adWriteOK.do","/admin/adNoticeUpdate.do","/admin/adNoticeUpdateOK.do"})
+@WebServlet(urlPatterns = {"/admin/adNotice.do","/admin/adWrite.do","/admin/adRead.do",
+		"/admin/adWriteOK.do","/admin/adNoticeUpdate.do","/admin/adNoticeUpdateOK.do","/admin/adNoticeDelOK.do"})
 public class AdminNoticeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -74,12 +74,6 @@ public class AdminNoticeController extends HttpServlet {
 			viewPage = "/admin/adRead.jsp";
 			break;
 			
-		case "/admin/adFAQ.do":
-			command =  new FaqCommand();
-			command.execute(request, response);
-			viewPage = "/admin/adFAQ.jsp";
-			break;
-			
 		case "/admin/adNoticeUpdate.do":
 			command =  new AdNoticeUpdate();
 			command.execute(request, response);
@@ -90,6 +84,12 @@ public class AdminNoticeController extends HttpServlet {
 			command =  new AdNoticeUpdateOK();
 			command.execute(request, response);
 			viewPage = "/admin/adNoticeUpdateOK.jsp";
+			break;
+			
+		case "/admin/adNoticeDelOK.do":
+			command =  new AdNoticeDelOK();
+			command.execute(request, response);
+			viewPage = "/admin/adNoticeDelOK.jsp";
 			break;
 		} 
 		

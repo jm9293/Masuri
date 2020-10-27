@@ -24,6 +24,7 @@
 	<div class="container">
 		<div class="row">
 			<form method="post" action="adNoticeUpdateOK.do">
+			<input type="hidden" name="uid" value="<%= dto.getNum() %>"/>
 				<table class="table table-striped" style="text-align: center; border: 1px solid #ddd">
 					<thead>
 						<tr>
@@ -44,7 +45,6 @@
 					<%} %>
 				</table>
 					<input class="btn pull-right" type="submit" value="수정하기">
-				
 			</form>
 			
 		</div>

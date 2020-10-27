@@ -25,7 +25,7 @@
 
 	<div class="container">
 		<div class="row">
-			<form method="post" action="adNoticeUpdate.do">
+			<form method="post" name="NtcForm">
 			<input type="hidden" name="uid" value="<%= dto.getNum() %>"/>
 				<table class="table table-striped" style="text-align: center; border: 1px solid #ddd">
 					<thead>
@@ -61,8 +61,10 @@
 						}
 					%>
 				</table>
-				<button type="submit" class="btn btn-success pull-right">수정하기</button>
 				<a href="adNotice.do" class="btn btn-primary pull-right">목록보기</a>
+				<input type="submit" class="btn btn-danger pull-right" value="삭제" onclick="javascript: NtcForm.action='adNoticeDelOK.do';"></input>
+				<input type="submit" class="btn btn-success pull-right" value="수정" onclick="javascript: NtcForm.action='adNoticeUpdate.do';"></input>
+				
 				
 			</form>
 			

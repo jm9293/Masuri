@@ -13,12 +13,12 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="adMain.do">Masuri Editor Page</a>
+			<a class="navbar-brand" href="../adEng/adEngEdit.do">Masuri Editor Page</a>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="adMain.do">직원관리</a></li>
-				<li><a href="adUserEdit.do">유저관리</a></li>
+				<li><a href="../adEng/adEngEdit.do">직원관리</a></li>
+				<li><a href="../adUser/adUserEdit.do">유저관리</a></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">공지사항</a>

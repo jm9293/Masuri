@@ -9,20 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.masuri.admin.command.MainCommand;
-import com.masuri.admin.command.UserBlackChkCommand;
-import com.masuri.admin.command.UserEditCommand;
-import com.masuri.admin.command.UserInfoCommand;
-import com.masuri.admin.command.UserSearchCommand;
+import com.masuri.admin.command.EngCreateChkCommand;
+import com.masuri.admin.command.EngCreateCommand;
+import com.masuri.admin.command.EngEditCommand;
+import com.masuri.admin.command.EngInfoCommand;
+import com.masuri.admin.command.EngSearchCommand;
+import com.masuri.admin.command.EngStatusChkCommand;
 import com.masuri.command.Command;
 
 @WebServlet(urlPatterns = {
-		"/admin/adUser/adUserEdit.do", "/admin/adUser/adUserInfo.do",
-		"/admin/adUser/adUserBlackChk.do", "/admin/adUser/adUserSearch.do"})
-public class UserInfoController extends HttpServlet {
+		"/admin/adEng/adEngEdit.do","/admin/adEng/adEngInfo.do",
+		"/admin/adEng/adEngStatusChk.do","/admin/adEng/adEngSearch.do",
+		"/admin/adEng/adEngCreate.do","/admin/adEng/adEngCreateOk.do"})
+public class EngInfoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    public UserInfoController() {
+ 
+    public EngInfoController() {
         super();
     }
 
@@ -35,42 +37,47 @@ public class UserInfoController extends HttpServlet {
 	}
 	
 	protected void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		System.out.println("actionDo() 호출");
 		request.setCharacterEncoding("utf-8");
 		
 		// URL, ContextPath, Command 분리
 		String uri = request.getRequestURI();
 		String conPath = request.getContextPath();
 		String com = uri.substring(conPath.length());
-		
-		//테스트 출력
-				System.out.println("uri: " + uri);
-				System.out.println("conPath " + conPath);
-				System.out.println("com " + com);
+	
 		//컨트롤러는 다음의 두가지를 결정해야 한다
 		Command command = null; //어떠한 로직을 수행할 지 결정
 		String viewPage = null; //어떠한 페이지(뷰)로 보여줄지 결정
 		
 		switch (com) {
-		case "/admin/adUser/adUserEdit.do":
-			command = new UserEditCommand();
+		case "/admin/adEng/adEngEdit.do":
+			command = new EngEditCommand();
 			command.execute(request, response);
-			viewPage = "/admin/adUser/adUserEdit.jsp";
+			viewPage = "/admin/adEng/adEngEdit.jsp";
 			break;
-		case "/admin/adUser/adUserInfo.do":
-			command = new UserInfoCommand();
+		case "/admin/adEng/adEngInfo.do":
+			command = new EngInfoCommand();
 			command.execute(request, response);
-			viewPage = "/admin/adUser/adUserInfo.jsp";
+			viewPage = "/admin/adEng/adEngInfo.jsp";
 			break;
-		case "/admin/adUser/adUserBlackChk.do":
-			command = new UserBlackChkCommand();
+		case "/admin/adEng/adEngStatusChk.do":
+			command = new EngStatusChkCommand();
 			command.execute(request, response);
-			viewPage = "/admin/adUser/adUserBlackChk.jsp";
+			viewPage = "/admin/adEng/adEngStatusChk.jsp";
 			break;
-		case "/admin/adUser/adUserSearch.do":
-			command = new UserSearchCommand();
+		case "/admin/adEng/adEngSearch.do":
+			command = new EngSearchCommand();
 			command.execute(request, response);
-			viewPage = "/admin/adUser/adUserSearch.jsp";
+			viewPage = "/admin/adEng/adEngSearch.jsp";
+			break;
+		case "/admin/adEng/adEngCreate.do":
+			command = new EngCreateChkCommand();
+			command.execute(request, response);
+			viewPage = "/admin/adEng/adEngCreate.jsp";
+			break;
+		case "/admin/adEng/adEngCreateOk.do":
+			command = new EngCreateCommand();
+			command.execute(request, response);
+			viewPage = "/admin/adEng/adEngCreateOk.jsp";
 			break;
 		}
 		if(viewPage != null) {

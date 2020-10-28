@@ -1,0 +1,10 @@
+.is-valid{
+	box-sizing : border-box;
+	border : 1px solid green;
+	color : green;
+}
+.is-invalid{
+	box-sizing : border-box;
+	border : 1px solid red;
+	color : red;
+}

@@ -14,6 +14,6 @@
 <% } else { %>
 	<script>
 		alert("변경 성공, 바뀐 고객정보를 출력합니다");
-		location.href = "/MASURI/admin/adUserInfo.do?uid=<%= uid%>";
+		location.href = "/MASURI/admin/adUser/adUserInfo.do?uid=<%= uid%>";
 	</script>
 <% } %>

@@ -154,7 +154,7 @@ public class EngineerDAO {
 		int cnt = 0;
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("INSERT INTO ENGINEERDATA VALUES (?, ?, ?, ?, "
+			pstmt = conn.prepareStatement("INSERT INTO ENGINEERDATA VALUES (ENGINEERDATA_SEQ.nextval, ?, ?, ?, ?, "
 					+ "?, ?, ?, 'false')");
 			
 			pstmt.setString(1, engineer.getId());

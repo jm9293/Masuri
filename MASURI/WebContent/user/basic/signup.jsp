@@ -71,9 +71,11 @@
             <div class="form-group">
                 <div class="input-box col-12 col-md-12">
                   <label for="inputID" class="">아이디</label>
-                  <input type="text" class="form-control" id="inputID" name="inputID" placeholder="" required>
+                  <input type="text" class="form-control is-valid" id="inputID" name="inputID" placeholder="" required>
+                <div class="valid-feedback">
+                                 중복확인을 해주세요.
+      			</div>   
                 </div>
-                   
                 <div class="input-box col-12 col-md-12">
                   <label for="inputPW" class="">비밀번호</label>
                   <input type="password" class="form-control" name="inputPW" id="inputPW" placeholder="" required>

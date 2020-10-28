@@ -15,6 +15,7 @@ import javax.sql.DataSource;
 
 
 import com.masuri.dto.FaqDTO;
+import com.masuri.dto.QnaDTO;
 
 public class FaqDAO {
 	
@@ -144,6 +145,31 @@ public class FaqDAO {
 		return cnt;
 	}
 	
+	public static int delete(FaqDTO faq) throws SQLException { // 삭제하기
+		int cnt = 0;
+		try {
+			conn = getConnection();
+			conn.setAutoCommit(false);
+			
+			pstmt = conn.prepareStatement("DELETE FROM FAQ WHERE NUM = ?");
+		    pstmt.setInt(1, faq.getNum());
+			
+			
+			cnt = pstmt.executeUpdate();
+			
+			if(cnt>0) {
+				conn.commit();
+			}
+		
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 
+		return cnt;
+	}
 	
 	
 	public static void close() throws SQLException {

@@ -117,6 +117,32 @@ public class FaqDAO {
 		return cnt;
 	}
 	
+	public static int insert(FaqDTO faq) throws SQLException { 
+		int cnt = 0;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(
+					"INSERT INTO FAQ (NUM,QUESTION,ANSWER)" + 
+					"VALUES(FAQ_SEQ.nextval,?,?)");
+		   
+			
+			pstmt.setString(1, faq.getQuestion());
+			pstmt.setString(2, faq.getAnswer());
+			
+			
+			
+			cnt = pstmt.executeUpdate();
+	
+		
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 
+		return cnt;
+	}
 	
 	
 	

@@ -111,7 +111,7 @@ if(userID!=null&&!logincheck){
                   </button>
                 </div>
                 <div class="modal-body">
-                  <button type="button" class="btn btn-secondary">회원가입</button>
+                  <button type="button" class="btn btn-secondary" onclick="location.href='../basic/signup.jsp'">회원가입</button>
                   <button type="button" class="btn btn-primary" onclick="location.href='../basic/login.jsp'">로그인</button>
                 </div>
                 

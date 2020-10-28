@@ -1,16 +1,12 @@
 package com.masuri.user.controller;
 
 import java.io.IOException;
-
-
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.masuri.command.Command;
 import com.masuri.user.command.FaqCommand;
 import com.masuri.user.command.LoginCommand;

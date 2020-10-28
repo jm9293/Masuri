@@ -1,6 +1,7 @@
 package com.masuri.user.controller;
 
 import java.io.IOException;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,14 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.masuri.command.Command;
-import com.masuri.user.command.FaqCommand;
+import com.masuri.file.DefaultImgSet;
 import com.masuri.user.command.IdchkCommand;
 import com.masuri.user.command.LoginCommand;
 import com.masuri.user.command.LogoutCommand;
 import com.masuri.user.command.SignupCommand;
+import com.masuri.user.command.UserUpdateCommand;
 
 
-@WebServlet(urlPatterns = {"/user/basic/login/login.do","/user/basic/login/logout.do","/user/basic/login/idchk.do","/user/basic/signup.do"})
+@WebServlet(urlPatterns = {"/user/basic/login/login.do","/user/basic/login/logout.do",
+		"/user/basic/login/idchk.do","/user/basic/signup.do"
+		,"/user/basic/userupdate.do"})
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -40,7 +44,6 @@ public class LoginController extends HttpServlet {
 		String conPath = request.getContextPath();
 		String com = uri.substring(uri.lastIndexOf("/")+1,uri.length());
 		 
-		
 	
 		System.out.println("uri: " + uri);
 		System.out.println("conPath " + conPath);
@@ -76,6 +79,13 @@ public class LoginController extends HttpServlet {
 			command = new SignupCommand();
 			command.execute(request, response);
 			viewPage = "/user/basic/signupres.jsp";
+			break;
+			
+		case "userupdate.do":
+			System.out.println("signup");
+			command = new UserUpdateCommand();
+			command.execute(request, response);
+			
 			break;
 		}
 		

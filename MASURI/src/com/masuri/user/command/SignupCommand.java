@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.masuri.command.Command;
 import com.masuri.dao.UserDAO;
 import com.masuri.dto.UserDTO;
+import com.masuri.file.DefaultImgSet;
 
 public class SignupCommand implements Command {
 	
@@ -69,6 +70,7 @@ public class SignupCommand implements Command {
 			
 			try {
 				res = UserDAO.insert(user);
+				DefaultImgSet.imgSet(request, "userimg", inputID);
 				request.setAttribute("res", res);
 			} catch (Exception e) {
 				res = 0;

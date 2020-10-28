@@ -9,11 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.masuri.command.Command;
 import com.masuri.user.command.FaqCommand;
+import com.masuri.user.command.IdchkCommand;
 import com.masuri.user.command.LoginCommand;
 import com.masuri.user.command.LogoutCommand;
+import com.masuri.user.command.SignupCommand;
 
 
-@WebServlet(urlPatterns = {"/user/basic/login/login.do","/user/basic/login/logout.do"})
+@WebServlet(urlPatterns = {"/user/basic/login/login.do","/user/basic/login/logout.do","/user/basic/login/idchk.do","/user/basic/signup.do"})
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -63,6 +65,17 @@ public class LoginController extends HttpServlet {
 			command = new LogoutCommand();
 			command.execute(request, response);
 			viewPage = "/user/basic/logout.jsp";
+			break;
+		case "idchk.do":
+			System.out.println("idchk");
+			command = new IdchkCommand();
+			command.execute(request, response);
+			break;
+		case "signup.do":
+			System.out.println("signup");
+			command = new SignupCommand();
+			command.execute(request, response);
+			viewPage = "/user/basic/signupres.jsp";
 			break;
 		}
 		

@@ -1,3 +1,4 @@
+<%@page import="com.masuri.user.command.LoginCommand"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -40,13 +41,24 @@
         	line-height:28px ;
         	padding :0px;
           }
+
+          .paddingzero{
+              padding: 0px;
+              margin: auto;
+          }
+
+          @media (max-width: 768px) {
+                #idcheck{
+                    margin-top: 10px;
+                }
+          }
         </style>
     </head>
     
    
     <body>
       <!--네비바 시작-->
-      <div id="navbar-wrap">
+        <div id="navbar-wrap">
        <%@ include file="navbar.jsp" %>
       </div>
       <%if(logincheck){%>
@@ -55,7 +67,6 @@
     	   location.href='/MASURI/';
     	   </script>
        <%return;}%>
-        
       <!--네비바 끝-->
 
       <!--메인 컨텐트 영역-->
@@ -67,53 +78,76 @@
             </div>
         
 
-        <form action="login/signup.do" method="get">
+        <form action="signup.do" method="post" onsubmit="return submitchk();">
             <div class="form-group">
                 <div class="input-box col-12 col-md-12">
                   <label for="inputID" class="">아이디</label>
-                  <input type="text" class="form-control is-valid" id="inputID" name="inputID" placeholder="" required>
-                <div class="valid-feedback">
-                                 중복확인을 해주세요.
-      			</div>   
+                  <div class="row col-12 paddingzero">
+                    <input type="text" class="form-control col-12 col-md-7" id="inputID" name="inputID" placeholder="4~6자 영문소문자+숫자" maxlength="6" required>
+                    <div class="col-0 col-md-1 paddingzero"></div>
+                    <button class="btn btn-primary col-5 col-md-4" id="idcheck" type="button" disabled>중복확인</button>
+                    <div class="valid-feedback">
+                      사용가능아이디입니다.
+                    </div>
+                    <div class="invalid-feedback" id="id-invalid">
+                      아이디는 4~6자 영문소문자+숫자여야 합니다.
+                    </div>   
+                  </div>
                 </div>
+
                 <div class="input-box col-12 col-md-12">
                   <label for="inputPW" class="">비밀번호</label>
-                  <input type="password" class="form-control" name="inputPW" id="inputPW" placeholder="" required>
+                  <input type="password" class="form-control" name="inputPW" id="inputPW" placeholder="6~8자 영문+숫자" maxlength="8" required>
+                  <div class="invalid-feedback">
+                    비밀번호는 6~8자 영문+숫자여야 합니다.
+                  </div>   
                 </div>
                 
                 <div class="input-box col-12 col-md-12">
                   <label for="inputPWCHK" class="">비밀번호 확인</label>
-                  <input type="password" class="form-control" name="inputPWCHK" id="inputPWCHK" placeholder="" required>
+                  <input type="password" class="form-control" name="inputPWCHK" id="inputPWCHK" placeholder="비밀번호 확인" maxlength="8" required>
+                  <div class="invalid-feedback">
+                    비밀번호와 일치하지 않습니다.
+                  </div>   
                 </div>
                 
                 <div class="input-box col-12 col-md-12">
                   <label for="inputNAME" class="">이름</label>
-                  <input type="text" class="form-control" name="inputNAME" id="inputNAME" placeholder="" required>
+                  <input type="text" class="form-control" name="inputNAME" id="inputNAME" placeholder="한글" maxlength="10" required>
+                  <div class="invalid-feedback">
+                    한글 2글자 이상만 입력할수 있습니다.
+                  </div>   
                 </div>
                 
                 <div class="input-box col-12 col-md-12">
                   <label for="inputPhone" class="">전화번호</label>
-                  <input type="text" class="form-control" name="inputPhone" id="inputPhone" placeholder="" required>
+                  <input type="text" class="form-control" name="inputPhone" id="inputPhone" placeholder='"-" 없이 숫자만 입력하세요' maxlength="11" required>
+                  <div class="invalid-feedback">
+                    숫자 10~11자만 입력할수 있습니다.
+                  </div>   
                 </div>
                 
                 <div class="input-box col-12 col-md-12 email">
                   <label for="inputEmail" class="">이메일</label>
 	                <div class="row col-12">
-	                  <input type="text" class="form-control col-5" name="inputEmail" id="inputEmail" placeholder="" required>
+	                  <input type="text" class="form-control col-5" name="inputEmail" id="inputEmail" placeholder="이메일 아이디" maxlength="10" required>
 	                  <div class="col-1 at">@</div>
 	                  <select class="custom-select col-6" id="emailSelect"  name="emailSelect">
-					    <option selected>gmail.com</option>
-					    <option value="1">naver.com</option>
-					    <option value="2">daum.net</option>
-					    <option value="3">nate.com</option>
-					    <option value="4">직접 입력</option>
+					    <option selected value="gmail.com">gmail.com</option>
+					    <option value="naver.com">naver.com</option>
+					    <option value="daum.net">daum.net</option>
+					    <option value="nate.com">nate.com</option>
+					    <option value="direct">직접 입력</option>
 					  </select>
-					  <input type="text" class="form-control col-6" name="inputEmail" id="emaildirect" placeholder="">
+                      <input type="text" class="form-control col-6" name="inputEmaildirect" id="inputEmaildirect" placeholder="" value="직접입력">
+                      <div class="invalid-feedback">
+                        이메일 형식이아닙니다.
+                      </div>   
 	                </div>
                 </div>
      			<br>
                 <div class="input-box col-12 col-md-12">
-                  <button class="login-btn btn btn-primary col-12" type="submit">회원가입</button>
+                  <button class="login-btn btn btn-primary col-12" type="submit" id="signup-btn" disabled>회원가입</button>
                 </div>
             </div>
         </form>
@@ -137,14 +171,167 @@
 	<script>
 
 	$(function(){
-	$("#emaildirect").hide();
+	$("#inputEmaildirect").hide();
 	$("#emailSelect").change(function() {
-			if($("#emailSelect").val() == 4) {
+			if($("#emailSelect").val()==='direct') {
 				$("#emailSelect").hide();
-				$("#emaildirect").show();
+                $("#inputEmaildirect").show();
+                $("#inputEmaildirect").keyup();
 			}
-		}) 
-	});
+        }) 
+        
+    $("#inputID").keyup(function(){
+            var value =  $("#inputID").val();
+           if(/[a-z0-9]{4,6}/.test(value)&&/[a-z]/.test(value)&&/[0-9]/.test(value)){
+            
+        	$("#inputID").addClass("is-invalid");
+        	$("#id-invalid").text("중복확인을 해주세요.");
+            $("#idcheck").removeAttr("disabled");
+           }else{
+        	   
+        	$("#id-invalid").text("아이디는 4~6자 영문소문자+숫자여야 합니다.");
+            $("#inputID").addClass("is-invalid"); 
+            $("#idcheck").attr("disabled","");
+           }
+           
+           validchk();
+        })
+    
+    $("#inputPW").keyup(function(){
+        var value =  $("#inputPW").val();
+       if(/(?=.*[a-zA-Z])(?=.*\d).{6,8}/.test(value)){
+        $("#inputPW").removeClass("is-invalid");
+        $("#inputPW").addClass("is-valid");
+       }else{
+        $("#inputPW").removeClass("is-valid");
+        $("#inputPW").addClass("is-invalid"); 
+       }
+	 
+       validchk();
+    })  
+
+
+    $("#inputPWCHK").keyup(function(){
+        var value =  $("#inputPWCHK").val();
+       if(value===$("#inputPW").val()){
+        $("#inputPWCHK").removeClass("is-invalid");
+        $("#inputPWCHK").addClass("is-valid");
+       }else{
+        $("#inputPWCHK").removeClass("is-valid");
+        $("#inputPWCHK").addClass("is-invalid"); 
+       }
+	   
+       validchk();
+    })  
+
+    $("#inputNAME").keyup(function(){
+        var value =  $("#inputNAME").val();
+       if(/[가-힣]{2,}/.test(value)){
+        $("#inputNAME").removeClass("is-invalid");
+        $("#inputNAME").addClass("is-valid");
+       }else{
+        $("#inputNAME").removeClass("is-valid");
+        $("#inputNAME").addClass("is-invalid"); 
+       }
+       
+       validchk();
+    })  
+
+    $("#inputPhone").keyup(function(){
+        var value =  $("#inputPhone").val();
+       if(/[0-9]{10,11}/.test(value)){
+        $("#inputPhone").removeClass("is-invalid");
+        $("#inputPhone").addClass("is-valid");
+       }else{
+        $("#inputPhone").removeClass("is-valid");
+        $("#inputPhone").addClass("is-invalid"); 
+       }
+       
+       validchk();
+    })  
+
+    $("#inputEmail").keyup(function(){
+        var value;
+        if($("#emailSelect").val()!=='direct'){
+           value = $("#inputEmail").val()+'@'+$("#emailSelect").val()
+        }else{
+            value = $("#inputEmail").val()+'@'+$("#inputEmaildirect").val()
+        }
+
+       if(/[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}/.test(value)){
+        $("#inputEmail").removeClass("is-invalid");
+        $("#inputEmail").addClass("is-valid");
+       }else{
+        $("#inputEmail").removeClass("is-valid");
+        $("#inputEmail").addClass("is-invalid"); 
+       }
+
+       validchk();
+    })  
+
+    
+
+    $("#inputEmaildirect").keyup(function(){
+        var value;
+        value = $("#inputEmail").val()+'@'+$("#inputEmaildirect").val()
+  
+       if(/[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}/.test(value)){
+        $("#inputEmaildirect").removeClass("is-invalid");
+        $("#inputEmaildirect").addClass("is-valid");
+       }else{
+        $("#inputEmaildirect").removeClass("is-valid");
+        $("#inputEmaildirect").addClass("is-invalid"); 
+       }
 	
+        validchk();
+    }) 
+      
+    $("#idcheck").click(function(){
+        
+        $.get('http://localhost:8080/MASURI/user/basic/login/idchk.do?inputID='+$("#inputID").val(), function(data) {  
+		if(data==='true'){
+			$("#inputID").removeClass("is-invalid");
+			$("#inputID").addClass("is-valid");
+			$("#inputID").attr("readonly","");
+		}else{
+			$("#id-invalid").text("중복된아이디입니다.");
+		}
+
+        });
+
+    });
+
+    
+
+    });
+    
+	function validchk() {
+		var chk = $("#inputID").hasClass("is-valid")&&$("#inputPW").hasClass("is-valid")
+        &&$("#inputPWCHK").hasClass("is-valid")&&$("#inputNAME").hasClass("is-valid")
+        &&$("#inputPhone").hasClass("is-valid")&&$("#inputEmail").hasClass("is-valid");
+		if(chk){
+     	   $("#signup-btn").removeAttr("disabled");
+        }else{
+     	   $("#signup-btn").attr("disabled","");
+        }
+        return chk;
+	}
+	
+    function submitchk(){
+
+        $("#inputID").keyup();
+        $("#inputPW").keyup();
+        $("#inputPWCHK").keyup();
+        $("#inputNAME").keyup();
+        $("#inputPhone").keyup();
+        $("#inputEmail").keyup();
+
+        return validchk();
+                
+    }
+    
+    
+    
+
 	</script>
 </html>

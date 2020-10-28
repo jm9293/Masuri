@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% int res = (int)request.getAttribute("res"); %>
+<% if(res==0){ %>
+	<script>
+	    alert('회원가입 실패\n 다시시도해주세요');
+	    history.back();
+    </script>
+<%} %>
 <!doctype html>
     <html lang="ko">
       <head>
@@ -17,13 +24,24 @@
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
          <!-- 페이지 css -->
          <style> 
-          .login-box{
-            margin: 10% auto;
-
-          }
-          .input-box{
-              margin: 2% 0;
-          }       
+            .title b{
+          	font-weight: 300;
+          	color: rgb(52, 152, 219);
+          	}
+          	
+          	.content .signup-box{
+          		margin :auto;
+          		text-align: center;
+          		padding : 300px 0;
+          	}
+          	
+          	.content #go-login{
+          		margin : 10px auto;
+          	}
+          	
+          	.input-box{
+          		text-align: center;
+          	}
         </style>
     </head>
     
@@ -43,30 +61,14 @@
 
       <!--메인 컨텐트 영역-->
       <div class="content">
-       <div class="login-box col-12 col-md-6">
+       <div class="col-12 col-md-6 signup-box">
            <div class="title col-12 text-center">
-               <h1>로그인</h1>
-                <a href="#">회원이 아니신가요?</a>
+               <h1>회원가입완료</h1>
+               <b>MASURI에 새가족이 되신걸 환영합니다</b>
             </div>
-        
-
-        <form action="login/login.do" method="post">
-            <div class="form-group">
-                <div class="input-box col-12 col-md-12">
-                  <label for="inputID" class="">아이디</label>
-                  <input type="text" class="form-control" id="inputID" name="inputID" placeholder="" required>
-                </div>
-                   
-                <div class="input-box col-12 col-md-12">
-                  <label for="inputPW" class="">비밀번호</label>
-                  <input type="password" class="form-control" name="inputPW" id="inputPW" placeholder="" required>
-                </div>
-
-                <div class="input-box col-12 col-md-12">
-                  <button class="login-btn btn btn-primary col-12" type="submit">로그인</button>
-                </div>
-            </div>
-        </form>
+           <div class="input-box col-12">
+             <button class="login-btn btn btn-primary col-6" type="button" id="go-login" onclick="location.href='../basic/login.jsp'">로그인하러가기</button>
+           </div>
        </div> 
        
       </div>

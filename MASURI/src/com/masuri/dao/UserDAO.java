@@ -121,6 +121,36 @@ public class UserDAO {
 		return cnt;
 	}
 	
+	public static int insert(UserDTO user) throws SQLException { //userDTO 로 인서트
+		int cnt = 0;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("INSERT INTO USERDATA "
+					+ "(USERNUM ,ID, PASSWORD, NAME, PHONE,EMAIL,BLACK) "
+					+ "VALUES(USERDATA_SEQ.nextval,?,?,?,?,?,'flase')");
+		   
+			
+			pstmt.setString(1, user.getId());
+			pstmt.setString(2, user.getPassword());
+			pstmt.setString(3, user.getName());
+			pstmt.setString(4, user.getPhone());
+			pstmt.setString(5, user.getEmail());
+			
+			
+			cnt = pstmt.executeUpdate();
+		
+			System.out.println(user);
+		
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 
+		return cnt;
+	}
+	
 	public static boolean logincheck(String id , String pw)  {
 		boolean check = false;
 		try {
@@ -128,6 +158,27 @@ public class UserDAO {
 			pstmt = conn.prepareStatement("SELECT * FROM USERDATA WHERE ID = ? AND PASSWORD = ?");
 			pstmt.setString(1, id);
 			pstmt.setString(2, pw);
+			rs = pstmt.executeQuery();
+			
+			check = rs.next() ;
+					
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 	
+		return check;
+	}
+	
+	public static boolean idcheck(String id)  {
+		boolean check = false;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("SELECT * FROM USERDATA WHERE ID = ?");
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			
 			check = rs.next() ;

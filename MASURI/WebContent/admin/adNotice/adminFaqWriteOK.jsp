@@ -5,7 +5,7 @@
 <% if(result == 1){
 %>	
 	alert("작성 완료 되었습니다.");
-	location.href="/MASURI/admin/adNotice.do";
+	location.href="/MASURI/admin/adNotice/adminFaq.do";
 <%
 	} else if(result == 0){
 %>

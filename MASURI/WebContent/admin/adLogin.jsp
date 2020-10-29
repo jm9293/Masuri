@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +9,10 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <title>관리자 게시판</title>
 </head>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body>
-	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="adIndex.jsp">Masuri 관리자 계정</a>
@@ -21,13 +23,13 @@
 		<div class="col-lg-4"></div>
 		<div class="col-lg-4">
 			<div class="jumbotron" style="padding-top: 20px">
-				<form method="post" action="loginAction.jsp">
+				<form method="post" action="adLoginOK.do">
 					<h3 style="text-align: center;">관리자 로그인</h3>
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="아이디" name="ID" maxlength="20">
+						<input type="text" class="form-control" placeholder="아이디" id="adminID" name="adminID" maxlength="20">
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" placeholder="비밀번호" name="PASSWORD" maxlength="20">
+						<input type="password" class="form-control" placeholder="비밀번호" id="adminPW" name="adminPW" maxlength="20">
 					</div>
 					<input type="submit" class="btn btn-primary form-control" value="로그인">
 				</form>

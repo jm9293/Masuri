@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <title>공지사항 읽기</title>
 </head>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body>
 	<%
 		NoticeDTO dto = (NoticeDTO) request.getAttribute("list"); 
@@ -18,10 +20,8 @@
 		
 	%>
 	
-	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
-	<%@ include file="adNav.jsp" %>
+	<%@ include file="../adNav.jsp" %>
 
 	<div class="container">
 		<div class="row">

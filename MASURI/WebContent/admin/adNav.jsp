@@ -1,8 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
+<%@page import="com.masuri.admin.command.AdLoginCommand"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+String adminID = (String)request.getSession().getAttribute("login");
 
+boolean logincheck = AdLoginCommand.admin.containsKey(adminID);
 
+if(adminID!=null&&!logincheck){
+	try{
+		session.invalidate();
+	}catch(Exception e){
+		
+	}
+}	
+
+if(!logincheck){
+%>
+ <script type="text/javascript">
+ alert("로그인해야 접속할수 있습니다.");
+ location.href='../adLogin.jsp';
+</script>
+<% return;}
+%>
 	
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
@@ -23,12 +44,12 @@
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">공지사항</a>
 						<ul class="dropdown-menu">
-							<li><a href="adNotice.do">공지사항</a></li>
-							<li><a href="adFAQ.do">FaQ</a></li>				
-							<li><a href="adQnaList.do">QnA</a></li>				                                  
+							<li><a href="../adNotice/adNotice.do">공지사항</a></li>
+							<li><a href="../adNotice/adminFaq.do">FaQ</a></li>				
+							<li><a href="../adNotice/adQnaList.do">QnA</a></li>				                                  
 						</ul>
 					</li>
-				<li><a href="*" >설정관리</a>
+				<li><a href="../adOption/adOption.do" >설정관리</a>
 					
 				</li>
 			</ul>

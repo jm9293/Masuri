@@ -21,8 +21,9 @@
 	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
-	<%@ include file="adNav.jsp" %>
-
+	<%@ include file="../adNav.jsp" %>
+	<form method="post" name="QnaForm">
+	<input type="hidden" name="uid" value="<%= dto.getNum() %>"/>
 	<div class="container">
 		<div class="row">
 			
@@ -60,13 +61,14 @@
 						}
 					%>
 				</table>
-				<a href="adQnaList.do" class="btn btn-primary pull-right">목록보기</a>
-			
+				<input type="submit" class="btn btn-danger pull-right" value="삭제" onclick="javascript: QnaForm.action='adQnaDelOK.do';"></input>
 				<button type="button" onclick="AnswerShow()" class="btn pull-right">답변<%=answercheck?"보기" : "달기"%></button> 
+				<a href="adQnaList.do" class="btn btn-primary pull-left">목록보기</a>
 			
 		</div>
-		
 	</div>
+	</form>
+	
 		<br><br><br>
 		<div id="showA" style="display:block">
 			<%if(!answercheck){%>
@@ -128,15 +130,16 @@
 								</tbody>
 								<%} %>
 							</table>
-								
-							
 						
 						
 					</div>
 				</div>
 			<%} %>
 		</div>
-	
+		<div class="container">
+			
+		</div>
+		
 		<script type="text/javascript">
 			function AnswerShow(){
 				if(document.getElementById("showA").style.display == 'block'){

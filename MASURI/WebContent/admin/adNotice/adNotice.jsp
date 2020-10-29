@@ -14,19 +14,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="../user/support/sup_Notice.css?after">
+<link rel="stylesheet" href="../../user/support/sup_Notice.css?after">
 
 	<title>공지사항</title>
 </head>
 <body>
 	<%
-	
-	/*
-	String ID = null;
-		if(session.getAttribute("ID") != null){
-			ID = (String)session.getAttribute("ID");
-		}
-	*/
 		ArrayList<NoticeDTO> list = (ArrayList<NoticeDTO>)request.getAttribute("list");
 		int ppage = (int)request.getAttribute("page");
 		int max = (int)request.getAttribute("max");
@@ -34,7 +27,7 @@
 	%>
 	
 
-	<%@ include file="adNav.jsp" %>
+	<%@ include file="../adNav.jsp" %>
   
     
     

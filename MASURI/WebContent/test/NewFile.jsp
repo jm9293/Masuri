@@ -1,3 +1,8 @@
+<%@page import="java.text.SimpleDateFormat"%>
+
+<%@page import="java.sql.Date"%>
+<%@page import="com.masuri.dto.MonthscheduleDTO"%>
+<%@page import="com.masuri.dao.MonthscheduleDAO"%>
 <%@page import="com.masuri.dto.EngineerDTO"%>
 <%@page import="com.masuri.dao.EngineerDAO"%>
 <%@page import="sun.nio.ch.SelChImpl"%>
@@ -25,13 +30,15 @@
 
 <% 
 
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-EngineerDAO.select();
-EngineerDTO eng =  EngineerDAO.select("ID 03");
-eng.setIntro("소개지롱");
-EngineerDAO.update(eng);
-
-
+MonthscheduleDAO.select(11, "ID 01");
+MonthscheduleDTO schedule =  new MonthscheduleDTO();
+schedule.setEngid("ID 01");
+schedule.setMonth(11);
+schedule.setHoliday(new Date(sdf.parse("2020-11-09").getTime()));
+MonthscheduleDAO.insert(schedule);
+MonthscheduleDAO.select(11, "ID 01");
 
   
 

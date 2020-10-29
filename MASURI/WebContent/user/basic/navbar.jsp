@@ -133,7 +133,7 @@ if(userID!=null&&!logincheck){
                   <h3><%=userID%></h3>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary">회원정보 수정</button>
+                  <button type="button" class="btn btn-secondary" onclick="location.href='../basic/updateuser.do'">회원정보 수정</button>
                   <button type="button" class="btn btn-primary" onclick="location.href='../basic/login/logout.do'">로그아웃</button>
                 </div>
                 

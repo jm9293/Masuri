@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.masuri.command.Command;
+import com.masuri.command.UserUpdateGoCommand;
 import com.masuri.file.DefaultImgSet;
 import com.masuri.user.command.IdchkCommand;
 import com.masuri.user.command.LoginCommand;
@@ -18,8 +19,7 @@ import com.masuri.user.command.UserUpdateCommand;
 
 
 @WebServlet(urlPatterns = {"/user/basic/login/login.do","/user/basic/login/logout.do",
-		"/user/basic/login/idchk.do","/user/basic/signup.do"
-		,"/user/basic/userupdate.do"})
+		"/user/basic/login/idchk.do","/user/basic/signup.do","/user/basic/updateuser.do","/user/basic/updateGo.do"})
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -81,13 +81,21 @@ public class LoginController extends HttpServlet {
 			viewPage = "/user/basic/signupres.jsp";
 			break;
 			
-		case "userupdate.do":
-			System.out.println("signup");
+		case "updateuser.do":
+			System.out.println("update");
 			command = new UserUpdateCommand();
 			command.execute(request, response);
-			
+			viewPage = "/user/basic/updateuser.jsp";
+			break;
+		case "updateGo.do":
+			System.out.println("updateGo");
+			command = new UserUpdateGoCommand();
+			command.execute(request, response);
+			viewPage = "/user/basic/updateres.jsp";
 			break;
 		}
+		
+		
 		
 		if(viewPage != null) {
 			RequestDispatcher dispatcher = 

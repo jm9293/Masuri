@@ -10,10 +10,9 @@ import com.oreilly.servlet.MultipartRequest;
 public class Fileupload {
 
 	
-	public static boolean proflieImgupload(HttpServletRequest request,String inputname,String filepath) {
+	public static MultipartRequest proflieImgupload(HttpServletRequest request,String inputname,String filepath,String userID) {
 		boolean res = false;
 		String saveDirectory = request.getRealPath(filepath);
-		System.out.println(saveDirectory);
 	    String encoding = "utf-8"; 
 		int maxSize = 10*1024*1024; 
 		MultipartRequest multi =null;
@@ -25,7 +24,7 @@ public class Fileupload {
 			String type = multi.getContentType(inputname); 
 			File f = multi.getFile(inputname);
 			System.out.println(type);
-			File userimg = new File(saveDirectory+"/"+request.getSession().getAttribute("login")+".jpg");
+			File userimg = new File(saveDirectory+"/"+userID+".jpg");
 			
 			if(type.equals("image/jpeg")) {
 				if(userimg.exists()) {
@@ -40,10 +39,9 @@ public class Fileupload {
 			
 		} catch (Exception e) {
 			
-			e.printStackTrace();
-			res = false;
+			System.out.println("파일업로드 불가");
 		}
 		
-		return res;
+		return multi;
 	}
 }

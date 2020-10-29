@@ -13,7 +13,7 @@ import com.masuri.file.DefaultImgSet;
 
 public class SignupCommand implements Command {
 	
-	static String [] regarr = {
+	String [] regarr = {
 			"[a-z0-9]{4,6}",
 			"(?=.*[a-zA-Z])(?=.*\\d).{6,8}",
 			"[가-힣]{2,}",

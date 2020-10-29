@@ -26,13 +26,13 @@ public class UserUpdateGoCommand implements Command {
 		UserDTO user = null;
 		String userID = (String)request.getSession().getAttribute("login");
 		MultipartRequest multi = Fileupload.proflieImgupload(request, "file", "userimg", userID);
-		String inputfile = multi.getParameter("file");
+		String inputfile = multi.getParameter("file2");
 		String inputPW = multi.getParameter("inputPW");
 		String inputPWCHK = multi.getParameter("inputPWCHK");
 		String inputPhone = multi.getParameter("inputPhone");
 		String inputEmail = multi.getParameter("inputemail");
 	
-		System.out.println(inputPhone);
+		
 		boolean regchk = false;
 		int res = 0;
 		
@@ -50,8 +50,10 @@ public class UserUpdateGoCommand implements Command {
 		}
 		
 		if(inputfile!=null) {
-			regchk = true;
+			res = 1;
 		}
+		
+		
 		
 		if(inputPW!=null&&Pattern.matches(regarr[1], inputPW)&&inputPWCHK!=null&&inputPW.equals(inputPWCHK)) {
 			user.setPassword(inputPW);
@@ -78,12 +80,9 @@ public class UserUpdateGoCommand implements Command {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			request.setAttribute("res", res);
-		}else {
-			res = 0;
-			request.setAttribute("res", res);
+			
 		}
-
+		request.setAttribute("res", res);
 	}
 
 }

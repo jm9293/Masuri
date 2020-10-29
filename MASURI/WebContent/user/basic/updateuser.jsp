@@ -98,6 +98,7 @@
         
 
         <form action="updateGo.do" method="post" enctype="multipart/form-data">
+        	<input type = "hidden" name = "file2" value="upload" id= "file2" disabled>
             <img src="../../userimg/<%=user.getId()+".jpg"%>" alt="" id="profileimg">
             <div class="form-group">
                 <div class="input-box col-12 col-md-12">
@@ -178,7 +179,7 @@
 	
 	
 	
-    //$("#file").hide();
+    $("#file").hide();
     
     $("#file-btn").click(function(){
         $("#file").click();
@@ -204,9 +205,10 @@
        if($("#imgcheckbox").is(":checked")==true){
         $("#file").removeAttr("disabled");
         $("#file-btn").removeAttr("disabled");
-        
+        $("#file2").removeAttr("disabled");
        }else{
         $("#file").attr("disabled","");
+        $("#file2").attr("disabled","");
         $("#file-btn").attr("disabled","");
         $("#inputImg").removeClass("is-valid");
         $("#inputImg").val("파일경로");

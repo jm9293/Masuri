@@ -59,6 +59,7 @@ footer > div {
   display: block;
   position: relative;
   width: 100%;
+  min-height: 748px
 }
 
 .modal-body img {

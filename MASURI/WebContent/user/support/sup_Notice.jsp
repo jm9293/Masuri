@@ -38,21 +38,21 @@
 	<div class="content">
 		<h2>공지사항</h2>
 		<br>
-		<div class="menuname row col-12 col-md-10 table table-dark">
-			<div class="col-1 menu">No</div>
-			<div class="col-4 menu">제목</div>
-			<div class="col-3 menu">조회</div>
-			<div class="col-4 menu">작성일</div>
+		<div class="menuname menuborder row col-12 col-md-8 alert-primary">
+			<div class="col-4 col-md-2 menu">No</div>
+			<div class="col-8 col-md-4 menu">제목</div>
+			<div class="col-4 col-md-2 menu">조회</div>
+			<div class="col-8 col-md-4 menu">작성일</div>
 		</div>
 		<%
 			if(list != null){
 				for(int i = 0; i < list.size(); i++){
 		%>		
-		<div class="menuname row col-12 col-md-10 textlist" onclick="location.href='sup_NoticeView.do?page=<%= pageNum%>&uid=<%=list.get(i).getNum()%>'">
-			<div class="col-1 text"><%= list.get(i).getNum() %></div>
-			<div class="col-4 text"><%= list.get(i).getTitle() %></div>
-			<div class="col-3 text"><%= list.get(i).getViewcount() %></div>
-			<div class="col-4 text"><%= sdf.format(list.get(i).getWrtime()) %></div>
+		<div class="menuname row col-12 col-md-8 textlist" onclick="location.href='sup_NoticeView.do?page=<%= pageNum%>&uid=<%=list.get(i).getNum()%>'">
+			<div class="col-4 col-md-2 text"><%= list.get(i).getNum() %></div>
+			<div class="col-8 col-md-4 text"><%= list.get(i).getTitle() %></div>
+			<div class="col-4 col-md-2 text"><%= list.get(i).getViewcount() %></div>
+			<div class="col-8 col-md-4 text"><%= sdf.format(list.get(i).getWrtime()) %></div>
 		</div>
 			
 		<%		}

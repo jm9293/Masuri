@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.masuri.command.Command;
 import com.masuri.dao.EngineerDAO;
 import com.masuri.dto.EngineerDTO;
+import com.masuri.file.DefaultImgSet;
 
 public class EngCreateCommand implements Command {
 
@@ -16,7 +17,7 @@ public class EngCreateCommand implements Command {
 		
 		int cnt = 0;
 		EngineerDTO dto = new EngineerDTO();
-		
+		System.out.println(request.getRealPath(""));
 		String id = request.getParameter("id").trim();
 		String password = request.getParameter("pw").trim();
 		String name = request.getParameter("name").trim();
@@ -45,7 +46,7 @@ public class EngCreateCommand implements Command {
 		if(dto != null) {
 			try {
 				cnt = EngineerDAO.insert(dto);
-
+				DefaultImgSet.imgSet(request, "engimg", id);
 				request.setAttribute("result", cnt);
 				request.setAttribute("id", id);
 			} catch (SQLException e) {

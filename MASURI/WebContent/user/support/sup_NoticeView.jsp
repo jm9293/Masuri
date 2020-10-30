@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="sup_NoticeView.css?after">
 <% NoticeDTO dto = (NoticeDTO) request.getAttribute("list"); 
 	int pageNum = (int)request.getAttribute("page");
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 M월 d일 h시 m분");
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d hh:m");
 %>
 <style>
 </style>
@@ -38,29 +38,30 @@
 	<div class="content">
 	<h2>공지사항</h2>
 	<br>
-	<div class="menuname row col-10 table table-dark">
-			<div class="col-2 menu">번호</div>
-			<div class="col-4 menu">제목</div>
-			<div class="col-3 menu">조회수</div>
-			<div class="col-3 menu">작성일</div>
+	<div class="menuname menuborder row col-12 col-md-8 alert-primary">
+			<div class="col-4 col-md-2 menu">No</div>
+			<div class="col-8 col-md-4 menu">제목</div>
+			<div class="col-4 col-md-2 menu">조회</div>
+			<div class="col-8 col-md-4 menu">작성일</div>
 	</div>
 	<%
 		if(dto != null){
 	%>
-		<div class="menuname row col-10">
-			<div class="col-2 text"><%= dto.getNum() %></div>
-			<div class="col-4 text"><%= dto.getTitle() %></div>
-			<div class="col-3 text"><%= dto.getViewcount() %></div>
-			<div class="col-3 text"><%= sdf.format(dto.getWrtime()) %></div>
+		<div class="menuname row col-12 col-md-8">
+			<div class="col-4 col-md-2 text"><%= dto.getNum() %></div>
+			<div class="col-8 col-md-4 text"><%= dto.getTitle() %></div>
+			<div class="col-4 col-md-2 text"><%= dto.getViewcount() %></div>
+			<div class="col-8 col-md-4 text"><%= sdf.format(dto.getWrtime()) %></div>
 		</div>
 	<%		
 		}
 	%>
-		<div class="menuname row col-10">
-			<div class="contentbox col-12"><%= dto.getContent() %>asdasdasdasdasdasdasdasdasdasdasdasdasdasdsadasdas</div>
+		<h6>- 글 내용 -</h6>
+		<div class="row col-12 col-md-8 contentbox">
+			<textarea class="col-12" readonly><%= dto.getContent() %></textarea>
 		</div>
 	<br>
-	<button type="button" id="back" class="btn btn-primary btn-lg" onclick="location.href='sup_Notice.do?page=<%= pageNum%>'">목록으로</button>
+	<button type="button" id="back" class="btn btn-primary btn-md" onclick="location.href='sup_Notice.do?page=<%= pageNum%>'">목록으로</button>
 	<br><br>
 	</div>
 	

@@ -18,11 +18,11 @@ public class FaqCommand implements Command {
 		
 		try {
 			list = FaqDAO.select();
-			System.out.println("dd");
+
 			request.setAttribute("list", list);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("dd");
+		
 		}
 
 	}

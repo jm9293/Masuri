@@ -9,16 +9,26 @@
     line-height: 50px;
 }
 .textlist:hover{
-    background: rgb(109, 160, 253);
-    opacity: 0.8;
+    background: rgb(190, 189, 189);
+    opacity: 0.9;
+    font-weight: bold;
+}
+.textlist{
+    border-bottom: 1px solid rgb(158, 156, 156);
+}
+.menuborder{
+    border-radius: 5px 5px 0px 0px;
 }
 .text{
     box-sizing: border-box;
-    border-bottom: 1px solid rgb(158, 156, 156);
+   
     text-align: center;
     font-size: 15px;
     height: 50px;
     line-height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 h2{
     font-weight: bold;
@@ -46,34 +56,24 @@ h2{
 }
 .paging a.active{
     border-radius: 30%;
-    background-color: #2c7bf1;
+    background-color:  rgb(52, 152, 219);
     color: white;
-    border: 1px solid #2c7bf1;
+    border: 1px solid  rgb(52, 152, 219);
 }
 .paging a:hover:not(.active) {background-color: #ddd;}
-@media (min-width: 576px){
-    .menu{
-        font-size: 30px;
-        height: 80px;
-        line-height: 80px;
-    }
-    .text{
-        height: 80px;
-        font-size: 18px;
-    }
-}
+
 @media (min-width: 767px){
     h2{
-        margin-left: 10%;
+        margin-left: 20%;
     }
     .menu{
-        
-        font-size: 30px;
-        height: 80px;
-        line-height: 80px;
+        font-size: 20px;
+        height: 50px;
+        line-height: 50px;
     }
     .text{
-        height: 100px;
-        font-size: 30px;
+        height: 70px;
+        font-size: 20px;
+        line-height: 70px;
     }
 }

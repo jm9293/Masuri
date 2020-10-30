@@ -15,26 +15,11 @@
 <!--jquery 3.3.1 불러오기-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- 페이지 css -->
-<link rel="stylesheet" href="sup_QnaWrite.css?after">
+<link rel="stylesheet" href="sup_QnaWrite.css">
+<script src="sup_QnaWrite.js"></script>
 <%
 	int pageNum = Integer.parseInt(request.getParameter("page"));
 %>
-<script>
-function chkSubmit(){
-	frm = document.forms['frm'];
-	
-	var title = frm["title"].value.trim();
-	
-	if(title == ""){
-		alert("작성자 란은 반드시 입력해야 합니다.");
-		frm["title"].focus();
-		return false;
-	}
-	
-	return true;	
-		
-}
-</script>
 <title>MASURI</title>
 </head>
 <body>

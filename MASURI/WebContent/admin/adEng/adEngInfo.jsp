@@ -29,7 +29,7 @@
 
 	<div class="card container bg-warning" style="width: 400px; height: 600px; border: 1px solid white">
 	<form name="frm" action="adEngStatusChk.do">
-		<img class="card-img-top" src="../img/avatar2.png" alt="Card image"
+		<img class="card-img-top" src="../../engimg/<%=dto.getId() %>.jpg" alt="Card image"
 			style="width: 100%">
 		<div class="card-body">
 			<div class="btn-group pull-right">

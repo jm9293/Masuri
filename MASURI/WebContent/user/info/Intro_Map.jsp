@@ -15,7 +15,7 @@
          <!--jquery 3.3.1 불러오기-->
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
          <!-- 페이지 css -->
-         <link rel="stylesheet" href="Intro_Map.css?after">
+         <link rel="stylesheet" href="Intro_Map.css">
          <style> 
             
         </style>
@@ -32,14 +32,16 @@
 
       <!--메인 컨텐트 영역-->
       <div class="content">
-          <h2>오시는길</h2>
-          <button type="button" id="kakao"><a href="https://m.map.kakao.com/actions/detailMapView?id=27300029&refService=place" id="kakaoBtn">카카오맵으로 검색</a></button>
+          <h2 class="display-6">오시는길</h2>
+          <button class="btn btn-warning" type="button" id="kakao"><a href="https://m.map.kakao.com/actions/detailMapView?id=27300029&refService=place" id="kakaoBtn">카카오맵으로 검색</a></button>
         <div class="map_wrap">
             <div id="mapWrapper">
                 <div id="map"></div> <!-- 지도를 표시할 div 입니다 -->
+                <span class="badge badge-primary"><p class="h5">지도 view</p></span>
             </div>
             <div id="rvWrapper">
                 <div id="roadview"></div> <!-- 로드뷰를 표시할 div 입니다 -->
+                <span class="badge badge-primary"><p class="h5">로드 view</p></span>
             </div>
         </div>
       </div>

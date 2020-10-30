@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
-<%@page import="com.masuri.admin.command.AdLoginCommand"%>
+<%@ page import="com.masuri.admin.command.AdLoginCommand"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String adminID = (String)request.getSession().getAttribute("login");

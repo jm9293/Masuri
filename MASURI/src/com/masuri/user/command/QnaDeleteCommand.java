@@ -17,12 +17,15 @@ public class QnaDeleteCommand implements Command {
 		int uid = Integer.parseInt(request.getParameter("uid"));
 		QnaDTO dto = new QnaDTO();
 		dto.setNum(uid);
-		try {
-			cnt = QnaDAO.delete(dto);
+		if(uid > 0) {
 			
-			request.setAttribute("result", cnt);
-		} catch (SQLException e) {
-			e.printStackTrace();
+			try {
+				cnt = QnaDAO.delete(dto);
+				
+				request.setAttribute("result", cnt);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 
 	}

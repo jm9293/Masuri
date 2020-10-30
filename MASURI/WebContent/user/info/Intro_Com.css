@@ -1,53 +1,58 @@
 @charset "UTF-8";
-/* 회사 소개*/
 .content{
-    height: 1400px;
-    margin: auto;
-  } 
-   .intro_img{
-     background-repeat: no-repeat;
-     background-image: url("../img/intro_com1.jpg");
-     background-size: 100% 100%;
-     height: 300px;
-     position: absolute;
-     top: 0;
-   }
-   .intro_text{
-     line-height: 30px;
-     height: 300px;
-     position: absolute;
-     top: 301px;
-     
-   }
-   .intro_img2{
-     background-repeat: no-repeat;
-     background-image: url("../img/intro_com2.jpg");
-     background-size: 100% 100%;
-     height: 350px;
-     position: absolute;
-     top: 601px;
-
-   }
-   .intro_text2{
-     line-height: 30px;
-     height: 350px;
-     position: absolute;
-     top: 951px;
-   }
-   @media (min-width: 769px){
-     .content{
-       height: 800px;
-       
-     }
-     .intro_text{
-       top: 0;
-       left: 50%;
-     }
-     .intro_img2{
-       top: 401px;
-       left: 50%;
-     }
-     .intro_text2{
-       top: 401px;
-     }
-   }
+  margin: auto;
+}
+.imgbox{
+  height: 500px;
+}
+img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.wrap { position:relative; margin:0 auto; height:100%;border-radius: 10px;}
+.over { position:absolute;
+         top:0; left:0; width:100%; height:100%; 
+         background:#4c4c4d; 
+        opacity: 0.6;
+        color: aliceblue;    
+        border-radius: 10px; 
+}
+.over2{ position:absolute;
+  top:0; left:0; width:100%; height:100%; 
+  text-align:center; 
+  color: aliceblue;  
+  padding: 40px; 
+  border-radius: 10px;
+}
+#p1{
+  font-size: 20px;
+}
+.p2{
+  font-size: 13px;
+}
+@media (min-width: 576px){
+  .imgbox {
+    height: auto;
+  }
+  #p1{
+    font-size: 30px;
+  }
+  .p2{
+    font-size: 15px;
+  }
+}
+@media (min-width: 769px){
+  .imgbox {
+    height: auto;
+  }
+  .over2{
+    padding: 80px;
+  }
+  #p1{
+    font-size: 40px;
+  }
+  .p2{
+    font-size: 20px;
+  }
+}

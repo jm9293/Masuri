@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)http://localhost:8080/MASURI/admin/adEng/adEngInfo.do?uid=ID%2001 -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=divice-width, initial-scale=1">
+<link rel="stylesheet" href="./MASURI MANAGER_files/bootstrap.css">
+<link rel="stylesheet" href="./MASURI MANAGER_files/adEngInfo.css">
+<script src="./MASURI MANAGER_files/jquery-3.3.1.min.js.다운로드"></script>
+<script src="./MASURI MANAGER_files/bootstrap.min.js.다운로드"></script>
+
+
+<title>MASURI MANAGER</title>
+</head>
+<body class="cont">
+	
+
+	
+
+
+
+	
+	<nav class="navbar navbar-default">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="http://localhost:8080/MASURI/admin/adEng/adEngEdit.do">Masuri Editor Page</a>
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="http://localhost:8080/MASURI/admin/adEng/adEngEdit.do">직원관리</a></li>
+				<li><a href="http://localhost:8080/MASURI/admin/adUser/adUserEdit.do">유저관리</a></li>
+				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">공지사항</a>
+						<ul class="dropdown-menu">
+							<li><a href="http://localhost:8080/MASURI/admin/adEng/adNotice.do">공지사항</a></li>
+							<li><a href="http://localhost:8080/MASURI/admin/adEng/adFAQ.do">FaQ</a></li>				
+							<li><a href="http://localhost:8080/MASURI/admin/adEng/adQnaList.do">QnA</a></li>				                                  
+						</ul>
+					</li>
+				<li><a href="http://localhost:8080/MASURI/admin/adEng/*">설정관리</a>
+					
+				</li>
+			</ul>
+			
+		</div>
+	</nav>
+
+
+
+
+	<div class="card container bg-warning" style="width: 400px; height: 600px; border: 1px solid white">
+	<form name="frm" action="http://localhost:8080/MASURI/admin/adEng/adEngStatusChk.do">
+		<img class="card-img-top" src="./MASURI MANAGER_files/ID 01.jpg" alt="Card image" style="width: 100%">
+		<div class="card-body">
+			<div class="btn-group pull-right">
+				
+					<button type="submit" class="btn btn-sm" id="normal" onclick="adEngStatusChk.do">계정비활성화 지정</button>
+				
+				
+			</div>
+			<div>
+				<h4 class="card-title ">ID : ID 01</h4>
+				<p class="card-text ">이름 : NAME 01</p>
+			
+				<p class="card-text ">Email : EMAIL 01</p>
+				<p class="card-text ">H.P: PHONE 01</p>
+				<p class="card-text ">기사 소개: INTRO 01</p>
+				<p class="card-text ">담당 지역: AREA 01</p>
+				<a class="btn text-white bg-danger pull-right " href="http://localhost:8080/MASURI/admin/adEng/adEngEdit.do">닫기</a>
+			</div>
+		</div>
+		<input type="hidden" name="uid" value="ID 01">
+		<input type="hidden" name="password" value="PASSWORD 01">
+		<input type="hidden" name="name" value="NAME 01">
+		<input type="hidden" name="phone" value="PHONE 01">
+		<input type="hidden" name="chk" value="false">
+		<input type="hidden" name="area" value="AREA 01">
+		<input type="hidden" name="intro" value="INTRO 01">
+		<input type="hidden" name="email" value="EMAIL 01">
+		</form>
+	</div>
+
+</body></html>

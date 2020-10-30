@@ -37,15 +37,17 @@
 	<% if(list != null){
 		for(int i = 0; i < list.size(); i++){
 	%>		
-		<div class="col-md-10 question">
-			<div class="alert alert-secondary"><%= list.get(i).getQuestion() %></div>
-			<div class="alert alert-dark"><p><%= list.get(i).getAnswer() %></p></div>
+		<div class="col-12 col-md-8 faqbox">
+			<textarea class="col-12 alert alert-primary question" readonly><%= list.get(i).getQuestion() %></textarea>
 		</div>
+		<div class="col-12 col-md-8 faqbox">
+			<textarea class="col-12 alert alert-secondary answer" readonly><%= list.get(i).getAnswer() %></textarea>
+		</div>
+		<br>
 	<% }
 		
 	} %>
 	</div>
-	
 	<!--메인 컨텐트 끝-->
 
 	<!--푸터 시작-->

@@ -5,3 +5,15 @@
 .open{
     margin-left: 80%;
 }
+#content{
+    height: 376px;
+}
+h2{
+    font-weight: bold;
+    margin-left: 5%;
+}
+@media (min-width: 767px){
+    h2{
+        margin-left: 18%;
+    }
+}

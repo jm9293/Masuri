@@ -1,66 +1,50 @@
 @charset "UTF-8";
-.menuname{
+.content{
+    margin-top: 5%;
+}
+.titlebox{
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 150px;
     margin: auto;
 }
-.menu{
-    text-align: center;
-    font-size: 15px;
-    height: 50px;
-    line-height: 50px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+h2{
+    font-weight: bold;
 }
-.text{
-    box-sizing: border-box;
-    text-align: center;
-    font-size: 15px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    height: 50px;
-    line-height: 50px;
-}
- h2{
-     font-weight: bold;
-     margin-left: 5%;
- }
- h6{
-     margin-left: 5%;
- }
-.cont{
-    height: 393px;
+.contentbox{
+    margin: auto;
     overflow: auto;
+    height: 190px;
+}
+.contentbox2{
+    margin: auto;
+    height: 100px;
+}
+.answerbox{
+    text-align: left;
+    overflow: auto;
+    height: 50px;
     margin: auto;
 }
-.menuborder{
-    border-radius: 5px 5px 0px 0px;
+.head{
+    margin: auto;
+}
+.title{
+    margin: auto;
 }
  #select{
     text-align: center;
-    margin-left: 50%;
+    margin-left: 30%;
  }
  #select button{
      margin: 5px;
  }
  #back{
-     margin-left: 40%;
+     margin-left: 37%;
  }
  @media (min-width: 767px){
-     h2, h6{
-         margin-left: 18%;
-     }
-     .menu{
-        font-size: 20px;
-    }
-    .text{
-        font-size: 20px;
-        height: 70px;
-        line-height: 70px;
-    }
-    .contentbox{
-        font-size: 20px;
-    }
     #back{
         margin-left: 45%;
     }

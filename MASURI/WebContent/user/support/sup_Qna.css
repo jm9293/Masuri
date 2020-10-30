@@ -2,14 +2,17 @@
 .menuname{
     margin: auto;
 }
+.content{
+    margin-top: 5%;
+}
 .menu{
     text-align: center;
-    font-size: 13px;
-    height: 50px;
-    line-height: 50px;
+    height: 45px;
+    line-height: 45px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    border: 1px solid white;
 }
 .text{
     box-sizing: border-box;
@@ -21,12 +24,31 @@
     height: 50px;
     line-height: 50px;
 }
+#text1{
+    border-right: 1px dotted rgb(190, 189, 189);
+    border-bottom: 1px dotted rgb(190, 189, 189);
+}
+#text2{
+    border-right: 1px dotted rgb(190, 189, 189);
+    border-bottom: 1px dotted rgb(190, 189, 189);
+}
+#text3{
+    border-bottom: 1px dotted rgb(190, 189, 189);
+}
+#text4{
+    border-right: 1px dotted rgb(190, 189, 189);
+}
+#text5{
+    border-right: 1px dotted rgb(190, 189, 189);
+}
 .menuborder{
     border-radius: 5px 5px 0px 0px;
 }
 h2{
     font-weight: bold;
-    margin-left: 5%;
+}
+.head{
+    margin: auto;
 }
 .textlist{
     border-bottom: 1px solid rgb(158, 156, 156);
@@ -34,7 +56,6 @@ h2{
 .textlist:hover{
     background: rgb(190, 189, 189);
     opacity: 0.9;
-    font-weight: bold;
 }
 .box_ul{
     text-align: center;
@@ -66,18 +87,19 @@ h2{
     margin-left: 37%;
  }
 @media (min-width: 767px){
-    h2{
-        margin-left: 20%;
-    }
     #write{
         margin-left: 48%;
      }
-     .menu{
-        font-size: 20px;
+     #text1{
+        border-right: 1px dotted rgb(190, 189, 189);
+        border-bottom: 0px;
     }
-    .text{
-        font-size: 20px;
-        height: 70px;
-        line-height: 70px;
+    #text2{
+        border-right: 1px dotted rgb(190, 189, 189);
+        border-bottom: 0px;
+    }
+    #text3{
+        border-right: 1px dotted rgb(190, 189, 189);
+        border-bottom: 0px;
     }
 }

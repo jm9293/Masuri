@@ -32,22 +32,51 @@
 	
 	<!--메인 컨텐트 영역-->
 	<div class="content">
-	<h2>FAQ 자주 묻는 질문</h2>
+	<div class="col-12 col-md-8 head"><h2>FAQ 자주 묻는 질문</h2></div>
 	<br>
 	<% if(list != null){
-		for(int i = 0; i < list.size(); i++){
-	%>		
-		<div class="col-12 col-md-8 faqbox">
-			<textarea class="col-12 alert alert-primary question" readonly><%= list.get(i).getQuestion() %></textarea>
+	%>
+		<div class="accordion col-12 col-md-8 box" id="accordionExample">
+  			<div class="card">
+    			<div class="card-header" id="headingOne">
+      			<h2 class="mb-0">
+        			<button class="btn btn-link btn-block text-left col-12" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          			<%= list.get(0).getQuestion() %>
+        			</button>
+      			</h2>
+    			</div>
+
+    			<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      			<div class="card-body">
+        			<textarea class="col-12 form-control text" readonly><%= list.get(0).getAnswer() %></textarea>
+      			</div>
+    			</div>
+  			</div>
+				
+				<%
+					for(int i = 1; i < list.size(); i++){
+				%>	
+
+  			<div class="card">
+    			<div class="card-header" id="headingTwo<%=i %>">
+      			<h2 class="mb-0">
+        			<button class="btn btn-link btn-block text-left collapsed col-12" type="button" data-toggle="collapse" data-target="#collapseTwo<%=i %>" aria-expanded="false" aria-controls="collapseTwo<%=i %>">
+          			<%= list.get(i).getQuestion() %>
+        			</button>
+      			</h2>
+    			</div>
+    			<div id="collapseTwo<%=i %>" class="collapse" aria-labelledby="headingTwo<%=i %>" data-parent="#accordionExample">
+      			<div class="card-body">
+        			<textarea class="col-12 form-control" readonly><%= list.get(i).getAnswer() %></textarea>
+      			</div>
+    			</div>
+  			</div>
+				<% }
+				%>
 		</div>
-		<div class="col-12 col-md-8 faqbox">
-			<textarea class="col-12 alert alert-secondary answer" readonly><%= list.get(i).getAnswer() %></textarea>
-		</div>
-		<br>
-	<% }
-		
+	<%
 	} %>
-	</div>
+		</div>
 	<!--메인 컨텐트 끝-->
 
 	<!--푸터 시작-->

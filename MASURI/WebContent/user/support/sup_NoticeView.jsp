@@ -36,30 +36,22 @@
 	
 	<!--메인 컨텐트 영역-->
 	<div class="content">
-	<h2>공지사항</h2>
+	<div class="col-12 col-md-8 head"><h2>공지사항</h2></div>
 	<br>
-	<div class="menuname menuborder row col-12 col-md-8 alert-primary">
-			<div class="col-4 col-md-2 menu">No</div>
-			<div class="col-8 col-md-4 menu">제목</div>
-			<div class="col-4 col-md-2 menu">조회</div>
-			<div class="col-8 col-md-4 menu">작성일</div>
-	</div>
 	<%
 		if(dto != null){
 	%>
-		<div class="menuname row col-12 col-md-8">
-			<div class="col-4 col-md-2 text"><%= dto.getNum() %></div>
-			<div class="col-8 col-md-4 text"><%= dto.getTitle() %></div>
-			<div class="col-4 col-md-2 text"><%= dto.getViewcount() %></div>
-			<div class="col-8 col-md-4 text"><%= sdf.format(dto.getWrtime()) %></div>
+		<div class="col-12 col-md-8 titlebox">
+		<h3 class="title">글 제목 : <%= dto.getTitle() %></h3><br>
+		<h6 class="title">조회수 : <%= dto.getViewcount() %> </h6>
+		<h6 class="title">작성일 : <%= sdf.format(dto.getWrtime()) %></h6>
+		</div>
+		<div class="row col-12 col-md-8 contentbox">
+			<textarea class="col-12 form-control" readonly><%= dto.getContent() %></textarea>
 		</div>
 	<%		
 		}
-	%>
-		<h6>- 글 내용 -</h6>
-		<div class="row col-12 col-md-8 contentbox">
-			<textarea class="col-12" readonly><%= dto.getContent() %></textarea>
-		</div>
+	%>	
 	<br>
 	<button type="button" id="back" class="btn btn-primary btn-md" onclick="location.href='sup_Notice.do?page=<%= pageNum%>'">목록으로</button>
 	<br><br>

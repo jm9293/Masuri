@@ -38,7 +38,7 @@
 	
 	<!--메인 컨텐트 영역-->
 	<div class="content">
-		<h2>Q&A 상담게시판</h2>
+		<div class="col-12 col-md-8 head"><h2>Q&A 상담게시판</h2></div>
 		<br>
 		<div class="menuname menuborder row col-12 col-md-8 alert-primary">
 			<div class="col-2 col-md-1 menu">No</div>
@@ -53,21 +53,21 @@
 				for(int i = 0; i < list.size(); i++){
 		%>
 		<div class="menuname textarea row col-12 col-md-8 textlist" onclick="location.href='sup_QnaView.do?page=<%= pageNum%>&uid=<%= list.get(i).getNum()%>'">
-			<div class="col-2 col-md-1 text"><%= list.get(i).getNum() %></div>
+			<div class="col-2 col-md-1 text" id="text1"><%= list.get(i).getNum() %></div>
 			<%
 				if(list.get(i).getAnswer() != null){
 			%>
-				<div class="col-6 col-md-3 text"><%= list.get(i).getTitle() %> [답변완료]</div>
+				<div class="col-6 col-md-3 text" id="text2"><%= list.get(i).getTitle() %> [답변완료]</div>
 			<%		
 				}else{
 			%>
-				<div class="col-6 col-md-3 text"><%= list.get(i).getTitle() %></div>
+				<div class="col-6 col-md-3 text" id="text2"><%= list.get(i).getTitle() %></div>
 			<%		
 				}
 			%>
-			<div class="col-4 col-md-2 text"><%= list.get(i).getUserid() %></div>
-			<div class="col-2 col-md-2 text"><%= list.get(i).getViewcount() %></div>
-			<div class="col-6 col-md-2 text"><%= sdf.format(list.get(i).getWrtime()) %></div>
+			<div class="col-4 col-md-2 text" id="text3"><%= list.get(i).getUserid() %></div>
+			<div class="col-2 col-md-2 text" id="text4"><%= list.get(i).getViewcount() %></div>
+			<div class="col-6 col-md-2 text" id="text5"><%= sdf.format(list.get(i).getWrtime()) %></div>
 			<%
 				if(!list.get(i).getOpen()){
 			%>

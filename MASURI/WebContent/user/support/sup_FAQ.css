@@ -1,22 +1,16 @@
 @charset "UTF-8";
-.faqbox{
-    margin: auto;
-}
-.question{
-    height: 50px;
-    overflow: auto;
-    font-weight: bold;
-}
-.answer{
-    height: 150px;
-    overflow: auto;
+.content{
+    margin-top: 5%;
 }
 h2{
     font-weight: bold;
-    margin-left: 5%;
 }
-@media (min-width: 767px){
-    h2{
-        margin-left: 20%;
-    }
+.head{
+    margin: auto;
+}
+.box{
+    margin: auto;
+}
+.card-header{
+    height: 50px;
 }

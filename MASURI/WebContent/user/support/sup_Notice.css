@@ -2,16 +2,19 @@
 .menuname{
     margin: auto;
 }
+.content{
+    margin-top: 5%;
+}
 .menu{
     text-align: center;
-    font-size: 15px;
-    height: 50px;
-    line-height: 50px;
+    height: 45px;
+    line-height: 45px;
+    box-sizing: border-box;
+    border: 1px solid white;
 }
 .textlist:hover{
     background: rgb(190, 189, 189);
     opacity: 0.9;
-    font-weight: bold;
 }
 .textlist{
     border-bottom: 1px solid rgb(158, 156, 156);
@@ -21,18 +24,28 @@
 }
 .text{
     box-sizing: border-box;
-   
     text-align: center;
-    font-size: 15px;
-    height: 50px;
-    line-height: 50px;
+    height: 45px;
+    line-height: 45px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+#text1{
+    border-right: 1px dotted rgb(190, 189, 189);
+    border-bottom: 1px dotted rgb(190, 189, 189);
+}
+#text2{
+    border-bottom: 1px dotted rgb(190, 189, 189);
+}
+#text3{
+    border-right: 1px dotted rgb(190, 189, 189);
+}
 h2{
     font-weight: bold;
-    margin-left: 5%;
+}
+.head{
+    margin: auto;
 }
 .box_ul{
     text-align: center;
@@ -63,17 +76,15 @@ h2{
 .paging a:hover:not(.active) {background-color: #ddd;}
 
 @media (min-width: 767px){
-    h2{
-        margin-left: 20%;
+    #text1{
+        border-right: 1px dotted rgb(190, 189, 189);
+        border-bottom: 0px;
     }
-    .menu{
-        font-size: 20px;
-        height: 50px;
-        line-height: 50px;
+    #text2{
+        border-right: 1px dotted rgb(190, 189, 189);
+        border-bottom: 0px;
     }
-    .text{
-        height: 70px;
-        font-size: 20px;
-        line-height: 70px;
+    #text3{
+        border-right: 1px dotted rgb(190, 189, 189);
     }
 }

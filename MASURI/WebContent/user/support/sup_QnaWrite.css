@@ -1,4 +1,7 @@
 @charset "UTF-8";
+.content{
+    margin-top: 5%;
+}
 .contain{
     margin: auto;
 }
@@ -6,14 +9,12 @@
     margin-left: 80%;
 }
 #content{
-    height: 376px;
+    height: 200px;
+    overflow: auto;
 }
 h2{
     font-weight: bold;
-    margin-left: 5%;
 }
-@media (min-width: 767px){
-    h2{
-        margin-left: 18%;
-    }
+.head{
+    margin: auto;
 }

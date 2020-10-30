@@ -46,62 +46,55 @@
 	
 	<!--메인 컨텐트 영역-->
 	<div class="content">
-	<h2>Q&A 상담게시판</h2>
+	<div class="col-12 col-md-8 head"><h2>Q&A 상담게시판</h2></div>
 	<br>
-		<div class="menuname menuborder row col-12 col-md-8 alert-primary">
-			<div class="col-2 col-md-1 menu">No</div>
-			<div class="col-6 col-md-3 menu">제목</div>
-			<div class="col-4 col-md-2 menu">작성자</div>
-			<div class="col-2 col-md-2 menu">조회</div>
-			<div class="col-6 col-md-2 menu">작성일</div>
-			<div class="col-4 col-md-2 menu">공개글</div>			
-		</div>
-		<div class="menuname row col-12 col-md-8">
-			<div class="col-2 col-md-1 text"><%= dto.getNum() %></div>
-			<div class="col-6 col-md-3 text"><%= dto.getTitle() %></div>
-			<div class="col-4 col-md-2 text"><%= dto.getUserid() %></div>
-			<div class="col-2 col-md-2 text"><%= dto.getViewcount() %></div>
-			<div class="col-6 col-md-2 text"><%= sdf.format(dto.getWrtime()) %></div>
-			<% 
+	<%
+		if(dto != null){
+	%>
+		<div class="col-12 col-md-8 titlebox">
+		<h3 class="title">글 제목 : <%= dto.getTitle() %></h3><br>
+		<h6 class="title">작성자 : <%= dto.getUserid() %> </h6>
+		<h6 class="title">조회수 : <%= dto.getViewcount() %> </h6>
+		<h6 class="title">작성일 : <%= sdf.format(dto.getWrtime()) %></h6>
+		<% 
 				if(!dto.getOpen()){
 			%>
-				<div class="col-4 col-md-2 text">비공개</div>
-			<%		
-				}else{
-			%>
-				<div class="col-4 col-md-2 text">공개</div>
+				<h6 class="title">비공개 글</h6>
 			<%		
 				}
 			%>
 		</div>
-		<h6>- 글 내용 -</h6>
-		<div class="row col-12 col-md-8 cont">
-			<textarea class="col-12" readonly><%= dto.getContent() %></textarea>
+		<div class="row col-12 col-md-8 contentbox">
+			<textarea class="col-12 form-control" readonly><%= dto.getContent() %></textarea>
 		</div>
 		<%
 			if(dto.getAnswer() != null){
 		%>
 		<br>
-		<h6>- 답변 내용 - <br>작성일: <%= sdf.format(dto.getAntime()) %></h6>
-		<div class="contentbox row col-12 col-md-8">
-			<div class="col-12"><%= dto.getAnswer() %></div>
+		<div class="col-12 col-md-8 answerbox"><h6>- 답변 내용 - <br>작성일: <%= sdf.format(dto.getAntime()) %></h6></div>
+		<div class="contentbox2 row col-12 col-md-8">
+			<textarea class="col-12 form-control" readonly><%= dto.getAnswer() %></textarea>
 		</div>
 		<%		
 			}
 		%>
-		
-	<br>
+		<br>
 	<%
 		if(userID != null && userID.equals(dto.getUserid())){
 	%>
-	<div id="select" class="row col-8">
+	<div class="row col-12 col-md-8">
+		<div id="select" class="col-12">
 		<button type="button" class="btn btn-primary btn-md" onclick="location.href='sup_QnaUpdate.do?page=<%= pageNum%>&uid=<%=dto.getNum()%>'">수정</button>
 		<button type="button" class="btn btn-secondary btn-md" onclick="location.href='sup_QnaDelete.do?uid=<%=dto.getNum()%>'">삭제</button>
+		</div>
 	</div>
 	<br>
 	<%			
 		}
-	%>	
+	%>
+	<%		
+		}
+	%>		
 	<button type="button" id="back" class="btn btn-dark btn-md" onclick="location.href='sup_Qna.do?page=<%= pageNum%>'">목록으로</button>
 	
 	<br><br>

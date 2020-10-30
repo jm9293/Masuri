@@ -46,7 +46,7 @@
 	
 	<!--메인 컨텐트 영역-->
 	<div class="content">
-		<h2>Q&A 상담게시판</h2>
+		<div class="col-12 col-md-8 head"><h2>Q&A 상담게시판</h2></div>
 		<br>
 		<div class="col-12 col-md-8 contain">
 		<form name="frm" action="sup_QnaUpdateOk.do" method="post" onsubmit="return chkSubmit()">

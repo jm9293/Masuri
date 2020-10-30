@@ -36,7 +36,7 @@
 	
 	<!--메인 컨텐트 영역-->
 	<div class="content">
-		<h2>공지사항</h2>
+		<div class="col-12 col-md-8 head"><h2>공지사항</h2></div>
 		<br>
 		<div class="menuname menuborder row col-12 col-md-8 alert-primary">
 			<div class="col-4 col-md-2 menu">No</div>
@@ -49,9 +49,9 @@
 				for(int i = 0; i < list.size(); i++){
 		%>		
 		<div class="menuname row col-12 col-md-8 textlist" onclick="location.href='sup_NoticeView.do?page=<%= pageNum%>&uid=<%=list.get(i).getNum()%>'">
-			<div class="col-4 col-md-2 text"><%= list.get(i).getNum() %></div>
-			<div class="col-8 col-md-4 text"><%= list.get(i).getTitle() %></div>
-			<div class="col-4 col-md-2 text"><%= list.get(i).getViewcount() %></div>
+			<div class="col-4 col-md-2 text" id="text1"><%= list.get(i).getNum() %></div>
+			<div class="col-8 col-md-4 text" id="text2"><%= list.get(i).getTitle() %></div>
+			<div class="col-4 col-md-2 text" id="text3"><%= list.get(i).getViewcount() %></div>
 			<div class="col-8 col-md-4 text"><%= sdf.format(list.get(i).getWrtime()) %></div>
 		</div>
 			

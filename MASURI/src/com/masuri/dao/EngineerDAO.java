@@ -1,6 +1,7 @@
 package com.masuri.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -200,6 +201,50 @@ public class EngineerDAO {
 		 	
 		return check;
 	}
+	
+	
+	public static ArrayList<EngineerDTO> resSelect(Date date, int timeNum ,String area) throws SQLException { //해당일 해당시간 해당장소에 예약가능한 기사 명단뽑기
+		ArrayList<EngineerDTO> list = new ArrayList<EngineerDTO>();
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("SELECT * FROM engineerdata WHERE id not in (SELECT engid FROM monthschedule WHERE holiday = ?)"
+					+ " and id not in (SELECT engid FROM dayschedule WHERE time"+timeNum+" is not null and day = ?) and area =? and state = 'false'");
+			
+			pstmt.setDate(1, date);
+			pstmt.setDate(2, date);
+			pstmt.setString(3, area);
+			
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				EngineerDTO engineer = new EngineerDTO();
+				engineer.setEngnum(rs.getInt("engnum"));
+				engineer.setId(rs.getString("id"));
+				engineer.setPassword(rs.getString("password"));
+				engineer.setName(rs.getString("name"));
+				engineer.setArea(rs.getString("area"));
+				engineer.setEmail(rs.getString("email"));
+				engineer.setIntro(rs.getString("intro"));
+				engineer.setPhone(rs.getString("phone"));
+				engineer.setState(Boolean.parseBoolean(rs.getString("state")));
+				list.add(engineer);
+			}
+		
+			for (EngineerDTO engineerDTO : list) {
+				System.out.println(engineerDTO);
+			}
+		
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 
+		return list;
+	}
+	
 	
 	public static void close() {
 		try {

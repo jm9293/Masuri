@@ -32,16 +32,8 @@
 
 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-MonthscheduleDAO.select(11, "ID 01");
-MonthscheduleDTO schedule =  new MonthscheduleDTO();
-schedule.setEngid("ID 01");
-schedule.setMonth(11);
-schedule.setHoliday(new Date(sdf.parse("2020-11-09").getTime()));
-MonthscheduleDAO.delete(11, "ID 01");
-MonthscheduleDAO.insert(schedule);
-MonthscheduleDAO.insert(schedule);
-MonthscheduleDAO.insert(schedule);
-MonthscheduleDAO.select(11, "ID 01");
+EngineerDAO.resSelect(new Date(sdf.parse("2020-11-02").getTime()), 1, "중랑구");
+
 
   
 

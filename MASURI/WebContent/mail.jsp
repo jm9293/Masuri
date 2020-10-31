@@ -11,11 +11,11 @@
     pageEncoding="UTF-8"%>
 <%
 
- 
+ //devU01TX0FVVEgyMDIwMTAzMDA5NTkxMDExMDM0Nzg= 도로명주소  api키
 final String from = "masuri1019@gmail.com";
-String to = "jm9293@naver.com"; //받는사람
+String to = ""; //받는사람
 String subject = "ㅎㅇㅎㅇㅎㅇ"; //제목
-String content = "<h1>렛츠고<h1>"; //내용
+String content = "<h1>내용<h1>"; //내용
 // 입력값 받음
  
 Properties p = new Properties(); // 정보를 담을 객체

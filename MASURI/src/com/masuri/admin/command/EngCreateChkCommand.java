@@ -18,6 +18,7 @@ public class EngCreateChkCommand implements Command {
 	    try {
 			for (EngineerDTO eng : EngineerDAO.select()) {
 				idList.add(eng.getId());
+				   request.setAttribute("idList", idList);
 			}
 			
 		} catch (SQLException e) {
@@ -25,7 +26,7 @@ public class EngCreateChkCommand implements Command {
 			e.printStackTrace();
 		}
 	    
-	    request.setAttribute("idList", idList);
+	 
 
 	}
 

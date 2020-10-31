@@ -20,8 +20,8 @@ import com.masuri.command.Command;
 
 
 
-@WebServlet(urlPatterns = {"/admin/adNotice.do","/admin/adWrite.do","/admin/adRead.do",
-		"/admin/adWriteOK.do","/admin/adNoticeUpdate.do","/admin/adNoticeUpdateOK.do","/admin/adNoticeDelOK.do"})
+@WebServlet(urlPatterns = {"/admin/adNotice/adNotice.do","/admin/adNotice/adWrite.do","/admin/adNotice/adRead.do",
+		"/admin/adNotice/adWriteOK.do","/admin/adNotice/adNoticeUpdate.do","/admin/adNotice/adNoticeUpdateOK.do","/admin/adNotice/adNoticeDelOK.do"})
 public class AdminNoticeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -50,46 +50,46 @@ public class AdminNoticeController extends HttpServlet {
 		String viewPage = null; //어떠한 페이지(뷰)로 보여줄지 결정
 		
 		switch(com) {
-		case "/admin/adNotice.do":
+		case "/admin/adNotice/adNotice.do":
 			command =  new AdNoticeCommand();
 			command.execute(request, response);
-			viewPage = "/admin/adNotice.jsp";
+			viewPage = "/admin/adNotice/adNotice.jsp";
 			break;
 			
-		case "/admin/adWriteOK.do":
+		case "/admin/adNotice/adWriteOK.do":
 			command =  new AdWriteOK();
 			command.execute(request, response);
-			viewPage = "/admin/adWriteOK.jsp";
+			viewPage = "/admin/adNotice/adWriteOK.jsp";
 			break;
 			
-		case "/admin/adWrite.do":
+		case "/admin/adNotice/adWrite.do":
 			command =  new AdWriteCommand();
 			command.execute(request, response);
-			viewPage = "/admin/adWrite.jsp";
+			viewPage = "/admin/adNotice/adWrite.jsp";
 			break;
 			
-		case "/admin/adRead.do":
+		case "/admin/adNotice/adRead.do":
 			command =  new AdViewCommand();
 			command.execute(request, response);
-			viewPage = "/admin/adRead.jsp";
+			viewPage = "/admin/adNotice/adRead.jsp";
 			break;
 			
-		case "/admin/adNoticeUpdate.do":
+		case "/admin/adNotice/adNoticeUpdate.do":
 			command =  new AdNoticeUpdate();
 			command.execute(request, response);
-			viewPage = "/admin/adNoticeUpdate.jsp";
+			viewPage = "/admin/adNotice/adNoticeUpdate.jsp";
 			break;
 			
-		case "/admin/adNoticeUpdateOK.do":
+		case "/admin/adNotice/adNoticeUpdateOK.do":
 			command =  new AdNoticeUpdateOK();
 			command.execute(request, response);
-			viewPage = "/admin/adNoticeUpdateOK.jsp";
+			viewPage = "/admin/adNotice/adNoticeUpdateOK.jsp";
 			break;
 			
-		case "/admin/adNoticeDelOK.do":
+		case "/admin/adNotice/adNoticeDelOK.do":
 			command =  new AdNoticeDelOK();
 			command.execute(request, response);
-			viewPage = "/admin/adNoticeDelOK.jsp";
+			viewPage = "/admin/adNotice/adNoticeDelOK.jsp";
 			break;
 		} 
 		

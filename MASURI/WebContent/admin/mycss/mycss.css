@@ -1,0 +1,275 @@
+@charset "UTF-8";
+
+.mini {
+	min-width: 280px;
+}
+
+.logo {
+	height: 80px;
+}
+
+.hgh{
+	height: 40px;
+	max-height: 40px;
+}
+
+.navi {
+	display: inline-block;
+}
+
+.mymodal {
+	width: 40%;
+	border: 1px solid whitd;
+	background-color:#ddd;
+}
+.mymodal2 {
+	width: 40%;
+	border: 1px solid whitd;
+	background-color:  rgb(202, 244, 255);
+}
+.c-dg{
+	background-color: threedhighlight;
+}
+
+.fo { 
+	font-family: fantasy; 
+	font-size: 18px	
+}
+
+.btn-group-sm>.btn, .btn-sm {
+    padding: .25rem .75rem;
+    font-size: .6rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+}
+
+nav {
+	width: 100%;
+}
+
+lrline{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#myRbtn {
+	float: right;
+}
+#myRbtn2 {
+	float: right;
+	background-color: window;
+	border: 0.5px solid black;
+}
+#myRbtn3 {
+	float: right;
+	background-color: rgba(255,30,70,0.5);
+}
+#myRbtn4 {
+	float: right;
+	background-color: rgba(255,200,250,0.5);
+}
+#black{
+    box-sizing: border-box;
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+}
+#normal{
+    box-sizing: border-box;
+    border: 1px solid black;
+     background-color: white;
+}
+.nopad{
+	padding: 0 !important;
+}
+.tab-view{
+	width: 15%;
+}
+.tab-title{
+	width: 50%;
+}
+.tab-title2{
+	width: 90%;
+}
+.tab-date{
+	width: 20%;
+}
+.tab-c1{
+	width: 5%;
+}
+
+.emailf{
+	width:100%;
+}
+.emailg{
+	width:10%;
+	font-size: 1.3em;
+}
+.emailb{
+	width:90%;
+	float: right;
+}
+table {
+	font-size: 0.8em;
+	text-align: center;
+}
+
+.fontsm{
+	width: 7rem;
+	font-size: 0.8em;
+	text-align: center;
+}
+
+.srctxt{
+	font-size: 0.8em;
+	width: 200px;
+}
+.mycard{
+	width: 100%;
+	height: 8rem;
+}
+.my-ch{
+	background-color: #ddd;
+	height: 2rem;
+	padding: 3px 0px 0px 8px;
+}
+.my-cb{
+	background-color: #aaa;
+	height: 3rem;
+	padding: 5px 0px 0px 8px;
+}
+.my-cf{
+	background-color: #eee;
+	height: 3rem;
+	padding: 3px 0px 0px 8px;
+}
+
+.my-ch2{
+	background-color: #b4f0ff;
+	height: 2rem;
+	padding: 3px 0px 0px 8px;
+}
+.my-cb2{
+	background-color: #75e3ff;
+	height: 3rem;
+	padding: 5px 0px 0px 8px;
+}
+.my-cf2{
+	background-color: #d2f7ff;
+	height: 3rem;
+	padding: 3px 0px 0px 8px;
+}
+.g-content{
+	font-size: 1rem;
+	height:300px;
+	border: 1px solid #eee;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+	.srctxt {
+		font-size: 0.5em;
+	}	
+	
+	.mymodal {
+		width: 60%;
+	}
+	.mymodal2 {
+		width: 60%;
+	}
+	.emailb{
+		width:100%;
+	}
+	.tab-view{
+		font-size: 0.5rem;
+	}
+	.tab-title{
+		font-size: 0.8rem;
+	}
+	.tab-title2{
+		font-size: 0.8rem;
+	}
+	.tab-date{
+		font-size: 0.5rem;
+	}
+	.tab-c1{
+		font-size: 0.5rem;
+	}
+	
+}
+@media only screen and (max-width: 510px) {
+	.mymodal {
+		width: 90%;
+	}
+	.mymodal2 {
+		width: 90%;
+	}
+	.tab-view{
+		font-size: 0.3rem;
+	}
+	.tab-title{
+		font-size: 0.5rem;
+	}
+	.tab-title2{
+		font-size: 0.5rem;
+	}
+	.tab-date{
+		font-size: 0.3rem;
+	}
+	.tab-c1{
+		font-size: 0.3rem;
+	}
+	#myRbtn {
+	width: 100%;
+	}
+	#myRbtn3 {
+	width: 100%;
+	}
+	#myLbtn{
+	width: 100%;
+	}
+}
+
+@media only screen and (max-width: 320px) {
+
+	
+	.tab-view{
+		font-size: 0.1rem;
+	}
+	.tab-title{
+		font-size: 0.2rem;
+	}
+	.tab-title2{
+		font-size: 0.2rem;
+	}
+	.tab-date{
+		font-size: 0.1rem;
+	}
+	.tab-c1{
+		font-size: 0.1rem;
+	}
+	
+	.srctxt {
+		font-size: 0.1rem;
+	}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

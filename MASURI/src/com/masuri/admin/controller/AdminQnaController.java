@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.masuri.admin.command.AdQnaAnswerCommand;
 import com.masuri.admin.command.AdQnaAnswerOKCommand;
+import com.masuri.admin.command.AdQnaDelOK;
 import com.masuri.admin.command.AdQnaListCommand;
 import com.masuri.admin.command.AdQnaViewCommand;
 import com.masuri.command.Command;
@@ -18,7 +19,8 @@ import com.masuri.command.Command;
 /**
  * Servlet implementation class AdminQna
  */
-@WebServlet(urlPatterns = {"/admin/adQnaList.do","/admin/adQnaView.do","/admin/adQnaAnswer.do","/admin/adQnaAnswerOK.do"})
+@WebServlet(urlPatterns = {"/admin/adNotice/adQnaList.do","/admin/adNotice/adQnaView.do","/admin/adNotice/adQnaAnswer.do",
+		"/admin/adNotice/adQnaAnswerOK.do","/admin/adNotice/adQnaDelOK.do"})
 public class AdminQnaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -48,25 +50,30 @@ public class AdminQnaController extends HttpServlet {
 		
 		switch(com) {
 		
-		case "/admin/adQnaList.do":
+		case "/admin/adNotice/adQnaList.do":
 			command =  new AdQnaListCommand();
 			command.execute(request, response);
-			viewPage = "/admin/adQnaList.jsp";
+			viewPage = "/admin/adNotice/adQnaList.jsp";
 			break;
 		
-		case "/admin/adQnaView.do":
+		case "/admin/adNotice/adQnaView.do":
 			command =  new AdQnaViewCommand();
 			command.execute(request, response);
-			viewPage = "/admin/adQnaView.jsp";
+			viewPage = "/admin/adNotice/adQnaView.jsp";
 			break;
 
 			
-		case "/admin/adQnaAnswerOK.do":
+		case "/admin/adNotice/adQnaAnswerOK.do":
 			command =  new AdQnaAnswerOKCommand();
 			command.execute(request, response);
-			viewPage = "/admin/adQnaAnswerOK.jsp";
+			viewPage = "/admin/adNotice/adQnaAnswerOK.jsp";
 			break;
 			
+		case "/admin/adNotice/adQnaDelOK.do":
+			command =  new AdQnaDelOK();
+			command.execute(request, response);
+			viewPage = "/admin/adNotice/adQnaDelOK.jsp";
+			break;
 		}
 		
 		if(viewPage != null) {

@@ -4,14 +4,16 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- 내가 만든 추가로 필요한 css -->
+<link rel="stylesheet" href="../mycss/mycss.css">
+<!-- 페이징에 필요한 css -->
+<link rel="stylesheet" href="../../user/support/sup_Notice.css?after">
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=divice-width, initial-scale=1">
-<link rel="stylesheet" href="../css/bootstrap.css">
-<link rel="stylesheet" href="adEngInfo.css">
-<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <%
 	EngineerDTO dto = (EngineerDTO) request.getAttribute("uid");
 %>
@@ -25,36 +27,36 @@
 		}
 	%>
 
+	<div class="container">
 	<%@ include file="../adNav.jsp"%>
-
-	<div class="card container bg-warning" style="width: 400px; height: 600px; border: 1px solid white">
+	<div class="card container mymodal"><br>
 	<form name="frm" action="adEngStatusChk.do">
 		<img class="card-img-top" src="../../engimg/<%=dto.getId() %>.jpg" alt="Card image"
 			style="width: 100%">
 		<div class="card-body">
-			<div class="btn-group pull-right">
+			<div class="btn-group" id="myRbtn2">
 				<%
 					if(!dto.getState()){
 				%>
-					<button type="submit" class="btn btn-sm" id="normal" onclick="adEngStatusChk.do">계정비활성화 지정</button>
+					<button type="submit" class="btn btn-sm" id="normal" onclick="adEngStatusChk.do">비활성화</button>
 				<%		
 					}else{
 				%>
-					<button type="submit" class="btn btn-sm" id="black" onclick="adEngStatusChk.do">계정비활성화 해제</button>
+					<button type="submit" class="btn btn-sm" id="black" onclick="adEngStatusChk.do">활성화</button>
 				<%		
 					}
 				%>
 				
 			</div>
 			<div>
-				<h4 class="card-title ">ID : <%= dto.getId() %></h4>
-				<p class="card-text ">이름 : <%= dto.getName() %></p>
+				<p><b class="card-title srctxt">ID : <%= dto.getId() %></b></p>
+				<p class="card-text srctxt">이름 : <%= dto.getName() %></p>
 			
-				<p class="card-text ">Email : <%= dto.getEmail() %></p>
-				<p class="card-text ">H.P: <%= dto.getPhone() %></p>
-				<p class="card-text ">기사 소개: <%= dto.getIntro() %></p>
-				<p class="card-text ">담당 지역: <%= dto.getArea() %></p>
-				<a class="btn text-white bg-danger pull-right " href="adEngEdit.do">닫기</a>
+				<p class="card-text srctxt">Email : <%= dto.getEmail() %></p>
+				<p class="card-text srctxt">H.P: <%= dto.getPhone() %></p>
+				<p class="card-text srctxt">기사 소개: <%= dto.getIntro() %></p>
+				<p class="card-text srctxt">담당 지역: <%= dto.getArea() %></p>
+				<a class="btn text-white bg-danger" id="myRbtn3" href="adEngEdit.do">닫기</a><br><br>
 			</div>
 		</div>
 		<input type="hidden" name="uid" value="<%= dto.getId() %>"/>
@@ -67,5 +69,13 @@
 		<input type="hidden" name="email" value="<%= dto.getEmail()%>"/>
 		</form>
 	</div>
+	</div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </html>
+
+

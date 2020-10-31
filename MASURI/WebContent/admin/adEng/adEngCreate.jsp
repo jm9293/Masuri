@@ -2,14 +2,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- 내가 만든 추가로 필요한 css -->
+<link rel="stylesheet" href="../mycss/mycss.css">
+<!-- 페이징에 필요한 css -->
+<link rel="stylesheet" href="../../user/support/sup_Notice.css?after">
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=divice-width, initial-scale=1">
-<link rel="stylesheet" href="../css/bootstrap.css">
-<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="adEngCreate.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="adEngCreate.js"></script>
 <%
 	ArrayList<String> list = (ArrayList<String>)request.getAttribute("idList");
@@ -30,13 +34,13 @@ for(int i=0 ; i < list.size() ; i++){
 </head>
 <body class="cont">
 
-<%@ include file="../adNav.jsp" %>
     
     <div class="container">
+	<%@ include file="../adNav.jsp" %>
 		
-	<div class="card container bg-warning" style="width: 400px; height: 600px; border: 1px solid white">
+	<div class="card container mymodal">
 		<form name="frm" action="adEngCreateOk.do" onsubmit="return submitchk();">
-		<h3>기사 계정 생성 페이지 입니다.</h3>
+		<br><h3>[기사] 계정 생성</h3>
 		<br>
 		<div class="card-body form-group">
 			
@@ -47,12 +51,12 @@ for(int i=0 ; i < list.size() ; i++){
 				<div class="invalid-feedback" id="id-invalid">아이디는 4~6자 영문소문자+숫자여야 합니다.</div>
 			</div>
 			<div class="input-box col-12">
-				<label for="pwtext">PW : </label> 
+				<label for="pwtext">PW : </label>
 				<input type="password" class="form-control" id="pwtext" name="pw" maxlength="8" required/>
 				<div class="invalid-feedback">비밀번호는 6~8자 영문+숫자여야 합니다.</div>
 			</div>
 			<div class="input-box col-12">
-                  <label for="inputPWCHK" class="">비밀번호 확인</label>
+                  <label for="inputPWCHK" class="">비밀번호 확인 : </label>
                   <input type="password" class="form-control" name="pwchk" id="pwchk" placeholder="비밀번호 확인" maxlength="8" required>
 				  <div class="invalid-feedback">비밀번호와 일치하지 않습니다.</div>
 			</div>
@@ -62,17 +66,18 @@ for(int i=0 ; i < list.size() ; i++){
 				<div class="invalid-feedback">한글 2글자 이상만 입력할수 있습니다.</div>
 			</div>
 			<div class="input-box col-12">
+				<label for="emailtext">e-mail : </label> 
 				<div class="row col-12">
-	                  <input type="text" class="form-control col-5" name="emailtext" id="emailtext" placeholder="이메일 아이디" maxlength="10" required>
-	                  <div class="col-1 at">@</div>
-	                  <select class="custom-select col-6" id="emailSelect"  name="emailSelect">
+	                  <input type="text" class="form-control emailf" name="emailtext" id="emailtext" placeholder="이메일 아이디" maxlength="10" required>
+	                  <div class="at emailg"> @</div>
+	                  <select class="custom-select emailb" id="emailSelect"  name="emailSelect">
 					    <option selected value="gmail.com">gmail.com</option>
 					    <option value="naver.com">naver.com</option>
 					    <option value="daum.net">daum.net</option>
 					    <option value="nate.com">nate.com</option>
 					    <option value="direct">직접 입력</option>
 					  </select>
-                      <input type="text" class="form-control col-6" name="inputEmaildirect" id="inputEmaildirect" placeholder="" value="직접입력">
+                      <input type="text" class="form-control emailb" name="inputEmaildirect" id="inputEmaildirect" placeholder="" value="직접입력">
 					<div class="invalid-feedback">이메일 형식이아닙니다.</div>
 				</div>
 			</div>
@@ -115,13 +120,19 @@ for(int i=0 ; i < list.size() ; i++){
 			<div class="input-box col-12">
 				<label for="introtext">소개글</label> 
 				<textArea class="form-control" id="introtext" name="intro" rows="10" required></textArea>
-			</div>
-			<button class="login-btn btn btn-primary col-12" type="submit" id="signup-btn" disabled>계정발급</button>
-			<button type="button" class="btn btn-danger">취소</button>
+			</div><br>
+			<button class="login-btn btn btn-primary emailf" type="submit" id="signup-btn" disabled>계정발급</button>
+			<br><br>
+			<button type="button" class="btn btn-danger emailf">취소</button>
 		</div>
 		</form>
 		<br>
 	</div>
 	</div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </html>

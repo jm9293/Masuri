@@ -25,9 +25,10 @@ public class AdNoticeUpdateOK implements Command {
 		try {
 			
 			result = NoticeDAO.update(dto);
-			
+			System.out.println("들어오나요");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			System.out.println("들어오나요2");
 			e.printStackTrace();
 		}
 		request.setAttribute("result", result);

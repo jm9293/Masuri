@@ -22,13 +22,13 @@ public class AdViewCommand implements Command {
 		try {
 			dto = NoticeDAO.select(uid,false);
 			
-			request.setAttribute("list", dto);
-			request.setAttribute("page", page);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
 		}
 
+		request.setAttribute("list", dto);
+		request.setAttribute("page", page);
 	}
 
 }

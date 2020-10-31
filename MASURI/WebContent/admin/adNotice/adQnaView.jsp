@@ -6,31 +6,36 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- 내가 만든 추가로 필요한 css -->
+<link rel="stylesheet" href="../mycss/mycss.css">
+<!-- 페이징에 필요한 css -->
+<link rel="stylesheet" href="../../user/support/sup_Notice.css?after">
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=divice-width, initial-scale=1">
-<link rel="stylesheet" href="css/bootstrap.css">
-<title>공지사항 읽기</title>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<title>QnA 보기</title>
 </head>
 <body>
 	<%
 	QnaDTO dto = (QnaDTO) request.getAttribute("list"); 
 	boolean answercheck = dto.getAnswer() != null;
-	
 	%>
 	
-	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
-	<%@ include file="../adNav.jsp" %>
-	<form method="post" name="QnaForm">
-	<input type="hidden" name="uid" value="<%= dto.getNum() %>"/>
+	
 	<div class="container">
-		<div class="row">
+		<%@ include file="../adNav.jsp" %>
+		<form method="post" name="QnaForm">
+		<input type="hidden" name="uid" value="<%= dto.getNum() %>"/>
+		
 			
-				<table class="table table-striped" style="text-align: center; border: 1px solid #ddd">
+				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th colspan="4"  style="background-color: #eee; text-align: center;">QnA 게시판</th>
+							<th colspan="4">QnA 게시판</th>
 						</tr>
 					</thead>
 					<%
@@ -38,16 +43,16 @@
 					%>
 					<tbody>
 						<tr>
-							<td class="col-lg-1" style="border:1px solid #ccc">
+							<td class="tab-c1" >
 								<%= dto.getNum() %>
 							</td>
-							<td class="col-lg-8" style="border:1px solid #ccc">
+							<td class="tab-title" >
 								<%= dto.getTitle() %>
 							</td>
-							<td class="col-lg-2" style="border:1px solid #ccc">
+							<td class="tab-date" >
 								<%= dto.getWrtime() %>
 							</td>
-							<td class="col-lg-1" style="border:1px solid #ccc">
+							<td class="tab-view" >
 								<%= dto.getUserid() %>
 							</td>
 						</tr>
@@ -61,83 +66,73 @@
 						}
 					%>
 				</table>
-				<input type="submit" class="btn btn-danger pull-right" value="삭제" onclick="javascript: QnaForm.action='adQnaDelOK.do';"></input>
-				<button type="button" onclick="AnswerShow()" class="btn pull-right">답변<%=answercheck?"보기" : "달기"%></button> 
-				<a href="adQnaList.do" class="btn btn-primary pull-left">목록보기</a>
-			
-		</div>
+			<input type="submit" class="btn btn-outline-danger" id="myRbtn" value="삭제" onclick="javascript: QnaForm.action='adQnaDelOK.do';"></input>
+			<button type="button" onclick="AnswerShow()" id="myRbtn" class="btn btn-outline-secondary">답변<%=answercheck?"보기" : "달기"%></button>
+			<a href="adQnaList.do" class="btn btn-outline-primary" id="myRbtn">목록보기</a>
+		</form>
 	</div>
-	</form>
 	
 		<br><br><br>
 		<div id="showA" style="display:block">
 			<%if(!answercheck){%>
-				<div class="container">
-					<div class="row">
-						<form method="post" action="adQnaAnswerOK.do">
-						<input type="hidden" name="page" value="<%=request.getParameter("page") %>">
-						<input type="hidden" name="uid" value="<%= dto.getNum() %>">
-						<input type="hidden" name="uid" value="<%= dto.getNum() %>">
-							<table class="table table-striped" style="text-align: center; border: 1px solid #ddd">
-								<thead>
-									<tr>
-										<th colspan="2" style="background-color: #eee; text-align: center;">QnA 답변</th>
-									</tr>
-								</thead>
-								<%
-									if(dto != null){
-								%>
-								<tbody>
-									<tr>
-										<td class="pull-left">└>> <%= dto.getNum() %> : <%= dto.getTitle() %></td>
-									</tr>
-									<tr>
-										<td><textarea class="form-control" placeholder="내용" name="answer" maxlength="500" style="height: 350px;"></textarea></td>
-									</tr>
-								</tbody>
-								<%} %>
-							</table>
-								<input class="btn pull-right" type="submit" value="글쓰기">
-							
-						</form>
+			<div class="container">
+				<div class="row">
+					<form method="post" action="adQnaAnswerOK.do">
+					<input type="hidden" name="page" value="<%=request.getParameter("page") %>">
+					<input type="hidden" name="uid" value="<%= dto.getNum() %>">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th colspan="2">QnA 답변</th>
+							</tr>
+						</thead>
+						<%
+							if(dto != null){
+						%>
+						<tbody>
+							<tr>
+								<td>└>> <%= dto.getNum() %> : <%= dto.getTitle() %></td>
+							</tr>
+							<tr>
+								<td><textarea class="form-control" placeholder="내용" name="answer" maxlength="500" style="height: 350px;"></textarea></td>
+							</tr>
+						</tbody>
+						<%} %>
+					</table>
+					<input class="btn pull-right" type="submit" value="글쓰기">
+				</form>
 						
-					</div>
-				</div>
-			<%}else{%>
-			   <div class="container">
-					<div class="row">
-						
-						<input type="hidden" name="page" value="<%=request.getParameter("page") %>">
-						<input type="hidden" name="uid" value="<%= dto.getNum() %>">
-						<input type="hidden" name="uid" value="<%= dto.getNum() %>">
-							<table class="table table-striped" style="text-align: center; border: 1px solid #ddd">
-								<thead>
-									<tr>
-										<th colspan="2" style="background-color: #eee; text-align: center;">QnA 답변</th>
-									</tr>
-								</thead>
-								<%
-									if(dto != null){
-								%>
-								<tbody>
-									<tr>
-										<td class="pull-left">└>> <%= dto.getNum() %> : <%= dto.getTitle() %> </td>
-										<td class="pull-right">답변시간  : <%= dto.getAntime() %></td>
-									</tr>
-									<tr>
-										<td><textarea class="form-control" placeholder="" name="answer" maxlength="500" style="height: 350px;" readonly="readonly"><%=dto.getAnswer() %></textarea></td>
-									</tr>
-								</tbody>
-								<%} %>
-							</table>
-						
-						
-					</div>
-				</div>
-			<%} %>
+			</div>
 		</div>
+		<%}else{%>
 		<div class="container">
+			<input type="hidden" name="page" value="<%=request.getParameter("page") %>">
+			<input type="hidden" name="uid" value="<%= dto.getNum() %>">
+			<input type="hidden" name="uid" value="<%= dto.getNum() %>">
+				<table class="table table-striped" style="text-align: center; border: 1px solid #ddd">
+					<thead>
+						<tr>
+							<th>답변</th>
+							<th>시간</th>
+						</tr>
+					</thead>
+					<%
+						if(dto != null){
+					%>
+					<tbody>
+						<tr>
+							<td class="tab-title2">└>> <%= dto.getNum() %> : <%= dto.getTitle() %> </td>
+							<td class="tab-date"><%= dto.getAntime() %></td>
+						</tr>
+						<tr>
+							<td colspan="2"><textarea class="form-control" placeholder="" name="answer" maxlength="500" style="height: 350px;" readonly="readonly"><%=dto.getAnswer() %></textarea></td>
+						</tr>
+					</tbody>
+					<%} %>
+				</table>
 			
+			</div>
+			<%} %>
 		</div>
 		
 		<script type="text/javascript">
@@ -151,4 +146,8 @@
 		</script>
 	
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </html>

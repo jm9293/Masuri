@@ -18,7 +18,17 @@
 <link rel="stylesheet" href="sup_QnaWrite.css">
 <script src="sup_QnaWrite.js"></script>
 <%
-	int pageNum = Integer.parseInt(request.getParameter("page"));
+	int result = (int)request.getAttribute("result");
+	int pageNum = 0;
+	if(result == 0){
+%>
+	<script>
+		location.href="../ErrorPage.do";
+	</script>
+<%	return;
+	}else{
+		pageNum = (int)request.getAttribute("page");
+	}
 %>
 <title>MASURI</title>
 </head>
@@ -47,6 +57,7 @@
 		<br>
 		<div class="col-12 col-md-8 contain">
 		<form name="frm" action="sup_QnaWriteOk.do" method="post" onsubmit="return chkSubmit()">
+			<input type="hidden" name="page" value="<%=pageNum %>"/>
 			<div class="form-group col-12">
 				<label for="userid">작성자</label> 
 				<div><%= userID %></div>

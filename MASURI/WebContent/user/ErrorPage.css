@@ -1,0 +1,33 @@
+@charset "UTF-8";
+.container{
+    margin: auto;
+    height: 500px;
+}
+.textbox{
+    margin-top: 20%;
+    text-align: center;
+}
+#text1{
+    color: red;
+    font-weight: bold;
+}
+button{
+    width: 100px;
+    height: 100px;
+    background-image: url("img/돌아가기.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 0px;
+}
+.backbtn{
+    margin: auto;
+    text-align: center;
+}
+@media (min-width: 767px){
+    #text1{
+        font-size: 50px;
+    }
+    #text2{
+        font-size: 30px;
+    }
+ }

@@ -19,9 +19,20 @@
 <link rel="stylesheet" href="sup_QnaWrite.css">
 <script src="sup_QnaWrite.js"></script>
 <%
-	int pageNum = Integer.parseInt(request.getParameter("page"));
-	QnaDTO dto = (QnaDTO)request.getAttribute("list");
-	System.out.println(dto.getOpen());
+	int pageNum = 0;
+	QnaDTO dto = null;
+	int result = (int)request.getAttribute("result");
+	
+	if(result == 0){
+%>
+		<script>
+			location.href="../ErrorPage.do";
+		</script>
+<%		return;
+	}else{
+		pageNum = Integer.parseInt(request.getParameter("page"));
+		dto = (QnaDTO)request.getAttribute("list");
+	}
 %>
 <title>MASURI</title>
 </head>

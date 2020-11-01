@@ -1,11 +1,8 @@
 package com.masuri.user.command;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.masuri.command.Command;
 import com.masuri.dao.FaqDAO;
 import com.masuri.dto.FaqDTO;
@@ -14,15 +11,23 @@ public class FaqCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		ArrayList<FaqDTO> list = null;
-		
-		try {
-			list = FaqDAO.select();
+		int result = 0;
 
-			request.setAttribute("list", list);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		
+		ArrayList<FaqDTO> list = null;
+		if (list == null) {
+
+			try {
+				list = FaqDAO.select();
+				if (list != null) {
+					result = 1;
+					request.setAttribute("list", list);
+					request.setAttribute("result", result);
+				}
+
+			} catch (Exception e) {
+				request.setAttribute("result", result);
+
+			}
 		}
 
 	}

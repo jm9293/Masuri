@@ -18,13 +18,22 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- 페이지 css -->
 <link rel="stylesheet" href="sup_NoticeView.css?after">
-<% NoticeDTO dto = (NoticeDTO) request.getAttribute("list"); 
-	int pageNum = (int)request.getAttribute("page");
+<%
+	NoticeDTO dto = null;
+	int pageNum = 0;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d hh:m");
+	int result = (int) request.getAttribute("result");
+	if (result == 0) {
 %>
-<style>
-</style>
-<% %>
+	<script>
+		location.href = "../ErrorPage.do";
+	</script>
+<%	return;	
+	} else {
+		dto = (NoticeDTO) request.getAttribute("list");
+		pageNum = Integer.parseInt(request.getParameter("page")); 
+	}
+%>
 <title>MASURI</title>
 </head>
 <body>

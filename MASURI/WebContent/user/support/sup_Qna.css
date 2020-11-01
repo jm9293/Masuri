@@ -43,6 +43,7 @@
 }
 .menuborder{
     border-radius: 5px 5px 0px 0px;
+    padding: 0;
 }
 h2{
     font-weight: bold;
@@ -91,15 +92,12 @@ h2{
         margin-left: 48%;
      }
      #text1{
-        border-right: 1px dotted rgb(190, 189, 189);
-        border-bottom: 0px;
+       border: 0;
     }
     #text2{
-        border-right: 1px dotted rgb(190, 189, 189);
-        border-bottom: 0px;
+        border: 0;
     }
     #text3{
-        border-right: 1px dotted rgb(190, 189, 189);
-        border-bottom: 0px;
+        border: 0;
     }
 }

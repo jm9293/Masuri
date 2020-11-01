@@ -20,7 +20,19 @@
 <link rel="stylesheet" href="sup_FAQ.css">
 <style>
 </style>
-<% ArrayList<FaqDTO> list = (ArrayList<FaqDTO>)request.getAttribute("list");%>
+<% ArrayList<FaqDTO> list = null;
+	int result = (int)request.getAttribute("result");
+	if(result == 0){
+	%>
+		<script>
+			location.href="../ErrorPage.do";
+		</script>
+	<% return;			
+			
+		}else{
+			list = (ArrayList<FaqDTO>)request.getAttribute("list");
+		}
+%>
 <title>MASURI</title>
 </head>
 <body>
@@ -46,9 +58,9 @@
       			</h2>
     			</div>
 
-    			<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+    			<div id="collapseOne" class="collapse show anbox" aria-labelledby="headingOne" data-parent="#accordionExample">
       			<div class="card-body">
-        			<textarea class="col-12 form-control text" readonly><%= list.get(0).getAnswer() %></textarea>
+        			<textarea class="col-12 form-control" rows="5" readonly><%= list.get(0).getAnswer()%>aasdsadsadasdasdasdasdasdasdsadasdsadsadsadasdasd </textarea>
       			</div>
     			</div>
   			</div>
@@ -67,7 +79,7 @@
     			</div>
     			<div id="collapseTwo<%=i %>" class="collapse" aria-labelledby="headingTwo<%=i %>" data-parent="#accordionExample">
       			<div class="card-body">
-        			<textarea class="col-12 form-control" readonly><%= list.get(i).getAnswer() %></textarea>
+        			<textarea class="col-12 form-control" rows="5" readonly><%= list.get(i).getAnswer() %></textarea>
       			</div>
     			</div>
   			</div>

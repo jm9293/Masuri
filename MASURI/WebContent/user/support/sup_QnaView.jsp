@@ -27,21 +27,32 @@
 	<div id="navbar-wrap">
 	<%@ include file="../basic/navbar.jsp" %>
 	</div>
-	 <% QnaDTO dto = (QnaDTO)request.getAttribute("list");
-	int pageNum = (int)request.getAttribute("page");
-
+<% 
+	QnaDTO dto = null;
+	int pageNum = 0;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d hh:m");
-	boolean openchk = dto.getOpen() || dto.getUserid().equals(userID);
-	
-	if(!openchk){
-	%>
+	int result = (int) request.getAttribute("result");
+	if (result == 0) {
+%>
 	<script>
-	alert("비공개 글입니다.");
-	history.back();
+		location.href = "../ErrorPage.do";
 	</script>
-	<%
-	return;}
-	%>	
+<%	return;	
+	} else {
+		dto = (QnaDTO)request.getAttribute("list");
+		pageNum = Integer.parseInt(request.getParameter("page"));
+		boolean openchk = dto.getOpen() || dto.getUserid().equals(userID);
+	
+		if(!openchk){
+%>
+		<script>
+		alert("비공개 글입니다.");
+		history.back();
+		</script>
+<%
+		return;}
+	}	
+%>	
 	<!--네비바 끝-->
 	
 	<!--메인 컨텐트 영역-->

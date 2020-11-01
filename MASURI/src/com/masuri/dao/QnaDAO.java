@@ -198,6 +198,27 @@ public class QnaDAO {
 		return cnt;
 	}
 	
+	public static int getMaxNum() throws SQLException {
+		int cnt = 0;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("SELECT QNA_SEQ.CURRVAL AS count FROM DUAL");
+			rs = pstmt.executeQuery();
+		   
+			if(rs.next()) {
+				cnt =  rs.getInt("count");
+				System.out.println(cnt);
+			}
+			
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 
+		return cnt;
+	}
 	
 	
 	public static int update(QnaDTO notice) throws SQLException { //QnaDTO 상담글수정하기

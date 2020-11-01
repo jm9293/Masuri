@@ -18,12 +18,23 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- 페이지 css -->
 <link rel="stylesheet" href="sup_Notice.css">
-<style>
-</style>
-<% ArrayList<NoticeDTO> list = (ArrayList<NoticeDTO>)request.getAttribute("list");
-	int max = (int)request.getAttribute("max");
-	int pageNum = (int)request.getAttribute("page");
+<% ArrayList<NoticeDTO> list = null;
+	int max = 0;
+	int pageNum = 0;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d hh:m");
+	int result = (int)request.getAttribute("result");
+	if(result == 0){
+%>
+	<script>
+		location.href="../ErrorPage.do";
+	</script>
+<%	return;	
+		
+	}else{
+		list = (ArrayList<NoticeDTO>)request.getAttribute("list");
+		max = (int)request.getAttribute("max");
+		pageNum = (int)request.getAttribute("page");
+	}
 %>
 <title>MASURI</title>
 </head>
@@ -120,4 +131,5 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+
 </html>

@@ -18,11 +18,23 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- 페이지 css -->
 <link rel="stylesheet" href="sup_Qna.css">
-
-<% ArrayList<QnaDTO> list = (ArrayList<QnaDTO>)request.getAttribute("list");
-	int max = (int)request.getAttribute("max");
-	int pageNum = (int)request.getAttribute("page");
+<% ArrayList<QnaDTO> list = null;
+	int max = 0;
+	int pageNum = 0;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d hh:m");
+	int result = (int)request.getAttribute("result");
+	if(result == 0){
+%>
+	<script>
+		location.href="../ErrorPage.do";
+	</script>
+<%	return;		
+		
+	}else{
+		list = (ArrayList<QnaDTO>)request.getAttribute("list");
+		max = (int)request.getAttribute("max");
+		pageNum = (int)request.getAttribute("page");
+	}
 %>
 <title>MASURI</title>
 </head>

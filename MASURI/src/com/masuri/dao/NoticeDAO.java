@@ -84,6 +84,29 @@ public class NoticeDAO {
 		return cnt;
 	}
 	
+	
+	public static int getMaxNum() throws SQLException {
+		int cnt = 0;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("SELECT NOTICE_SEQ.CURRVAL AS count FROM DUAL");
+			rs = pstmt.executeQuery();
+		   
+			if(rs.next()) {
+				cnt =  rs.getInt("count");
+				System.out.println(cnt);
+			}
+			
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 
+		return cnt;
+	}
+	
 	public static ArrayList<NoticeDTO> selectpage(int num) throws SQLException { //전체 Noticelist가져오기
 		ArrayList<NoticeDTO> list = new ArrayList<NoticeDTO>();
 		try {

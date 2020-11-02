@@ -13,13 +13,13 @@
 </head>
 
 
-<body>
+<body class="cont">
 
-	<div class="container align-center mini floatNav">
-		<nav class="navbar navbar-default">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="adLogin.jsp">Masuri 관리자 계정</a>
-			</div>
+	<div class="container  mini floatNav">
+		<nav class="navbar navbar-expand-sm c-dg navbar-dark">
+			
+			<a class="fo navbar-brand" href="adLogin.jsp">Masuri Editor Page</a>
+			
 		</nav><br><br><br><br>
 				
 		

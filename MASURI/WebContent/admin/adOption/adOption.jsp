@@ -1,3 +1,6 @@
+<%@page import="com.masuri.dto.ReslistDTO"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,7 +20,13 @@
 <title>수리 요청 게시판</title>
 </head>
 <body>
+	<%
+		ArrayList<ReslistDTO> list =  (ArrayList<ReslistDTO>)request.getAttribute("list");
+		int ppage = (int)request.getAttribute("page");
+		int max = (int)request.getAttribute("max");
+		SimpleDateFormat sdf = new SimpleDateFormat("yy.MM.dd");
 
+	%>
 
 
 	<div class="container mini">
@@ -27,27 +36,76 @@
 			<table class="table table-striped">
 				<thead>
 					<tr class="hgh">
-						<th class="tab-c1">번호</th>
+						<th class="tab-view">유저</th>
+						<th class="tab-view">기사</th>
 						<th class="tab-title">제목</th>
-						<th class="tab-date">작성일</th>
-						<th class="tab-c1">조회수</th>
+						<th class="tab-date">날짜</th>
 					</tr>
 				</thead>
 					
 					<!-- 수리 신청서 불러오기 -->
 				<tbody>
 					<tr>
-						<td class="not-h tab-c1">//번호</td>
-						<td class="tab-title">//더미 제목</td>	<!-- 제목 누르면 작서 글 볼 수 있게 해야함 -->
-						<td class="tab-date">//더미 작성시간</td>
-						<td class="tab-c1">//더미</td>
+						<td class="not-h tab-view">user01</td>
+						<td class="tab-view">kisa</td>
+						<td class="tab-title">삼성/갤럭시폴드</td>	<!-- 제목 누르면 작서 글 볼 수 있게 해야함 -->
+						<td class="tab-date">20/10/03</td>
 					</tr>
 				</tbody>	
 			</table>	
 			<a href="adOptionEx.do" class="btn btn-outline-primary" id="myRbtn">옵션 설정하기</a>
 		</div>		
+	</div><br>
+	
+	
+	<div class="box_ul mini">
+		<ul class="box_li">
+			<%
+				if (ppage - 1 < 1) {
+			%>
+			<li class="paging"><a
+				href="/MASURI/admin/adOption/adOption.do?page=1">이전</a></li>
+			<%
+				} else {
+			%>
+			<li class="paging"><a
+				href="/MASURI/admin/adOption/adOption.do?page=<%=ppage - 1%>">이전</a></li>
+			<%
+				}
+			if (max > 0) {
+				for (int i = 1; i <= max; i++) {
+					if (ppage == i) {
+			%>
+			<li class="paging"><a class='active tooltip-top'
+				href="/MASURI/admin/adOption/adOption.do?page=<%=i%>"><%=i%></a></li>
+			<%
+				} else {
+			%>
+			<li class="paging"><a
+				href="/MASURI/admin/adOption/adOption.do?page=<%=i%>"><%=i%></a></li>
+			<%
+					}
+				}
+			}
+			%>
+			<%
+				if (ppage < max) {
+			%>
+			<li class="paging"><a
+				href="/MASURI/admin/adOption/adOption.do?page=<%=ppage +1 %>">다음</a></li>
+					
+			<%
+				} else {
+			%>
+			<li class="paging"><a
+				href="/MASURI/admin/adOption/adOption.do?page=<%=max%>">다음</a></li>
+			<%
+				}
+			%>
+		</ul>
+		
+		
 	</div>
-
 
 
 </body>

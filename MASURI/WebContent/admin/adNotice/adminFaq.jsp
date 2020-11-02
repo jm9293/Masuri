@@ -54,7 +54,7 @@
 					<td></td>
 					<td><b><%= list.get(i).getAnswer() %></b></td>
 					<td>
-						<input type="button" class="btn btn-outline-danger pull-right" id="<%= list.get(i).getNum() %>" onclick="deletebtn(this)" value="삭제"/>
+						<input type="button" class="btn btn-outline-danger" id="<%= list.get(i).getNum() %>" onclick="deletebtn(this)" value="삭제"/>
 					</td>
 				</tr>
 				</tbody>

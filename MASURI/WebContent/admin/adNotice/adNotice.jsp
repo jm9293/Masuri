@@ -36,9 +36,9 @@
 		<table class="table">
 		    <thead>
 		      	<tr class="hgh">
-					<th class="tab-view">번호</th>
+					<th class="tab-date">번호</th>
 					<th class="tab-title">제목</th>
-					<th class="tab-date">조회수</th>
+					<th class="tab-view">조회수</th>
 					<th class="tab-date">작성일</th>
 		      </tr>
 		    </thead>
@@ -62,7 +62,7 @@
 	  	</table>
 	  	<a href="adWrite.do" class="btn btn-outline-secondary" id="myRbtn">작성하기</a>
 	</div>
-</div><br>
+	</div><br>
   
 
 		<div class="box_ul mini">
@@ -88,7 +88,7 @@
 				<%
 					} else {
 				%>
-					<li class="paging"><a
+				<li class="paging"><a
 					href="/MASURI/admin/adNotice/adNotice.do?page=<%=i%>"><%=i%></a></li>
 				<%
 						}

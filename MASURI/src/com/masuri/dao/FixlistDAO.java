@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -36,7 +37,7 @@ public class FixlistDAO {
 		ArrayList<FixlistDTO> list = new ArrayList<FixlistDTO>();
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("SELECT * FROM fixlist");
+			pstmt = conn.prepareStatement("SELECT * FROM fixlist ORDER BY NUM DESC");
 			rs = pstmt.executeQuery();
 		   
 			while (rs.next()) {
@@ -87,6 +88,68 @@ public class FixlistDAO {
 		}
 		 
 		return fixlist;
+	}
+	
+	public static ArrayList<String> selectFactory() throws SQLException { // 제조사 전부가져오기
+		ArrayList<String> factoryList = new ArrayList<String>();
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("SELECT factory FROM fixlist GROUP by factory");
+			
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				
+				factoryList.add(rs.getString("factory"));
+				
+			}
+		
+			System.out.println(factoryList);
+		
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 
+		return factoryList;
+	}
+	
+	
+	public static ArrayList<String> selectModel(String factory) throws SQLException { // 해당제조사 모델 전부 가져오기
+		ArrayList<String> modelList = new ArrayList<String>();
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("SELECT model FROM fixlist WHERE factory = ? ORDER BY rownum DESC");
+			pstmt.setString(1, factory);
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				modelList.add(rs.getString("model"));
+			}
+		
+			System.out.println(modelList);
+		
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 
+		return modelList;
+	}
+	
+	
+	public static HashMap<String, ArrayList<String>> selectModelMap() throws SQLException { // 해당제조사 모델 전부 가져오기
+		HashMap<String, ArrayList<String>> fixlistmap =  new HashMap<String, ArrayList<String>>();
+		
+		for (String factory : selectFactory()) {
+			fixlistmap.put(factory, selectModel(factory));
+		}
+		 
+		return fixlistmap;
 	}
 	
 	public static int update(FixlistDTO fixlist) throws SQLException { //FixlistDTO 객체로 업데이트하기

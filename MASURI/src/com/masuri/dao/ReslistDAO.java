@@ -1,11 +1,13 @@
 package com.masuri.dao;
 
 import java.sql.Connection;
-
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.naming.Context;
@@ -13,7 +15,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-
+import com.masuri.dto.DayscheduleDTO;
 import com.masuri.dto.ReslistDTO;
 
 public class ReslistDAO {
@@ -250,7 +252,7 @@ public class ReslistDAO {
 		return Reslist;
 	}
 	
-	public static int insert(ReslistDTO reslist) throws SQLException { //ReslistDTO 객체로 인서트하기
+	public static synchronized int insert(ReslistDTO reslist) throws SQLException { //ReslistDTO 객체로 인서트하기
 		int cnt = 0;
 		try {
 			conn = getConnection();
@@ -271,11 +273,50 @@ public class ReslistDAO {
 			
 		   cnt = pstmt.executeUpdate();
 		   
+		   pstmt = conn.prepareStatement("SELECT RESLIST_SEQ.CURRVAL AS count FROM DUAL");
+		   
+		   rs = pstmt.executeQuery();
+		   int resNum =0;
+		   
+		   if(rs.next()) {
+			   resNum = rs.getInt("count");
+		   }
+		   
+		   SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		   
+		   java.util.Date utildate = new java.util.Date(reslist.getTime().getTime());
+		   
+		   utildate = sdf.parse(sdf.format(utildate));
+		   
+		   
+		   Date day = new Date(utildate.getTime());
+		   
+		   
+		   
+		   int timeNum = 0 ; 
+		   switch (reslist.getTime().getHours()) {
+		   case 9:
+			   timeNum=1;
+			   break;
+		   case 13:
+			   timeNum=2;
+			   break;
+		   case 16:
+			   timeNum=3;
+			   break;
+		   }
+		   
+		  
+		   cnt = DayscheduleDAO.updateTime(reslist.getEngid(), day, timeNum, resNum);
+		   
 		   if(cnt>0) {
 			   conn.commit();
 		   }
 		
 		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {

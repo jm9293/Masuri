@@ -15,12 +15,14 @@ import com.masuri.user.command.IdchkCommand;
 import com.masuri.user.command.LoginCommand;
 import com.masuri.user.command.LogoutCommand;
 import com.masuri.user.command.ResCenterCommand;
+import com.masuri.user.command.ResCompleteCommend;
 import com.masuri.user.command.ResHomeCommand;
+import com.masuri.user.command.ResWriteCommend;
 import com.masuri.user.command.SignupCommand;
 import com.masuri.user.command.UserUpdateCommand;
 
 
-@WebServlet(urlPatterns = {"/user/res/res1.do","/user/res/res2.do"})
+@WebServlet(urlPatterns = {"/user/res/res1.do","/user/res/res2.do","/user/res/reswrite.do","/user/res/rescomplete.do"})
 public class ResController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -70,6 +72,21 @@ public class ResController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "/user/res/engneerselect.jsp";
 			break;
+			
+		case "reswrite.do":
+			System.out.println("수리신청서 작성");
+			command = new ResWriteCommend();
+			command.execute(request, response);
+			viewPage = "/user/res/reswrite.jsp";
+			break;
+			
+		case "rescomplete.do":
+			System.out.println("수리신청서 작성완료");
+			command = new ResCompleteCommend();
+			command.execute(request, response);
+			viewPage = "/user/res/rescomplete.jsp";
+			break;
+			
 		
 		}
 		

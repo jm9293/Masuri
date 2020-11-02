@@ -42,7 +42,7 @@ if(userID!=null&&!logincheck){
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">방문수리 안내</a>
-                        <a class="dropdown-item" href="#">방문수리 예약</a>
+                        <a class="dropdown-item" href="../res/res2.jsp">방문수리 예약</a>
                         <a class="dropdown-item" href="#">예약 확인</a>
                     </div>
                   </li>

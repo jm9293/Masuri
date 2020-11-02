@@ -99,7 +99,6 @@ public class DayscheduleDAO {
 	public static synchronized int updateTime(String engid, Date day, int timeNum , int resNum) throws SQLException { // 예약신청
 		int cnt = 0;
 		try {
-			conn = getConnection();
 			
 			
 			DayscheduleDTO daysch = select(engid, day);
@@ -109,6 +108,7 @@ public class DayscheduleDAO {
 				daysch.setDay(day);
 				insert(daysch);
 			}
+			conn = getConnection();
 			
 			pstmt = conn.prepareStatement("UPDATE DAYSCHEDULE SET " + 
 					"TIME"+timeNum+" = ? " + 

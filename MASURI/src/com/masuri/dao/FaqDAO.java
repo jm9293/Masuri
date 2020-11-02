@@ -38,7 +38,7 @@ public class FaqDAO {
 		ArrayList<FaqDTO> list = new ArrayList<FaqDTO>();
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("SELECT * FROM faq");
+			pstmt = conn.prepareStatement("SELECT * FROM faq ORDER BY NUM DESC");
 			rs = pstmt.executeQuery();
 		   
 			while (rs.next()) {

@@ -4,12 +4,14 @@ package com.masuri.user.command;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.masuri.command.Command;
 import com.masuri.dao.EngineerDAO;
+import com.masuri.dao.FixlistDAO;
 import com.masuri.dto.EngineerDTO;
 
 public class ResHomeCommand implements Command {
@@ -47,9 +49,13 @@ public class ResHomeCommand implements Command {
 		
 		ArrayList<EngineerDTO> list = EngineerDAO.resSelect(new java.sql.Date(sdf.parse(inputDAY).getTime()), inputTIMEnum, sggNm); //기사찿기
 		
-		
-		
-		
+	
+		request.setAttribute("list", list);
+		request.setAttribute("inputDAY", inputDAY);
+		request.setAttribute("inputTIMEnum", inputTIMEnum);
+		request.setAttribute("inputADD", inputADD);
+		request.setAttribute("sggNm", sggNm);
+		request.setAttribute("res", 1);
 		
 		
 		} catch (Exception e) {

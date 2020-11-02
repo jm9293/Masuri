@@ -69,14 +69,15 @@ public class EngineerDAO {
 	}
 	
 	public static EngineerDTO select(String id) throws SQLException { //id로 하나만 가져오기
-		EngineerDTO engineer = new EngineerDTO();
+		EngineerDTO engineer = null;
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement("SELECT * FROM Engineerdata WHERE ID = ?");
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			
-			while (rs.next()) {
+			if (rs.next()) {
+				engineer = new EngineerDTO();
 				engineer.setEngnum(rs.getInt("engnum"));
 				engineer.setId(rs.getString("id"));
 				engineer.setPassword(rs.getString("password"));
@@ -184,7 +185,7 @@ public class EngineerDAO {
 		boolean check = false;
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("SELECT STATE FROM USERDATA WHERE ID = ?");
+			pstmt = conn.prepareStatement("SELECT STATE FROM ENGINEERDATA WHERE ID = ?");
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			
@@ -243,6 +244,35 @@ public class EngineerDAO {
 		}
 		 
 		return list;
+	}
+	
+	public static boolean resSelectByid(Date date, int timeNum ,String area , String id) throws SQLException { //해당일 해당시간 해당장소에 예약가능한 기사가맞는지 체크
+		boolean chk = false;
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("SELECT * FROM engineerdata WHERE id not in (SELECT engid FROM monthschedule WHERE holiday = ?)"
+					+ " and id not in (SELECT engid FROM dayschedule WHERE time"+timeNum+" is not null and day = ?) and area =? and state = 'false' and id=?");
+			
+			pstmt.setDate(1, date);
+			pstmt.setDate(2, date);
+			pstmt.setString(3, area);
+			pstmt.setString(4, id);
+			
+			rs = pstmt.executeQuery();
+			
+			chk = rs.next();
+		
+			
+		
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 
+		return chk;
 	}
 	
 	

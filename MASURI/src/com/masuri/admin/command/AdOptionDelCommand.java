@@ -1,8 +1,5 @@
 package com.masuri.admin.command;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,21 +7,24 @@ import com.masuri.command.Command;
 import com.masuri.dao.FixlistDAO;
 import com.masuri.dto.FixlistDTO;
 
-public class AdOptionExCommand implements Command {
+public class AdOptionDelCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		ArrayList<FixlistDTO> list = null;
+		int num =  Integer.parseInt(request.getParameter("uid"));
+		int result = 0;
+		FixlistDTO dto = new FixlistDTO();
+		dto.setNum(num);
 		
 		try {
-			list = FixlistDAO.select();
-			request.setAttribute("list", list);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			result = FixlistDAO.delete(num);
+		} catch (Exception e) {
+			// TODO: handle exception
 			e.printStackTrace();
 		}
 		
+		request.setAttribute("result", result);
 	}
 
 }

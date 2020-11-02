@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.masuri.admin.command.AdOptionCommand;
+import com.masuri.admin.command.AdOptionDelCommand;
+import com.masuri.admin.command.AdOptionEXOKCommand;
 import com.masuri.admin.command.AdOptionExCommand;
 import com.masuri.admin.command.AdOptionView;
 import com.masuri.command.Command;
@@ -18,7 +20,8 @@ import com.masuri.command.Command;
  * Servlet implementation class AdOptionController
  */
 @WebServlet(urlPatterns = {
-		"/admin/adOption/adOption.do","/admin/adOption/adOptionEx.do","/admin/adOption/adOptionView.do"
+		"/admin/adOption/adOption.do","/admin/adOption/adOptionEx.do","/admin/adOption/adOptionView.do",
+		"/admin/adOption/adOptionExOK.do","/admin/adOption/optionDel.do"
 })
 public class AdOptionController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -66,6 +69,18 @@ public class AdOptionController extends HttpServlet {
 			command = new AdOptionView();
 			command.execute(request, response);
 			viewPage = "/admin/adOption/adOptionView.jsp";
+			break;
+			
+		case "/admin/adOption/adOptionExOK.do":
+			command = new AdOptionEXOKCommand();
+			command.execute(request, response);
+			viewPage = "/admin/adOption/adOptionExOK.jsp";
+			break;
+			
+		case "/admin/adOption/optionDel.do":
+			command = new AdOptionDelCommand();
+			command.execute(request, response);
+			viewPage = "/admin/adOption/optionDel.jsp";
 			break;
 					
 		}

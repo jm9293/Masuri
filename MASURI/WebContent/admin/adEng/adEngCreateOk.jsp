@@ -1,8 +1,10 @@
+<%@page import="java.io.File"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% 
 	int cnt = (Integer)request.getAttribute("result");
 	String uid = request.getParameter("id");
+	
 %>
 
 
@@ -13,7 +15,7 @@
 	</script>
 <% } else { %>
 	<script>
-		alert("계정 생성 성공, 생성된 기사정보 페이지로 이동합니다.");
-		location.href = "/MASURI/admin/adEng/adEngInfo.do?uid=<%= uid%>";
+		alert("계정 생성 성공, 기사 리스트로 이동합니다.");
+		location.href = "/MASURI/admin/adEng/adEngEdit.do";
 	</script>
 <% } %>

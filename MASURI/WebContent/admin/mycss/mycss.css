@@ -91,6 +91,9 @@ lrline{
 .tab-title2{
 	width: 90%;
 }
+.tab-title3{
+	width: 40%;
+}
 .tab-date{
 	width: 20%;
 }
@@ -165,6 +168,9 @@ table {
 	border: 1px solid #eee;
 }
 
+.insert-txt{
+	width: 40%;
+}
 
 
 @media only screen and (max-width: 768px) {
@@ -191,12 +197,19 @@ table {
 	.tab-title2{
 		font-size: 0.8rem;
 	}
+	.tab-title3{
+		font-size: 0.8rem;
+	}
 	.tab-date{
 		font-size: 0.5rem;
 	}
 	.tab-c1{
 		font-size: 0.5rem;
 	}
+	
+	.insert-txt{
+	width: 100%;
+}
 	
 }
 @media only screen and (max-width: 510px) {
@@ -213,6 +226,9 @@ table {
 		font-size: 0.5rem;
 	}
 	.tab-title2{
+		font-size: 0.5rem;
+	}
+	.tab-title3{
 		font-size: 0.5rem;
 	}
 	.tab-date{
@@ -242,6 +258,9 @@ table {
 		font-size: 0.2rem;
 	}
 	.tab-title2{
+		font-size: 0.2rem;
+	}
+	.tab-title3{
 		font-size: 0.2rem;
 	}
 	.tab-date{

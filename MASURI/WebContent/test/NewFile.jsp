@@ -1,3 +1,4 @@
+<%@page import="com.masuri.util.BufPassword"%>
 <%@page import="com.masuri.dao.ReslistDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 
@@ -31,11 +32,9 @@
 
 <% 
 
-ReslistDAO.select();
-
-
+BufPassword buf = new BufPassword();
   
-
+System.out.println(buf.getBufPassword());
 
 %>
 </body>

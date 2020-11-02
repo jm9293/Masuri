@@ -24,7 +24,7 @@
 		ArrayList<ReslistDTO> list =  (ArrayList<ReslistDTO>)request.getAttribute("list");
 		int ppage = (int)request.getAttribute("page");
 		int max = (int)request.getAttribute("max");
-		SimpleDateFormat sdf = new SimpleDateFormat("yy.MM.dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yy.MM.dd hh:mm:ss");
 
 	%>
 
@@ -39,19 +39,27 @@
 						<th class="tab-view">유저</th>
 						<th class="tab-view">기사</th>
 						<th class="tab-title">제목</th>
-						<th class="tab-date">날짜</th>
+						<th class="tab-date">주소</th>
 					</tr>
 				</thead>
 					
 					<!-- 수리 신청서 불러오기 -->
 				<tbody>
+			<%
+				if(list != null){
+					for(int i = 0; i < list.size(); i++){
+			%>
 					<tr>
-						<td class="not-h tab-view">user01</td>
-						<td class="tab-view">kisa</td>
-						<td class="tab-title">삼성/갤럭시폴드</td>	<!-- 제목 누르면 작서 글 볼 수 있게 해야함 -->
-						<td class="tab-date">20/10/03</td>
+						<td class="not-h tab-view"><%= list.get(i).getUserid() %></td>
+						<td class="tab-view"><%= list.get(i).getEngid() %></td>
+						<td class="tab-title"><%= list.get(i).getFactory() %> / <%= list.get(i).getModel() %></td>
+						<td class="tab-date"><%= list.get(i).getAddress() %></td>
 					</tr>
-				</tbody>	
+				<%
+	      			}
+				}
+			%>	
+				</tbody>
 			</table>	
 			<a href="adOptionEx.do" class="btn btn-outline-primary" id="myRbtn">옵션 설정하기</a>
 		</div>		

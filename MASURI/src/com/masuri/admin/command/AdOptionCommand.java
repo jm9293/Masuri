@@ -15,8 +15,9 @@ public class AdOptionCommand implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		ArrayList<ReslistDTO> list = null;
+		ArrayList<ReslistDTO> list = new ArrayList<ReslistDTO>();
 		int page =1;
+		
 		
 		try {
 			page = Integer.parseInt(request.getParameter("page"));

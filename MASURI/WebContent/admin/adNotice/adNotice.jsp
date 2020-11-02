@@ -42,11 +42,11 @@
 					<th class="tab-date">작성일</th>
 		      </tr>
 		    </thead>
+	    	<tbody>
 		    <%
 				if(list != null){
 					for(int i = 0; i < list.size(); i++){
 			%>	
-	    	<tbody>
 		    	<tr>
 					<td class="not-h tab-view"><%= list.get(i).getNum() %></td>
 					<td class="tab-title"><a style="color:#343; text-decoration: none;" href="adRead.do?page=<%= ppage%>&uid=<%=list.get(i).getNum()%>"><%= list.get(i).getTitle() %></a></td>

@@ -148,10 +148,18 @@ public class ReslistDAO {
 			rs = pstmt.executeQuery();
 		   
 			while (rs.next()) {
-				ReslistDTO Reslist = new ReslistDTO();
-				Reslist.setNum(rs.getInt("num"));
-				
-				list.add(Reslist);
+				ReslistDTO reslist = new ReslistDTO();
+				reslist.setNum(rs.getInt("num"));
+				reslist.setTime(rs.getTimestamp("time"));
+				reslist.setAddress(rs.getString("address"));
+				reslist.setUserid(rs.getString("userid"));
+				reslist.setEngid(rs.getString("engid"));
+				reslist.setFactory(rs.getString("factory"));
+				reslist.setModel(rs.getString("model"));
+				reslist.setFailsit(rs.getString("failsit"));
+				reslist.setFailmsg(rs.getString("failmsg"));
+				reslist.setState(rs.getString("state"));
+				list.add(reslist);
 			}
 			for (ReslistDTO userDTO : list) {
 				System.out.println(userDTO);

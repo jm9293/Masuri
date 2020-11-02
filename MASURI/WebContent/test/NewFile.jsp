@@ -1,3 +1,4 @@
+<%@page import="com.masuri.dao.ReslistDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 
 <%@page import="java.sql.Date"%>
@@ -30,9 +31,7 @@
 
 <% 
 
-SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-EngineerDAO.resSelect(new Date(sdf.parse("2020-11-02").getTime()), 1, "중랑구");
+ReslistDAO.select();
 
 
   

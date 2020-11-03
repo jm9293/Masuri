@@ -65,7 +65,8 @@
        <div class="login-box col-12 col-md-4">
            <div class="title col-12 text-center">
                <h1>임시비밀번호 발급완료</h1>
-               	회원정보에 있는 이메일주소로 임시비밀번호를 발급했습니다.
+               	회원정보에 있는 이메일주소로 임시비밀번호를 발급했습니다.<br>
+               	<b>로그인후 비밀번호를 변경해주세요.</b>
             </div>
         
 

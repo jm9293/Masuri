@@ -1,6 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.net.URLEncoder" %>
+<%@ page import="java.security.SecureRandom" %>
+<%@ page import="java.math.BigInteger" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    String clientId = "7x13p0LGy9xlnMVuk3UD";//애플리케이션 클라이언트 아이디값";
+    String redirectURI = URLEncoder.encode("http://localhost:8080/MASURI/user/basic/navercallback.do", "UTF-8");
+    SecureRandom random = new SecureRandom();
+    String state = new BigInteger(130, random).toString();
+    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
+    apiURL += "&client_id=" + clientId;
+    apiURL += "&redirect_uri=" + redirectURI;
+    apiURL += "&state=" + state;
+    session.setAttribute("state", state);
+ %>
 <!doctype html>
     <html lang="ko">
       <head>
@@ -30,7 +44,10 @@
           .row{
           	padding: 0;
           	text-align: center;
-          }       
+          }
+          #kakao-login-btn{
+          	display: none;
+          }      
         </style>
     </head>
     
@@ -78,6 +95,17 @@
                 </div>
             </div>
         </form>
+                <div class="input-box col-12 col-md-12">
+                  <button class="login-btn btn btn-success col-12" onclick="location.href='<%=apiURL%>'">네이버로 로그인</button>
+                </div>
+                <div class="input-box col-12 col-md-12">
+                  <button class="login-btn btn btn-success col-12" id="kakao-login-btn">카카오버튼</button>
+                  <button class="login-btn btn btn-warning col-12" onclick="$('#kakao-login-btn').click()">카카오로 로그인</button>
+                </div>
+                <form action="kakaocallback.do" id="kakaoform" method="post">
+                	<input type="hidden" id="kakaoemail" name="kakaoemail" value="">
+                	<input type="hidden" id="kakaoid" name="kakaoid" value=""> 
+                </form>
        </div> 
        
       </div>
@@ -95,5 +123,30 @@
     <!--bootstrap js요소 4.3.1 불러오기-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	
+	 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+	 <script type='text/javascript'>
 
+    document.addEventListener("DOMContentLoaded", function() {
+        Kakao.init( "7e5dd1b3d783cce86b62c626f0af2fe2" );
+        Kakao.Auth.createLoginButton({
+              container : "#kakao-login-btn"
+            , success : function( authObj ) {
+                Kakao.API.request({
+                      url : "/v2/user/me"
+                    , success : function( res ) {
+                        $("#kakaoid").val(res.id);
+                        $("#kakaoemail").val(res.kakao_account.email);
+                        $("#kakaoform").submit();
+                    }, fail : function( error ) {
+                        alert( JSON.stringify( error ) );
+                    }
+                });
+            }
+            , fail : function( error ) {
+                alert( JSON.stringify( error ));
+            }
+        });
+    });
+    </script>
 </html>

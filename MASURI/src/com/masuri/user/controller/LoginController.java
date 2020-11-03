@@ -12,8 +12,10 @@ import com.masuri.command.Command;
 import com.masuri.file.DefaultImgSet;
 import com.masuri.user.command.IDsearchCommand;
 import com.masuri.user.command.IdchkCommand;
+import com.masuri.user.command.KakaoLoginCommand;
 import com.masuri.user.command.LoginCommand;
 import com.masuri.user.command.LogoutCommand;
+import com.masuri.user.command.NaverLoginCommand;
 import com.masuri.user.command.PWsearchCommand;
 import com.masuri.user.command.SignupCommand;
 import com.masuri.user.command.UserUpdateCommand;
@@ -22,7 +24,7 @@ import com.masuri.user.command.UserUpdateGoCommand;
 
 @WebServlet(urlPatterns = {"/user/basic/login/login.do","/user/basic/login/logout.do",
 		"/user/basic/login/idchk.do","/user/basic/signup.do","/user/basic/updateuser.do","/user/basic/updateGo.do",
-		"/user/basic/idsearchres.do","/user/basic/pwsearchres.do"})
+		"/user/basic/idsearchres.do","/user/basic/pwsearchres.do","/user/basic/navercallback.do","/user/basic/kakaocallback.do"})
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -108,6 +110,19 @@ public class LoginController extends HttpServlet {
 			command = new PWsearchCommand();
 			command.execute(request, response);
 			viewPage = "/user/basic/pwsearchres.jsp";
+			break;
+			
+		case "navercallback.do":
+			System.out.println("네이버아이디 로그인");
+			command = new NaverLoginCommand();
+			command.execute(request, response);
+			viewPage = "/user/basic/naverloginres.jsp";
+			break;
+		case "kakaocallback.do":
+			System.out.println("카카오아이디 로그인");
+			command = new KakaoLoginCommand();
+			command.execute(request, response);
+			viewPage = "/user/basic/kakaologinres.jsp";
 			break;
 		}
 		

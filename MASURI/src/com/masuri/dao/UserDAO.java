@@ -64,7 +64,7 @@ public class UserDAO {
 	}
 	
 	public static UserDTO select(String id) throws SQLException { //id로 하나만 가져오기
-		UserDTO user = new UserDTO();
+		UserDTO user = null;
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement("SELECT * FROM USERDATA WHERE ID = ?");
@@ -72,6 +72,7 @@ public class UserDAO {
 			rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
+				user = new UserDTO();
 				user.setId(rs.getString("ID"));
 				user.setUsernum(rs.getInt("usernum"));
 				user.setBlack(Boolean.parseBoolean(rs.getString("black")));
@@ -214,6 +215,30 @@ public class UserDAO {
 		}
 		 	
 		return check;
+	}
+	
+	
+	public static String idSearch(String name, String email)  {
+		String id = null;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("SELECT id FROM USERDATA WHERE name = ? and email = ?");
+			pstmt.setString(1, name);
+			pstmt.setString(2, email);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) { ;
+			id = rs.getString("id");
+			}
+					
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 	
+		return id;
 	}
 		
 	

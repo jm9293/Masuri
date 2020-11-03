@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+
 <!doctype html>
     <html lang="ko">
       <head>
@@ -23,10 +26,7 @@
           }
           .input-box{
               margin: 2% 0;
-          }
-          
-          
-          
+          }  
           .row{
           	padding: 0;
           	text-align: center;
@@ -52,29 +52,25 @@
       <div class="content">
        <div class="login-box col-12 col-md-6">
            <div class="title col-12 text-center">
-               <h1>로그인</h1>
-                <a href="signup.jsp">회원이 아니신가요?</a>
+               <h1>비밀번호찾기</h1>
+               <b>비밀번호는 아이디와 이메일 입력시 임시비밀번호가 발급됩니다.</b>
             </div>
         
 
-        <form action="login/login.do" method="post">
+        <form action="pwsearchres.do" method="post">
             <div class="form-group">
                 <div class="input-box col-12 col-md-12">
-                  <label for="inputID" class="">아이디</label>
-                  <input type="text" class="form-control" id="inputID" name="inputID" placeholder="" required>
+                  <label for="name" class="">아이디</label>
+                  <input type="text" class="form-control" name="id" placeholder="" required>
                 </div>
                    
                 <div class="input-box col-12 col-md-12">
-                  <label for="inputPW" class="">비밀번호</label>
-                  <input type="password" class="form-control" name="inputPW" id="inputPW" placeholder="" required>
-                </div>
-				<div class="input-box col-12 col-md-12 row" style="">
-                 <div class="col-6"><a href="idsearch.jsp">아이디 찾기</a></div>
-                 <div class="col-6"><a href="pwsearch.jsp">비밀번호 찾기</a></div>
+                  <label for="eamil" class="">이메일</label>
+                  <input type="text" class="form-control" name="email" placeholder="" required>
                 </div>
                 
                 <div class="input-box col-12 col-md-12">
-                  <button class="login-btn btn btn-primary col-12" type="submit">로그인</button>
+                  <button class="login-btn btn btn-primary col-12" type="submit">비밀번호찾기</button>
                 </div>
             </div>
         </form>

@@ -8,7 +8,7 @@ import javax.mail.internet.MimeMessage;
 
 public class Sandmail {
 
-	static boolean sand(String toadd, String subject , String content) {
+	public static boolean sand(String toadd, String subject , String content) {
 		final String from = "masuri1019@gmail.com";
 		String to = toadd; //받는사람
 		

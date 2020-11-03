@@ -1,6 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% 
+
+ int res = (int)request.getAttribute("res");
+ if(res==0){%>
+	 <script>
+	    alert('일치하는 아이디를 찾을수 없습니다.\n 다시시도해주세요');
+	    history.back();
+    </script> 
+    
+ <%return;}
+ 
+ String id = (String)request.getAttribute("id");
+ 
+ 
+ 
+ 
+ %>
 <!doctype html>
     <html lang="ko">
       <head>
@@ -18,7 +35,7 @@
          <!-- 페이지 css -->
          <style> 
           .login-box{
-            margin: 10% auto;
+            margin: 5% auto;
 
           }
           .input-box{
@@ -50,34 +67,24 @@
 
       <!--메인 컨텐트 영역-->
       <div class="content">
-       <div class="login-box col-12 col-md-6">
+       <div class="login-box col-12 col-md-4">
            <div class="title col-12 text-center">
-               <h1>로그인</h1>
-                <a href="signup.jsp">회원이 아니신가요?</a>
+               <h1>ID찾기완료</h1>
+               	회원님의 아이디는 <%=id %> 입니다.
             </div>
         
 
-        <form action="login/login.do" method="post">
+        	<br>
             <div class="form-group">
                 <div class="input-box col-12 col-md-12">
-                  <label for="inputID" class="">아이디</label>
-                  <input type="text" class="form-control" id="inputID" name="inputID" placeholder="" required>
-                </div>
-                   
-                <div class="input-box col-12 col-md-12">
-                  <label for="inputPW" class="">비밀번호</label>
-                  <input type="password" class="form-control" name="inputPW" id="inputPW" placeholder="" required>
-                </div>
-				<div class="input-box col-12 col-md-12 row" style="">
-                 <div class="col-6"><a href="idsearch.jsp">아이디 찾기</a></div>
-                 <div class="col-6"><a href="pwsearch.jsp">비밀번호 찾기</a></div>
-                </div>
-                
-                <div class="input-box col-12 col-md-12">
-                  <button class="login-btn btn btn-primary col-12" type="submit">로그인</button>
+       
+                  <div class="input-box col-12 col-md-12 row" style="">
+	                 <div class="col-6"><a href="pwsearch.jsp">비밀번호 찾기</a></div>
+	                 <div class="col-6"><a href="login.jsp">로그인</a></div>
+	              </div>
                 </div>
             </div>
-        </form>
+        
        </div> 
        
       </div>

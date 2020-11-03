@@ -33,7 +33,7 @@ if(userID!=null&&!logincheck){
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="#">출장수리 안내</a>
                       <a class="dropdown-item" href="../res/res1.jsp">출장수리 예약</a>
-                      <a class="dropdown-item" href="#">예약 확인</a>
+                      <a class="dropdown-item" href="../res/res_chk1.do">예약 확인</a>
                     </div>
                   </li>
                   <li class="nav-item dropdown">
@@ -43,18 +43,7 @@ if(userID!=null&&!logincheck){
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">방문수리 안내</a>
                         <a class="dropdown-item" href="../res/res2.jsp">방문수리 예약</a>
-                        <a class="dropdown-item" href="#">예약 확인</a>
-                    </div>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      에코폰 매입
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">에코폰매입 안내</a>
-                        <a class="dropdown-item" href="#">매입 시세 확인</a>
-                        <a class="dropdown-item" href="#">온라인 매입 신청</a>
-                        <a class="dropdown-item" href="#">매입 신청 확인</a>
+                        <a class="dropdown-item" href="../res/res_chk2.do">예약 확인</a>
                     </div>
                   </li>
                   <li class="nav-item dropdown">

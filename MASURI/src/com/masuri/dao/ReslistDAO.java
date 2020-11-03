@@ -117,11 +117,18 @@ public class ReslistDAO {
 	}
 	
 	
-	public static int getMaxPageFromUser(String id) throws SQLException { // 최대페이지수 유저아이디로 가져오기
+	public static int getMaxPageFromUser(String id, boolean type) throws SQLException { // 최대페이지수 유저아이디로 가져오기
 		int cnt = 0;
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("select COUNT(*) as \"count\" from Reslist WHERE USERID =?");
+			if(type) {
+				pstmt = conn.prepareStatement("select COUNT(*) as \"count\" from Reslist WHERE USERID =? AND ADDRESS ='센터'");
+			
+			}else {
+				pstmt = conn.prepareStatement("select COUNT(*) as \"count\" from Reslist WHERE USERID =? AND ADDRESS !='센터'");
+			}
+			pstmt.setString(1, id);
+			
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 		   
@@ -184,10 +191,19 @@ public class ReslistDAO {
 			rs = pstmt.executeQuery();
 		   
 			while (rs.next()) {
-				ReslistDTO Reslist = new ReslistDTO();
-				Reslist.setNum(rs.getInt("num"));
-				
-				list.add(Reslist);
+				ReslistDTO reslist = new ReslistDTO();
+				reslist.setNum(rs.getInt("num"));
+				reslist.setTime(rs.getTimestamp("time"));
+				reslist.setAddress(rs.getString("address"));
+				reslist.setUserid(rs.getString("userid"));
+				reslist.setEngid(rs.getString("engid"));
+				reslist.setFactory(rs.getString("factory"));
+				reslist.setModel(rs.getString("model"));
+				reslist.setFailsit(rs.getString("failsit"));
+				reslist.setFailmsg(rs.getString("failmsg"));
+				reslist.setState(rs.getString("state"));
+				list.add(reslist);
+			
 			}
 			for (ReslistDTO userDTO : list) {
 				System.out.println(userDTO);
@@ -204,19 +220,32 @@ public class ReslistDAO {
 	
 	
 	
-	public static ArrayList<ReslistDTO> selectpageFromUser(int num ,String id) throws SQLException { //페이지 번호, 유저 id로 가져오기
+	public static ArrayList<ReslistDTO> selectpageFromUser(int num ,String id,boolean type) throws SQLException { //페이지 번호, 유저 id로 가져오기
 		ArrayList<ReslistDTO> list = new ArrayList<ReslistDTO>();
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",Reslist.* FROM Reslist WHERE USERID =? ORDER BY NUM DESC) Reslist2 WHERE rnum>="+(1+(num-1)*7)+" and rnum<="+((num)*7));
+			if(type) {
+				pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",Reslist.* FROM Reslist WHERE USERID =? AND ADDRESS = '센터' ORDER BY NUM DESC) Reslist2 WHERE rnum>="+(1+(num-1)*7)+" and rnum<="+((num)*7));
+			}else {
+				pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",Reslist.* FROM Reslist WHERE USERID =? AND ADDRESS != '센터' ORDER BY NUM DESC) Reslist2 WHERE rnum>="+(1+(num-1)*7)+" and rnum<="+((num)*7));
+			}
+			
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 		   
 			while (rs.next()) {
-				ReslistDTO Reslist = new ReslistDTO();
-				Reslist.setNum(rs.getInt("num"));
-				
-				list.add(Reslist);
+				ReslistDTO reslist = new ReslistDTO();
+				reslist.setNum(rs.getInt("num"));
+				reslist.setTime(rs.getTimestamp("time"));
+				reslist.setAddress(rs.getString("address"));
+				reslist.setUserid(rs.getString("userid"));
+				reslist.setEngid(rs.getString("engid"));
+				reslist.setFactory(rs.getString("factory"));
+				reslist.setModel(rs.getString("model"));
+				reslist.setFailsit(rs.getString("failsit"));
+				reslist.setFailmsg(rs.getString("failmsg"));
+				reslist.setState(rs.getString("state"));
+				list.add(reslist);
 			}
 			for (ReslistDTO userDTO : list) {
 				System.out.println(userDTO);
@@ -235,7 +264,7 @@ public class ReslistDAO {
 	
 	
 	public static ReslistDTO select(int num) throws SQLException { //num으로 하나만 가져오기
-		ReslistDTO Reslist = new ReslistDTO();
+		ReslistDTO reslist = new ReslistDTO();
 		try {
 			conn = getConnection();
 			
@@ -245,7 +274,18 @@ public class ReslistDAO {
 			rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
-				Reslist.setNum(rs.getInt("num"));
+				
+				
+				reslist.setNum(rs.getInt("num"));
+				reslist.setTime(rs.getTimestamp("time"));
+				reslist.setAddress(rs.getString("address"));
+				reslist.setUserid(rs.getString("userid"));
+				reslist.setEngid(rs.getString("engid"));
+				reslist.setFactory(rs.getString("factory"));
+				reslist.setModel(rs.getString("model"));
+				reslist.setFailsit(rs.getString("failsit"));
+				reslist.setFailmsg(rs.getString("failmsg"));
+				reslist.setState(rs.getString("state"));
 				
 			}
 			
@@ -257,7 +297,7 @@ public class ReslistDAO {
 			close();
 		}
 		 
-		return Reslist;
+		return reslist;
 	}
 	
 	public static synchronized int insert(ReslistDTO reslist) throws SQLException { //ReslistDTO 객체로 인서트하기

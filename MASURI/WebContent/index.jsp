@@ -131,7 +131,7 @@ if(userID!=null&&!logincheck){
 %>
  
         <!--네비바 시작-->
-        <nav class="navbar navbar-expand-md navbar-light bg-white navbar-u">
+         <nav class="navbar navbar-expand-md navbar-light bg-white navbar-u">
             <a class="navbar-brand navbar-logo" href="/MASURI">MASURI</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -146,7 +146,7 @@ if(userID!=null&&!logincheck){
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="#">출장수리 안내</a>
                       <a class="dropdown-item" href="user/res/res1.jsp">출장수리 예약</a>
-                      <a class="dropdown-item" href="#">예약 확인</a>
+                      <a class="dropdown-item" href="user/res/res_chk1.do">예약 확인</a>
                     </div>
                   </li>
                   <li class="nav-item dropdown">
@@ -155,19 +155,8 @@ if(userID!=null&&!logincheck){
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">방문수리 안내</a>
-                        <a class="dropdown-item" href="#">방문수리 예약</a>
-                        <a class="dropdown-item" href="#">예약 확인</a>
-                    </div>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      에코폰 매입
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">에코폰매입 안내</a>
-                        <a class="dropdown-item" href="#">매입 시세 확인</a>
-                        <a class="dropdown-item" href="#">온라인 매입 신청</a>
-                        <a class="dropdown-item" href="#">매입 신청 확인</a>
+                        <a class="dropdown-item" href="user/res/res2.jsp">방문수리 예약</a>
+                        <a class="dropdown-item" href="user/res/res_chk2.do">예약 확인</a>
                     </div>
                   </li>
                   <li class="nav-item dropdown">
@@ -224,7 +213,7 @@ if(userID!=null&&!logincheck){
                   </button>
                 </div>
                 <div class="modal-body">
-                  <button type="button" class="btn btn-secondary">회원가입</button>
+                  <button type="button" class="btn btn-secondary" onclick="location.href='user/basic/signup.jsp'">회원가입</button>
                   <button type="button" class="btn btn-primary" onclick="location.href='user/basic/login.jsp'">로그인</button>
                 </div>
                 
@@ -246,7 +235,7 @@ if(userID!=null&&!logincheck){
                   <h3><%=userID%></h3>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary">회원정보 수정</button>
+                  <button type="button" class="btn btn-secondary" onclick="location.href='user/basic/updateuser.do'">회원정보 수정</button>
                   <button type="button" class="btn btn-primary" onclick="location.href='user/basic/login/logout.do'">로그아웃</button>
                 </div>
                 
@@ -254,7 +243,7 @@ if(userID!=null&&!logincheck){
             </div>
           </div>
           <!--로그인모달창 끝-->
-          <%} %>   
+          <%} %>
        
       </div>
      

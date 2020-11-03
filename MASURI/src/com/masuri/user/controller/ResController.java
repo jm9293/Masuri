@@ -2,27 +2,26 @@ package com.masuri.user.controller;
 
 import java.io.IOException;
 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.masuri.command.Command;
-import com.masuri.command.UserUpdateGoCommand;
-import com.masuri.file.DefaultImgSet;
-import com.masuri.user.command.IdchkCommand;
-import com.masuri.user.command.LoginCommand;
-import com.masuri.user.command.LogoutCommand;
 import com.masuri.user.command.ResCenterCommand;
 import com.masuri.user.command.ResCompleteCommend;
 import com.masuri.user.command.ResHomeCommand;
+import com.masuri.user.command.ResViewCommend;
 import com.masuri.user.command.ResWriteCommend;
-import com.masuri.user.command.SignupCommand;
-import com.masuri.user.command.UserUpdateCommand;
+import com.masuri.user.command.ReschkHomeCommend;
+import com.masuri.user.command.ReschkCommend;
 
 
-@WebServlet(urlPatterns = {"/user/res/res1.do","/user/res/res2.do","/user/res/reswrite.do","/user/res/rescomplete.do"})
+
+@WebServlet(urlPatterns = {"/user/res/res1.do","/user/res/res2.do","/user/res/reswrite.do","/user/res/rescomplete.do","/user/res/res_chk1.do","/user/res/res_chk2.do","/user/res/res_view.do"})
 public class ResController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -87,6 +86,26 @@ public class ResController extends HttpServlet {
 			viewPage = "/user/res/rescomplete.jsp";
 			break;
 			
+		case "res_chk1.do":
+			System.out.println("수리신청서 출장현황확인");
+			command = new ReschkCommend();
+			command.execute(request, response);
+			viewPage = "/user/res/res_chk1.jsp";
+			break;
+			
+		case "res_chk2.do":
+			System.out.println("수리신청서 예약현황확인");
+			command = new ReschkHomeCommend();
+			command.execute(request, response);
+			viewPage = "/user/res/res_chk2.jsp";
+			break;
+			
+		case "res_view.do":
+			System.out.println("수리신청서 보기");
+			command = new ResViewCommend();
+			command.execute(request, response);
+			viewPage = "/user/res/res_view.jsp";
+			break;	
 		
 		}
 		

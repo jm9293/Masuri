@@ -45,7 +45,7 @@ footer h1 {
   font-weight: 600;
 }
 footer p {
-  font-size: 1px;
+  font-size: 0.1rem;
 }
 
 footer > div {
@@ -84,13 +84,24 @@ footer > div {
   margin: 0 auto;
 }
 
+b{
+	color: rgb(52, 152, 219);
+	font-weight: normal;
+}
+
 @media (min-width: 360px) {
+	
+	
   footer p {
-    font-size: 10px;
+    font-size: 0.5rem;
   }
 }
 @media (min-width: 767px) {
+ 
+	
   footer p {
-    font-size: 12px;
+    font-size: 0.8rem;
   }
 }
+
+

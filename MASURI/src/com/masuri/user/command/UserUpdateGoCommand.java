@@ -1,4 +1,4 @@
-package com.masuri.command;
+package com.masuri.user.command;
 
 import java.sql.SQLException;
 import java.util.regex.Pattern;
@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.masuri.command.Command;
 import com.masuri.dao.UserDAO;
 import com.masuri.dto.UserDTO;
 import com.masuri.file.DefaultImgSet;

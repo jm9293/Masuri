@@ -1,6 +1,7 @@
 package com.masuri.user.command;
 
 import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -45,7 +46,7 @@ public class ResWriteCommend implements Command {
 			
 			
 			if(!(daychk&&timenumchk&&addchk&&sggNmchk&&engchk)) { // 파라미터 비정상
-				request.setAttribute("res", 0);
+				request.setAttribute("res", res);
 				return;
 			}    
 			

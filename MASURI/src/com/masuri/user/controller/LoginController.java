@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.masuri.command.Command;
-import com.masuri.command.UserUpdateGoCommand;
 import com.masuri.file.DefaultImgSet;
 import com.masuri.user.command.IdchkCommand;
 import com.masuri.user.command.LoginCommand;
 import com.masuri.user.command.LogoutCommand;
 import com.masuri.user.command.SignupCommand;
 import com.masuri.user.command.UserUpdateCommand;
+import com.masuri.user.command.UserUpdateGoCommand;
 
 
 @WebServlet(urlPatterns = {"/user/basic/login/login.do","/user/basic/login/logout.do",

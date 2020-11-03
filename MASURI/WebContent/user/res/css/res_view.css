@@ -1,0 +1,48 @@
+@charset "UTF-8";
+.content{
+    margin-top: 5%;
+}
+.titlebox{
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 100px;
+    margin: auto;
+}
+h2{
+    font-weight: bold;
+}
+.head{
+    margin: auto;
+}
+.title{
+    margin: auto;
+}
+ .contentbox{
+     overflow: auto;
+     margin: auto;
+ }
+ 
+  .contentbox > textarea[readonly]{
+     background-color: white;
+     color: black;
+     margin-top: 1%;
+ }
+ 
+ #back{
+    display :block;
+    width:100px;
+    text-align: center;
+    margin: 1% auto;
+ }
+ .textlist:hover{
+    background: none;
+    opacity: 1;
+ }
+ 
+ 
+ @media (min-width: 767px){
+    
+    
+ }

@@ -4,6 +4,7 @@
 }
 .imgbox{
   height: 500px;
+  border-radius: 10px;
 }
 img{
   width: 100%;
@@ -54,5 +55,8 @@ img{
   }
   .p2{
     font-size: 20px;
+  }
+  img{
+    height: 750px;
   }
 }

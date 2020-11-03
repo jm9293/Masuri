@@ -13,6 +13,7 @@ import com.masuri.admin.command.EngCreateChkCommand;
 import com.masuri.admin.command.EngCreateCommand;
 import com.masuri.admin.command.EngEditCommand;
 import com.masuri.admin.command.EngInfoCommand;
+import com.masuri.admin.command.EngPasswordCommand;
 import com.masuri.admin.command.EngSearchCommand;
 import com.masuri.admin.command.EngStatusChkCommand;
 import com.masuri.command.Command;
@@ -20,7 +21,8 @@ import com.masuri.command.Command;
 @WebServlet(urlPatterns = {
 		"/admin/adEng/adEngEdit.do","/admin/adEng/adEngInfo.do",
 		"/admin/adEng/adEngStatusChk.do","/admin/adEng/adEngSearch.do",
-		"/admin/adEng/adEngCreate.do","/admin/adEng/adEngCreateOk.do"})
+		"/admin/adEng/adEngCreate.do","/admin/adEng/adEngCreateOk.do",
+		"/admin/adEng/adEngPassword.do"})
 public class EngInfoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  
@@ -78,6 +80,11 @@ public class EngInfoController extends HttpServlet {
 			command = new EngCreateCommand();
 			command.execute(request, response);
 			viewPage = "/admin/adEng/adEngCreateOk.jsp";
+			break;
+		case "/admin/adEng/adEngPassword.do":
+			command = new EngPasswordCommand();
+			command.execute(request, response);
+			viewPage = "/admin/adEng/adEngPassword.jsp";
 			break;
 		}
 		if(viewPage != null) {

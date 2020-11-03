@@ -1,3 +1,6 @@
+<%@page import="com.masuri.dto.ReslistDTO"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,14 +19,52 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+	<%
+		ReslistDTO dto =  (ReslistDTO)request.getAttribute("list");
+		SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd hh:mm:ss");
+		System.out.println(dto);
+	%>
 	<div class="container">
 	<%@ include file="../adNav.jsp" %>
-	
-	
-	
+		<form method="post" action="adOptionDel.do">
+			<input type="hidden" name="uid" value="<%= dto.getNum() %>"/>
+			<table class="table">
+			<%
+				if( dto != null){
+			%>
+			
+				<thead>	
+					<tr class="hgh">
+						<td class="tab-label">유저ID : <%= dto.getUserid() %> </td>
+						<td class="tab-label">기사ID : <%= dto.getEngid() %></td>
+					</tr>
+					<tr>
+						<td class="tab-label">제조사/기종 : <%= dto.getFactory() %>/<%= dto.getModel() %></td>
+						<td class="tab-label">고장 상황 : <%= dto.getFailsit() %></td>
+					</tr>
+					<tr>
+						<td class="tab-label">날짜-시간 : <%= dto.getTime() %></td>
+						<td class="tab-label">수리받을 장소 : <%= dto.getAddress() %></td>
+					</tr>
+					<tr>				
+						<td colspan="2"><label class="nomg">고장 상세 내용<p class="nomg">[수리 상황 : <%= dto.getState() %>]</p></label></td>
+					</tr>
+					<tr>				
+						<td colspan="2"><div class="form-control tab-db"><%= dto.getFailmsg() %></div></td>
+					</tr>
+				</thead>
+			<%
+				}
+			%>
+			</table><br>
+			<a href="adOption.do" class="btn btn-outline-primary" id="myLbtn">목록보기</a>
+			<input type="submit" class="btn btn-outline-danger" id="myRbtn"value="삭제"/>
+		</form>
+		
+		
+		
+		
 	</div>
-	
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
 	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

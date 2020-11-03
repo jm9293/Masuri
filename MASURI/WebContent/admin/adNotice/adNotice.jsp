@@ -36,10 +36,10 @@
 		<table class="table">
 		    <thead>
 		      	<tr class="hgh">
-					<th class="tab-date">번호</th>
-					<th class="tab-title">제목</th>
+					<th class="tab-view">번호</th>
+					<th class="tab-title3">제목</th>
 					<th class="tab-view">조회수</th>
-					<th class="tab-date">작성일</th>
+					<th class="tab-view">작성일</th>
 		      </tr>
 		    </thead>
 	    	<tbody>
@@ -49,9 +49,9 @@
 			%>	
 		    	<tr>
 					<td class="not-h tab-view"><%= list.get(i).getNum() %></td>
-					<td class="tab-title"><a style="color:#343; text-decoration: none;" href="adRead.do?page=<%= ppage%>&uid=<%=list.get(i).getNum()%>"><%= list.get(i).getTitle() %></a></td>
-					<td class="tab-date"><%= list.get(i).getViewcount() %></td>
-					<td class="tab-date"><%= sdf.format(list.get(i).getWrtime()) %></td>
+					<td class="tab-title3"><a style="color:#343; text-decoration: none;" href="adRead.do?page=<%= ppage%>&uid=<%=list.get(i).getNum()%>"><%= list.get(i).getTitle() %></a></td>
+					<td class="tab-view"><%= list.get(i).getViewcount() %></td>
+					<td class="tab-view"><%= sdf.format(list.get(i).getWrtime()) %></td>
 		      	</tr>
 	      	<%
 	      			}

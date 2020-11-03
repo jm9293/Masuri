@@ -4,8 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.masuri.command.Command;
-import com.masuri.dao.FixlistDAO;
-import com.masuri.dto.FixlistDTO;
+import com.masuri.dao.ReslistDAO;
+import com.masuri.dto.ReslistDTO;
 
 public class AdOptionDelCommand implements Command {
 
@@ -14,11 +14,11 @@ public class AdOptionDelCommand implements Command {
 		// TODO Auto-generated method stub
 		int num =  Integer.parseInt(request.getParameter("uid"));
 		int result = 0;
-		FixlistDTO dto = new FixlistDTO();
+		ReslistDTO dto = new ReslistDTO();
 		dto.setNum(num);
 		
 		try {
-			result = FixlistDAO.delete(num);
+			result = ReslistDAO.delete(dto);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

@@ -24,7 +24,7 @@
 		ArrayList<ReslistDTO> list =  (ArrayList<ReslistDTO>)request.getAttribute("list");
 		int ppage = (int)request.getAttribute("page");
 		int max = (int)request.getAttribute("max");
-		SimpleDateFormat sdf = new SimpleDateFormat("yy.MM.dd hh:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd hh:mm:ss");
 
 	%>
 
@@ -32,14 +32,19 @@
 	<div class="container mini">
 		<%@ include file="../adNav.jsp" %>
 		<h2 style="color:#999">수리 신청서</h2><br>
+		<input type="text" class="form-control srctxt" placeholder="ID를 입력하세요" id="srch-term"  name="text"><br>
+		        	
+		
 		<div class="table-responsive">
 			<table class="table table-striped">
 				<thead>
 					<tr class="hgh">
 						<th class="tab-view">유저</th>
 						<th class="tab-view">기사</th>
-						<th class="tab-title">제목</th>
-						<th class="tab-date">주소</th>
+						<th class="tab-title3">제목</th>
+						<th class="tab-view">지역</th>
+						<th class="tab-view">시간</th>
+						<th class="tab-view">상태</th>
 					</tr>
 				</thead>
 					
@@ -50,10 +55,13 @@
 					for(int i = 0; i < list.size(); i++){
 			%>
 					<tr>
-						<td class="not-h tab-view"><%= list.get(i).getUserid() %></td>
-						<td class="tab-view"><%= list.get(i).getEngid() %></td>
-						<td class="tab-title"><%= list.get(i).getFactory() %> / <%= list.get(i).getModel() %></td>
-						<td class="tab-date"><%= list.get(i).getAddress() %></td>
+						<td class="not-h tab-view "><%= list.get(i).getUserid() %></td>
+						<td class="tab-view "><%= list.get(i).getEngid() %></td>
+						<td class="tab-title3 "><a style="text-decoration: none" href="adOptionView.do?page=<%= ppage%>
+							&uid=<%=list.get(i).getNum()%>"><%= list.get(i).getFactory() %> / <%= list.get(i).getModel() %></a></td>
+						<td class="tab-view "><%= list.get(i).getAddress() %></td>
+						<td class="tab-view "><%= sdf.format(list.get(i).getTime()) %></td>
+						<td class="tab-view "><%= list.get(i).getState() %></td>
 					</tr>
 				<%
 	      			}

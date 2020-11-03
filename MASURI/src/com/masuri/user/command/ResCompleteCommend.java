@@ -78,7 +78,6 @@ public class ResCompleteCommend implements Command {
 		boolean modelchk = inputModel!=null&&fixlistmap.get(inputFactory).contains(inputModel);
 		boolean faillistchk = inputFailsit!=null&&failsitmap.containsKey(inputFailsit);
 		
-		System.out.println(modelchk);
 		
 		if(!(daychk&&timenumchk&&addchk&&sggNmchk&&engchk&&factorychk&&modelchk&&faillistchk)) { // 파라미터 비정상
 			request.setAttribute("res", 0);
@@ -134,7 +133,6 @@ public class ResCompleteCommend implements Command {
 		request.setAttribute("res", 1);// 성공
 		
 		} catch (Exception e) {
-			
 			request.setAttribute("res", 0);
 		}
 

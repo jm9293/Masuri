@@ -83,7 +83,7 @@ lrline{
 	padding: 0 !important;
 }
 .tab-view{
-	width: 15%;
+	width: 10%;
 }
 .tab-title{
 	width: 50%;
@@ -95,6 +95,9 @@ lrline{
 	width: 40%;
 }
 .tab-date{
+	width: 20%;
+}
+.tab-date2{
 	width: 20%;
 }
 .tab-c1{
@@ -172,6 +175,23 @@ table {
 	width: 40%;
 }
 
+.tab-label{
+	width: 10%;
+	font-size: 0.4rem;
+	
+}
+.tab-db{
+	width: 100%;
+	min-height: 100px;
+}
+.nomg{
+	margin: 0;
+}
+.lipd{
+	vertical-align: middle
+}
+
+
 
 @media only screen and (max-width: 768px) {
 
@@ -200,7 +220,10 @@ table {
 	.tab-title3{
 		font-size: 0.8rem;
 	}
-	.tab-date{
+	.tab-date {
+		font-size: 0.5rem;
+	}
+	.tab-date2 {
 		font-size: 0.5rem;
 	}
 	.tab-c1{
@@ -208,8 +231,17 @@ table {
 	}
 	
 	.insert-txt{
-	width: 100%;
-}
+		width: 100%;
+	}
+	.tab-db{
+		font-size: 0.1rem;
+		padding: 0;
+	}
+	.mtxt{
+		font-size: 0.3rem;
+		padding: 0;
+	}
+	
 	
 }
 @media only screen and (max-width: 510px) {
@@ -221,6 +253,7 @@ table {
 	}
 	.tab-view{
 		font-size: 0.3rem;
+		padding: 0 !important;
 	}
 	.tab-title{
 		font-size: 0.5rem;
@@ -230,9 +263,11 @@ table {
 	}
 	.tab-title3{
 		font-size: 0.5rem;
+		padding: 0 !important;
 	}
 	.tab-date{
 		font-size: 0.3rem;
+		
 	}
 	.tab-c1{
 		font-size: 0.3rem;
@@ -245,6 +280,10 @@ table {
 	}
 	#myLbtn{
 	width: 100%;
+	}
+	.mtxt{
+		font-size: 0.1rem;
+		padding: 0;
 	}
 }
 
@@ -261,10 +300,13 @@ table {
 		font-size: 0.2rem;
 	}
 	.tab-title3{
-		font-size: 0.2rem;
+		font-size: 0.1rem;
 	}
 	.tab-date{
 		font-size: 0.1rem;
+	}
+	.tab-date2{
+		font-size: 0.05rem;
 	}
 	.tab-c1{
 		font-size: 0.1rem;

@@ -6,7 +6,7 @@
 <% if(result == 1){
 %>	
 	alert("삭제되었습니다.");
-	location.href="/MASURI/admin/adOption/adOptionEx.do";
+	location.href="/MASURI/admin/adOption/adOption.do";
 <%
 	} else if(result == 0){
 %>

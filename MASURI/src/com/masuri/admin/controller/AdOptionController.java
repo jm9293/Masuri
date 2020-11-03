@@ -21,7 +21,7 @@ import com.masuri.command.Command;
  */
 @WebServlet(urlPatterns = {
 		"/admin/adOption/adOption.do","/admin/adOption/adOptionEx.do","/admin/adOption/adOptionView.do",
-		"/admin/adOption/adOptionExOK.do","/admin/adOption/optionDel.do"
+		"/admin/adOption/adOptionExOK.do","/admin/adOption/adOptionDel.do"
 })
 public class AdOptionController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -77,11 +77,12 @@ public class AdOptionController extends HttpServlet {
 			viewPage = "/admin/adOption/adOptionExOK.jsp";
 			break;
 			
-		case "/admin/adOption/optionDel.do":
+		case "/admin/adOption/adOptionDel.do":
 			command = new AdOptionDelCommand();
 			command.execute(request, response);
-			viewPage = "/admin/adOption/optionDel.jsp";
+			viewPage = "/admin/adOption/adOptionDel.jsp";
 			break;
+		
 					
 		}
 		

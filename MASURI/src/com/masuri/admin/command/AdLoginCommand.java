@@ -23,11 +23,11 @@ public class AdLoginCommand implements Command {
          
          HttpSession session = request.getSession();
          
-         if(session.getAttribute("login")!=null) {
+         if(session.getAttribute("adlogin")!=null) {
             if(admin.containsKey(adminID)) {
                request.setAttribute("logincheck", 2);
             } else {
-               session.removeAttribute("login");
+               session.removeAttribute("adlogin");
                try {
                   session.invalidate();
                } catch (Exception e) {
@@ -38,7 +38,7 @@ public class AdLoginCommand implements Command {
          } else {
             boolean check =  AdminDAO.logincheck(adminID, adminPW);
             if(check) {
-               session.setAttribute("login", adminID);
+               session.setAttribute("adlogin", adminID);
                
                if(admin.containsKey(adminID)) {
                   try {

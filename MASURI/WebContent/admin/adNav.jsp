@@ -4,7 +4,7 @@
 <%@ page import="com.masuri.admin.command.AdLoginCommand"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-String adminID = (String)request.getSession().getAttribute("login");
+String adminID = (String)request.getSession().getAttribute("adlogin");
 
 boolean logincheck = AdLoginCommand.admin.containsKey(adminID);
 

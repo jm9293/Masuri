@@ -35,6 +35,7 @@ public class AdOptionCommand implements Command {
 			}
 			list =  ReslistDAO.selectpage(page);
 			
+			
 			request.setAttribute("list", list);
 			request.setAttribute("max", max);
 			request.setAttribute("page", page);

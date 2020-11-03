@@ -40,7 +40,7 @@
 			<button class="btn btn-outline-secondary" type="submit" id="myLbtn">신규 기종 등록하기</button><br><br><br><br>
 		</form>		
 			<table class="table table-striped">
-				<form action="optionDel.do" name="optionForm">
+				<form action="adOptionExDel.do" name="optionForm">
 				<input type="hidden" id="uid" name="uid" value="">
 					<tbody>
 	

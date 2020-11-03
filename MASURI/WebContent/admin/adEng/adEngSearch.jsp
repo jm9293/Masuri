@@ -39,7 +39,7 @@
     <div class="container">
 	<%@ include file="../adNav.jsp" %>
        <h2 style="color:#999">직원 관리 페이지</h2><br>
-		<a href="adEngCreate.do" id="myRbtn" class="btn btn-lg fontsm" style="background-color: #9da">계정 생성</a>
+		<a href="adEngCreate.do" id="myRbtn" class="btn btn-outline-success">계정 생성</a>
 		<div class="col-5 nopad">
 		    <form class="navbar-form" role="search" action="adEngSearch.do">
 		    <div class="col-5 nopad">

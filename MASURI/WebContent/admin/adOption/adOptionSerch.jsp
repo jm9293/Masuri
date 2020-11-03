@@ -25,18 +25,29 @@
 		int ppage = (int)request.getAttribute("page");
 		int max = (int)request.getAttribute("max");
 		SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd hh:mm:ss");
-
+		
+		String text = (String)request.getAttribute("text");
+		String serchid = ((String [])request.getAttribute("serchid"))[0];
+		if(list.isEmpty()){
+	%>
+	
+	<script>
+		alert("검색 결과가 없습니다.");
+		history.back();
+	</script>
+	<%
+			return;
+		}
 	%>
 
 
 	<div class="container mini">
 		<%@ include file="../adNav.jsp" %>
-		<h2 style="color:#999">수리 신청서</h2><br>
 		<form action="adOptionSerch.do">
 			&nbsp;<input type="radio" name="serchid" value="userid" checked="checked"> 유저 ID&nbsp;&nbsp;
 			<input type="radio" name="serchid" value="engid"> 기사 ID
 			<input type="text" class="form-control srctxt" placeholder="찾고자 하는 ID를 입력하세요" id="srch-term"  name="text"><br>
-		</form>  	
+		</form>  	        	
 		
 		<div class="table-responsive">
 			<table class="table table-striped">
@@ -54,7 +65,7 @@
 					<!-- 수리 신청서 불러오기 -->
 				<tbody>
 			<%
-				if(list != null){
+				if(list != null && text != null){
 					for(int i = 0; i < list.size(); i++){
 			%>
 					<tr>
@@ -83,12 +94,12 @@
 				if (ppage - 1 < 1) {
 			%>
 			<li class="paging"><a
-				href="/MASURI/admin/adOption/adOption.do?page=1">이전</a></li>
+				href="/MASURI/admin/adOption/adOptionSerch.do?page=1">이전</a></li>
 			<%
 				} else {
 			%>
 			<li class="paging"><a
-				href="/MASURI/admin/adOption/adOption.do?page=<%=ppage - 1%>">이전</a></li>
+				href="/MASURI/admin/adOption/adOptionSerch.do?page=<%=ppage - 1%>">이전</a></li>
 			<%
 				}
 			if (max > 0) {
@@ -96,12 +107,12 @@
 					if (ppage == i) {
 			%>
 			<li class="paging"><a class='active tooltip-top'
-				href="/MASURI/admin/adOption/adOption.do?page=<%=i%>"><%=i%></a></li>
+				href="/MASURI/admin/adOption/adOptionSerch.do?page=<%=i%>"><%=i%></a></li>
 			<%
 				} else {
 			%>
 			<li class="paging"><a
-				href="/MASURI/admin/adOption/adOption.do?page=<%=i%>"><%=i%></a></li>
+				href="/MASURI/admin/adOption/adOptionSerch.do?page=<%=i%>"><%=i%></a></li>
 			<%
 					}
 				}
@@ -111,13 +122,13 @@
 				if (ppage < max) {
 			%>
 			<li class="paging"><a
-				href="/MASURI/admin/adOption/adOption.do?page=<%=ppage +1 %>">다음</a></li>
+				href="/MASURI/admin/adOption/adOptionSerch.do?page=<%=ppage +1 %>">다음</a></li>
 					
 			<%
 				} else {
 			%>
 			<li class="paging"><a
-				href="/MASURI/admin/adOption/adOption.do?page=<%=max%>">다음</a></li>
+				href="/MASURI/admin/adOption/adOptionSerch.do?page=<%=max%>">다음</a></li>
 			<%
 				}
 			%>

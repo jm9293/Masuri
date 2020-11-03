@@ -56,6 +56,7 @@
 				<p class="card-text srctxt">H.P: <%= dto.getPhone() %></p>
 				<p class="card-text srctxt">기사 소개: <%= dto.getIntro() %></p>
 				<p class="card-text srctxt">담당 지역: <%= dto.getArea() %></p>
+				<a class="btn text-white bg-primary" id="myLbtn">임의번호</a>
 				<a class="btn text-white bg-danger" id="myRbtn3" href="adEngEdit.do">닫기</a><br><br>
 			</div>
 		</div>

@@ -64,9 +64,8 @@ lrline{
 	float: right;
 	background-color: rgba(255,30,70,0.5);
 }
-#myRbtn4 {
-	float: right;
-	background-color: rgba(255,200,250,0.5);
+#myLbtn {
+	float: left;
 }
 #black{
     box-sizing: border-box;
@@ -280,6 +279,7 @@ table {
 	}
 	#myLbtn{
 	width: 100%;
+	margin-bottom: 1rem;
 	}
 	.mtxt{
 		font-size: 0.1rem;

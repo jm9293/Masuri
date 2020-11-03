@@ -457,7 +457,7 @@ public class ReslistDAO {
 	}
 	
 	
-	public static int delete(ReslistDTO Reslist) throws SQLException {  // 공지사항삭제하기
+	public static int delete(ReslistDTO Reslist) throws SQLException {  
 		int cnt = 0;
 		try {
 			conn = getConnection();
@@ -465,9 +465,39 @@ public class ReslistDAO {
 			
 			pstmt = conn.prepareStatement("DELETE FROM Reslist WHERE NUM = ?");
 		    pstmt.setInt(1, Reslist.getNum());
-			
-			
+		    cnt = pstmt.executeUpdate();
+		    
+		    int time = Reslist.getTime().getHours();
+		    switch (time) {
+			case 9:
+				time = 1;
+				break;
+			case 13:
+				time = 2;
+				break;
+			case 16:
+				time = 3;
+				break;
+	
+			}
+		    SimpleDateFormat sdf  = new SimpleDateFormat("yyyy-MM-dd");
+		    Date day = null;
+			try {
+				day = new Date(sdf.parse(sdf.format(Reslist.getTime())).getTime());
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		    
+		    pstmt = conn.prepareStatement("UPDATE DAYSCHEDULE SET " + 
+					"TIME"+time+" = ? " + 
+					"WHERE ENGID = ? AND DAY = ?");
+			pstmt.setString(1, null);
+			pstmt.setString(2, Reslist.getEngid());
+			pstmt.setDate(3, day);
+		    
 			cnt = pstmt.executeUpdate();
+		    
 			
 			if(cnt>0) {
 				conn.commit();

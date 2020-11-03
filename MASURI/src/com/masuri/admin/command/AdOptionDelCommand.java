@@ -1,5 +1,7 @@
 package com.masuri.admin.command;
 
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,8 +16,13 @@ public class AdOptionDelCommand implements Command {
 		// TODO Auto-generated method stub
 		int num =  Integer.parseInt(request.getParameter("uid"));
 		int result = 0;
-		ReslistDTO dto = new ReslistDTO();
-		dto.setNum(num);
+		ReslistDTO dto = null;
+		try {
+			dto = ReslistDAO.select(num);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		try {
 			result = ReslistDAO.delete(dto);

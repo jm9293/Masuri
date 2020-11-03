@@ -31,7 +31,7 @@ public class PWsearchCommand implements Command {
 			   id!=null&&Pattern.matches(regarr[1], id)) {
 				System.out.println("여기들어옴?");
 			 
-			UserDTO user = UserDAO.select(id);
+			 UserDTO user = UserDAO.select(id);
 				
 			 
 			 if(user==null) {

@@ -54,6 +54,7 @@ lrline{
 
 #myRbtn {
 	float: right;
+	font-size: 0.9rem;
 }
 #myRbtn2 {
 	float: right;
@@ -66,6 +67,8 @@ lrline{
 }
 #myLbtn {
 	float: left;
+	font-size: 0.9rem;
+	margin-right: 5px
 }
 #black{
     box-sizing: border-box;
@@ -316,7 +319,10 @@ table {
 		font-size: 0.1rem;
 	}	
 	
-	
+	.ntxt{
+		padding:0;
+		width: 100%;
+	}
 	
 	
 	

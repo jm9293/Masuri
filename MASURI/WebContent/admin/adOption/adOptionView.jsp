@@ -58,7 +58,8 @@
 			%>
 			</table><br>
 			<a href="adOption.do" class="btn btn-outline-primary" id="myLbtn">목록보기</a>
-			<input type="submit" class="btn btn-outline-danger" id="myRbtn"value="삭제"/>
+			<input type="button" class="btn btn-outline-secondary" id="myLbtn" value="수리 완료"></>
+			<input type="submit" class="btn btn-outline-danger" id="myRbtn" value="삭제"/>
 		</form>
 		
 		

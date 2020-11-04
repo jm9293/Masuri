@@ -1,3 +1,4 @@
+<%@page import="java.net.URLDecoder"%>
 <%@page import="com.masuri.dto.ReslistDTO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.*"%>
@@ -32,10 +33,12 @@
 	<div class="container mini">
 		<%@ include file="../adNav.jsp" %>
 		<h2 style="color:#999">수리 신청서</h2><br>
-		<form action="adOptionSerch.do">
-			&nbsp;<input type="radio" name="serchid" value="userid" checked="checked"> 유저 ID&nbsp;&nbsp;
-			<input type="radio" name="serchid" value="engid"> 기사 ID
-			<input type="text" class="form-control srctxt" placeholder="찾고자 하는 ID를 입력하세요" id="srch-term"  name="text"><br>
+		<form method="post" action="adOptionSearch.do">
+			&nbsp;<input type="radio" name="searchid" value="userid" checked="checked"> 유저 ID&nbsp;&nbsp;
+			<input type="radio" name="searchid" value="engid"> 기사 ID<br>
+			<input type="text" class="form-control srctxt navi ntxt" name="text" placeholder="찾고자 하는 ID를 입력하세요" >
+			<input class="btn btn-sm btn-search btn-outline-dark ntxt" type="submit" value="검색"><br><br>
+			
 		</form>  	
 		
 		<div class="table-responsive">

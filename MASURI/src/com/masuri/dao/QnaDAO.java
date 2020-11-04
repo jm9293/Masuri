@@ -67,6 +67,9 @@ public class QnaDAO {
 		return list;
 	}
 	
+	
+	
+	
 	public static int getMaxPage() throws SQLException { //전체 qnalist가져오기
 		int cnt = 0;
 		try {
@@ -88,6 +91,65 @@ public class QnaDAO {
 		 
 		return cnt;
 	}
+	
+	public static int getMaxPageSerach(String content ,String colName) throws SQLException { // content : 검색내용 , colName :검색할 컬럼(userid 나 title)
+		content = "%"+content+"%";
+		int cnt = 0;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("select COUNT(*) as \"count\" from qna where "+colName+" like ?");
+			pstmt.setString(1, content);
+			rs = pstmt.executeQuery();
+		   
+			if(rs.next()) {
+				cnt =  (int)Math.ceil(rs.getInt("count")/7.0);
+				System.out.println(cnt);
+			}
+			
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 
+		return cnt;
+	}
+	
+	public static ArrayList<QnaDTO> selectpageSerach(int num, String content ,String colName) throws SQLException { //전체 Noticelist가져오기
+		ArrayList<QnaDTO> list = new ArrayList<QnaDTO>();
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",qna.* FROM qna where "+colName+" like ? ORDER BY NUM DESC) qna2 WHERE rnum>="+(1+(num-1)*7)+" and rnum<="+((num)*7));
+			pstmt.setString(1, content);
+			rs = pstmt.executeQuery();
+		   
+			while(rs.next()) {
+				QnaDTO qna = new QnaDTO();
+				qna.setNum(rs.getInt("num"));
+				qna.setTitle(rs.getString("title"));
+				qna.setContent(rs.getString("content"));
+				qna.setViewcount(rs.getInt("viewcount"));
+				qna.setWrtime(rs.getTimestamp("wrtime"));
+				qna.setUserid(rs.getString("userid"));
+				qna.setOpen(Boolean.parseBoolean(rs.getString("open")));
+				qna.setAnswer(rs.getString("answer"));
+				qna.setAntime(rs.getTimestamp("antime"));
+				list.add(qna);
+			}
+			for (QnaDTO userDTO : list) {
+				System.out.println(userDTO);
+			}
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		 
+		return list;
+	}
+	
 	
 	public static ArrayList<QnaDTO> selectpage(int num) throws SQLException { //전체 Noticelist가져오기
 		ArrayList<QnaDTO> list = new ArrayList<QnaDTO>();

@@ -72,7 +72,8 @@
 					<tr>
 						<td class="not-h tab-view "><%= list.get(i).getUserid() %></td>
 						<td class="tab-view "><%= list.get(i).getEngid() %></td>
-						<td class="tab-title3 "><%= list.get(i).getFactory() %> / <%= list.get(i).getModel() %></td>
+						<td class="tab-title3"><a style="text-decoration: none" href="adOptionView.do?page=1
+							&uid=<%=list.get(i).getNum()%>"><%= list.get(i).getFactory() %> / <%= list.get(i).getModel() %></a></td>
 						<td class="tab-view "><%= list.get(i).getAddress() %></td>
 						<td class="tab-view "><%= sdf.format(list.get(i).getTime()) %></td>
 						<td class="tab-view "><%= list.get(i).getState() %></td>

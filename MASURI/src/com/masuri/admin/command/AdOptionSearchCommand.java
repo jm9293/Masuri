@@ -17,10 +17,7 @@ public class AdOptionSearchCommand implements Command {
 		// TODO Auto-generated method stub
 		ArrayList<ReslistDTO> list = null;
 		ArrayList<ReslistDTO> list2 =  new ArrayList<ReslistDTO>();
-		ArrayList<ReslistDTO> userlist = null;
-		ArrayList<ReslistDTO> englist = null;
-		int upage = 1;
-		int epage = 1;
+		
 		String id = "";
 		boolean type = true;
 		String text = request.getParameter("text").trim();
@@ -28,46 +25,9 @@ public class AdOptionSearchCommand implements Command {
 		
 		
 		
-		
 		try {
-		upage = Integer.parseInt(request.getParameter("upage"));
-		epage = Integer.parseInt(request.getParameter("epage"));
-		id = request.getParameter("text");
-		} catch(Exception e) {
-			
-		}
+			id = request.getParameter("text");
 		
-		try {
-			int umax = ReslistDAO.getMaxPageFromUser(id, type);
-			int emax = ReslistDAO.getMaxPageFromEng(id);
-			
-			if(upage < 1) {
-				upage = 1;
-			}else if(upage > umax) {
-				upage = umax;
-			}
-			
-			if(epage < 1) {
-				epage = 1;
-			}else if(epage > emax) {
-				epage = emax;
-			}
-			
-			
-			userlist =  ReslistDAO.selectpageFromUser(upage, id, type);
-			englist =  ReslistDAO.selectpageFromEng(epage, id);
-			
-			request.setAttribute("userlist", userlist);
-			request.setAttribute("englist", englist);
-			request.setAttribute("umax", umax);
-			request.setAttribute("emax", emax);
-			request.setAttribute("upage", upage);
-			request.setAttribute("epage", epage);
-		} catch (SQLException e) {
-			
-		}
-		
-		try {
 			list = ReslistDAO.select();
 			for(int i = 0; i < list.size(); i++) {
 				if(searchid[0].toString().equals("userid") && (list.get(i).getUserid().equals(text) || list.get(i).getUserid().contains(text))) {

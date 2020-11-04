@@ -1,0 +1,64 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+        <!--네비바 시작-->
+        <meta charset="utf-8">
+        <nav class="navbar navbar-expand-md navbar-light bg-white navbar-u">
+            <a class="navbar-brand navbar-logo" href="engineer_main.html">MASURI</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" onclick="location.href = 'scheduleregister.schedule'" href="scheduleregister.schedule" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      스케줄관리
+                    </a>
+
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link" onclick="location.href = 'schedulecheck.schedule'" href="schedulecheck.schedule" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      스케줄확인
+                      
+                    </a>
+
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link" href="engineer_review.review" onclick="location.href = 'engineer_review.review'" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      내 리뷰 보기
+                    </a>
+
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link" href="info.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      내정보
+                    </a>
+                  </li>
+
+              </ul>
+            </div>
+          </nav>
+
+          
+          <!--네비바 끝-->
+
+          <!--로그인모달창 시작-->
+          <div class="modal fade loginmodal" tabindex="-1" id="loginmodal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">로그인하여 서비스를 이용하세요.</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <button type="button" class="btn btn-secondary">회원가입</button>
+                  <button type="button" class="btn btn-primary">로그인</button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <!--로그인모달창 끝-->
+
+         

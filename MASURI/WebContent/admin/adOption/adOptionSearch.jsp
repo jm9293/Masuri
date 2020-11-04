@@ -1,4 +1,3 @@
-<%@page import="java.net.URLDecoder"%>
 <%@page import="com.masuri.dto.ReslistDTO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.*"%>
@@ -23,23 +22,33 @@
 <body>
 	<%
 		ArrayList<ReslistDTO> list =  (ArrayList<ReslistDTO>)request.getAttribute("list");
-		int ppage = (int)request.getAttribute("page");
-		int max = (int)request.getAttribute("max");
 		SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd hh:mm:ss");
-
+		String text = (String)request.getAttribute("text");
+		String textVal = text.trim();
+		String searchid = ((String [])request.getAttribute("searchid"))[0];
+		if(list.isEmpty()){
+		
+	%>
+	
+	<script>
+		alert("검색 결과가 없습니다.");
+		history.back();
+	</script>
+	<%
+			return;
+		}
 	%>
 
 
 	<div class="container mini">
 		<%@ include file="../adNav.jsp" %>
 		<h2 style="color:#999">수리 신청서</h2><br>
-		<form method="post" action="adOptionSearch.do">
-			&nbsp;<input type="radio" name="searchid" value="userid" checked="checked"> 유저 ID&nbsp;&nbsp;
-			<input type="radio" name="searchid" value="engid"> 기사 ID<br>
-			<input type="text" class="form-control srctxt navi ntxt" name="text" placeholder="찾고자 하는 ID를 입력하세요" >
-			<input class="btn btn-sm btn-search btn-outline-dark ntxt" type="submit" value="검색"><br><br>
-			
-		</form>  	
+		<form action="adOptionSearch.do">
+			&nbsp;<input type="radio" name="searchid" id="userid" value="userid" checked="checked"> 유저 ID&nbsp;&nbsp;
+			<input type="radio" name="searchid" id="searchid" value="engid"> 기사 ID
+			<input type="text" class="form-control srctxt" placeholder="찾고자 하는 ID를 입력하세요" 
+			id="srch-term"  name="text" value="<%= textVal %>"><br>
+		</form>  	        	
 		
 		<div class="table-responsive">
 			<table class="table table-striped">
@@ -57,13 +66,13 @@
 					<!-- 수리 신청서 불러오기 -->
 				<tbody>
 			<%
-				if(list != null){
+				if(list != null && textVal != null){
 					for(int i = 0; i < list.size(); i++){
 			%>
 					<tr>
 						<td class="not-h tab-view "><%= list.get(i).getUserid() %></td>
 						<td class="tab-view "><%= list.get(i).getEngid() %></td>
-						<td class="tab-title3 "><a style="text-decoration: none" href="adOptionView.do?page=<%= ppage%>
+						<td class="tab-title3"><a style="text-decoration: none" href="adOptionView.do?page=1
 							&uid=<%=list.get(i).getNum()%>"><%= list.get(i).getFactory() %> / <%= list.get(i).getModel() %></a></td>
 						<td class="tab-view "><%= list.get(i).getAddress() %></td>
 						<td class="tab-view "><%= sdf.format(list.get(i).getTime()) %></td>
@@ -79,55 +88,6 @@
 		</div>		
 	</div><br>
 	
-	
-	<div class="box_ul mini">
-		<ul class="box_li">
-			<%
-				if (ppage - 1 < 1) {
-			%>
-			<li class="paging"><a
-				href="/MASURI/admin/adOption/adOption.do?page=1">이전</a></li>
-			<%
-				} else {
-			%>
-			<li class="paging"><a
-				href="/MASURI/admin/adOption/adOption.do?page=<%=ppage - 1%>">이전</a></li>
-			<%
-				}
-			if (max > 0) {
-				for (int i = 1; i <= max; i++) {
-					if (ppage == i) {
-			%>
-			<li class="paging"><a class='active tooltip-top'
-				href="/MASURI/admin/adOption/adOption.do?page=<%=i%>"><%=i%></a></li>
-			<%
-				} else {
-			%>
-			<li class="paging"><a
-				href="/MASURI/admin/adOption/adOption.do?page=<%=i%>"><%=i%></a></li>
-			<%
-					}
-				}
-			}
-			%>
-			<%
-				if (ppage < max) {
-			%>
-			<li class="paging"><a
-				href="/MASURI/admin/adOption/adOption.do?page=<%=ppage +1 %>">다음</a></li>
-					
-			<%
-				} else {
-			%>
-			<li class="paging"><a
-				href="/MASURI/admin/adOption/adOption.do?page=<%=max%>">다음</a></li>
-			<%
-				}
-			%>
-		</ul>
-		
-		
-	</div>
 
 
 </body>

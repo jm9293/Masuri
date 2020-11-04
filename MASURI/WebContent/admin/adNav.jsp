@@ -20,7 +20,7 @@ if(!logincheck){
 %>
  <script type="text/javascript">
  alert("로그인해야 접속할수 있습니다.");
- location.href='../adLogin.jsp';
+ location.href='../adLogin.do';
 </script>
 <% return;}
 %>
@@ -43,7 +43,7 @@ if(!logincheck){
 			</li> 
 			<li class="nav-item dropdown"> 
 				<!-- 드롭다운 메뉴--> 
-				<a class="nav-link dropdown-toggle text-muted"	data-toggle="dropdown" role="button" href="#">공지사항</a>
+				<a class="nav-link dropdown-toggle text-muted"	data-toggle="dropdown" role="button" href="#">고객센터</a>
 				<div class="dropdown-menu"> 
 					<a class="dropdown-item" href="../adNotice/adNotice.do">공지사항</a>
 					<a class="dropdown-item" href="../adNotice/adminFaq.do">FaQ</a>				

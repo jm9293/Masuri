@@ -33,7 +33,15 @@
 	<form name="frm" action="adEngStatusChk.do">
 		<img class="card-img-top" src="../../engimg/<%=dto.getId() %>.jpg" alt="Card image"
 			style="width: 100%">
-		<div class="card-body">
+		<div class="card-body nopad">
+			<input type="hidden" name="uid" value="<%= dto.getId() %>"/>
+			<input type="hidden" name="password" value="<%= dto.getPassword() %>"/>
+			<input type="hidden" name="name" value="<%= dto.getName()%>"/>
+			<input type="hidden" name="phone" value="<%= dto.getPhone()%>"/>
+			<input type="hidden" name="chk" value="<%= dto.getState()%>"/>
+			<input type="hidden" name="area" value="<%= dto.getArea()%>"/>
+			<input type="hidden" name="intro" value="<%= dto.getIntro()%>"/>
+			<input type="hidden" name="email" value="<%= dto.getEmail()%>"/>
 			<div class="btn-group" id="myRbtn2">
 				<%
 					if(!dto.getState()){
@@ -51,22 +59,15 @@
 			<div>
 				<p><b class="card-title srctxt">ID : <%= dto.getId() %></b></p>
 				<p class="card-text srctxt">이름 : <%= dto.getName() %></p>
-			
 				<p class="card-text srctxt">Email : <%= dto.getEmail() %></p>
 				<p class="card-text srctxt">H.P: <%= dto.getPhone() %></p>
 				<p class="card-text srctxt">기사 소개: <%= dto.getIntro() %></p>
 				<p class="card-text srctxt">담당 지역: <%= dto.getArea() %></p>
-				<a class="btn text-white bg-danger" id="myRbtn3" href="adEngEdit.do">닫기</a><br><br>
+				<a class="btn text-white bg-success" id="myLbtn" href="adEngPassword.do?uid=<%= dto.getId()%>&email=<%= dto.getEmail() %>">임시비밀번호 발급</a>
+				<a class="btn text-white bg-danger" id="myRbtn" href="adEngEdit.do">닫기</a><br><br>
 			</div>
 		</div>
-		<input type="hidden" name="uid" value="<%= dto.getId() %>"/>
-		<input type="hidden" name="password" value="<%= dto.getPassword() %>"/>
-		<input type="hidden" name="name" value="<%= dto.getName()%>"/>
-		<input type="hidden" name="phone" value="<%= dto.getPhone()%>"/>
-		<input type="hidden" name="chk" value="<%= dto.getState()%>"/>
-		<input type="hidden" name="area" value="<%= dto.getArea()%>"/>
-		<input type="hidden" name="intro" value="<%= dto.getIntro()%>"/>
-		<input type="hidden" name="email" value="<%= dto.getEmail()%>"/>
+	
 		</form>
 	</div>
 	</div>

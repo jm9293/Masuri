@@ -14,7 +14,7 @@ import com.masuri.command.Command;
 
 
 @WebServlet(urlPatterns = {
-		"/admin/adLoginOK.do"
+		"/admin/adLoginOK.do","/admin/adLogin.do"
 })
 public class AdLoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -45,6 +45,12 @@ public class AdLoginController extends HttpServlet {
 		String viewPage = null; 
 		
 		switch(com) {
+		
+		case "/admin/adLogin.do":
+			command = new AdLoginCommand();
+			command.execute(request, response);
+			viewPage = "/admin/adLogin.jsp";
+			break;
 		
 		case "/admin/adLoginOK.do":
 			command = new AdLoginCommand();

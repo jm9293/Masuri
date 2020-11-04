@@ -17,7 +17,7 @@
 <c:choose>
 <c:when test="${chk==0}">
 	<script>
-	location.href='/MASURI/scheduleregister.schedule';
+	location.href='register.do';
 	</script>
 	</c:when>
 	</c:choose>
@@ -25,7 +25,16 @@
 	<c:when test="${chk==1}">
 	<script>
 	alert('로그인 실패')
-	location.href= '/MASURI/login';
+	location.href= 'login';
+	</script>
+	</c:when>
+</c:choose>
+
+	<c:choose>
+	<c:when test="${chk==3}">
+	<script>
+	alert('블랙리스트 <br> 관리자에게 문의하세요')
+	location.href= 'login';
 	</script>
 	</c:when>
 </c:choose>

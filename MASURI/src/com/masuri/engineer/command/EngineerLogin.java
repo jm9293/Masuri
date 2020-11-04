@@ -54,8 +54,9 @@ public class EngineerLogin implements Command{
 			
 		}else {	//새접속
 			boolean check = EngineerDAO.logincheck(id, pw);
+			boolean black = EngineerDAO.stateCheck(id);
 			
-			if(check) {
+			if(check&&!black) {
 				// 맞으면 세션주고 자리 만들어주고
 				session.setAttribute("enlogin", id);
 				
@@ -68,7 +69,10 @@ public class EngineerLogin implements Command{
 				}
 				engineerID.put(id, session);
 				
-			}else {	//비밀번호 틀ㄹ미
+			}else if(check){	//블랙리스트
+				request.setAttribute("chk", 3);
+				
+			}else {	/// 비밀번호 틀림
 				request.setAttribute("chk", 1);
 			}
 			

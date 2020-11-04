@@ -36,6 +36,12 @@
   font-size: 20px;
 }
 
+.aplus, .aplus:hover{
+  color : rgb(159, 159, 159);
+  font-size: 20px;
+}
+
+
 
 </style>
 
@@ -44,7 +50,7 @@
         <!--네비바 시작-->
         <meta charset="utf-8">
         <nav class="navbar navbar-expand-md navbar-light bg-white navbar-u">
-            <a class= "navbar-brand navbar-logo"  href="scheduleregister.schedule">MASURI Engineer</a>
+            <a class= "navbar-brand navbar-logo"  href="engineermain.jsp">MASURI</a> <a class="aplus" href="register.do">Engineer</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -52,15 +58,15 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="MASURI/scheduleregister.schedule" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                    onclick="location.href='scheduleregister.schedule'">
+                    <a class="nav-link" href="register.do" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    onclick="location.href='register.do'">
                       스케줄관리
                     </a>
 
                   </li>
                   <li class="nav-item dropdown">
-                    <a class="nav-link" href="MASURI/schedulecheck.schedule" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                    onclick="location.href='schedulecheck.schedule'">
+                    <a class="nav-link" href="schedulecheck.do" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    onclick="location.href='schedulecheck.do'">
                       스케줄확인
                       
                     </a>
@@ -68,7 +74,7 @@
                   </li>
 
                   <li class="nav-item dropdown">
-                    <a class="nav-link" href="MASURI/info.info" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    <a class="nav-link" href="info.info" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                     	onclick="location.href='info.info'">
                       내정보
                     </a>

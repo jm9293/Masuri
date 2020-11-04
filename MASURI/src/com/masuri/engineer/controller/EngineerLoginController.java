@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet(urlPatterns = {"/login","/alert"})
+@WebServlet(urlPatterns = {"/engineer/login","/engineer/alert"})
 public class EngineerLoginController extends HttpServlet{
 
 	public EngineerLoginController() {
@@ -60,16 +60,16 @@ public class EngineerLoginController extends HttpServlet{
 		// 결과를 보낼 view 를 결정
 		
 		switch(com) {
-			case "/login":
+			case "/engineer/login":
 				command = new EngineerLogin();
 				command.execute(request, response);
-				viewPage = "engineer/login/engineerlogin.jsp";
+				viewPage = "login/engineerlogin.jsp";
 				break;
 				
-			case "/alert":
+			case "/engineer/alert":
 				command = new EngineerLogin();
 				command.execute(request, response);
-				viewPage = "engineer/login/alert.jsp";
+				viewPage = "login/alert.jsp";
 				break;
 		
 		}	

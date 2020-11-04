@@ -226,7 +226,7 @@
       day = $(this).text();
       
       var form = $('<form></form>')
-      form.attr("action","schedulecheck.schedule")
+      form.attr("action","schedulecheck.do")
       form.attr("method","post")
       form.appendTo("body")
 

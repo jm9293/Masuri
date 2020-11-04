@@ -68,9 +68,9 @@ public class ScheduleChecking implements Command{
 					if(tt!=null) {
 						if(sdf.format(tt.getDay()).equals(sdf.format(week))) {			
 							
-							time.add(tt.getTime1()+"시");
-							time.add(tt.getTime2()+"시");
-							time.add(tt.getTime3()+"시");
+							time.add(tt.getTime1()+"");
+							time.add(tt.getTime2()+"");
+							time.add(tt.getTime3()+"");
 						}
 						
 						

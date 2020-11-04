@@ -12,20 +12,21 @@
 <c:choose>
 		<c:when test="${chk==1}">
 			<script type="text/javascript">location.href='login'
-			alert("세션만료")</script>
+			</script>
 		</c:when>
 		</c:choose>
 		
-		
-<c:choose>
+		<c:choose>
 		<c:when test="${chk!=1}">
-			<script type="text/javascript">location.href='scheduleregister.schedule'</script>
+			<script type="text/javascript">location.href='register.do'
+				</script>
 		</c:when>
-	</c:choose>
+		</c:choose>
+
 		
 		<c:choose>
-		<c:when test="${reselect==1}">
-			<script type="text/javascript">alert("재신청해주세요")location.href='scheduleregister.schedule'</script>
+		<c:when test="${retry==2}">
+			<script type="text/javascript">alert("재신청해주세요")location.href='register.do'</script>
 		</c:when>
 		</c:choose>
 		

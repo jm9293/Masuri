@@ -23,96 +23,50 @@ public class SelectedView implements Command{
 		
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("enlogin");
-		String register = request.getParameter("register").split("시")[0];		
-		String select = request.getParameter("selDate").split("일")[0];
+		String register = request.getParameter("register");		
 		Date date = new Date();
+		boolean timeChk = false;
 		
 		if(id!=null&&!id.equals("")) {
 			
 			
 			if(register!=null&&!register.equals("")&&!register.equals("off")) {
-						
-				ArrayList<String> test = new ArrayList<String>();
+
 				
-				date.setDate(Integer.parseInt(select));
-				date.setHours(Integer.parseInt(register));
-			
+				try {
+					SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd - hh:mm:ss");
+					
+					timeChk=true;
+					
+					ReslistDTO dto = ReslistDAO.select(Integer.parseInt(register));
+					request.setAttribute("time", sdf.format(dto.getTime()));
+					request.setAttribute("Address", dto.getAddress());
+					request.setAttribute("userId", dto.getUserid());
+					request.setAttribute("EngId", dto.getEngid());
+					request.setAttribute("Factory", dto.getFactory());
+					request.setAttribute("model", dto.getModel());
+					request.setAttribute("Failsit", dto.getFailsit());
+					request.setAttribute("Failmsg", dto.getFailmsg());
+					request.setAttribute("state", dto.getState());
+					
+					request.setAttribute("No", dto.getNum());
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+					
 			}else{
 				request.setAttribute("off", 1);
 				/// 신청서 페이지 안뜨고 alert		
 			}
-					
-			SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd-hh");
-			boolean timeChk = false;
+				
 			
-			
-			try {
-				
-				ArrayList<ReslistDTO> list = ReslistDAO.select();
-				
-				for (ReslistDTO dto : list) {
-					if(dto.getEngid().equals(id)) {
-						
-						date = sdf.parse(sdf.format(date));
-						if(sdf.parse(sdf.format(dto.getTime())).equals(date)) {
-							
-							sdf= new SimpleDateFormat("yy-MM-dd - hh:mm:ss");
-							timeChk = true;
-							request.setAttribute("time", sdf.format(dto.getTime()));
-							
-							if(dto.getNum()!=null&&!dto.getNum().equals("")) {
-								request.setAttribute("No", dto.getNum());
-							}
-							
-							if(dto.getUserid()!=null&&!dto.getUserid().equals("")) {
-								request.setAttribute("userId", dto.getUserid());
-							}
-							
-							if(dto.getEngid()!=null&&!dto.getEngid().equals("")) {
-								request.setAttribute("Engid", dto.getEngid());
-								System.out.println(timeChk +" timeChk");
-							}
-							
-							if(dto.getAddress()!=null&&!dto.getAddress().equals("")) {
-								request.setAttribute("Address", dto.getAddress());
-							}
-							
-							if(dto.getFactory()!=null&&!dto.getFactory().equals("")) {
-								request.setAttribute("Factory", dto.getFactory());
-							}
-							
-							if(dto.getModel()!=null&&!dto.getModel().equals("")) {
-								request.setAttribute("model", dto.getModel());
-							}
-							
-							if(dto.getFailsit()!=null&&!dto.getFailsit().equals("")) {
-								request.setAttribute("Failsit", dto.getFailsit());
-							}
-							
-							if(dto.getFailmsg()!=null&&!dto.getFailmsg().equals("")) {
-								request.setAttribute("Failmsg", dto.getFailmsg());
-							}
-							
-							if(dto.getState()!=null&&!dto.getState().equals("")) {
-								request.setAttribute("state", dto.getState());
-							}
-				
-							
-						}
-						
-					}
-				}
-				
 				if(!timeChk) {
 					request.setAttribute("off", 1);
 				}
 				
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch(ParseException e2) {
-				e2.printStackTrace();
-			}
+			
 			
 		}else {
 			request.setAttribute("chk", 1);

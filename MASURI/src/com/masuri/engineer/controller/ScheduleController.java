@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(urlPatterns = {"/scheduleregister.schedule","/schedulecheck.schedule","/schedule.do"
-		,"/check.schedule","/selected.do","/visit.do"})
+@WebServlet(urlPatterns = {"/engineer/register.do","/engineer/schedulecheck.do","/engineer/schedule.do"
+		,"/engineer/check.do","/engineer/selected.do","/engineer/visit.do"})
 public class ScheduleController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
@@ -55,35 +55,35 @@ public class ScheduleController extends HttpServlet{
 			// 컨트롤러는 커맨드에 따라 로직 수행
 			// 결과를 보낼 view 를 결정
 			switch(com) {
-				case "/scheduleregister.schedule":
+				case "/engineer/register.do":
 					command = new ScheduleRegist();
 					command.execute(request, response);
-					viewPage = "engineer/schedule/scheduleregister.jsp";
+					viewPage = "schedule/scheduleregister.jsp";
 					break;
 				
-				case "/schedulecheck.schedule":
+				case "/engineer/schedulecheck.do":
 					command = new ScheduleChecking();
 					command.execute(request, response);
-					viewPage = "engineer/schedule/schedulecheck.jsp";
+					viewPage = "schedule/schedulecheck.jsp";
 					break;
 					
-				case "/schedule.do":
+				case "/engineer/schedule.do":
 					System.out.println("너 접속햇니...?");
 					command = new ScheduleCommand();
 					command.execute(request, response);
-					viewPage = "engineer/schedule/schedule.jsp";
+					viewPage = "schedule/schedule.jsp";
 					break;
 				
-				case "/selected.do":
+				case "/engineer/selected.do":
 					command = new SelectedView();
 					command.execute(request, response);
-					viewPage = "engineer/schedule/select.jsp";
+					viewPage = "schedule/select.jsp";
 					break;
 					
-				case "/visit.do":
+				case "/engineer/visit.do":
 					command = new VisitCheck();
 					command.execute(request, response);
-					viewPage = "engineer/schedule/selectres.jsp";
+					viewPage = "schedule/selectres.jsp";
 					break;
 				
 			}	

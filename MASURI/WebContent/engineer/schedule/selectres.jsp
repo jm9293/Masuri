@@ -39,7 +39,7 @@
 		<c:choose>
 			<c:when test="${visit==0}">
 				<script type="text/javascript">
-					location.href= "schedulecheck.schedule";
+					location.href= "schedulecheck.do";
 				</script>
 			</c:when>
 		</c:choose>
@@ -47,7 +47,7 @@
 		<c:choose>
 			<c:when test="${off==1}">
 				<script type="text/javascript">
-					location.href= "schedulecheck.schedule";
+					location.href= "schedulecheck.do";
 					alert("다시 시도해주세요")
 				</script>
 			</c:when>

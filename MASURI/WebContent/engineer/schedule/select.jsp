@@ -102,7 +102,7 @@
 
 	<c:choose>
 		<c:when test="${off==1}">
-			<script type="text/javascript">location.href='schedulecheck.schedule'
+			<script type="text/javascript">location.href='schedulecheck.do'
 				alert("신청서가 없습니다")
 			</script>
 		</c:when>

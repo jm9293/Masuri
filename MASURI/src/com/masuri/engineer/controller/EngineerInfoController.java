@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.masuri.engineer.command.*;
 
 
-@WebServlet(urlPatterns = {"/info.info","/change.info","/after.info"})
+@WebServlet(urlPatterns = {"/engineer/info.info","/engineer/change.info","/engineer/after.info"})
 public class EngineerInfoController extends HttpServlet{
 
 	public EngineerInfoController() {
@@ -58,22 +58,22 @@ public class EngineerInfoController extends HttpServlet{
 		// 컨트롤러는 커맨드에 따라 로직 수행
 		// 결과를 보낼 view 를 결정
 		switch(com) {
-			case "/info.info":
+			case "/engineer/info.info":
 				command = new EngineerInfomation();
 				command.execute(request, response);
-				viewPage = "engineer/info/info.jsp";
+				viewPage = "info/info.jsp";
 				break;
 			
-			case "/change.info":
+			case "/engineer/change.info":
 				command = new InfoChangeEngineer();
 				command.execute(request, response);
-				viewPage = "engineer/info/change.jsp";
+				viewPage = "info/change.jsp";
 				break;
 				
-			case "/after.info":
+			case "/engineer/after.info":
 				command = new InfoAfterEngineer();
 				command.execute(request, response);
-				viewPage = "engineer/info/after.jsp";
+				viewPage = "info/after.jsp";
 			
 		}	
 		// 위에서 결정된 view 에 forward 해줌

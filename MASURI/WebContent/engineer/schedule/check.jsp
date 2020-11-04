@@ -69,6 +69,7 @@
             text-align: left;
             margin: 7px;
             margin-top: 20px;
+            display:none;
           }
 
      
@@ -122,7 +123,7 @@
        <div class ="memo">
       <c:forEach var ="t" items="${time}">
           <div class="yellow"><div class="enter2">${t}</div></div>
-        </c:forEach>
+      </c:forEach>
       </div>
       <!-- 받았음ㄴ ! -->
     

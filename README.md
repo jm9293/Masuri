@@ -18,9 +18,9 @@
 - 언어 : JAVA 1.8 , JavaScript(ES5) , HTML5 , CSS3 , Oracle SQL , JSP 
 - WAS : Tomcat 9.0.38
 - DBMS : Oracle XE 112
-- FrameWork : Bootstrap 4.3.1
-- API : 카카오지도 , 오픈웨더 날씨 , 도로명주소
-- Lib : COS , JSTL , MAIL 
+- Front-end FrameWork : Bootstrap 4.3.1
+- API : 카카오지도 , 오픈웨더 날씨 , 도로명주소검색 , 소셜 로그인(KAKAO,NAVER)
+- Lib : COS , JSTL , MAIL , jQurey3.3.1 , json simple
 
 ## 프로젝트 참여자
 - 이정민 ([jm9293](https://github.com/jm9293)) (로그인, 회원가입, 정보변경 , 예약 , 메인페이지 , 파일업로드 , 릴레이션 설계 , DB객체 , Mail보내기)

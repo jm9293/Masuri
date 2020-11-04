@@ -14,7 +14,7 @@ public class AdQnaDelOK implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-int num = Integer.parseInt(request.getParameter("uid"));
+		int num = Integer.parseInt(request.getParameter("uid"));
 		
 		int result = 0;
 		QnaDTO dto = new QnaDTO();

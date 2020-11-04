@@ -15,6 +15,7 @@ import com.masuri.admin.command.AdOptionEXOKCommand;
 import com.masuri.admin.command.AdOptionExCommand;
 import com.masuri.admin.command.AdOptionExDelCommand;
 import com.masuri.admin.command.AdOptionSearchCommand;
+import com.masuri.admin.command.AdOptionUpdateStateCommand;
 import com.masuri.admin.command.AdOptionView;
 import com.masuri.command.Command;
 
@@ -24,7 +25,7 @@ import com.masuri.command.Command;
 @WebServlet(urlPatterns = {
 		"/admin/adOption/adOption.do","/admin/adOption/adOptionEx.do","/admin/adOption/adOptionView.do",
 		"/admin/adOption/adOptionExOK.do","/admin/adOption/adOptionDel.do","/admin/adOption/adOptionExDel.do",
-		"/admin/adOption/adOptionSearch.do"
+		"/admin/adOption/adOptionSearch.do","/admin/adOption/adOptionUpdateState.do"
 })
 public class AdOptionController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -96,6 +97,12 @@ public class AdOptionController extends HttpServlet {
 			command = new AdOptionSearchCommand();
 			command.execute(request, response);
 			viewPage = "/admin/adOption/adOptionSearch.jsp";
+			break;
+			
+		case "/admin/adOption/adOptionUpdateState.do":
+			command = new AdOptionUpdateStateCommand();
+			command.execute(request, response);
+			viewPage = "/admin/adOption/adOptionUpdateState.jsp";
 			break;
 		
 					

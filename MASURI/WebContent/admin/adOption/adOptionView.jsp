@@ -47,7 +47,7 @@
 						<td class="tab-label">수리받을 장소 : <%= dto.getAddress() %></td>
 					</tr>
 					<tr>				
-						<td colspan="2"><label class="nomg">고장 상세 내용<p class="nomg">[수리 상황 : <%= dto.getState() %>]</p></label></td>
+						<td colspan="2"><label class="nomg">고장 상세 내용</label></td>
 					</tr>
 					<tr>				
 						<td colspan="2"><div class="form-control tab-db"><%= dto.getFailmsg() %></div></td>
@@ -58,14 +58,15 @@
 			%>
 			</table><br>
 			<a href="adOption.do" class="btn btn-outline-primary" id="myLbtn">목록보기</a>
-			<input type="button" class="btn btn-outline-secondary" id="myLbtn" value="수리 완료"></>
+			<a href="adOptionUpdateState.do?uid=<%= dto.getNum() %>" class="btn btn-outline-secondary"  id="myLbtn"><%= dto.getState() %></a>
+			
+			
 			<input type="submit" class="btn btn-outline-danger" id="myRbtn" value="삭제"/>
 		</form>
 		
-		
-		
-		
 	</div>
+	
+	
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
 	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

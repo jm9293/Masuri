@@ -28,7 +28,7 @@ public class PWsearchCommand implements Command {
 			String email = request.getParameter("email");
 			
 			if(email!=null&&Pattern.matches(regarr[4], email)&&
-			   id!=null&&Pattern.matches(regarr[1], id)) {
+			   id!=null&&Pattern.matches(regarr[0], id)) {
 				System.out.println("여기들어옴?");
 			 
 			 UserDTO user = UserDAO.select(id);

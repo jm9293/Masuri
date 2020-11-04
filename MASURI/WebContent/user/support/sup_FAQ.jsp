@@ -60,7 +60,7 @@
 
     			<div id="collapseOne" class="collapse show anbox" aria-labelledby="headingOne" data-parent="#accordionExample">
       			<div class="card-body">
-        			<textarea class="col-12 form-control" rows="5" readonly><%= list.get(0).getAnswer()%>aasdsadsadasdasdasdasdasdasdsadasdsadsadsadasdasd </textarea>
+        			<textarea class="col-12 form-control" rows="5" readonly><%= list.get(0).getAnswer()%></textarea>
       			</div>
     			</div>
   			</div>

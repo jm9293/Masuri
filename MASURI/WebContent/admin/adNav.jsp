@@ -51,7 +51,7 @@ if(!logincheck){
 				</div> 
 			</li> 
 			<li class="nav-item justify-content-end">
-				<a class="nav-link text-muted" href="../adOption/adOption.do" >설정관리</a>
+				<a class="nav-link text-muted" href="../adOption/adOption.do?page=1" >설정관리</a>
 			</li>	
 		</ul> 
 		 

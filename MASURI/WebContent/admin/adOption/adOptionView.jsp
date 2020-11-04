@@ -22,7 +22,7 @@
 	<%
 		ReslistDTO dto =  (ReslistDTO)request.getAttribute("list");
 		SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd hh:mm:ss");
-		System.out.println(dto);
+		int pageNum = Integer.parseInt(request.getParameter("page"));
 	%>
 	<div class="container">
 	<%@ include file="../adNav.jsp" %>
@@ -58,7 +58,7 @@
 			%>
 			</table><br>
 			<a href="adOption.do" class="btn btn-outline-primary" id="myLbtn">목록보기</a>
-			<a href="adOptionUpdateState.do?uid=<%= dto.getNum() %>" class="btn btn-outline-secondary"  id="myLbtn"><%= dto.getState() %></a>
+			<a href="adOptionUpdateState.do?page=<%= pageNum %>&uid=<%= dto.getNum() %>" class="btn btn-outline-secondary"  id="myLbtn"><%= dto.getState() %></a>
 			
 			
 			<input type="submit" class="btn btn-outline-danger" id="myRbtn" value="삭제"/>

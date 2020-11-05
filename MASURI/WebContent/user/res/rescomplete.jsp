@@ -7,8 +7,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
+int type = 0;
 try{
- int type = (int)request.getAttribute("type");
+  type = (int)request.getAttribute("type");
 
  if((int)request.getAttribute("res")==0){
 	 
@@ -102,7 +103,7 @@ try{
 	            </div>
 	        
 	            <div class="input-box col-12 col-md-12">
-	               <button class="login-btn btn btn-primary col-12"  type="button" onclick="location.href='#'">예약확인</button>
+	               <button class="login-btn btn btn-primary col-12"  type="button" onclick="location.href='res_chk<%=type %>.do'">예약확인</button>
 	              <button class="login-btn btn  btn-secondary col-12"  type="button" onclick="location.href='/MASURI'">홈으로</button>
 	              
 	            </div>

@@ -89,6 +89,16 @@ b{
 	font-weight: normal;
 }
 
+.navbar-light .navbar-toggler {
+    color: rgba(0,0,0,.5);
+    border-color: white;
+}
+
+.navbar-light .navbar-toggler:focus {
+    border-color: white;
+    outline: none;
+}
+
 @media (min-width: 360px) {
 	
 	

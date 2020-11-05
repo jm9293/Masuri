@@ -15,103 +15,71 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- 기본 css -->
         <link rel="stylesheet" href="user/basic/CSS/basic.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
         <!-- 페이지 css -->
         <style>
-          .loginmodal modal-header{
-            text-align: center;
-            align-items: center;
+          .carousel img{
+          	height: 745px;
+          	min-width: 1500px;
+          	
           }
           
-          .modal {
-            text-align: center;
-          }
-          
-          .info-content{
-            position: relative;
-            display: block;
-            width: 100%;   
-            height: 39vw;
-            overflow: hidden;
-          }
-          
-          .qiuck-info >div{
-            display: block;
-            position: absolute;
-            top: 5%;
-            left: 5%;
-            
-          }
-          
-          .qiuck-info img{
-            display: block;
-            height: auto;  
-            max-width: 100%;
-            width: 100%; 
-          }
-
-          .qiuck-info h1{
-            position: relative;
-            color: white;
-            font-size: 60px;
+          .mobile{
+          	position: absolute;
+          	color:white;
+          	top: 5%;
+          	left: 5%;
             text-shadow: 1px 1px 1px black;
+            display: none;
           }
           
-          .qiuck-info h3{
-            position: relative;
-            top: 0px;
-            left: 0px;
-            color: white;
-            font-size: 30px;
-            text-shadow: 1px 1px 1px black;
+          .carousel-caption{
+          
+           text-shadow: 1px 1px 1px black;
           }
           
-          .qiuck-info button{
-            position: relative;
-            top: 0px;
-            left: 0px;
-            font-size: 20px;
-          }
+          
+      	  
+      	  @media (max-width: 767px) {
+            .carousel img{
+          	 margin-left: -430px;
+          
+          	}
+          	
+          	.content {
 
-          .qiuck-info-black h1,.qiuck-info-black h3{
-            color: black;
-            text-shadow: none;
+			
+			}
+          	
+          	.mobile{
+          		display: inline;
+          	}
+          	.mobile h1{
+          		font-size: 3rem;
+          	    
+          	    
+          	}
           }
           
-          
-          @media (max-width: 767px) {
-            .qiuck-info h1{
-              font-size: 25px;
-            }
-            
-            .qiuck-info h3{
-              font-size: 13px;
-            }
-            
-            .qiuck-info button{
-              font-size: 16px;
-            }
-
-            footer p{
-            font-size: 10px; 
-            }
+           @media (max-width: 575px) {
+            .carousel img{
+          	 margin-left: -510px;
+          	}
+          	.mobile h1{
+          		font-size: 2rem;  	    
+          	}
           }
 
           @media (max-width: 360px) {
-            .qiuck-info h1{
-              font-size: 16px;
-            }
-            
-            .qiuck-info h3{
-              font-size: 3px;
-            }
-            
-            .qiuck-info button{
-              font-size: 3px;
-            }
-
-            footer p{
-            font-size: 1px; 
-            }
+           .carousel img{
+          	 margin-left: -610px;
+          	}
+          	.mobile h1{
+          		font-size: 1.5rem;
+          	    
+          	    
+          	}
+          	
           }
         </style>
     </head>
@@ -144,7 +112,7 @@ if(userID!=null&&!logincheck){
                       출장수리
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">출장수리 안내</a>
+                      <a class="dropdown-item" href="user/res/res1_info.jsp">출장수리 안내</a>
                       <a class="dropdown-item" href="user/res/res1.jsp">출장수리 예약</a>
                       <a class="dropdown-item" href="user/res/res_chk1.do">예약 확인</a>
                     </div>
@@ -154,7 +122,7 @@ if(userID!=null&&!logincheck){
                       방문수리
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">방문수리 안내</a>
+                        <a class="dropdown-item" href="user/res/res2_info.jsp">방문수리 안내</a>
                         <a class="dropdown-item" href="user/res/res2.jsp">방문수리 예약</a>
                         <a class="dropdown-item" href="user/res/res_chk2.do">예약 확인</a>
                     </div>
@@ -250,40 +218,45 @@ if(userID!=null&&!logincheck){
       <!--네비바 앤 로그인 끝-->
 
         <!--메인 컨텐트 영역-->
-         <div class="content">
-
-             <!--방문수리 인포-->
-              <div class="info-content qiuck-info">
-                <img src="user/img/3.jpg" alt="">
-                <div>
-                  <h1>편안하게<br>수리받으세요</h1>
-                  <h3>엔지이어가 고객님께 찾아갑니다.</h3>
-                  <button type="" class="btn btn-primary"> 출장수리 예약하기</button>
-                </div>
-              </div>
-          
-              
-              <!--방문수리 인포-->
-              <div class="info-content qiuck-info">
-                <img src="user/img/1.jpg" alt="">
-                <div>
-                  <h1>확실하게<br>수리받으세요</h1>
-                  <h3>숙련된 엔지니어가 직접 수리합니다.</h3>
-                  <button type="" class="btn btn-primary"> 방문수리 예약하기</button>
-                </div>
-              </div>
-
-              <!--에코폰 매입 인포-->
-              <div class="info-content qiuck-info qiuck-info-black">
-                <img src="user/img/4.png" alt="">
-                <div>
-                  <h1>정든내폰<br>이젠 보내주세요</h1>
-                  <h3>업계 최고가로 매입합니다.</h3>
-                  <button type="" class="btn btn-primary"> 에코폰 매입 알아보기</button>
-                </div>
-              </div>
-
-         </div>
+ <div class="content">
+  
+      <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000"  data-pause="false">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="user/img/1.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h1>확실하게 수리받으세요</h1>
+        <p>숙련된 엔지니어들이 수리합니다.</p>
+      </div>
+      <div class="mobile"><h1>확실하게 수리받으세요</h1><p>숙련된 엔지니어들이 수리합니다</p></div>
+    </div>
+    <div class="carousel-item">
+      <img src="user/img/2.jpg" class="d-block w-100" alt="...">
+     <div class="carousel-caption d-none d-md-block">
+        <h1>정밀할수록 신중합니다.</h1>
+        <p>대기업 출신 전문가들의 노하우를 느껴보세요</p>
+      </div>
+      <div class="mobile"><h1>정밀할수록 신중합니다</h1><p>대기업 출신 전문가들의 노하우를 느껴보세요</p></div>
+    </div>
+    <div class="carousel-item">
+      <img src="user/img/3.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h1>편안하게 수리받으세요</h1>
+        <p>엔지니어들이 직접 고객님께 방문합니다</p>
+      </div>
+      <div class="mobile"><h1>편안하게 수리받으세요</h1><p>엔지니어들이 직접 고객님께 방문합니다</p></div>
+    </div>
+     <div class="carousel-item">
+      <img src="user/img/4.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h1>언제나 새 스마트폰처럼</h1>
+        <p>깔끔한 수리를 약속합니다</p>
+      </div>
+      <div class="mobile"><h1>언제나 새 스마트폰처럼</h1><p>깔끔한 수리를 약속합니다</p></div>
+    </div>
+  </div>
+</div>
+    </div>
         <!--메인 컨텐트 끝-->
 
         <!--푸터 시작-->

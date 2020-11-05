@@ -31,7 +31,7 @@ if(userID!=null&&!logincheck){
                       출장수리
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">출장수리 안내</a>
+                      <a class="dropdown-item" href="../res/res1_info.jsp">출장수리 안내</a>
                       <a class="dropdown-item" href="../res/res1.jsp">출장수리 예약</a>
                       <a class="dropdown-item" href="../res/res_chk1.do">예약 확인</a>
                     </div>
@@ -41,7 +41,7 @@ if(userID!=null&&!logincheck){
                       방문수리
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">방문수리 안내</a>
+                        <a class="dropdown-item" href="../res/res2_info.jsp">방문수리 안내</a>
                         <a class="dropdown-item" href="../res/res2.jsp">방문수리 예약</a>
                         <a class="dropdown-item" href="../res/res_chk2.do">예약 확인</a>
                     </div>

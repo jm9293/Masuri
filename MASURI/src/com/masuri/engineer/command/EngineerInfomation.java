@@ -40,8 +40,7 @@ public class EngineerInfomation implements Command{
 			}else {
 				request.setAttribute("chk", 1);
 			}
-			
-			System.out.println(request.getParameter("local"));
+		
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

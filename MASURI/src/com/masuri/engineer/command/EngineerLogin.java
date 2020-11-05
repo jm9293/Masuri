@@ -24,16 +24,6 @@ public class EngineerLogin implements Command{
 		String pw = request.getParameter("pw");
 		
 		HttpSession session = request.getSession();
-//		System.out.println("id"+id);
-//		boolean chk = EngineerDAO.logincheck(id, pw);
-//		
-//		if(chk) {
-//			session.setAttribute("enlogin", id);
-//			engineerID.put(id, session);
-//			request.setAttribute("chk", 0);
-//		}else {
-//			request.setAttribute("chk", 1);
-//		}
 		
 		/// chk --> 로그인 chk --> 1 상관x
 		

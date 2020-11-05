@@ -27,8 +27,6 @@ public class ScheduleRegist implements Command{
 			HttpSession session = request.getSession();
 			String id = (String)session.getAttribute("enlogin");
 			
-			
-			System.out.println("reselect :::"+request.getParameter("retry"));
 
 				try {
 				
@@ -71,7 +69,6 @@ public class ScheduleRegist implements Command{
 					}
 		
 					ArrayList<MonthscheduleDTO> list = MonthscheduleDAO.select(mon, id);
-					System.out.println(list);
 							/// 쉬는날짜 표시 
 						for (String st : dd) {
 								for (MonthscheduleDTO dto : list) {

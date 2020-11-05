@@ -89,10 +89,7 @@ public class ScheduleChecking implements Command{
 					for (int a : time) {
 						resarr.add(ReslistDAO.select(a));
 					}
-					
-					System.out.println(tt);// Date 가져오는 방법이 다른건지 확인 한번만 해줏에ㅛ
-					// 네네넨ㄴ 마자여  선택일자에 날짜 맞춘거에여 아니 글씨도 잘안써지네 왜이래,,,ㅎ
-					
+								
 					request.setAttribute("time", time);			
 					request.setAttribute("resarr", resarr);	
 				}

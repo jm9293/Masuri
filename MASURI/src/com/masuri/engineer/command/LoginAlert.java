@@ -13,8 +13,7 @@ public class LoginAlert implements Command{
 		// TODO Auto-generated method stub
 	
 		response.setCharacterEncoding("UTF-8");
-		
-//		int chk = Integer.parseInt(request.getParameter("chk"));
+
 		
 		HttpSession session = request.getSession();
 		

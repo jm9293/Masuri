@@ -43,10 +43,7 @@ public class ScheduleController extends HttpServlet{
 			String com = uri.substring(conPath.length());
 			
 			// 테스트 출력
-			System.out.println("uri: " + uri);
-			System.out.println("conPath: " + conPath);
-			System.out.println("com: " + com);
-			
+
 			// 컨트롤러는 다음의 두가지를 결정해야 한다
 			Command command = null;  // 어떠한 로직을 수행할지 결정
 			String viewPage =  null;  //  어떠한 페이지(뷰)를 보여줄지 결정
@@ -87,8 +84,7 @@ public class ScheduleController extends HttpServlet{
 					break;
 				
 			}	
-				
-			System.out.println(viewPage);
+
 			// 위에서 결정된 view 에 forward 해줌
 			if(viewPage != null) {
 				RequestDispatcher dispatcher = 

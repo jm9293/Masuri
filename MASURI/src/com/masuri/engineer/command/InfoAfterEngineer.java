@@ -60,9 +60,6 @@ public class InfoAfterEngineer implements Command{
 				}
 				
 				EngineerDAO.update(dto);
-				
-				System.out.println(pw+"local"+local+"/intro "+intro);
-
 			
 			}else {
 				request.setAttribute("chk", 1);

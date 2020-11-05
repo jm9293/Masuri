@@ -46,9 +46,7 @@ public class EngineerInfoController extends HttpServlet{
 		String com = uri.substring(conPath.length());
 		
 		// 테스트 출력
-		System.out.println("uri: " + uri);
-		System.out.println("conPath: " + conPath);
-		System.out.println("com: " + com);
+
 			
 		// 컨트롤러는 다음의 두가지를 결정해야 한다
 		Command command = null;  // 어떠한 로직을 수행할지 결정

@@ -20,7 +20,6 @@ public class ScheduleCommand implements Command{
 		// TODO Auto-generated method stub
 	
 		response.setCharacterEncoding("UTF-8");
-		System.out.println("ScheduleCommand 들어왔다");
 		String rest = request.getParameter("rest");
 		int day = Integer.parseInt(request.getParameter("year")); 
 		HttpSession session = request.getSession();
@@ -63,8 +62,6 @@ public class ScheduleCommand implements Command{
 					
 					cntInsert = MonthscheduleDAO.insert(ms);
 				}
-				
-				System.out.println(cntInsert+"insert");
 				
 
 			}

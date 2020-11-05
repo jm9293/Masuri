@@ -60,7 +60,7 @@ public class EngineerLogin implements Command{
 				
 				if(engineerID.containsKey(id)) {
 						//세션만료
-					engineerID.get(id).invalidate();
+					engineerID.get(id).removeAttribute("enlogin");
 					request.setAttribute("chk", 1);
 				}else {
 					request.setAttribute("chk", 0);

@@ -50,7 +50,7 @@
         <!--네비바 시작-->
         <meta charset="utf-8">
         <nav class="navbar navbar-expand-md navbar-light bg-white navbar-u">
-            <a class= "navbar-brand navbar-logo"  href="engineermain.jsp">MASURIENG</a>
+            <a class= "navbar-brand navbar-logo"  href="main.do">MASURIENG</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>

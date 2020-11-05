@@ -1,5 +1,8 @@
 @charset "UTF-8";
 /* 오시는 길*/
+.content{
+	min-height:748px;
+}
 .map_wrap {
     overflow:hidden;
     height:1130px
@@ -24,9 +27,9 @@
   }
   span{
       text-align: center;
-      width: 120px;
+      width: 140px;
      margin-top: 20px;
-     margin-left: 35%;
+     margin-left: 15%;
   }
   #map{
       box-sizing: border-box;
@@ -67,6 +70,7 @@
          
       }
       span{
+      	margin-top:35px;
           margin-left: 40%;
       }
   }

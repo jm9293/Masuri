@@ -37,11 +37,11 @@
         <div class="map_wrap">
             <div id="mapWrapper">
                 <div id="map"></div> <!-- 지도를 표시할 div 입니다 -->
-                <span class="badge badge-primary"><p class="h5">지도 view</p></span>
+                <h2><span class="badge badge-pill badge-dark">지도 view</span></h2>
             </div>
             <div id="rvWrapper">
                 <div id="roadview"></div> <!-- 로드뷰를 표시할 div 입니다 -->
-                <span class="badge badge-primary"><p class="h5">로드 view</p></span>
+                <h2><span class="badge badge-pill badge-dark">로드 view</span></h2>
             </div>
         </div>
       </div>

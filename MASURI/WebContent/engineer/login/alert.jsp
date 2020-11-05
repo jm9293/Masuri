@@ -17,7 +17,7 @@
 <c:choose>
 <c:when test="${chk==0}">
 	<script>
-	location.href='register.do';
+	location.href='main.do';
 	</script>
 	</c:when>
 	</c:choose>

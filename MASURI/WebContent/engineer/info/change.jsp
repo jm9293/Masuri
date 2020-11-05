@@ -103,10 +103,10 @@
 
            <form action="after.info" enctype="multipart/form-data" accept=".jpg,.jpeg" method="post">
             <input type = "hidden" name = "file2" value="upload" id= "file2" disabled>
-            <img src="<%=request.getContextPath()%>/enimg/${id}.jpg" alt="" id="img" class="rounded-circle">
+            <img src="../engimg/${id}.jpg" alt="" id="img" class="rounded-circle">
 
             <div class="form-group title">
-              <input type="file" class="form-control-file" accept=".jpg,.jpeg" id="imgUp">
+              <input type="file" class="form-control-file" accept=".jpg,.jpeg" id="imgUp" name="imgUp">
             </div>
 
             <div class="form-group row title">
@@ -157,7 +157,7 @@
 
           <div class="form-group title">
             <label for="exampleFormControlTextarea1">내 소개</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="intro"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="intro" maxlength="100">${intro}</textarea>
             <label for="exampleFormControlTextarea1" name="introMsg"></label>
           </div>
           <input type="submit" name = "infoChn" class="btn btn-primary" value="수정완료" >

@@ -30,7 +30,7 @@ public class InfoAfterEngineer implements Command{
 			
 			
 				EngineerDTO dto = EngineerDAO.select(id);
-				MultipartRequest multi = Fileupload.proflieImgupload(request, "imgUp", "enimg", id);
+				MultipartRequest multi = Fileupload.proflieImgupload(request, "imgUp", "engimg", id);
 				String pw = multi.getParameter("pwKey");
 				String local = multi.getParameter("local");
 				String intro = multi.getParameter("intro");
@@ -38,7 +38,7 @@ public class InfoAfterEngineer implements Command{
 				
 				
 				if(pw!=null&&!pw.equals("")) {
-					if(Pattern.matches("(?=.*[A-Za-z])(?=.*\\d)(?=.*[0-9])[A-Za-z0-9]{6,8}",pw)) {
+					if(Pattern.matches("(?=.*[a-zA-Z])(?=.*\\d).{6,8}",pw)) {
 						dto.setPassword(pw);
 					}
 				}else {
@@ -53,8 +53,7 @@ public class InfoAfterEngineer implements Command{
 	
 				
 				if(intro!=null&&!intro.equals("")) {
-					if(Pattern.matches("^[가-힣ㅏ-ㅣㄱ-ㅎa-zA-Z0-9]{0,100}", intro)) {
-						
+					if(intro.length()<101) {
 						dto.setIntro(intro);
 					}
 					

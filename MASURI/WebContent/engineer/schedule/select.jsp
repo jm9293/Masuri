@@ -13,7 +13,7 @@
         <!-- 기본 폰트 구글 Noto Sans 굵기 400,500,900 -->
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;900&display=swap" rel="stylesheet">
         <!-- 기본 css -->
-        
+         <link rel="stylesheet" href="CSS/basic.css">
          <!--jquery 3.3.1 불러오기-->
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
          <!-- 페이지 css -->
@@ -31,7 +31,7 @@
          	margin-top: 20px;
            height: 650px;
            display: inline-block;
-           background-color: rgb(190, 180, 180);
+         
            text-align: center;
          }
          
@@ -42,7 +42,7 @@
           background-color: white;
           height: 620px;
 		  width: 400px;
-		  box-shadow: 5px 5px 5px 5px rgb(163, 160, 160);
+		
         }
 
         .m{
@@ -196,8 +196,7 @@
 
       <div class="bnt col-10">
       <form action="visit.do?no=${No}" method="post" name="re">
-        <input type="hidden" value="0" name="visitChk">
-        <input type="submit" class="btn btn-primary" value="방문확인" id="reserve">
+        <input type="submit" class="btn btn-primary" value="수리완료" id="reserve">
       </form>
       </div>
       </div>
@@ -217,17 +216,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </html>
-
-<script>
-  $("#reserve").click(function(){
-     var visit = $("input[name=visitChk]")
-
-     if(visit.val()=="0"){
-       visit.val("1")
-     }else{
-       visit.val("0")
-     }
-     alert(visit.val())
-  })
-
-</script>

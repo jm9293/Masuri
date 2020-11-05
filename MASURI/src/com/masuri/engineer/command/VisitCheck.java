@@ -26,7 +26,7 @@ public class VisitCheck implements Command{
 				
 				try {	//번호로 해당 신청서 불러오기
 					ReslistDTO dto = ReslistDAO.select(Integer.parseInt(no));
-					dto.setState("방문완료");
+					dto.setState("수리완료");
 					
 					/// 방문완료 업데이트
 					ReslistDAO.updateState(dto);

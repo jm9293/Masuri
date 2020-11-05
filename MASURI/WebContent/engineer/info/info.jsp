@@ -102,7 +102,7 @@
 
       <div class="col-sm-5" id="infoSize">
         <div>
-        <img src="<%=request.getContextPath()%>/enimg/${id}.jpg" alt="..." class="rounded-circle">
+        <img src="../engimg/${id}.jpg" alt="..." class="rounded-circle">
       </div>
         <div class="info col-10">
         <div class="title">ID  

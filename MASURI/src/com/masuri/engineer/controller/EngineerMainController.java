@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet(urlPatterns = {"/engineer/main.do"})
+@WebServlet(urlPatterns = {"/engineer/main.do","/engineer/logout.do"})
 public class EngineerMainController extends HttpServlet{
 
 	public EngineerMainController() {
@@ -64,6 +64,12 @@ public class EngineerMainController extends HttpServlet{
 				command = new EngineerMain();
 				command.execute(request, response);
 				viewPage = "engineermain.jsp";
+				break;
+				
+			case "/engineer/logout.do":
+				command = new Engineerlogout();
+				command.execute(request, response);
+				viewPage = "engineerlogout.jsp";
 				break;
 				
 		

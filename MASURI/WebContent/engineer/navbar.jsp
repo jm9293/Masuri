@@ -81,6 +81,11 @@
                   </li>
 
               </ul>
+              <form class="form-inline">
+                    <button class="btn btn-outline-primary" type="button" onclick="location.href='logout.do'" >로그아웃</button>
+   
+                  </form>
+              
             </div>
           </nav>
 

@@ -34,7 +34,7 @@ public class InfoChangeEngineer implements Command{
 				if(dto.getPassword()!=null&&!dto.getPassword().equals("")) {
 					request.setAttribute("pwKey", dto.getPassword());
 				}
-				
+				request.setAttribute("intro", dto.getIntro());
 			}else {
 				request.setAttribute("chk", 1);
 			}

@@ -189,8 +189,9 @@ public class EngineerDAO {
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			
-			rs.next() ;
+			if(rs.next()) {
 			check = Boolean.parseBoolean(rs.getString("STATE"));
+			}
 					
 		
 		} catch (Exception e) {

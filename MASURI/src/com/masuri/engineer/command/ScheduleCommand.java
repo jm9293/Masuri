@@ -38,7 +38,7 @@ public class ScheduleCommand implements Command{
 			if(rest!=null&&!rest.equals("")) {
 				
 			
-			int cnt = MonthscheduleDAO.delete(mon, id);
+			int cnt = MonthscheduleDAO.delete(mon+1, id);
 			System.out.println("rest"+rest.split(",").length);
 			
 			ArrayList<MonthscheduleDTO> list = new ArrayList<MonthscheduleDTO>();
@@ -46,12 +46,12 @@ public class ScheduleCommand implements Command{
 									
 				for (String sr :rest.split(",")) {
 					MonthscheduleDTO dto = new MonthscheduleDTO();
-					if(sr.equals("off")) {
+					if(sr.equals("휴무")) {
 						request.setAttribute("retry", 2);
 						break;
 					}
 						dto.setEngid(id);
-						dto.setMonth(mon);
+						dto.setMonth(mon+1);
 						dto.setHoliday(new Date(day,mon,Integer.parseInt(sr)));
 						list.add(dto);
 				

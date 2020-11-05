@@ -45,8 +45,6 @@ public class EngineerLogin implements Command{
 				
 			}else {
 				session.removeAttribute("enlogin");
-				
-				session.invalidate();	//세션만료
 				request.setAttribute("chk", 1);
 			}
 			

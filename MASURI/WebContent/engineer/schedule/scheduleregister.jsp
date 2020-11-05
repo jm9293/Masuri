@@ -21,15 +21,11 @@
          <style> 
          *{
             font-family: 'Noto Sans KR', sans-serif;
-         
+            box-sizing: border-box;
          }
 
-         #mon{
-            width: 70px;
-            height: 70px;
-            margin-left: 70px;
-            margin-bottom: 20px;
-            font-size: xx-large;
+         .mon{
+            margin-bottom : 20px;
          }
 
           .content{
@@ -43,30 +39,32 @@
           #calendar{
           	width: 1000px;
             height: auto;
-            margin-left:16.6667%;
+            margin :auto;
             text-align: center;
-     
-           
-
           }
 
           .daily{
             width: 130px;
-            height: 40px;
             margin-left: 2px;
             position: relative;
             display: inline-block;
+            border: 1px solid white;
+            
           }
 
 
           .calendarDay{
+            background-color: rgb(234,234,234);
             width: 130px;
             height: 120px;
+            margin-bottom :10px;
             margin-left: 2px;
-            border: 1px solid gray;
             display: inline-block;
-            
+            border: 1px solid white;
+            border-radius: 5px;
           }
+         
+          
 
           .form-bnt{
             margin-top: 30px;
@@ -75,16 +73,18 @@
 
           }
           
+          .off{
+             border: 1px solid rgb(178,235,244); 
+          }
+          
           @media (max-width: 992px) { 
           	
           	.daily, .calendarDay{
               width: 100px;
-              height: 100px;
           	}
           	
           	#calendar{
           		width: 800px;	
-          		margin-left:6%;
           	}
           
            }
@@ -93,12 +93,10 @@
            	
            	.daily, .calendarDay{
               width: 70px;
-              height: 70px;
           	}
           	
           	#calendar{
           		width: 600px;	
-          		margin-left:3%;
           	}
            	
             }
@@ -107,12 +105,10 @@
             
            .daily, .calendarDay{
               width: 50px;
-              height: 50px;
           	}
           	
           	#calendar{
           		width: 400px;	
-          		margin-left:6%;
           	}
            	
             }          	
@@ -144,16 +140,16 @@
 		
       <!--ë©ì¸ ì»¨íí¸ ìì­-->
       <div class="content">
+          	<h1 class="mon">월간 스케쥴 관리 ${mon}월</h1>
         <div id= "calendar">
-          	<div id="mon">${mon}月</div>
           
-            <div class="daily">일</div>
-            <div class="daily">월</div>
-            <div class="daily">화</div>
-            <div class="daily">수</div>
-            <div class="daily">목</div>
-            <div class="daily">금</div>
-            <div class="daily">토</div>
+            <div class="daily alert-primary">일</div>
+            <div class="daily alert-primary">월</div>
+            <div class="daily alert-primary">화</div>
+            <div class="daily alert-primary">수</div>
+            <div class="daily alert-primary">목</div>
+            <div class="daily alert-primary">금</div>
+            <div class="daily alert-primary">토</div>
 			<c:forEach var="dd" items="${date}">
 				<div class="calendarDay" onclick="">${dd}</div>		
 			</c:forEach>	
@@ -170,12 +166,14 @@
       </div>
     </div>
       </div>
-      <!--ë©ì¸ ì»¨íí¸ ë-->
+    
 
-      <!--í¸í° ìì-->
-<!--  <div id="footer-wrap"></div>
-     
-   -->
+      <!--푸터 시작-->
+      <div id="footer-wrap"></div>
+        <script>
+        $("#footer-wrap").load("footer.html");
+        </script>
+        <!--푸터 끝-->  
     </body>
     
 
@@ -190,15 +188,22 @@
  	  var rest = ""
 
 		$('.calendarDay').click(function(){
+		if($(this).text().trim()!=""){
 
 	    this.style.backgroundColor = 'gray';
 			rest += $(this).text()+",";
       
-      $("#forms").append("<input type='hidden' name ='rest'>")
-      $("input[name=rest]").attr("value",rest)
-      
+        $("#forms").append("<input type='hidden' name ='rest'>")
+        $("input[name=rest]").attr("value",rest)
+		}
 
 	})
+	
+	$("#calendarDay").each(function(){
+	       if($(this).val()=="휴무"){
+	           $(this).addClass("off");
+	          }
+   })
 	
 
   var cal = $('.calendarDay').toArray()

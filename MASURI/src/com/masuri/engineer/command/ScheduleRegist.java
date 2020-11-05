@@ -70,14 +70,14 @@ public class ScheduleRegist implements Command{
 						dd.add("　");
 					}
 		
-					ArrayList<MonthscheduleDTO> list = MonthscheduleDAO.select(mon-1, id);
+					ArrayList<MonthscheduleDTO> list = MonthscheduleDAO.select(mon, id);
 					System.out.println(list);
 							/// 쉬는날짜 표시 
 						for (String st : dd) {
 								for (MonthscheduleDTO dto : list) {
 										if(st.equals(sdf.format(dto.getHoliday()))) {
 											int index = (Integer.parseInt(sdf.format(dto.getHoliday()))+empty-1);
-											dd.set(index, "off");
+											dd.set(index, "휴무");
 											
 										}
 								}

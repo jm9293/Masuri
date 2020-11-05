@@ -1,8 +1,8 @@
-<%@page import="com.masuri.dto.QnaDTO"%>
 <%@page import="java.text.SimpleDateFormat"%>
+<%@page import="com.masuri.dto.QnaDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page import="java.util.*" %>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -16,28 +16,31 @@
 <link rel="stylesheet" href="../basic/CSS/basic.css">
 <!--jquery 3.3.1 불러오기-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- 페이지 css -->
-<link rel="stylesheet" href="sup_Qna.css">
-<% ArrayList<QnaDTO> list = null;
-	int max = 0;
-	int pageNum = 0;
+<link rel="stylesheet" href="sup_QnaSearchText.css">
+<title>MASURI</title>
+<%
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d hh:m");
 	int result = (int)request.getAttribute("result");
+	ArrayList<QnaDTO> list = null;
+	int pageNum = 0;
+	int max = 0;
 	String userid="";
+	String select ="";
+	String text ="";
 	if(result == 0){
 %>
 	<script>
 		location.href="../ErrorPage.do";
 	</script>
-<%	return;		
-		
+<%	return;	
 	}else{
 		list = (ArrayList<QnaDTO>)request.getAttribute("list");
-		max = (int)request.getAttribute("max");
 		pageNum = (int)request.getAttribute("page");
+		max = (int)request.getAttribute("max");
+		select = request.getParameter("selectMenu");
+		text = request.getParameter("text");	
 	}
 %>
-<title>MASURI</title>
 </head>
 <body>
 	<!--네비바 시작-->
@@ -56,9 +59,7 @@
 	}
 	%>
 	
-
 	<!--네비바 끝-->
-	
 	<!--메인 컨텐트 영역-->
 	<div class="content">
 		<div class="col-12 col-md-8 head row">
@@ -122,12 +123,12 @@
 					if (pageNum - 1 < 1) {
 				%>
 				<li class="paging"><a
-					href="/MASURI/user/support/sup_Qna.do?page=1">이전</a></li>
+					href="/MASURI/user/support/sup_QnaSearchText.do?page=1&selectMenu=<%=select %>&text=<%=text%>">이전</a></li>
 				<%
 					} else {
 				%>
 				<li class="paging"><a
-					href="/MASURI/user/support/sup_Qna.do?page=<%=pageNum - 1%>">이전</a></li>
+					href="/MASURI/user/support/sup_QnaSearchText.do?page=<%=pageNum - 1%>&selectMenu=<%=select %>&text=<%=text%>">이전</a></li>
 				<%
 					}
 				if (max > 0) {
@@ -135,12 +136,12 @@
 						if (pageNum == i) {
 				%>
 				<li class="paging"><a class='active tooltip-top'
-					href="/MASURI/user/support/sup_Qna.do?page=<%=i%>"><%=i%></a></li>
+					href="/MASURI/user/support/sup_QnaSearchText.do?page=<%=i%>&selectMenu=<%=select %>&text=<%=text%>"><%=i%></a></li>
 				<%
 					} else {
 				%>
 				<li class="paging"><a
-					href="/MASURI/user/support/sup_Qna.do?page=<%=i%>"><%=i%></a></li>
+					href="/MASURI/user/support/sup_QnaSearchText.do?page=<%=i%>&selectMenu=<%=select %>&text=<%=text%>"><%=i%></a></li>
 				<%
 					}
 				}
@@ -150,20 +151,20 @@
 					if (pageNum < max) {
 				%>
 				<li class="paging"><a
-					href="/MASURI/user/support/sup_Qna.do?page=<%=pageNum +1 %>">다음</a></li>
+					href="/MASURI/user/support/sup_QnaSearchText.do?page=<%=pageNum +1 %>&selectMenu=<%=select %>&text=<%=text%>">다음</a></li>
 				
 				<%
 					} else {
 				%>
 				<li class="paging"><a
-					href="/MASURI/user/support/sup_Qna.do?page=<%=max%>">다음</a></li>
+					href="/MASURI/user/support/sup_QnaSearchText.do?page=<%=max%>&selectMenu=<%=select %>&text=<%=text%>">다음</a></li>
 				<%
 		}%>
 			</ul>
 		</div>
 		<form action="sup_QnaSearchText.do" method="get">
 			<div class="col-12 col-md-6 row searchbox">
-				<input type="hidden" name="page" value="<%=pageNum%>">
+			<input type="hidden" name="page" value="1">
 				<div class="col-4 col-md-3">
 					<select class="col-12 form-control" name="selectMenu">
 						<option value="id_sch" id="id_sch">ID검색</option>
@@ -171,7 +172,7 @@
 					</select>
 				</div>
 				<div class="col-5">
-					<input class="col-12 form-control" type="text" name="text" />
+					<input class="col-12 form-control" type="text" name="text" value="<%=text%>"/>
 				</div>
 				<div class="col-3 col-md-2">
 					<button type="submit" id="searchbtn"
@@ -184,8 +185,6 @@
 		</form>
 		<br>
 	</div>
-
-
 	<!--메인 컨텐트 끝-->
 
 	<!--푸터 시작-->
@@ -196,8 +195,14 @@
 	<!--푸터 끝-->
 	<!--js 불러오기->
     <!--bootstrap js요소 4.3.1 불러오기-->
+    <script>
+ $(function(){
+	 $("#<%=select%>").attr("selected","selected");
+ });
+ 
+ </script>
+	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	
 </body>
 </html>

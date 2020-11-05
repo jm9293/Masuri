@@ -82,7 +82,7 @@
 			if(dto.getAnswer() != null){
 		%>
 		<br>
-		<div class="col-12 col-md-8 answerbox"><h6>- 답변 내용 - <br>작성일: <%= sdf.format(dto.getAntime()) %></h6></div>
+		<div class="col-12 col-md-8 answerbox"><h6>답변 내용<br>작성자: 관리자<br>작성일: <%= sdf.format(dto.getAntime()) %></h6></div>
 		<div class="contentbox2 row col-12 col-md-8">
 			<textarea class="col-12 form-control" readonly><%= dto.getAnswer() %></textarea>
 		</div>

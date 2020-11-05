@@ -122,7 +122,7 @@ for(int i=0 ; i < list.size() ; i++){
 			</div><br>
 			<button class="login-btn btn btn-primary emailf" type="submit" id="signup-btn" disabled>계정발급</button>
 			<br><br>
-			<button type="button" class="btn btn-danger emailf">취소</button>
+			<button type="button" class="btn btn-danger emailf" onclick="window.location.href='adEngEdit.do'">취소</button>
 		</div>
 		</form>
 		<br>

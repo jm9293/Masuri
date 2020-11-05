@@ -1,7 +1,6 @@
 package com.masuri.engineer.command;
 
 import java.sql.SQLException;
-import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,11 +35,8 @@ public class InfoAfterEngineer implements Command{
 				String intro = multi.getParameter("intro");
 				
 				
-				
 				if(pw!=null&&!pw.equals("")) {
-					if(Pattern.matches("(?=.*[A-Za-z])(?=.*\\d)(?=.*[0-9])[A-Za-z0-9]{6,8}",pw)) {
-						dto.setPassword(pw);
-					}
+					dto.setPassword(pw);
 				}else {
 					dto.setPassword(dto.getPassword());
 				}
@@ -53,10 +49,8 @@ public class InfoAfterEngineer implements Command{
 	
 				
 				if(intro!=null&&!intro.equals("")) {
-					if(Pattern.matches("^[가-힣ㅏ-ㅣㄱ-ㅎa-zA-Z0-9]{0,100}", intro)) {
-						
-						dto.setIntro(intro);
-					}
+			
+					dto.setIntro(intro);
 					
 				}
 				

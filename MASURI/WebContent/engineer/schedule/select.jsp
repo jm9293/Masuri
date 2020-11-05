@@ -196,14 +196,12 @@
 
       <div class="bnt col-10">
       <form action="visit.do?no=${No}" method="post" name="re">
-        <input type="hidden" value="0" name="visitChk">
         <input type="submit" class="btn btn-primary" value="방문확인" id="reserve">
       </form>
       </div>
       </div>
       
       
-	
 	
      
      
@@ -218,16 +216,3 @@
 
 </html>
 
-<script>
-  $("#reserve").click(function(){
-     var visit = $("input[name=visitChk]")
-
-     if(visit.val()=="0"){
-       visit.val("1")
-     }else{
-       visit.val("0")
-     }
-     alert(visit.val())
-  })
-
-</script>

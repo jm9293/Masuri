@@ -1,0 +1,19 @@
+@charset "UTF-8";
+.title b{
+          	font-weight: 300;
+          	color: rgb(52, 152, 219);
+          	}
+          	
+          	.content .signup-box{
+          		margin :auto;
+          		text-align: center;
+          		padding : 300px 0;
+          	}
+          	
+          	.content #go-login{
+          		margin : 10px auto;
+          	}
+          	
+          	.input-box{
+          		text-align: center;
+          	}

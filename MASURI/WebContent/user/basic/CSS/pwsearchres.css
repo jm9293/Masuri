@@ -1,0 +1,15 @@
+@charset "UTF-8";
+.login-box{
+            margin: 5% auto;
+
+          }
+          .input-box{
+              margin: 2% 0;
+          }
+          
+          
+          
+          .row{
+          	padding: 0;
+          	text-align: center;
+          }   

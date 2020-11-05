@@ -23,26 +23,7 @@
          <!--jquery 3.3.1 불러오기-->
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
          <!-- 페이지 css -->
-         <style> 
-            .title b{
-          	font-weight: 300;
-          	color: rgb(52, 152, 219);
-          	}
-          	
-          	.content .signup-box{
-          		margin :auto;
-          		text-align: center;
-          		padding : 300px 0;
-          	}
-          	
-          	.content #go-login{
-          		margin : 10px auto;
-          	}
-          	
-          	.input-box{
-          		text-align: center;
-          	}
-        </style>
+        <link rel="stylesheet" href="CSS/signupres.css">
     </head>
     
    

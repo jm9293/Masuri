@@ -17,42 +17,7 @@
          <!--jquery 3.3.1 불러오기-->
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
          <!-- 페이지 css -->
-         <style> 
-          .login-box{
-            margin: 10% auto;
-
-          }
-          .input-box{
-              margin: 2% 0;
-          }
-          
-          .title b{
-          	font-weight: 300;
-          	color: rgb(52, 152, 219);
-          }       
-          
-          .email .row{
-        	padding : 0px;
-        	margin : 0px;
-          }
-          
-          .email .at{
-        	text-align: center;
-        	line-height:28px ;
-        	padding :0px;
-          }
-
-          .paddingzero{
-              padding: 0px;
-              margin: auto;
-          }
-
-          @media (max-width: 768px) {
-                #idcheck{
-                    margin-top: 10px;
-                }
-          }
-        </style>
+         <link rel="stylesheet" href="CSS/signup.css">
     </head>
     
    

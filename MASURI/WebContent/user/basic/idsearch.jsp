@@ -19,22 +19,7 @@
          <!--jquery 3.3.1 불러오기-->
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
          <!-- 페이지 css -->
-         <style> 
-          .login-box{
-            margin: 10% auto;
-
-          }
-          .input-box{
-              margin: 2% 0;
-          }
-          
-          
-          
-          .row{
-          	padding: 0;
-          	text-align: center;
-          }       
-        </style>
+         <link rel="stylesheet" href="CSS/idsearch.css">
     </head>
     
    

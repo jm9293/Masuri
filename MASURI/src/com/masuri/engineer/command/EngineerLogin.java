@@ -56,16 +56,17 @@ public class EngineerLogin implements Command{
 			
 			if(check&&!black) {
 				// 맞으면 세션주고 자리 만들어주고
-				session.setAttribute("enlogin", id);
 				
 				if(engineerID.containsKey(id)) {
 						//세션만료
 					engineerID.get(id).removeAttribute("enlogin");
-					request.setAttribute("chk", 1);
+					
+					request.setAttribute("chk", 0);
 				}else {
 					request.setAttribute("chk", 0);
 				}
 				engineerID.put(id, session);
+				session.setAttribute("enlogin", id);
 				
 			}else if(check){	//블랙리스트
 				request.setAttribute("chk", 3);

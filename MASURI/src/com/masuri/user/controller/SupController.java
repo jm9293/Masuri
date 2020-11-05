@@ -10,13 +10,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.masuri.command.Command;
 import com.masuri.user.command.FaqCommand;
 import com.masuri.user.command.NoticeCommand;
 import com.masuri.user.command.NoticeViewCommand;
 import com.masuri.user.command.QnaCommand;
 import com.masuri.user.command.QnaDeleteCommand;
+import com.masuri.user.command.QnaSearchTextCommand;
 import com.masuri.user.command.QnaSelectCommand;
 import com.masuri.user.command.QnaUpdateCommand;
 import com.masuri.user.command.QnaViewCommand;
@@ -30,7 +30,7 @@ import com.masuri.user.command.QnaWriteCommand;
 		"/user/support/sup_QnaView.do", "/user/support/sup_QnaWrite.do",
 		"/user/support/sup_QnaWriteOk.do", "/user/support/sup_QnaUpdate.do",
 		"/user/support/sup_QnaUpdateOk.do", "/user/support/sup_QnaDelete.do",
-		"/user/ErrorPage.do"})
+		"/user/ErrorPage.do", "/user/support/sup_QnaSearchText.do"})
 public class SupController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -116,6 +116,11 @@ public class SupController extends HttpServlet {
 			break;
 		case "/user/ErrorPage.do":
 			viewPage = "/user/ErrorPage.jsp";
+			break;
+		case "/user/support/sup_QnaSearchText.do":
+			command = new QnaSearchTextCommand();
+			command.execute(request, response);
+			viewPage = "/user/support/sup_QnaSearchText.jsp";
 			break;
 		}
 		if(viewPage != null) {

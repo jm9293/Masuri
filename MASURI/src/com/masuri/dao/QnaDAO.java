@@ -116,7 +116,8 @@ public class QnaDAO {
 		return cnt;
 	}
 	
-	public static ArrayList<QnaDTO> selectpageSerach(int num, String content ,String colName) throws SQLException { //전체 Noticelist가져오기
+	public static ArrayList<QnaDTO> selectpageSearch(int num, String content ,String colName) throws SQLException { //전체 Noticelist가져오기
+		content = "%"+content+"%";
 		ArrayList<QnaDTO> list = new ArrayList<QnaDTO>();
 		try {
 			conn = getConnection();

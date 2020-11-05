@@ -48,27 +48,12 @@
 	<br>
 	<% if(list != null){
 	%>
-		<div class="accordion col-12 col-md-8 box" id="accordionExample">
-  			<div class="card">
-    			<div class="card-header" id="headingOne">
-      			<h2 class="mb-0">
-        			<button class="btn btn-link btn-block text-left col-12" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          			<%= list.get(0).getQuestion() %>
-        			</button>
-      			</h2>
-    			</div>
-
-    			<div id="collapseOne" class="collapse show anbox" aria-labelledby="headingOne" data-parent="#accordionExample">
-      			<div class="card-body">
-        			<textarea class="col-12 form-control" rows="5" readonly><%= list.get(0).getAnswer()%></textarea>
-      			</div>
-    			</div>
-  			</div>
+	<div class="containbox">
+		<div class="accordion col-12 col-md-8 box" id="accordionExample">		
 				
-				<%
-					for(int i = 1; i < list.size(); i++){
-				%>	
-
+		<%
+			for(int i = 0; i < list.size(); i++){
+		%>	
   			<div class="card">
     			<div class="card-header" id="headingTwo<%=i %>">
       			<h2 class="mb-0">
@@ -88,6 +73,7 @@
 		</div>
 	<%
 	} %>
+	</div>
 		</div>
 	<!--메인 컨텐트 끝-->
 

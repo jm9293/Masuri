@@ -75,10 +75,15 @@ function toggleRoadview(position){
     });
 }
 
-$(window).resize(function(){
-    if(window.outerWidth >= 769){
-            $("#kakaoBtn").attr("href", "http://kko.to/aG9iG-iYo");
-    }else{
-        $("#kakaoBtn").attr("href", "https://m.map.kakao.com/actions/detailMapView?id=27300029&refService=place");
-    }
- });
+function openMap() {
+
+	location.href = 'https://m.map.kakao.com/actions/detailMapView?id=27300029&refService=place';
+
+	if (window.outerWidth >= 769) {
+		location.href = "http://kko.to/aG9iG-iYo";
+	} else {
+		location.href = 'https://m.map.kakao.com/actions/detailMapView?id=27300029&refService=place';
+	}
+
+}
+

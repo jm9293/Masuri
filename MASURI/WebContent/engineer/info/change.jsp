@@ -119,6 +119,7 @@
                 <label class="form-check-label" for="defaultCheck1">
                   비밀번호 수정
                 </label>
+                <label for="inputPassword" name="msg"></label>
               </div>
             </div>
 
@@ -157,8 +158,9 @@
           <div class="form-group title">
             <label for="exampleFormControlTextarea1">내 소개</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="intro"></textarea>
+            <label for="exampleFormControlTextarea1" name="introMsg"></label>
           </div>
-          <input type="submit" class="btn btn-primary" value="수정완료" >
+          <input type="submit" name = "infoChn" class="btn btn-primary" value="수정완료" >
         </form>
 
 
@@ -171,11 +173,7 @@
       <!--메인 컨텐트 끝-->
 
       <!--푸터 시작-->
-      <div id="footer-wrap"></div>
-        <script>
-        $("#footer-wrap").load("footer.html");
-        </script>
-        <!--푸터 끝-->    
+  
     </body>
 
     <!--js 불러오기->
@@ -209,6 +207,37 @@
       }
 
      })
+     
+     
+    $("input[name=pwKey]").change(function(){
+      var pw = $("input[name=pwKey]").val()
+      var patt = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[0-9])[A-Za-z0-9]{6,8}$/
+
+      if(patt.test(pw)){
+        $("input[name=infoChn").removeAttr("disabled")
+        $("label[name=msg]").text("")
+      }else{
+        $("input[name=infoChn").attr("disabled","true")
+        $("label[name=msg]").text("잘못된 비밀번호입니다")
+	    	$("label[name=msg]").css("color","#BDBDBD")
+      }
+      
+    })
+
+    $("#exampleFormControlTextarea1").change(function(){
+      var intro = /^[가-힣ㅏ-ㅣㄱ-ㅎA-Za-z\d$@$!%*#?&]{0,100}$/
+
+      if(intro.test($(this).val())){
+        $("input[name=infoChn").removeAttr("disabled")
+        $("label[name=introMsg]").text("")
+      }else{
+        $("input[name=infoChn").attr("disabled","true")
+        $("label[name=introMsg]").text("100자 미만으로 작성해주세요")
+	    	$("label[name=introMsg]").css("color","#BDBDBD")
+      }
+
+    })
+
 
 </script>
 </html>

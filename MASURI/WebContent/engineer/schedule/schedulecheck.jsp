@@ -277,12 +277,7 @@
 
   
       </div>
-		<!--푸터 시작-->
-      <div id="footer-wrap"></div>
-        <script>
-        $("#footer-wrap").load("footer.html");
-        </script>
-        <!--푸터 끝-->  
+
     </body>
     
 

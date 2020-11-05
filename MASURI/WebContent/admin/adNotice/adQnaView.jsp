@@ -76,7 +76,7 @@
 		<div id="showA" style="display:block">
 			<%if(!answercheck){%>
 			<div class="container">
-				<div class="row">
+				
 					<form method="post" action="adQnaAnswerOK.do">
 					<input type="hidden" name="page" value="<%=request.getParameter("page") %>">
 					<input type="hidden" name="uid" value="<%= dto.getNum() %>">
@@ -91,15 +91,12 @@
 						%>
 						<tbody>
 							<tr>
-								<td>└>> <%= dto.getNum() %> : <%= dto.getTitle() %></td>
-							</tr>
-							<tr>
-								<td><textarea class="form-control" placeholder="내용" name="answer" maxlength="500" style="height: 350px;"></textarea></td>
+								<td><textarea class="form-control" placeholder="내용" name="answer" maxlength="500"></textarea></td>
 							</tr>
 						</tbody>
 						<%} %>
 					</table>
-					<input class="btn pull-right" type="submit" value="글쓰기">
+					<input class="btn btn-sm btn-outline-secondary" id="myRbtn" type="submit" value="글쓰기">
 				</form>
 						
 			</div>
@@ -121,12 +118,12 @@
 					%>
 					<tbody>
 						<tr>
-							<td class="tab-title2">└>> <%= dto.getNum() %> : <%= dto.getTitle() %> </td>
+							<td class="tab-title2">
+								<textarea class="form-control" name="answer" maxlength="500" readonly="readonly"><%=dto.getAnswer() %></textarea>
+							</td>
 							<td class="tab-date"><%= dto.getAntime() %></td>
 						</tr>
-						<tr>
-							<td colspan="2"><textarea class="form-control" placeholder="" name="answer" maxlength="500" style="height: 350px;" readonly="readonly"><%=dto.getAnswer() %></textarea></td>
-						</tr>
+						
 					</tbody>
 					<%} %>
 				</table>

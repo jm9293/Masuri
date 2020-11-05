@@ -8,10 +8,10 @@
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<!-- 페이징에 필요한 css -->
-<link rel="stylesheet" href="../../user/support/sup_Notice.css?after">
+
 <!-- 내가 만든 추가로 필요한 css -->
 <link rel="stylesheet" href="../mycss/mycss.css">
+<link rel="stylesheet" href="myeng.css">
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=divice-width, initial-scale=1">
@@ -36,7 +36,7 @@
 
     <div class="container">
 	<%@ include file="../adNav.jsp" %>
-    <h2 style="color:#999">직원 관리 페이지</h2><br>
+    <h2 style="color:#999"><b>직원 관리 페이지</b></h2><br>
 		<a href="adEngCreate.do" id="myRbtn" class="btn btn-outline-success">계정 생성</a>
     	<div class="col-5 nopad">
 		    <form class="navbar-form" role="search" action="adEngSearch.do">
@@ -60,7 +60,7 @@
 			if(list != null){
 				for(int i = 0; i < list.size(); i++){
 		%>
-		<div class="card l-8 mycard">
+		<div class="card mycard">
 			<div class="card-header my-ch" id="">ID: <%= list.get(i).getId() %></div>
 			<div class="card-body my-cb" >이름 : <%= list.get(i).getName() %></div>
 			<div class="card-body my-cf">연락처: <%= list.get(i).getPhone() %>

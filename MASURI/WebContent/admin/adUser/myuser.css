@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+
+.my-ch{
+	background-color: #b4f0ff;
+	height: 1.5rem;
+	padding: 0px 0px 0px 3px;
+}
+.my-cb{
+	background-color: #75e3ff;
+	height: 1.5rem;
+	padding: 0px 0px 0px 3px;
+}
+.my-cf{
+	background-color: #d2f7ff;
+	height: 2rem;
+	padding: 2px 0px 0px 3px;
+}
+
+.mycard{
+	width: 60%;
+}
+
+.card{
+	border: white;
+}
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+	.mycard{
+	width: 100%;
+	
+	}
+	.nav-text{
+		font-size: 0.8rem;
+	}
+
+}	

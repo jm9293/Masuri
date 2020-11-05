@@ -36,14 +36,14 @@ if(!logincheck){
 		<!-- 리스트 : 부트스트랩은 모바일 우선이라 화면이 작으면 아래로 쌓아서 내려온다 --> 
 		<ul class="navbar-nav navbar-dark"> 
 			<li class="nav-item active"> 
-				<a class="nav-link text-muted" href="../adEng/adEngEdit.do">직원관리</a>
+				<a class="nav-link text-muted nav-text" href="../adEng/adEngEdit.do">직원관리</a>
 			</li> 
 			<li class="nav-item"> 
-				<a class="nav-link text-muted" href="../adUser/adUserEdit.do">유저관리</a>
+				<a class="nav-link text-muted nav-text" href="../adUser/adUserEdit.do">유저관리</a>
 			</li> 
 			<li class="nav-item dropdown"> 
 				<!-- 드롭다운 메뉴--> 
-				<a class="nav-link dropdown-toggle text-muted"	data-toggle="dropdown" role="button" href="#">고객센터</a>
+				<a class="nav-link dropdown-toggle text-muted nav-text"	data-toggle="dropdown" role="button" href="#">고객센터</a>
 				<div class="dropdown-menu"> 
 					<a class="dropdown-item" href="../adNotice/adNotice.do">공지사항</a>
 					<a class="dropdown-item" href="../adNotice/adminFaq.do">FaQ</a>				
@@ -51,7 +51,7 @@ if(!logincheck){
 				</div> 
 			</li> 
 			<li class="nav-item justify-content-end">
-				<a class="nav-link text-muted" href="../adOption/adOption.do?page=1" >설정관리</a>
+				<a class="nav-link text-muted nav-text" href="../adOption/adOption.do?page=1" >설정관리</a>
 			</li>	
 		</ul> 
 		 

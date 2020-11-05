@@ -8,8 +8,7 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <!-- 내가 만든 추가로 필요한 css -->
 <link rel="stylesheet" href="../mycss/mycss.css">
-<!-- 페이징에 필요한 css -->
-<link rel="stylesheet" href="../../user/support/sup_Notice.css?after">
+<link rel="stylesheet" href="myeng.css">
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=divice-width, initial-scale=1">

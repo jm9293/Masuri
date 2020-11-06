@@ -8,25 +8,28 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 int type = 0;
+int num = 0;
 try{
-  type = (int)request.getAttribute("type");
-
- if((int)request.getAttribute("res")==0){
+ num =  (int)request.getAttribute("res");
+ type = (int)request.getAttribute("type");
+ System.out.println(num);
+ if(num==0){
 	 
  %>
 	<script>
 	location.href = "../ErrorPage.do";
 	</script>
  <%	return;	
- }else if((int)request.getAttribute("res")==2){%>
+ }else if(num==2){%>
 	<script>
 	alert("선택하신 엔지니어가 이미 예약이 되었습니다.\n다시 예약해주시기 바랍니다.");
-	location.href = 'res<%=type%>.do';
+	location.href = 'res<%=type%>.jsp';
 	</script>
 	<%	return;	
   }
   
-}catch(Exception e){%>
+}catch(Exception e){
+e.printStackTrace();%>
 	<script>
 	location.href = "../ErrorPage.do";
 	</script>

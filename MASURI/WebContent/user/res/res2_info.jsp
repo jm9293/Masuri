@@ -234,7 +234,7 @@
         <div>
           <h1>확실하게<br>수리받으세요</h1>
           <h3>숙련된 엔지니어가 직접 수리합니다.</h3>
-          <button type="button" class="btn btn-primary" onclick="location.href='res1.jsp'"> 출장수리 예약하기</button>
+          <button type="button" class="btn btn-primary" onclick="location.href='res2.jsp'"> 방문수리 예약하기</button>
         </div>
       </div>
   

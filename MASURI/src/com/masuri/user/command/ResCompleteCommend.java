@@ -77,9 +77,16 @@ public class ResCompleteCommend implements Command {
 		boolean factorychk = inputFactory!=null&&fixlistmap.containsKey(inputFactory);
 		boolean modelchk = inputModel!=null&&fixlistmap.get(inputFactory).contains(inputModel);
 		boolean faillistchk = inputFailsit!=null&&failsitmap.containsKey(inputFailsit);
+		
+		if(inputADD.equals("센터")) { //신청서 타입0
+			request.setAttribute("type", 2);
+		}else {
+			request.setAttribute("type", 1);
+		}
 	
 		
 		if(!(daychk&&timenumchk&&addchk&&sggNmchk&&engchk&&factorychk&&modelchk&&faillistchk)) { // 파라미터 비정상
+			System.out.println("여기서걸리니?");
 			request.setAttribute("res", 0);
 			return;
 		}    
@@ -104,6 +111,7 @@ public class ResCompleteCommend implements Command {
 				inputTIMEnum, sggNm, engid); // 한번더 해당기사가 예약가능한지 여부 확인
 		
 		if(!engchk) {
+			System.out.println("여기서걸리니?2");
 			request.setAttribute("res", 2); // 해당기사와 예약 문제 발생
 			return;
 		}
@@ -125,14 +133,12 @@ public class ResCompleteCommend implements Command {
 			request.setAttribute("res", 2); // 해당기사와 예약 문제 발생
 			return;
 		}
-		if(reslist.getAddress().equals("센터")) { //신청서 타입0
-			request.setAttribute("type", 2);
-		}else {
-			request.setAttribute("type", 1);
-		}
+		
+		
 		request.setAttribute("res", 1);// 성공
 		
 		} catch (Exception e) {
+			e.printStackTrace();
 			request.setAttribute("res", 0);
 		}
 

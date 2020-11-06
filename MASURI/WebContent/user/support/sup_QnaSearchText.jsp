@@ -50,14 +50,7 @@
 	<%
 	if(logincheck){
 		userid = (String)request.getSession().getAttribute("login");
-	}else{
-	%>
-		<script>
-			$("#mybtn").css("display","none");
-		</script>
-	<%		
-	}
-	%>
+	}%>
 	
 	<!--네비바 끝-->
 	<!--메인 컨텐트 영역-->
@@ -65,10 +58,12 @@
 		<div class="col-12 col-md-8 head row">
 			<h2 class="col-7">Q&A 상담게시판</h2>
 			<div class="col-5 col-md-2" id="mybtn">
+			<%if(logincheck){%>
 				<button type="button" 
 					class="col-12 btn btn-primary btn-sm"
 					onclick="location.href='/MASURI/user/support/sup_QnaSearchText.do?page=1&selectMenu=id_sch&text=<%=userid%>'">내가
 					쓴 글 보기</button>
+			<%}%>
 			</div>
 		</div>
 		<br>

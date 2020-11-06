@@ -18,6 +18,7 @@
 }
 .textlist{
     border-bottom: 1px solid rgb(158, 156, 156);
+    padding:0;
 }
 .menuborder{
     border-radius: 5px 5px 0px 0px;

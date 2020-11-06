@@ -128,8 +128,7 @@ public class ReslistDAO {
 				pstmt = conn.prepareStatement("select COUNT(*) as \"count\" from Reslist WHERE USERID =? AND ADDRESS !='센터'");
 			}
 			pstmt.setString(1, id);
-			
-			pstmt.setString(1, id);
+
 			rs = pstmt.executeQuery();
 		   
 			if(rs.next()) {
@@ -150,8 +149,17 @@ public class ReslistDAO {
 	public static ArrayList<ReslistDTO> selectpage(int num) throws SQLException { //전체 Reslistlist가져오기
 		ArrayList<ReslistDTO> list = new ArrayList<ReslistDTO>();
 		try {
+			int max = 0;
 			conn = getConnection();
-			pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",Reslist.* FROM Reslist ORDER BY NUM DESC) Reslist2 WHERE rnum>="+(1+(num-1)*7)+" and rnum<="+((num)*7));    
+			pstmt = conn.prepareStatement("select COUNT(*) as \"count\" from Reslist");
+			rs = pstmt.executeQuery();
+		   
+			if(rs.next()) {
+				max =  rs.getInt("count");
+				
+			}
+
+			pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",Reslist.* FROM Reslist ORDER BY NUM DESC) Reslist2 WHERE RNUM>="+(max-(6+((num-1)*7)))+" and RNUM<="+(max-((num-1)*7)));    
 			rs = pstmt.executeQuery();
 		   
 			while (rs.next()) {
@@ -223,11 +231,26 @@ public class ReslistDAO {
 	public static ArrayList<ReslistDTO> selectpageFromUser(int num ,String id,boolean type) throws SQLException { //페이지 번호, 유저 id로 가져오기
 		ArrayList<ReslistDTO> list = new ArrayList<ReslistDTO>();
 		try {
+			int max = 0;
 			conn = getConnection();
 			if(type) {
-				pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",Reslist.* FROM Reslist WHERE USERID =? AND ADDRESS = '센터' ORDER BY NUM DESC) Reslist2 WHERE rnum>="+(1+(num-1)*7)+" and rnum<="+((num)*7));
+				pstmt = conn.prepareStatement("select COUNT(*) as \"count\" from Reslist WHERE USERID =? AND ADDRESS ='센터'");
+			
 			}else {
-				pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",Reslist.* FROM Reslist WHERE USERID =? AND ADDRESS != '센터' ORDER BY NUM DESC) Reslist2 WHERE rnum>="+(1+(num-1)*7)+" and rnum<="+((num)*7));
+				pstmt = conn.prepareStatement("select COUNT(*) as \"count\" from Reslist WHERE USERID =? AND ADDRESS !='센터'");
+			}
+			pstmt.setString(1, id);
+
+			rs = pstmt.executeQuery();
+		   
+			if(rs.next()) {
+				max =  rs.getInt("count");
+				System.out.println(max);
+			}
+			if(type) {
+				pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",Reslist.* FROM Reslist WHERE USERID =? AND ADDRESS = '센터' ORDER BY NUM DESC) Reslist2 WHERE RNUM>="+(max-(6+((num-1)*7)))+" and RNUM<="+(max-((num-1)*7)));
+			}else {
+				pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",Reslist.* FROM Reslist WHERE USERID =? AND ADDRESS != '센터' ORDER BY NUM DESC) Reslist2 WHERE RNUM>="+(max-(6+((num-1)*7)))+" and RNUM<="+(max-((num-1)*7)));
 			}
 			
 			pstmt.setString(1, id);

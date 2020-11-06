@@ -125,7 +125,7 @@
                 <div class="card col-12 mb-5" style="max-width: 700px; margin: auto;">
                     <div class="row no-gutters">
                       <div class="col-md-4">
-                        <img src="../../engimg/defaultimg.jpg" class="card-img" alt="...">
+                        <img src="../../engimg/<%=list.get(i).getId() %>.jpg" class="card-img" alt="...">
                       </div>
                       <div class="col-md-8">
                         <div class="card-body">

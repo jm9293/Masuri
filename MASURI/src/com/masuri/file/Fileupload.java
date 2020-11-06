@@ -38,7 +38,6 @@ public class Fileupload {
 			}
 			
 		} catch (Exception e) {
-			
 			System.out.println("파일업로드 불가");
 		}
 		

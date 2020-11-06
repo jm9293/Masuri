@@ -29,7 +29,7 @@ public class PWsearchCommand implements Command {
 			
 			if(email!=null&&Pattern.matches(regarr[4], email)&&
 			   id!=null&&Pattern.matches(regarr[0], id)) {
-				System.out.println("여기들어옴?");
+				
 			 
 			 UserDTO user = UserDAO.select(id);
 				
@@ -42,6 +42,7 @@ public class PWsearchCommand implements Command {
 			 String buf_password = new BufPassword().getBufPassword();
 			 user.setPassword(buf_password);
 			 UserDAO.update(user);
+			 LoginCommand.Users.get(user.getId()).removeAttribute("login"); //강제로그아웃
 			 Sandmail.sand(user.getEmail(), "임시비밀번호발급내용입니다.", "고객님의 임시비밀번호는 "+buf_password+" 입니다.");
 			 request.setAttribute("res",1);
 			}else {

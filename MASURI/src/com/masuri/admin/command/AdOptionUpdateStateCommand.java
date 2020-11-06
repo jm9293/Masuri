@@ -22,10 +22,10 @@ public class AdOptionUpdateStateCommand implements Command {
 			num = Integer.parseInt(request.getParameter("uid"));
 			dto =  ReslistDAO.select(num);	// dto = 보고있는 게시 글
 			state = dto.getState();
-			if(state.equals("*수리완료")) {
+			if(state.equals("수리완료")) {
 				dto.setState("신청완료");
 			}else if(state.equals("신청완료")){
-				dto.setState("*수리완료");
+				dto.setState("수리완료");
 			}
 			
 			

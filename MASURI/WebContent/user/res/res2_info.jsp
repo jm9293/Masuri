@@ -276,7 +276,7 @@
 
         <h1 class="logo">MASURI</h1><br>
         <h3>방문수리 서비스를 누려보세요</h3><br>
-        <a href="user/basic/signup.jsp">지금회원가입하러가기</a>
+        <a href="../basic/signup.jsp">지금회원가입하러가기</a>
 
 
       </div>

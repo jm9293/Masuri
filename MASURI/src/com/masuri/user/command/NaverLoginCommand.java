@@ -53,7 +53,7 @@ public class NaverLoginCommand implements Command {
 	      con.setRequestMethod("GET");
 	      int responseCode = con.getResponseCode();
 	      BufferedReader br;
-	      System.out.print("responseCode="+responseCode);
+	     
 	      if(responseCode==200) { // 정상 호출
 	        br = new BufferedReader(new InputStreamReader(con.getInputStream()));
 	      } else {  // 에러 발생
@@ -71,7 +71,7 @@ public class NaverLoginCommand implements Command {
 	    			JSONObject jsonObj = (JSONObject)obj;
 	    				        
 	    			access_token = (String)jsonObj.get("access_token");
-	   				System.out.print(access_token);
+	   				
 	      }
 	      
 	      if(access_token != null) { // access_token을 잘 받아왔다면
@@ -128,15 +128,18 @@ public class NaverLoginCommand implements Command {
 			//왼쪽 변수 이름은 원하는 대로 정하면 된다. 
 			//단, 우측의 get()안에 들어가는 값은 와인색 상자 안의 값을 그대로 적어주어야 한다.
 			String naverCode = (String)resObj.get("id");
-			System.out.println(naverCode);
+			
 			String email = (String)resObj.get("email");
-			System.out.println(email);
+			
 			String name = (String)resObj.get("name");
-			System.out.println(name);
+			
 			
 			if(UserDAO.idcheck(email.split("@")[0])) { // 해당아이디가 있다면 
 				HttpSession session = request.getSession();
 				session.setAttribute("login", email.split("@")[0]);
+				if(LoginCommand.Users.get(email.split("@")[0])!=null) { // 중복로그인 방지
+					LoginCommand.Users.get(email.split("@")[0]).removeAttribute("login");
+				}
 				LoginCommand.Users.put(email.split("@")[0], session);
 				return 1;
 			}else {

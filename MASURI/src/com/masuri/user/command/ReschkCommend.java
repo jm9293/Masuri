@@ -25,8 +25,7 @@ public class ReschkCommend implements Command {
 			if(pagestr==null) {
 				pagestr = "1";
 			}
-			
-			
+						
 			int page = Integer.parseInt(pagestr);
 			int max = ReslistDAO.getMaxPageFromUser(userID, false);
 			if (page < 1) {
@@ -36,13 +35,11 @@ public class ReschkCommend implements Command {
 			}
 			
 			
-			
 			ArrayList<ReslistDTO> list = ReslistDAO.selectpageFromUser(page, userID, false);
 			for (ReslistDTO reslistDTO : list) {
 				reslistDTO.setEngid(EngineerDAO.select(reslistDTO.getEngid()).getName());
 			}
-			
-			
+	
 			request.setAttribute("list", list);
 			request.setAttribute("max", max);
 			request.setAttribute("result", 1);

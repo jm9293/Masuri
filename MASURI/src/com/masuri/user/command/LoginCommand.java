@@ -28,15 +28,10 @@ public class LoginCommand implements Command {
 			
 			if(session.getAttribute("login")!=null) { //로그인중인지
 				if(Users.containsKey(inputID)) {
-					System.out.println("이미로그인중");
 					request.setAttribute("logincheck", 2);
 				}else {
 					session.removeAttribute("login");
-					try {
-						session.invalidate();
-					} catch (Exception e) {
-						// TODO: handle exception
-					}	
+						
 					request.setAttribute("logincheck", 3);
 				}
 			}else {
@@ -47,7 +42,7 @@ public class LoginCommand implements Command {
 					
 					if(Users.containsKey(inputID)) {
 						try {
-							Users.get(inputID).invalidate();
+							Users.get(inputID).removeAttribute("login");
 						} catch (Exception e) {
 							
 						}
@@ -57,7 +52,7 @@ public class LoginCommand implements Command {
 					}
 					Users.put(inputID, session);
 					
-					System.out.println(Users);
+					System.out.println(inputID+" 로그인 유저 현재접속자 "+Users.size()+"명");
 					
 				}else if(check){
 					request.setAttribute("logincheck", 5);

@@ -109,12 +109,23 @@ public class NoticeDAO {
 	
 	public static ArrayList<NoticeDTO> selectpage(int num) throws SQLException { //전체 Noticelist가져오기
 		ArrayList<NoticeDTO> list = new ArrayList<NoticeDTO>();
+		int max = 0;
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",NOTICE.* FROM notice ORDER BY NUM DESC) NOTICE2 WHERE rnum>="+(1+(num-1)*7)+" and rnum<="+((num)*7));
+			pstmt = conn.prepareStatement("select COUNT(*) as \"count\" from notice");
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+			max = rs.getInt("count");
+			}
+			
+			System.out.println("1:"+(max-(6+((num-1)*7))));
+			System.out.println("2:"+(max-((num-1)*7)));
+	
+			pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",NOTICE.* FROM notice ORDER BY NUM DESC) NOTICE2 WHERE RNUM>="+(max-(6+((num-1)*7)))+" and RNUM<="+(max-((num-1)*7)));
 			rs = pstmt.executeQuery();
 		   
-			while (rs.next()) {
+			while(rs.next()) {
 				NoticeDTO notice = new NoticeDTO();
 				notice.setNum(rs.getInt("num"));
 				notice.setTitle(rs.getString("title"));

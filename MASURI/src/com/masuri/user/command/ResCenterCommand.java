@@ -21,14 +21,7 @@ public class ResCenterCommand implements Command {
 			int res =0;
 			String inputDAY = request.getParameter("inputDAY");
 			int inputTIMEnum = Integer.parseInt(request.getParameter("inputTIME"));
-			
-			
-			
-			System.out.println(inputDAY);
-			System.out.println(inputTIMEnum);
-			
-			
-			
+	
 			boolean daychk = inputDAY!=null && (sdf.parse(inputDAY).after(new Date()));
 			boolean timenumchk = (inputTIMEnum >0 && inputTIMEnum < 4);
 			

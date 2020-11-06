@@ -28,13 +28,7 @@ public class ResWriteCommend implements Command {
 			String sggNm = request.getParameter("sggNm");
 			String engid = request.getParameter("engid");
 			
-			System.out.println(inputDAY);
-			System.out.println(inputTIMEnum);
-			System.out.println(inputADD);
-			System.out.println(sggNm);
-			System.out.println(engid);
-			
-			EngineerDTO eng = EngineerDAO.select(engid);
+		    EngineerDTO eng = EngineerDAO.select(engid);
 			
 			
 			boolean daychk = inputDAY!=null && (sdf.parse(inputDAY).after(new Date()));
@@ -61,7 +55,6 @@ public class ResWriteCommend implements Command {
 			
 			
 			HashMap<String, ArrayList<String>> fixlistmap =  FixlistDAO.selectModelMap();
-			System.out.println(FixlistDAO.selectFactory());
 
 			request.setAttribute("fixlistmap", fixlistmap);
 			request.setAttribute("inputDAY", inputDAY);

@@ -189,8 +189,8 @@ public class FixlistDAO {
 					"VALUES (FIXLIST_SEQ.nextval, ?, ?)");
 		   
 			
-			pstmt.setString(1, fixlist.getFactory());
-			pstmt.setString(2, fixlist.getModel());
+			pstmt.setString(1, fixlist.getFactory().trim());
+			pstmt.setString(2, fixlist.getModel().trim());
 			
 			
 			

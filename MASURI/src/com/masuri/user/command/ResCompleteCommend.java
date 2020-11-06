@@ -53,22 +53,10 @@ public class ResCompleteCommend implements Command {
 		String inputFailsit  = request.getParameter("inputFailsit");
 		String userid = (String)request.getSession().getAttribute("login");
 		String inputfailmsg = request.getParameter("failmsg");
-		
-		
-		System.out.println(inputDAY);
-		System.out.println(inputTIMEnum);
-		System.out.println(inputADD);
-		System.out.println(sggNm);
-		System.out.println(engid);
-		System.out.println(inputFactory);
-		System.out.println(inputModel);
-		System.out.println(failsitmap.get(inputFailsit));
-		
+			
 		EngineerDTO eng = EngineerDAO.select(engid);
 		HashMap<String, ArrayList<String>> fixlistmap = FixlistDAO.selectModelMap();
-		
-		
-		
+			
 		boolean daychk = inputDAY!=null && (sdf.parse(inputDAY).after(new Date()));
 		boolean timenumchk = (inputTIMEnum >0 && inputTIMEnum < 4);
 		boolean addchk = (inputADD.contains("서울특별시")||inputADD.contains("센터"))&&inputADD.contains(sggNm);
@@ -86,7 +74,6 @@ public class ResCompleteCommend implements Command {
 	
 		
 		if(!(daychk&&timenumchk&&addchk&&sggNmchk&&engchk&&factorychk&&modelchk&&faillistchk)) { // 파라미터 비정상
-			System.out.println("여기서걸리니?");
 			request.setAttribute("res", 0);
 			return;
 		}    
@@ -111,7 +98,6 @@ public class ResCompleteCommend implements Command {
 				inputTIMEnum, sggNm, engid); // 한번더 해당기사가 예약가능한지 여부 확인
 		
 		if(!engchk) {
-			System.out.println("여기서걸리니?2");
 			request.setAttribute("res", 2); // 해당기사와 예약 문제 발생
 			return;
 		}

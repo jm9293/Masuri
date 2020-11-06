@@ -16,6 +16,10 @@
 <script src="adEngCreate.js"></script>
 <%
 	ArrayList<String> list = (ArrayList<String>)request.getAttribute("idList");
+
+	if(list==null){
+		list = new ArrayList<String>();
+	}
 %>
 <script>
 var idlist = new Array();

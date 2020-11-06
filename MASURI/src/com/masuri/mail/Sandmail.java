@@ -27,7 +27,7 @@ public class Sandmail {
 		    Authenticator auth = new SMTPAuthenticatior(); //계정정보 생성
 		    Session ses = Session.getInstance(p, auth); // mail.session 객체생성
 		     
-		    ses.setDebug(true); // 디버그할건지 체크
+		    ses.setDebug(false); // 디버그할건지 체크
 		     
 		    MimeMessage msg = new MimeMessage(ses); // 메일 메세지 객체 생성
 		    msg.setSubject(subject); // 제목 삽입

@@ -29,13 +29,6 @@ public class ResHomeCommand implements Command {
 		String siNm = request.getParameter("siNm");
 		String sggNm = request.getParameter("sggNm");
 		
-		System.out.println(inputDAY);
-		System.out.println(inputTIMEnum);
-		System.out.println(inputADD);
-		System.out.println(siNm);
-		System.out.println(sggNm);
-		
-		
 		boolean daychk = inputDAY!=null && (sdf.parse(inputDAY).after(new Date()));
 		boolean timenumchk = (inputTIMEnum >0 && inputTIMEnum < 4);
 		boolean siNmchk = siNm!=null&& siNm.equals("서울특별시");
@@ -44,20 +37,17 @@ public class ResHomeCommand implements Command {
 		if(!(daychk&&timenumchk&&siNmchk&&sggNmchk)) { // 파라미터 비정상
 			request.setAttribute("res", 0);
 			return;
-		}    
-		
+		}    		
 		
 		ArrayList<EngineerDTO> list = EngineerDAO.resSelect(new java.sql.Date(sdf.parse(inputDAY).getTime()), inputTIMEnum, sggNm); //기사찿기
-		
-	
+			
 		request.setAttribute("list", list);
 		request.setAttribute("inputDAY", inputDAY);
 		request.setAttribute("inputTIMEnum", inputTIMEnum);
 		request.setAttribute("inputADD", inputADD);
 		request.setAttribute("sggNm", sggNm);
 		request.setAttribute("res", 1);
-		
-		
+				
 		} catch (Exception e) {
 			request.setAttribute("res", 0);
 			e.printStackTrace();

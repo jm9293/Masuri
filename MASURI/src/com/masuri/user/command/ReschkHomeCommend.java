@@ -24,23 +24,18 @@ public class ReschkHomeCommend implements Command {
 			String pagestr = request.getParameter("page");
 			if(pagestr==null) {
 				pagestr = "1";
-			}
-			
+			}			
 			
 			int page = Integer.parseInt(pagestr);
-			System.out.println(page);
 			int max = ReslistDAO.getMaxPageFromUser(userID, false);
-			System.out.println(max);
 			if (page < 1) {
 				page = 1;
 			} else if (page > max) {
 				page = max;
 			}
-			
-			System.out.println(userID);
-			
+					
 			ArrayList<ReslistDTO> list = ReslistDAO.selectpageFromUser(page, userID, true);
-			System.out.println(list);
+
 			for (ReslistDTO reslistDTO : list) {
 				reslistDTO.setEngid(EngineerDAO.select(reslistDTO.getEngid()).getName());
 			}

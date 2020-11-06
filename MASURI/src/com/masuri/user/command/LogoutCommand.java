@@ -22,16 +22,12 @@ public class LogoutCommand implements Command {
 			try {
 				request.setCharacterEncoding("utf-8");
 				String id = (String) request.getSession().getAttribute("login");
-				System.out.println(id);
+				
 				LoginCommand.Users.get(id).removeAttribute("login");
-				try {
-					LoginCommand.Users.get(id).invalidate();
-				} catch (Exception e) {
-					
-				}
+				
 				
 				LoginCommand.Users.remove(id);
-				
+				System.out.println(id+": 로그아웃 유저 현재접속자 "+LoginCommand.Users.size()+"명");
 				
 				request.setAttribute("logoutres", true);
 			} catch (Exception e) {

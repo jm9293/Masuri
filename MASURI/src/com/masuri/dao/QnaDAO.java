@@ -120,9 +120,20 @@ public class QnaDAO {
 		content = "%"+content+"%";
 		ArrayList<QnaDTO> list = new ArrayList<QnaDTO>();
 		try {
+			int max = 0;
 			conn = getConnection();
-			pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",qna.* FROM qna where "+colName+" like ? ORDER BY NUM DESC) qna2 WHERE rnum>="+(1+(num-1)*7)+" and rnum<="+((num)*7));
+			
+			pstmt = conn.prepareStatement("select COUNT(*) as \"count\" from qna");
+			rs = pstmt.executeQuery();
+		   
+			if(rs.next()) {
+				max =  rs.getInt("count");
+			}
+			
+			pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",qna.* FROM qna where "+colName+" like ? ORDER BY NUM DESC) qna2 WHERE RNUM>="+(max-(6+((num-1)*7)))+" and RNUM<="+(max-((num-1)*7)));
 			pstmt.setString(1, content);
+			
+			
 			rs = pstmt.executeQuery();
 		   
 			while(rs.next()) {
@@ -155,8 +166,16 @@ public class QnaDAO {
 	public static ArrayList<QnaDTO> selectpage(int num) throws SQLException { //전체 Noticelist가져오기
 		ArrayList<QnaDTO> list = new ArrayList<QnaDTO>();
 		try {
+			int max = 0;
 			conn = getConnection();
-			pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",qna.* FROM qna ORDER BY NUM DESC) qna2 WHERE rnum>="+(1+(num-1)*7)+" and rnum<="+((num)*7));
+			
+			pstmt = conn.prepareStatement("select COUNT(*) as \"count\" from qna");
+			rs = pstmt.executeQuery();
+		   
+			if(rs.next()) {
+				max =  rs.getInt("count");
+			}
+			pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",qna.* FROM qna ORDER BY NUM DESC) qna2 WHERE RNUM>="+(max-(6+((num-1)*7)))+" and RNUM<="+(max-((num-1)*7)));
 			rs = pstmt.executeQuery();
 		   
 			while(rs.next()) {

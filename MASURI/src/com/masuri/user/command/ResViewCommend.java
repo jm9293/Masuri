@@ -24,6 +24,7 @@ public class ResViewCommend implements Command {
 		String uid = request.getParameter("uid");
 		String page = request.getParameter("page");
 		String userID = (String)request.getSession().getAttribute("login");
+		
 		try {
 			if (uid.matches(regExp) && page.matches(regExp)) {
 				int uid2 = Integer.parseInt(request.getParameter("uid"));

@@ -38,7 +38,6 @@ public class ResController extends HttpServlet {
 	}
 	
 	protected void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		System.out.println("actionDo() 호출");
 		request.setCharacterEncoding("utf-8");
 		
 		// URL, ContextPath, Command 분리

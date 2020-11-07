@@ -38,7 +38,7 @@ public class ScheduleCommand implements Command{
 				
 			
 			int cnt = MonthscheduleDAO.delete(mon+1, id);
-			System.out.println("rest"+rest.split(",").length);
+			
 			
 			ArrayList<MonthscheduleDTO> list = new ArrayList<MonthscheduleDTO>();
 				

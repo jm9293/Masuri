@@ -17,75 +17,8 @@
          <!--jquery 3.3.1 불러오기-->
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
          <!-- 페이지 css -->
-         <style> 
-         *{
-            font-family: 'Noto Sans KR', sans-serif;
-         
-         }
-         
-         h4{
-         	margin-top:8px;
-         }
+         <link rel="stylesheet" href="CSS/select.css">
 
-         .content{
-         	margin-top: 20px;
-           height: 650px;
-           display: inline-block;
-         
-           text-align: center;
-         }
-         
-        #infoSize{
-         
-          text-align: center;
-          display: inline-block;
-          background-color: white;
-          height: 620px;
-		  width: 400px;
-		
-        }
-
-        .m{
-          display: inline-block;
-          margin: 0px 0px 0px;
-          height: 650px;
-        }
-	
-        img{
-
-              margin-top : 30px;
-            width: 170px;
-            height: 170px;
-
-        }
-    
-        .into{
-          margin: 10px;
-          
-        }
-
-        .title{
-          text-align: left;
-          font-style: bold;
-          margin: 15px;
-        }
-
-        .bnt{
-          margin: 20px;
-          text-align: right;
-        }
-
-        .intro{
-          font-size: small;
-        }
-	
-		#empty{
-			display:inline-block;
-		
-		}
-
-  
-        </style>
     </head>
     <body>
       <!--네비바 시작-->

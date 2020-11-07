@@ -1,0 +1,172 @@
+@charset "UTF-8";
+
+
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+ 
+ }
+
+  .content{
+    text-align: center;
+  
+    height: 650px;
+    
+  
+  }
+
+   .sel{
+     border: 1px solid black;
+   }
+  .week{
+
+    display: inline-block;
+    width: 150px;
+   
+    margin: 4px;
+    background-color: white;
+  }
+
+  .enter{
+    font-size: x-large;
+    margin: 10px;
+    text-align: left;
+    padding: 5px;
+  }
+
+  hr{
+    background-color: black;
+  }
+
+  .select{
+    
+    
+    
+   
+
+  }
+
+  .weekSchedule{
+    height: 500px;
+    display: inline-block;
+  
+  }
+
+ 
+
+  .paper {
+        margin : 4px;
+  }
+
+
+  .paper:after,
+  .paper:before {
+
+      bottom: .1em;
+      box-shadow: 0 0 .5em .5em hsla(0,0%,0%,.25);
+      height: 3em;
+      margin : 4px;
+      position: absolute;
+      width: 80%;
+      z-index: -1;
+  }
+
+  .paper:after {
+      right: 1em;
+      -webkit-transform: rotate(3deg);
+      -webkit-transform-origin: 100% 100%;
+  }
+
+  .paper:before {
+      left: 1em;
+      -webkit-transform: rotate(-3deg);
+      -webkit-transform-origin: 0% 100%;
+  }
+
+
+.click{
+
+  font-style: bold;
+  font-size: x-large;
+  height: 60px;
+  margin-top: 40px;
+
+}
+
+.textlist{
+  text-align: center;
+}
+
+.text{
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 50px;
+    line-height: 50px;
+}
+
+.menu{
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: 1px solid white;
+}
+
+.menuname{
+    margin: auto;
+    padding: 0px;
+}
+
+.textlist:hover{
+    background: rgb(190, 189, 189);
+    opacity: 0.9;
+}
+
+@media (max-width: 1150px) { 
+      
+      .paper,.week{
+      width: 850px;
+      height: 80px;
+      margin-left: 6%;
+      }
+      
+     
+  
+   }
+   @media (max-width: 950px) { 
+      
+      .paper,.week{
+      width: 600px;
+      height: 80px;
+      margin-left: 6%;
+      }
+
+   }
+   
+   @media (max-width: 768px) {
+       
+       .paper,.week{
+      width: 500px;
+      height: 70px;
+      margin-bottom:30px
+      margin-left: 6%;
+      }
+
+ 
+    }
+    
+ @media (max-width: 576px) { 
+    
+   .paper,.week{
+      width: 400px;
+      height: 60px;
+      margin-bottom:30px
+      margin-left: 6%;
+      }
+   }        
+

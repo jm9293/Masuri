@@ -13,48 +13,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;900&display=swap" rel="stylesheet">
         <!-- 기본 css -->
         <link rel="stylesheet" href="CSS/basic.css">
+        <link rel="stylesheet" href="CSS/engineerlogin.css">
          <!--jquery 3.3.1 불러오기-->
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.4.1/jquery.min.js"></script>
          <!-- 페이지 css -->
          <style> 
-         
-         *{
-            font-family: 'Noto Sans KR', sans-serif;
-         
-         }
-         
-          .content{
-            text-align: center;
-            margin-top: 150px;
-            margin-bottom: 150px;
-           
-          }
-
-          .intro{
-            margin: 30px;
-            font-size: smaller;
-            color: rgb(117, 117, 117);
-          }
-
-          .form-group{
-            text-align: left;
-            
-          }
-
-          .form-group > label{
-            font-size: medium;
-            margin: 5px;
-          }
-
-          .btn{
-            margin-top: 15px;
-            
-          }
-
-          .head{
-            color: rgb(52, 152, 219);
-            font-size: 70px;
-          }
 
         </style>
     </head>

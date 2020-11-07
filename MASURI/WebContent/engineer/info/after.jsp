@@ -17,28 +17,7 @@
          <!--jquery 3.3.1 불러오기-->
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
          <!-- 페이지 css -->
-         <style> 
-          .content{
-            text-align: center;
-            margin-top: 150px;
-            margin-bottom: 150px;
-            margin-left: 300px;
-            margin-right: 300px;
-            width: auto;
-          }
 
-          img{
-            width: 200px;
-            height: 200px;
-          }
-
-          .info-box{
-            margin-top: 50px;
-            margin-bottom: 50px;
-          }
-
-  
-        </style>
     </head>
     <body>
     

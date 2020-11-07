@@ -18,101 +18,9 @@
          <!--jquery 3.3.1 ë¶ë¬ì¤ê¸°-->
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
          <!-- íì´ì§ css -->
+         <link rel="stylesheet" href="CSS/scheduleregister.css">
          <style> 
-         *{
-            font-family: 'Noto Sans KR', sans-serif;
-            box-sizing: border-box;
-         }
 
-         .mon{
-            margin-bottom : 20px;
-         }
-
-          .content{
-            text-align: center;
-            margin-top: 50px;
-            
-            margin-bottom:50px;
-           
-          }
-
-          #calendar{
-          	width: 1000px;
-            height: auto;
-            margin :auto;
-            text-align: center;
-          }
-
-          .daily{
-            width: 130px;
-            margin-left: 2px;
-            position: relative;
-            display: inline-block;
-            border: 1px solid white;
-            
-          }
-
-
-          .calendarDay{
-            background-color: rgb(234,234,234);
-            width: 130px;
-            height: 120px;
-            margin-bottom :10px;
-            margin-left: 2px;
-            display: inline-block;
-            border: 1px solid white;
-            border-radius: 5px;
-          }
-         
-          
-
-          .form-bnt{
-            margin-top: 30px;
-            width: 100px;
-            height: 50px;
-
-          }
-          
-          .off{
-             border: 1px solid rgb(178,235,244); 
-          }
-          
-          @media (max-width: 992px) { 
-          	
-          	.daily, .calendarDay{
-              width: 100px;
-          	}
-          	
-          	#calendar{
-          		width: 800px;	
-          	}
-          
-           }
-           
-           @media (max-width: 768px) {
-           	
-           	.daily, .calendarDay{
-              width: 70px;
-          	}
-          	
-          	#calendar{
-          		width: 600px;	
-          	}
-           	
-            }
-            
-            @media (max-width: 576px) { 
-            
-           .daily, .calendarDay{
-              width: 50px;
-          	}
-          	
-          	#calendar{
-          		width: 400px;	
-          	}
-           	
-            }          	
-            
             
         </style>
     </head>
@@ -168,12 +76,6 @@
       </div>
     
 
-      <!--푸터 시작-->
-      <div id="footer-wrap"></div>
-        <script>
-        $("#footer-wrap").load("footer.html");
-        </script>
-        <!--푸터 끝-->  
     </body>
     
 

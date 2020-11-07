@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+         
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+ 
+ }
+ 
+  .content{
+    text-align: center;
+    margin-top: 150px;
+    margin-bottom: 150px;
+   
+  }
+
+  .intro{
+    margin: 30px;
+    font-size: smaller;
+    color: rgb(117, 117, 117);
+  }
+
+  .form-group{
+    text-align: left;
+    
+  }
+
+  .form-group > label{
+    font-size: medium;
+    margin: 5px;
+  }
+
+  .btn{
+    margin-top: 15px;
+    
+  }
+
+  .head{
+    color: rgb(52, 152, 219);
+    font-size: 70px;
+  }

@@ -65,7 +65,6 @@ public class ScheduleController extends HttpServlet{
 					break;
 					
 				case "/engineer/schedule.do":
-					System.out.println("너 접속햇니...?");
 					command = new ScheduleCommand();
 					command.execute(request, response);
 					viewPage = "schedule/schedule.jsp";

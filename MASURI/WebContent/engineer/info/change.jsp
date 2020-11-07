@@ -18,70 +18,8 @@
          <!--jquery 3.3.1 불러오기-->
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
          <!-- 페이지 css -->
-         <style> 
-          *{
-            font-family: 'Noto Sans KR', sans-serif;
-         
-         }
-
-         .content{
-         	margin-top: 20px;
-           height: 650px;
-           display: inline-block;
-         
-           text-align: center;
-         }
-         
-        #infoSize{
-          margin-top: 40px;
-          text-align: center;
-          display: inline-block;
-          background-color: white;
-          height: 580px;
-          width: 400px;
-        }
-
-        .m{
-          display: inline-block;
-          margin: 0px 0px 0px;
-          height: 650px;
-        }
-	
-        img{
-
-              margin-top : 30px;
-            width: 170px;
-            height: 170px;
-
-        }
-    
-        .into{
-          margin: 10px;
-          
-        }
-
-        .title{
-          text-align: left;
-          font-style: bold;
-          margin: 10px;
-        }
-
-        .bnt{
-          margin: 40px;
-          text-align: right;
-        }
-
-        .intro{
-          font-size: small;
-        }
-
-        #inputPassword{
-          width: auto;
-        }
-
-
-  
-        </style>
+         <link rel="stylesheet" href="CSS/change.css">
+         <script src="change.js"></script>
     </head>
     
           <!--네비바 끝-->
@@ -182,8 +120,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script>
-
-	
+  	
     $("#imgUp").change(function(event){
         $("#imgUp").val();
 	
@@ -238,6 +175,7 @@
 
     })
 
-
 </script>
+
+
 </html>

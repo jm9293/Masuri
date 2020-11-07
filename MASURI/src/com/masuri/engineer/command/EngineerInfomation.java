@@ -29,7 +29,7 @@ public class EngineerInfomation implements Command{
 			HttpSession session = request.getSession();
 			String id = (String)session.getAttribute("enlogin");
 			if(id!=null&&!id.equals("")) {
-				System.out.println(request.getParameter("state")+"state");
+			
 				EngineerDTO dto = EngineerDAO.select(id);
 				
 				request.setAttribute("name", dto.getName());

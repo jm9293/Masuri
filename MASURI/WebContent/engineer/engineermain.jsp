@@ -22,40 +22,8 @@ int daycnt = (int)request.getAttribute("daycnt");
          <!--jquery 3.3.1 불러오기-->
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
          <!-- 페이지 css -->
-         <style> 
-         *{
-            font-family: 'Noto Sans KR', sans-serif;
-         	box-sizing: border-box;
-         }
-
-         .content2{
-            text-align: center;
-            margin-bottom: 10%;
-         }
-            
-         .row{
-           margin-top: 4%;
-           text-align: center;
-         }
-        
-	     .weather-box{
-	        font-size: x-large;
-	        margin-bottom: 10%;
-	     }
-  
-  		 img{    
-            width: 20vw;
-            height: 20vw;
-            margin: 3% auto;
-            display: block;
-            border-radius: 50%;
-  		 }
-  		 
-  		 b{
-			color: rgb(52, 152, 219);
-			font-weight: normal;
-		}
-		</style>
+         <link rel="stylesheet" href="engineermain.css">
+    
     </head>
     <body>
       <!--네비바 시작-->

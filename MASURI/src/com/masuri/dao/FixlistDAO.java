@@ -50,9 +50,6 @@ public class FixlistDAO {
 				list.add(fixlist);
 			}
 			
-			for (FixlistDTO fixlistDTO : list) {
-				System.out.println(fixlistDTO);
-			}
 			
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -78,7 +75,6 @@ public class FixlistDAO {
 				fixlist.setModel(rs.getString("model"));
 			}
 		
-			System.out.println(fixlist);
 		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -104,7 +100,6 @@ public class FixlistDAO {
 				
 			}
 		
-			System.out.println(factoryList);
 		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -129,7 +124,6 @@ public class FixlistDAO {
 				modelList.add(rs.getString("model"));
 			}
 		
-			System.out.println(modelList);
 		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -169,7 +163,6 @@ public class FixlistDAO {
 			
 			cnt = pstmt.executeUpdate();
 		
-			System.out.println(fixlist);
 		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -196,7 +189,6 @@ public class FixlistDAO {
 			
 			cnt = pstmt.executeUpdate();
 		
-			System.out.println(fixlist);
 		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block

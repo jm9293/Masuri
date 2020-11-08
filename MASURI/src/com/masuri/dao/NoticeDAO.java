@@ -49,9 +49,7 @@ public class NoticeDAO {
 				notice.setWrtime(rs.getTimestamp("wrtime"));
 				list.add(notice);
 			}
-			for (NoticeDTO userDTO : list) {
-				System.out.println(userDTO);
-			}
+
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -71,7 +69,6 @@ public class NoticeDAO {
 		   
 			if(rs.next()) {
 				cnt =  (int)Math.ceil(rs.getInt("count")/7.0);
-				System.out.println(cnt);
 			}
 			
 		} catch (NamingException e) {
@@ -94,7 +91,6 @@ public class NoticeDAO {
 		   
 			if(rs.next()) {
 				cnt =  rs.getInt("count");
-				System.out.println(cnt);
 			}
 			
 		} catch (NamingException e) {
@@ -119,8 +115,6 @@ public class NoticeDAO {
 			max = rs.getInt("count");
 			}
 			
-			System.out.println("1:"+(max-(6+((num-1)*7))));
-			System.out.println("2:"+(max-((num-1)*7)));
 	
 			pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",NOTICE.* FROM notice ORDER BY NUM DESC) NOTICE2 WHERE RNUM>="+(max-(6+((num-1)*7)))+" and RNUM<="+(max-((num-1)*7)));
 			rs = pstmt.executeQuery();
@@ -134,9 +128,7 @@ public class NoticeDAO {
 				notice.setWrtime(rs.getTimestamp("wrtime"));
 				list.add(notice);
 			}
-			for (NoticeDTO userDTO : list) {
-				System.out.println(userDTO);
-			}
+
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -175,7 +167,7 @@ public class NoticeDAO {
 			pstmt.setInt(2, num);
 			
 			pstmt.executeUpdate();
-			System.out.println(notice);
+
 			}
 		
 		} catch (NamingException e) {

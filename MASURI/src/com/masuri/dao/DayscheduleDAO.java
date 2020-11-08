@@ -52,9 +52,6 @@ public class DayscheduleDAO {
 				list.add(dayschedule);
 			}
 			
-			for (DayscheduleDTO DayscheduleDTO : list) {
-				System.out.println(DayscheduleDTO);
-			}
 			
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -84,7 +81,6 @@ public class DayscheduleDAO {
 				dayschedule.setTime3(rs.getInt("time3"));
 			}
 		
-			System.out.println(dayschedule);
 		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -153,7 +149,6 @@ public class DayscheduleDAO {
 			
 			cnt = pstmt.executeUpdate();
 		
-			System.out.println(dayschedule);
 		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -179,8 +174,6 @@ public class DayscheduleDAO {
 			
 			
 			cnt = pstmt.executeUpdate();
-		
-			System.out.println(dayschedule);
 		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block

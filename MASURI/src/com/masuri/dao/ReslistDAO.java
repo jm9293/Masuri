@@ -57,9 +57,7 @@ public class ReslistDAO {
 
 				list.add(reslist);
 			}
-			for (ReslistDTO userDTO : list) {
-				System.out.println(userDTO);
-			}
+
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -79,7 +77,7 @@ public class ReslistDAO {
 		   
 			if(rs.next()) {
 				cnt =  (int)Math.ceil(rs.getInt("count")/7.0);
-				System.out.println(cnt);
+
 			}
 			
 		} catch (NamingException e) {
@@ -103,7 +101,7 @@ public class ReslistDAO {
 		   
 			if(rs.next()) {
 				cnt =  (int)Math.ceil(rs.getInt("count")/7.0);
-				System.out.println(cnt);
+
 			}
 			
 		} catch (NamingException e) {
@@ -133,7 +131,7 @@ public class ReslistDAO {
 		   
 			if(rs.next()) {
 				cnt =  (int)Math.ceil(rs.getInt("count")/7.0);
-				System.out.println(cnt);
+
 			}
 			
 		} catch (NamingException e) {
@@ -176,9 +174,7 @@ public class ReslistDAO {
 				reslist.setState(rs.getString("state"));
 				list.add(reslist);
 			}
-			for (ReslistDTO userDTO : list) {
-				System.out.println(userDTO);
-			}
+
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -208,7 +204,6 @@ public class ReslistDAO {
 		   
 			if(rs.next()) {
 				max =  rs.getInt("count");
-				System.out.println(max);
 			}
 			if(type) {
 				pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",Reslist.* FROM Reslist WHERE USERID =? AND ADDRESS = '센터' ORDER BY NUM DESC) Reslist2 WHERE RNUM>="+(max-(6+((num-1)*7)))+" and RNUM<="+(max-((num-1)*7)));
@@ -233,9 +228,7 @@ public class ReslistDAO {
 				reslist.setState(rs.getString("state"));
 				list.add(reslist);
 			}
-			for (ReslistDTO userDTO : list) {
-				System.out.println(userDTO);
-			}
+
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

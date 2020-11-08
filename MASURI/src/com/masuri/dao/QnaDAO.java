@@ -54,9 +54,7 @@ public class QnaDAO {
 				qna.setAntime(rs.getTimestamp("antime"));
 				list.add(qna);
 			}
-			for (QnaDTO userDTO : list) {
-				System.out.println(userDTO);
-			}
+
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -79,7 +77,7 @@ public class QnaDAO {
 		   
 			if(rs.next()) {
 				cnt =  (int)Math.ceil(rs.getInt("count")/7.0);
-				System.out.println(cnt);
+
 			}
 			
 		} catch (NamingException e) {
@@ -103,7 +101,7 @@ public class QnaDAO {
 		   
 			if(rs.next()) {
 				cnt =  (int)Math.ceil(rs.getInt("count")/7.0);
-				System.out.println(cnt);
+
 			}
 			
 		} catch (NamingException e) {
@@ -149,9 +147,7 @@ public class QnaDAO {
 				qna.setAntime(rs.getTimestamp("antime"));
 				list.add(qna);
 			}
-			for (QnaDTO userDTO : list) {
-				System.out.println(userDTO);
-			}
+	
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -191,9 +187,7 @@ public class QnaDAO {
 				qna.setAntime(rs.getTimestamp("antime"));
 				list.add(qna);
 			}
-			for (QnaDTO userDTO : list) {
-				System.out.println(userDTO);
-			}
+
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -236,7 +230,7 @@ public class QnaDAO {
 			pstmt.setInt(2, num);
 			
 			pstmt.executeUpdate();
-			System.out.println(qna);
+
 			}
 		
 		} catch (NamingException e) {
@@ -289,7 +283,7 @@ public class QnaDAO {
 		   
 			if(rs.next()) {
 				cnt =  rs.getInt("count");
-				System.out.println(cnt);
+
 			}
 			
 		} catch (NamingException e) {

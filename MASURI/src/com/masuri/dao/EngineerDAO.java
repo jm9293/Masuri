@@ -55,9 +55,7 @@ public class EngineerDAO {
 				
 				list.add(engineer);
 			}
-			for (EngineerDTO EngineerDTO : list) {
-				System.out.println(EngineerDTO);
-			}
+
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -89,7 +87,6 @@ public class EngineerDAO {
 				engineer.setState(Boolean.parseBoolean(rs.getString("state")));
 			}
 		
-			System.out.println(engineer);
 		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -233,9 +230,6 @@ public class EngineerDAO {
 				list.add(engineer);
 			}
 		
-			for (EngineerDTO engineerDTO : list) {
-				System.out.println(engineerDTO);
-			}
 		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block

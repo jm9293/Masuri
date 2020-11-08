@@ -49,9 +49,7 @@ public class FaqDAO {
 
 				list.add(faq);
 			}
-			for (FaqDTO userDTO : list) {
-				System.out.println(userDTO);
-			}
+
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -76,7 +74,6 @@ public class FaqDAO {
 				faq.setAnswer(rs.getString("answer"));
 			}
 		
-			System.out.println(faq);
 		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block

@@ -50,9 +50,7 @@ public class UserDAO {
 				user.setPassword(rs.getString("password"));
 				list.add(user);
 			}
-			for (UserDTO userDTO : list) {
-				System.out.println(userDTO);
-			}
+
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -82,7 +80,7 @@ public class UserDAO {
 				user.setPassword(rs.getString("password"));
 			}
 		
-			System.out.println(user);
+
 		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -110,7 +108,6 @@ public class UserDAO {
 			
 			cnt = pstmt.executeUpdate();
 		
-			System.out.println(user);
 		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -140,7 +137,6 @@ public class UserDAO {
 			
 			cnt = pstmt.executeUpdate();
 		
-			System.out.println(user);
 		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block

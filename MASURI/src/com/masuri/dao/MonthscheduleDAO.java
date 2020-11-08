@@ -49,9 +49,7 @@ public class MonthscheduleDAO {
 				schedule.setMonth(rs.getInt("month"));
 				list.add(schedule);
 			}
-			for (MonthscheduleDTO userDTO : list) {
-				System.out.println(userDTO);
-			}
+
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

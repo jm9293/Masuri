@@ -21,31 +21,36 @@ public class QnaWriteCommand implements Command {
 		String page = request.getParameter("page");
 
 		QnaDTO dto = new QnaDTO();
-		String regExp = "(?=.*[a-zA-Z])(?=.*\\d).{6,8}";
+		String regExp = "[a-z0-9]{4,6}";
 		String regExp2 = "^[0-9]+$";
+		System.out.println(page.matches(regExp2));
+		System.out.println(userid.matches(regExp));
 
 		try {
 			if (userid != null && title != null && content != null && userid.trim().length() > 0
 					&& title.trim().length() > 0 && content.trim().length() > 0 && userid.matches(regExp)
 					&& page.matches(regExp2)) {
 				page2 = Integer.parseInt(request.getParameter("page"));
-
+				
 				dto.setUserid(userid);
 				dto.setTitle(title);
 				dto.setContent(content);
 				dto.setOpen(open);
 			}
 			if (dto.getUserid() != null) {
-
+				
 				cnt = QnaDAO.insert(dto);
 				result = QnaDAO.getMaxNum();
+				
 				request.setAttribute("result", cnt);
 				request.setAttribute("page", page2);
 				request.setAttribute("result2", result);
 			} else {
+			
 				request.setAttribute("result", cnt);
 			}
 		} catch (Exception e) {
+			
 			request.setAttribute("result", cnt);
 		}
 

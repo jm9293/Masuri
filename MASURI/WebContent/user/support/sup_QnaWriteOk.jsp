@@ -5,15 +5,13 @@
 <c:choose>
 	<c:when test="${result == 0 }">
 	<script>
-		loaction.href="../ErrorPage.do";
-		return;
+		location.href="../ErrorPage.do";
 	</script>
 	</c:when>
 	<c:when test="${result2 == 0 }">
 	<script>
 			alert("등록실패 !!!");
 			history.back();
-			return;
 	</script>
 	</c:when>
 	<c:otherwise>

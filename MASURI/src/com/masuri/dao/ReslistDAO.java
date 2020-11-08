@@ -188,44 +188,7 @@ public class ReslistDAO {
 		 
 		return list;
 	}
-	
-	
-	public static ArrayList<ReslistDTO> selectpageFromEng(int num , String id) throws SQLException { // 페이지번호 ,엔지니어 id로 가져오기
-		ArrayList<ReslistDTO> list = new ArrayList<ReslistDTO>();
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",Reslist.* FROM Reslist WHERE ENGID =? ORDER BY NUM DESC) Reslist2 WHERE rnum>="+(1+(num-1)*7)+" and rnum<="+((num)*7));
-			pstmt.setString(1, id);
-			rs = pstmt.executeQuery();
-		   
-			while (rs.next()) {
-				ReslistDTO reslist = new ReslistDTO();
-				reslist.setNum(rs.getInt("num"));
-				reslist.setTime(rs.getTimestamp("time"));
-				reslist.setAddress(rs.getString("address"));
-				reslist.setUserid(rs.getString("userid"));
-				reslist.setEngid(rs.getString("engid"));
-				reslist.setFactory(rs.getString("factory"));
-				reslist.setModel(rs.getString("model"));
-				reslist.setFailsit(rs.getString("failsit"));
-				reslist.setFailmsg(rs.getString("failmsg"));
-				reslist.setState(rs.getString("state"));
-				list.add(reslist);
-			
-			}
-			for (ReslistDTO userDTO : list) {
-				System.out.println(userDTO);
-			}
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		 
-		return list;
-	}
-	
+		
 	
 	
 	public static ArrayList<ReslistDTO> selectpageFromUser(int num ,String id,boolean type) throws SQLException { //페이지 번호, 유저 id로 가져오기

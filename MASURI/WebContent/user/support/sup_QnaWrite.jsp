@@ -65,7 +65,7 @@
 			</div>
 			<div class="form-group col-12">
 				<label for="title">제목</label> 
-				<input type="text" class="form-control" id="title" name="title" maxlength="20"/>
+				<input type="text" class="form-control" id="title" name="title" maxlength="30"/>
 			</div>
 			<div class="form-group col-12">
 				<label for="content">내용</label> 

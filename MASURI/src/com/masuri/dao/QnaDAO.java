@@ -120,8 +120,8 @@ public class QnaDAO {
 		try {
 			int max = 0;
 			conn = getConnection();
-			
-			pstmt = conn.prepareStatement("select COUNT(*) as \"count\" from qna");
+			pstmt = conn.prepareStatement("select COUNT(*) as \"count\" from qna where "+colName+" like ?");
+			pstmt.setString(1, content);
 			rs = pstmt.executeQuery();
 		   
 			if(rs.next()) {
@@ -130,7 +130,6 @@ public class QnaDAO {
 			
 			pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM as \"RNUM\",qna.* FROM qna where "+colName+" like ? ORDER BY NUM DESC) qna2 WHERE RNUM>="+(max-(6+((num-1)*7)))+" and RNUM<="+(max-((num-1)*7)));
 			pstmt.setString(1, content);
-			
 			
 			rs = pstmt.executeQuery();
 		   

@@ -31,7 +31,7 @@ public class NaverLoginCommand implements Command {
 	    String state = request.getParameter("state");
 	    String redirectURI =null;
 		try {
-			redirectURI = URLEncoder.encode("http://localhost:8080/MASURI/user/basic/navercallback.do", "UTF-8");
+			redirectURI = URLEncoder.encode("http://localhost:8989/MASURI/user/basic/navercallback.do", "UTF-8");
 		} catch (UnsupportedEncodingException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

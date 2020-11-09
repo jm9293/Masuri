@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat_A v9.0 Server-masuri-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat_A v9.0 Server-masuri" name="Tomcat_A v9.0 Server-masuri" runtime-id="Apache Tomcat v9.0 masrui" server-type="org.eclipse.jst.server.tomcat.90" server-type-id="org.eclipse.jst.server.tomcat.90" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="8">
+<server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat_A v9.0 Server-masuri-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat_A v9.0 Server-masuri" name="Tomcat_A v9.0 Server-masuri" runtime-id="Apache Tomcat v9.0 masrui" saveSeparateContextFiles="true" server-type="org.eclipse.jst.server.tomcat.90" server-type-id="org.eclipse.jst.server.tomcat.90" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="9">
   <list key="modules" value0="MASURI::org.eclipse.jst.jee.server:MASURI::jst.web::4.0"/>
 </server>

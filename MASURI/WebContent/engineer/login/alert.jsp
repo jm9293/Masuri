@@ -33,7 +33,7 @@
 	<c:choose>
 	<c:when test="${chk==3}">
 	<script>
-	alert('블랙리스트 <br> 관리자에게 문의하세요')
+	alert('비활성화된 계정입니다.\n관리자에게 문의하세요')
 	location.href= 'login';
 	</script>
 	</c:when>

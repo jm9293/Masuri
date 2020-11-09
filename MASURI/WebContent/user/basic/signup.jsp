@@ -253,7 +253,7 @@
       
     $("#idcheck").click(function(){
         
-        $.get('http://localhost:8080/MASURI/user/basic/login/idchk.do?inputID='+$("#inputID").val(), function(data) {  
+        $.get('http://localhost:8989/MASURI/user/basic/login/idchk.do?inputID='+$("#inputID").val(), function(data) {  
 		if(data==='true'){
 			$("#inputID").removeClass("is-invalid");
 			$("#inputID").addClass("is-valid");

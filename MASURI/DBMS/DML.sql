@@ -8,15 +8,15 @@ Insert into MASURI.ENGINEERDATA (ENGNUM,ID,PASSWORD,NAME,PHONE,EMAIL,INTRO,AREA,
 Insert into MASURI.ENGINEERDATA (ENGNUM,ID,PASSWORD,NAME,PHONE,EMAIL,INTRO,AREA,STATE) values (1005,'h0nest','a12345','차진솔','01042142131','h0nest@gmail.com','멍멍','강남구','false');
 
 
-Insert into MASURI.USERDATA (USERNUM,ID,PASSWORD,NAME,PHONE,EMAIL,BLACK) values (1000,'lee200','a12345','이근','01034143231','lee200@gmail.com','flase');
-Insert into MASURI.USERDATA (USERNUM,ID,PASSWORD,NAME,PHONE,EMAIL,BLACK) values (1001,'sky2','a12345','김천의','01024124312','sky2@gmail.com','flase');
-Insert into MASURI.USERDATA (USERNUM,ID,PASSWORD,NAME,PHONE,EMAIL,BLACK) values (1002,'4seum','a12345','이신협','01023412341','4seum@gmail.com','flase');
-Insert into MASURI.USERDATA (USERNUM,ID,PASSWORD,NAME,PHONE,EMAIL,BLACK) values (1003,'gunwo1','a12345','유건우','01023213123','gunwo1@gmail.com','flase');
-Insert into MASURI.USERDATA (USERNUM,ID,PASSWORD,NAME,PHONE,EMAIL,BLACK) values (1004,'egg00','a12345','김계란','01041312312','egg00@gmail.com','flase');
-Insert into MASURI.USERDATA (USERNUM,ID,PASSWORD,NAME,PHONE,EMAIL,BLACK) values (1006,'agent0','a12345','에이전트에이치','01014213131','agent0@gmail.com','flase');
-Insert into MASURI.USERDATA (USERNUM,ID,PASSWORD,NAME,PHONE,EMAIL,BLACK) values (1007,'m1nkyu','a12345','이민규','01045134214','m1nkyu@gmail.com','flase');
-Insert into MASURI.USERDATA (USERNUM,ID,PASSWORD,NAME,PHONE,EMAIL,BLACK) values (1008,'k1tefe','a12345','성연철','01041244124','k1tefe@gmail.com','flase');
-Insert into MASURI.USERDATA (USERNUM,ID,PASSWORD,NAME,PHONE,EMAIL,BLACK) values (1009,'mizzu7','a12345','이승환','01051321312','mizzu7@gmail.com','flase');
+Insert into MASURI.USERDATA (USERNUM,ID,PASSWORD,NAME,PHONE,EMAIL,BLACK) values (1000,'lee200','a12345','이근','01034143231','lee200@gmail.com','false');
+Insert into MASURI.USERDATA (USERNUM,ID,PASSWORD,NAME,PHONE,EMAIL,BLACK) values (1001,'sky2','a12345','김천의','01024124312','sky2@gmail.com','false');
+Insert into MASURI.USERDATA (USERNUM,ID,PASSWORD,NAME,PHONE,EMAIL,BLACK) values (1002,'4seum','a12345','이신협','01023412341','4seum@gmail.com','false');
+Insert into MASURI.USERDATA (USERNUM,ID,PASSWORD,NAME,PHONE,EMAIL,BLACK) values (1003,'gunwo1','a12345','유건우','01023213123','gunwo1@gmail.com','false');
+Insert into MASURI.USERDATA (USERNUM,ID,PASSWORD,NAME,PHONE,EMAIL,BLACK) values (1004,'egg00','a12345','김계란','01041312312','egg00@gmail.com','false');
+Insert into MASURI.USERDATA (USERNUM,ID,PASSWORD,NAME,PHONE,EMAIL,BLACK) values (1006,'agent0','a12345','에이전트에이치','01014213131','agent0@gmail.com','false');
+Insert into MASURI.USERDATA (USERNUM,ID,PASSWORD,NAME,PHONE,EMAIL,BLACK) values (1007,'m1nkyu','a12345','이민규','01045134214','m1nkyu@gmail.com','false');
+Insert into MASURI.USERDATA (USERNUM,ID,PASSWORD,NAME,PHONE,EMAIL,BLACK) values (1008,'k1tefe','a12345','성연철','01041244124','k1tefe@gmail.com','false');
+Insert into MASURI.USERDATA (USERNUM,ID,PASSWORD,NAME,PHONE,EMAIL,BLACK) values (1009,'mizzu7','a12345','이승환','01051321312','mizzu7@gmail.com','false');
 
 
 INSERT INTO "MASURI"."ADMINDATA" (ID, PASSWORD) VALUES ('admin', 'a1234');

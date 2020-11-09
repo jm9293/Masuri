@@ -125,7 +125,7 @@ public class UserDAO {
 			conn = getConnection();
 			pstmt = conn.prepareStatement("INSERT INTO USERDATA "
 					+ "(USERNUM ,ID, PASSWORD, NAME, PHONE,EMAIL,BLACK) "
-					+ "VALUES(USERDATA_SEQ.nextval,?,?,?,?,?,'flase')");
+					+ "VALUES(USERDATA_SEQ.nextval,?,?,?,?,?,'false')");
 		   
 			
 			pstmt.setString(1, user.getId());

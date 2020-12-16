@@ -32,6 +32,10 @@
 
 [![유튜브 링크](http://img.youtube.com/vi/1rL5F3yWsh8/0.jpg)](https://youtu.be/1rL5F3yWsh8) 
 
+## 반응형(모바일) 시연 영상
+
+[![유튜브 링크](http://img.youtube.com/vi/JnYnFSmCzZg/0.jpg)](https://youtu.be/JnYnFSmCzZg) 
+
 ## 프로젝트 참여자
 - 이정민 ([jm9293](https://github.com/jm9293)) (로그인, 회원가입, 정보변경 , 예약 , 메인페이지 , 파일업로드 , 릴레이션 설계 , DB객체 , Mail보내기)
 - 류한별 ([ryu5986](https://github.com/ryu5986)) (공지사항 열람, QnA 열람, FAQ 작성 , 안내 페이지 , 유저관리 , 기사 관리)

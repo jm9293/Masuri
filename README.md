@@ -22,6 +22,16 @@
 - API : 카카오지도 , 오픈웨더 날씨 , 도로명주소검색 , 소셜 로그인(KAKAO,NAVER)
 - Lib : COS , JSTL , MAIL , jQurey3.3.1 , json simple
 
+## ERD
+<img src="https://user-images.githubusercontent.com/67568714/102348470-4f929800-3fe5-11eb-9407-89f32be0cd62.png" width="90%"></img>
+
+## 발표 PPT
+[Google drive](https://docs.google.com/presentation/d/e/2PACX-1vRRzowGq3YAWZaKX33owc8D2f0aQawiCt7VFxj92vsP34x93T4pt9FOUbHKH_JwSc1NOQB81sPQlazY/pub?start=false&loop=false&delayms=3000 "google drive")
+
+## 발표 영상
+
+[![유튜브 링크](http://img.youtube.com/vi/1rL5F3yWsh8/0.jpg)](https://youtu.be/1rL5F3yWsh8) 
+
 ## 프로젝트 참여자
 - 이정민 ([jm9293](https://github.com/jm9293)) (로그인, 회원가입, 정보변경 , 예약 , 메인페이지 , 파일업로드 , 릴레이션 설계 , DB객체 , Mail보내기)
 - 류한별 ([ryu5986](https://github.com/ryu5986)) (공지사항 열람, QnA 열람, FAQ 작성 , 안내 페이지 , 유저관리 , 기사 관리)
